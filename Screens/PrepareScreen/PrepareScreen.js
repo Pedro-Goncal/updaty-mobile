@@ -1,9 +1,20 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import {
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
+import React, { useState, useRef, useEffect } from "react";
+
+const { width, height } = Dimensions.get("window");
 
 const PrepareScreen = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>PrepareScreen</Text>
     </View>
   );
@@ -11,4 +22,11 @@ const PrepareScreen = () => {
 
 export default PrepareScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#ecf0f3",
+    paddingTop: height / 15,
+    height: height,
+  },
+});

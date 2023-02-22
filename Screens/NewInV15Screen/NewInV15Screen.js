@@ -1,13 +1,21 @@
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import {
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Dimensions,
+} from "react-native";
+import React, { useState, useRef } from "react";
+
+const { width, height } = Dimensions.get("window");
 
 const NewInV15Screen = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        <Text style={styles.title}>New in iOS 15</Text>
-      </View>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <Text>New in iOS 15</Text>
+    </View>
   );
 };
 
@@ -16,13 +24,8 @@ export default NewInV15Screen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ECF0F3",
-    paddingTop: 60,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    paddingHorizontal: 18,
-    paddingVertical: 20,
+    backgroundColor: "#ecf0f3",
+    paddingTop: height / 15,
+    height: height,
   },
 });
