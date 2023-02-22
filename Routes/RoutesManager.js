@@ -9,15 +9,37 @@ import NewInV16Screen from "../Screens/NewInV16Screen/NewInV16Screen";
 import NewInV15Screen from "../Screens/NewInV15Screen/NewInV15Screen";
 import TipsScreen from "../Screens/TipsScreen/TipsScreen";
 import PrepareScreen from "../Screens/PrepareScreen/PrepareScreen";
+import NewInV16SubScreen from "../Screens/NewInV16Screen/NewInV16SubScreen";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+
+const NewInV16Stack = () => {
+  return (
+    <Stack.Navigator initialRouteName="NewInV16Screen">
+      <Stack.Screen
+        name="NewInV16Screen"
+        component={NewInV16Screen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="NewInV16SubScreen"
+        component={NewInV16SubScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
 
 function MyTabs() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarStyle: { height: 70, fontSize: 25 },
+        tabBarStyle: { height: 54, fontSize: 25 },
         tabBarLabelStyle: {
           fontSize: 10,
           paddingBottom: 4,
@@ -55,7 +77,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="New In V16"
-        component={NewInV16Screen}
+        component={NewInV16Stack}
         options={{
           headerShown: false,
           tabBarActiveTintColor: "#5808FF",

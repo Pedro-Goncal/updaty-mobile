@@ -6,24 +6,41 @@ import {
   View,
   FlatList,
   Dimensions,
+  TouchableOpacity,
 } from "react-native";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Card from "../../Components/Card";
+
+import { useRoute } from "@react-navigation/native";
 
 //Content TEMP
 import content from "../../utils/content.json";
 import { ScrollView } from "react-native-gesture-handler";
+import { Path, Svg } from "react-native-svg";
+import { useNavigation } from "@react-navigation/native";
 import Pagination from "../../Components/Pagination";
+import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
 
 const { width, height } = Dimensions.get("window");
 
-const TutorialScreen = () => {
+const NewInV16SubScreen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
+  const navigation = useNavigation();
+  const route = useRoute();
+  const index = route.params.index;
 
-  //Set viewability of each post based on the id of the post
-  //This allows us to pass in a varible activePostId to the FeedPost
-  //With that we can tell our video player if the post is vissible or not
-  //so we can pause it when it is NOT visible.
+  const flatListRef = useRef(null);
+
+  const getItemLayout = (data, index) => ({
+    length: width - 20, // width of an item in the list
+    offset: width * index, // position of the item in the list
+    index,
+  });
+
+  useEffect(() => {
+    flatListRef.current.scrollToIndex({ index, animated: true });
+  }, []);
+
   const viewabilityConfig = {
     itemVisiblePercentThreshold: 51,
   };
@@ -34,20 +51,21 @@ const TutorialScreen = () => {
     }
   });
 
-  const getItemLayout = (data, index) => ({
-    length: width - 20, // width of an item in the list
-    offset: width * index, // position of the item in the list
-    index,
-  });
-
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <View>
-          <Text style={styles.title}>Tutorials</Text>
-        </View>
+        <TouchableOpacity
+          style={styles.titleContainer}
+          onPress={() => navigation.goBack()}
+        >
+          <ArrowSvg />
+
+          <Text style={styles.title}>New in iOS 16</Text>
+        </TouchableOpacity>
+
         <View style={styles.cardContainer}>
           <FlatList
+            ref={flatListRef}
             data={content}
             getItemLayout={getItemLayout}
             showsHorizontalScrollIndicator={false}
@@ -65,7 +83,7 @@ const TutorialScreen = () => {
   );
 };
 
-export default TutorialScreen;
+export default NewInV16SubScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -75,11 +93,18 @@ const styles = StyleSheet.create({
     height: height,
   },
   scrollView: { flex: 1 },
-  title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    paddingHorizontal: 18,
+  titleContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
     paddingTop: 20,
+    paddingLeft: 10,
+    paddingBottom: 10,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    paddingHorizontal: 6,
   },
   cardContainer: {
     justifyContent: "center",

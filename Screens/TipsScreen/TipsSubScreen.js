@@ -6,20 +6,21 @@ import {
   View,
   FlatList,
   Dimensions,
+  TouchableOpacity,
 } from "react-native";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const { width, height } = Dimensions.get("window");
 
-const TipsScreen = () => {
+const TipsSubScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Tips</Text>
+      <Text>Tips SubScreen</Text>
     </View>
   );
 };
 
-export default TipsScreen;
+export default TipsSubScreen;
 
 const styles = StyleSheet.create({
   container: {
