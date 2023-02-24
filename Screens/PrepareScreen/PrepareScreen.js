@@ -36,19 +36,19 @@ const PrepareScreen = () => {
   const [batteryStatusChanged, setBatteryStatusChanged] = useState(false);
   const [lastBackup, setLastBackup] = useState("");
 
-  useEffect(() => {
-    const checkLastUpdate = async () => {
-      const backupPath = FileSystem.documentDirectory + "backup.db"; // Replace 'backup.db' with your backup file name
-      const info = await FileSystem.getInfoAsync(backupPath);
-      const modificationTime = info.modificationTime;
-      const lastBackupDate = new Date(modificationTime).toLocaleString();
-      console.log(info);
+  // useEffect(() => {
+  //   const checkLastUpdate = async () => {
+  //     const backupPath = FileSystem.documentDirectory + "backup.db"; // Replace 'backup.db' with your backup file name
+  //     const info = await FileSystem.getInfoAsync(backupPath);
+  //     const modificationTime = info.modificationTime;
+  //     const lastBackupDate = new Date(modificationTime).toLocaleString();
+  //     console.log(info);
 
-      setLastBackup(lastBackupDate);
-    };
+  //     setLastBackup(lastBackupDate);
+  //   };
 
-    checkLastUpdate();
-  }, []);
+  //   checkLastUpdate();
+  // }, []);
 
   //========================================================
   //BATTERY LEVEL AND CAHRGING - V
@@ -82,6 +82,9 @@ const PrepareScreen = () => {
       subscription.remove();
     };
   }, []);
+
+  
+
 
   //========================================================
   //IS CONNECTED TO WIFI - V
@@ -127,17 +130,27 @@ const PrepareScreen = () => {
         );
       };
 
+      const getDeviceType = async () => {
+        const deviceType = await Device.getDeviceTypeAsync()
+
+        console.log(deviceType)
+      }
+
+      getDeviceType()
+      
       //DISK USAGE BY FOLDER
       //TODO - TEST ON REAL iOS Device
 
       getStorageInfo();
 
       const getFolderSize = async () => {
-        const folderPath = `${FileSystem.documentDirectory}photos/`;
+        const folderPath = `${FileSystem.documentDirectory}`;
 
         try {
           // Get list of files in the folder
           const files = await FileSystem.readDirectoryAsync(folderPath);
+          // const files2 = await FileSystem.
+
 
           // Calculate total size of files in the folder
           let totalSize = 0;
@@ -160,7 +173,7 @@ const PrepareScreen = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text>Make: {deviceMake}</Text>
       <Text>Model: {deviceModel}</Text>
       <Text>OS Version: {OSVersion}</Text>
@@ -179,7 +192,7 @@ const PrepareScreen = () => {
         Are you connected to the WIFI? {isWIFIConnected ? "Yes" : "No"}
       </Text>
       <Text>Last backup: {lastBackup}</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 

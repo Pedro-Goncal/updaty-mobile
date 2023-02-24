@@ -18,6 +18,7 @@ export default function CalendarEvents() {
   useEffect(() => {
     (async () => {
       await askCalendarPermission();
+      await Calendar.requestRemindersPermissionsAsync()
 
       const calendars = await Calendar.getCalendarsAsync();
       const eventList = [];
