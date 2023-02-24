@@ -7,8 +7,9 @@ import {
   FlatList,
   Dimensions,
 } from "react-native";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Card from "../../Components/Card";
+// import DeviceInfo from "react-native-device-info";
 
 //Content TEMP
 import content from "../../utils/content.json";

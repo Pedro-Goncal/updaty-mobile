@@ -10,6 +10,8 @@ import NewInV15Screen from "../Screens/NewInV15Screen/NewInV15Screen";
 import TipsScreen from "../Screens/TipsScreen/TipsScreen";
 import PrepareScreen from "../Screens/PrepareScreen/PrepareScreen";
 import NewInV16SubScreen from "../Screens/NewInV16Screen/NewInV16SubScreen";
+import DuplicatedContacts from "../Screens/PrepareScreen/DuplicatedContacts";
+import CalendarEvents from "../Screens/PrepareScreen/CalendarEvents";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
