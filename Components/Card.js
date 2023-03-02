@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   imgContainer: {
-    marginTop: 10,
+    marginTop: 20,
   },
   img: {
     width: "100%",

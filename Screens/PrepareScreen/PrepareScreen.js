@@ -49,7 +49,7 @@ const PrepareScreen = () => {
   //CHARGING INFO
   const [isDeviceCharging, setIsDeviceCharging] = useState(false);
 
-  //=========================================================
+
   //Card visibility and seting up pagination
   //Set viewability of each post based on the id of the post
   const viewabilityConfig = {
@@ -61,6 +61,21 @@ const PrepareScreen = () => {
       setActiveCardId(viewableItems[0].item.id);
     }
   });
+
+  // useEffect(() => {
+  //   const checkLastUpdate = async () => {
+  //     const backupPath = FileSystem.documentDirectory + "backup.db"; // Replace 'backup.db' with your backup file name
+  //     const info = await FileSystem.getInfoAsync(backupPath);
+  //     const modificationTime = info.modificationTime;
+  //     const lastBackupDate = new Date(modificationTime).toLocaleString();
+  //     console.log(info);
+
+  //     setLastBackup(lastBackupDate);
+  //   };
+
+  //   checkLastUpdate();
+  // }, []);
+
 
   const getItemLayout = (data, index) => ({
     length: width - 20,
@@ -103,7 +118,7 @@ const PrepareScreen = () => {
       subscription.remove();
     };
   }, []);
-  //=========================================================
+
 
   return (
     <View style={styles.container}>
@@ -161,6 +176,12 @@ const PrepareScreen = () => {
       </ScrollView>
       <Pagination content={data} activeCardId={activeCardId} />
     </View>
+
+
+  
+
+
+
   );
 };
 

@@ -6,8 +6,11 @@ import {
   StyleSheet,
   View,
   Alert,
+  Dimensions,
 } from "react-native";
 import * as Contacts from "expo-contacts";
+
+const { width, height } = Dimensions.get("window");
 
 function App() {
   const [duplicatedContacts, setDuplicatedContacts] = useState([]);
@@ -84,16 +87,27 @@ function App() {
   };
 
   return (
+    <View style={styles.container}>
+ 
     <FlatList
       data={duplicatedContacts}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
       ListEmptyComponent={() => <Text>No duplicated contacts found</Text>}
-    />
+      />
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#ecf0f3",
+    paddingTop: height / 15,
+    height: height,
+    paddingVertical: 50,
+    paddingHorizontal: 20,
+  },
   listItem: {
     flexDirection: "row",
     alignItems: "center",
