@@ -27,6 +27,28 @@ import Pagination from "../../Components/Pagination";
 import NetInfo from "@react-native-community/netinfo";
 import * as Battery from "expo-battery";
 
+/**
+ * {
+    models: ["x","xr", "xs", "xs max", "11", "11 pro", "11 pro max", "12", "12 mini", "12 pro", "12 pro max", "13", "13 mini", "13 pro", "13 pro max", "14", "14 plus", "14 pro", "14 pro max"],
+    maxOS: 16.3
+  },
+ */
+
+const OSVersionsList = [
+  {
+    models: ["x", "xr", "xs", "xs max", "11", "12", "13", "14"],
+    maxOS: 16.3,
+  },
+  {
+    models: ["6", "7", "8", "se"],
+    maxOS: 15.5,
+  },
+  {
+    models: ["6", "7", "8", "se"],
+    maxOS: 14.7,
+  },
+];
+
 const data = [
   { id: 1, title: "Initial" },
   { id: 2, title: "Step 1" },
@@ -88,7 +110,7 @@ const PrepareScreen = () => {
   //=========================================================
 
   //=========================================================
-  //WI-FI AND OS INFO
+  //CHARGING STATUS
   //=========================================================
   useEffect(() => {
     const subscription = Battery.addBatteryStateListener((event) => {

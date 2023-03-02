@@ -6,6 +6,7 @@ import {
   Dimensions,
   Image,
   Pressable,
+  TouchableOpacity,
 } from "react-native";
 
 const { width, height } = Dimensions.get("window");
@@ -14,13 +15,36 @@ import * as SecureStore from "expo-secure-store";
 
 const BackupInfo = ({ setHasBackupCheck }) => {
   const [hasBackup, setHasBackup] = useState(false);
-  const [lastBackupDate, setLastBackupDate] = useState("");
-  //   console.log(lastBackupDate);
+  const [lastBackupDate, setLastBackupDate] = useState("No Backup");
+  const [hasBackedupLast6Month, sethasBackedupLast6Month] = useState(false);
+
+  useEffect(() => {
+    if (lastBackupDate !== "No Backup") {
+      setHasBackup(true);
+    }
+  }, [lastBackupDate]);
 
   async function storeDate(date) {
+    //! For testing only------------------------------
+    // try {
+    //   await SecureStore.deleteItemAsync("lastBackup");
+    //   setLastBackupDate("No backup");
+    //   setHasBackup(false);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    //!-----------------------------------------------
     try {
-      await SecureStore.setItemAsync("myDate", date.toString());
+      await SecureStore.setItemAsync("lastBackup", date.toString());
       console.log("Date stored successfully");
+      const newDate = new Date(date);
+      const formattedDate = newDate.toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+      setLastBackupDate(formattedDate);
     } catch (error) {
       console.log("Error storing date:", error);
     }
@@ -29,7 +53,9 @@ const BackupInfo = ({ setHasBackupCheck }) => {
   useEffect(() => {
     async function retrieveDate() {
       try {
-        const dateStr = await SecureStore.getItemAsync("myDate");
+        const dateStr = await SecureStore.getItemAsync("lastBackup");
+        if (dateStr === null) return;
+
         const date = new Date(dateStr);
         const formattedDate = date.toLocaleDateString("en-US", {
           weekday: "long",
@@ -41,11 +67,17 @@ const BackupInfo = ({ setHasBackupCheck }) => {
         sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
         if (date.getTime() < sixMonthsAgo.getTime()) {
           // stored date is older than 6 months ago
+          setHasBackup(true);
+          setLastBackupDate(formattedDate);
+          sethasBackedupLast6Month(true);
           console.log(
             `Stored date ${formattedDate} is older than 6 months ago.`
           );
         } else {
           // stored date is newer than or equal to 6 months ago
+          setHasBackup(true);
+          setLastBackupDate(formattedDate);
+          sethasBackedupLast6Month(false);
           console.log(
             `Stored date ${formattedDate} is newer than or equal to 6 months ago.`
           );
@@ -76,13 +108,20 @@ const BackupInfo = ({ setHasBackupCheck }) => {
           <Text style={styles.rightText}>{lastBackupDate}</Text>
         </View>
         {/* Row 2 */}
-        <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
+        {/* <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
           <Text style={styles.leftText}>Backup location </Text>
           <Text style={styles.rightText}>iCloud</Text>
-        </View>
+        </View> */}
+        {/* Row 2 */}
+        <TouchableOpacity
+          onPress={() => storeDate(new Date())}
+          style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}
+        >
+          <Text style={styles.leftText}>Click here to confirm backup </Text>
+          {/* <Text style={styles.rightText}>NO</Text> */}
+        </TouchableOpacity>
         <View style={styles.msgsContainer}>
-          <Pressable
-            onPress={() => storeDate(new Date())}
+          <View
             style={[
               styles.statusContainer,
               {
@@ -107,7 +146,7 @@ const BackupInfo = ({ setHasBackupCheck }) => {
                 ? "You've recently made a backup"
                 : "You should create a backup!"}
             </Text>
-          </Pressable>
+          </View>
         </View>
       </View>
     </View>

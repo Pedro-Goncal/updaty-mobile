@@ -3,13 +3,7 @@ import { StyleSheet, Text, View, Dimensions, Image } from "react-native";
 
 const { width, height } = Dimensions.get("window");
 
-//TODO Figure out the update schema and what value comes out of the os version
-const iPhoneVersions = [
-  {
-    device: "iPhone 14 Pro",
-    maxOS: "16",
-  },
-];
+//TODO - Check with Nikolaus if we want to be super
 
 import * as Device from "expo-device";
 
@@ -24,9 +18,7 @@ const DeviceInfo = ({ isWIFIConnected, isUpdateAvailable }) => {
         {/* Row 1*/}
         <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
           <Text style={styles.leftText}>Your device</Text>
-          <Text style={styles.rightText}>
-            {Device.manufacturer} {Device.modelName}
-          </Text>
+          <Text style={styles.rightText}>{Device.modelName}</Text>
         </View>
         {/* Row 2 */}
         <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
