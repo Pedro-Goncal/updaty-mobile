@@ -67,6 +67,8 @@ const NewInV15SubScreen = () => {
           <FlatList
             ref={flatListRef}
             data={content}
+            snapToInterval={width} // Distance between each snap point
+            snapToAlignment={"center"} // Align snap point to the center of the view
             getItemLayout={getItemLayout}
             showsHorizontalScrollIndicator={false}
             initialNumToRender={content.length / 6}

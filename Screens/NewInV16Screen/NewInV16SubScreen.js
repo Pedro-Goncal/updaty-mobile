@@ -66,6 +66,8 @@ const NewInV16SubScreen = () => {
         <View style={styles.cardContainer}>
           <FlatList
             ref={flatListRef}
+            snapToInterval={width} // Distance between each snap point
+            snapToAlignment={"center"} // Align snap point to the center of the view
             data={content}
             getItemLayout={getItemLayout}
             showsHorizontalScrollIndicator={false}
