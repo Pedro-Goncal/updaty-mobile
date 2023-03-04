@@ -1,5 +1,6 @@
 import { View, Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import "expo-dev-client";
 
 import "react-native-gesture-handler";
 

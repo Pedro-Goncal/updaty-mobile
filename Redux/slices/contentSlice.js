@@ -20,3 +20,5 @@ export const contentSlice = createSlice({
 export const { setTutorials } = contentSlice.actions;
 
 export default contentSlice.reducer;
+
+//"ios_app_id": ""

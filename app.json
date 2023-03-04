@@ -18,7 +18,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.apptitute.app"
     },
     "android": {
       "adaptiveIcon": {
@@ -28,6 +29,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6fb51e7b-6113-4831-9cac-30f48f74e5f9"
+      }
     }
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-3940256099942544/3419835294",
+    "ios_app_id": "ca-app-pub-3940256099942544/3419835294"
   }
 }
