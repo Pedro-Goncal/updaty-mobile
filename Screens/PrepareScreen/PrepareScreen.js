@@ -23,31 +23,13 @@ import FinalInfo from "./Components/FinalInfo";
 import Pagination from "../../Components/Pagination";
 
 //Device info
-
 import NetInfo from "@react-native-community/netinfo";
 import * as Battery from "expo-battery";
+import * as Device from "expo-device";
 
-/**
- * {
-    models: ["x","xr", "xs", "xs max", "11", "11 pro", "11 pro max", "12", "12 mini", "12 pro", "12 pro max", "13", "13 mini", "13 pro", "13 pro max", "14", "14 plus", "14 pro", "14 pro max"],
-    maxOS: 16.3
-  },
- */
-
-const OSVersionsList = [
-  {
-    models: ["x", "xr", "xs", "xs max", "11", "12", "13", "14"],
-    maxOS: 16.3,
-  },
-  {
-    models: ["6", "7", "8", "se"],
-    maxOS: 15.5,
-  },
-  {
-    models: ["6", "7", "8", "se"],
-    maxOS: 14.7,
-  },
-];
+//Redux
+import { useDispatch } from "react-redux";
+import { handleClick } from "../../Redux/slices/adSlice";
 
 const data = [
   { id: 1, title: "Initial" },
@@ -62,6 +44,7 @@ const PrepareScreen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
   //UPDATE INFO
   const [isUpdateAvailable, setIsUpdateAvailable] = useState(false);
+  const [maxOsUpdate, setMaxOsUpdate] = useState("16.3");
   //WI-FI INFO
   const [isWIFIConnected, setIsWIFIConnected] = useState(false);
   //BACK UP INFO
@@ -70,6 +53,8 @@ const PrepareScreen = () => {
   const [hasEnoughStorageCheck, setHasEnoughStorageCheck] = useState(false);
   //CHARGING INFO
   const [isDeviceCharging, setIsDeviceCharging] = useState(false);
+
+  const dispatch = useDispatch();
 
   //=========================================================
   //Card visibility and seting up pagination
@@ -103,6 +88,74 @@ const PrepareScreen = () => {
     return () => {
       unsubscribe();
     };
+  }, []);
+
+  useEffect(() => {
+    const modelIdString = "iPad5,2";
+
+    function getDeviceName(str) {
+      if (str.includes("iPad")) {
+        return "iPad";
+      } else if (str.includes("iPhone")) {
+        return "iPhone";
+      }
+      return null;
+    }
+
+    const deviceType = getDeviceName(modelIdString);
+
+    function extractNumberFromDeviceString(str) {
+      const regex = /(iPhone|iPad)(\d+),/;
+      const match = str.match(regex);
+      if (match && match[2]) {
+        return parseInt(match[2]);
+      }
+      return null;
+    }
+
+    //TODO - Create function to check if there is an update available
+    //TODO - Figure out how to display a message saying your phone does not support the newrs ios
+
+    // console.log(Device.osVersion);
+
+    const modelIdnumber = extractNumberFromDeviceString(modelIdString);
+
+    //FOR iPhones Devices
+    if (deviceType === "iPhone") {
+      if (modelIdnumber >= 10) {
+        // console.log("This device supports iOS16.3");
+        setMaxOsUpdate("16.3");
+      } else if (modelIdnumber < 10 && modelIdnumber >= 8) {
+        // console.log("This device only supports iOS15.6");
+        setMaxOsUpdate("15.6");
+      } else if (modelIdnumber < 8 && modelIdnumber >= 6) {
+        // console.log("This device only supports iOS 12.5.5");
+        setMaxOsUpdate("12.5.5");
+      } else {
+        // console.log(
+        //   "Your device does not support recent iOS consider updating to a news models to get all the benefits of the new iOS 16"
+        // );
+      }
+      // FOR iPad Devices
+    } else if (deviceType === "iPad") {
+      if (modelIdnumber >= 6) {
+        // console.log("This device supports iOS16.3");
+        setMaxOsUpdate("16.3");
+      } else if (modelIdnumber === 5) {
+        // console.log("This device only supports iOS15.6");
+        setMaxOsUpdate("15.6");
+      } else if (modelIdnumber === 4) {
+        // console.log("This device only supports iOS 12.5.5");
+        setMaxOsUpdate("12.5.5");
+      } else {
+        // console.log(
+        //   "Your device does not support recent iOS consider updating to a news models to get all the benefits of the new iOS 16"
+        // );
+      }
+    }
+
+    // console.log(modelIdnumber);
+    // console.log(Device.modelId);
   }, []);
 
   //TODO - Create use effect to check if there is an update available and update the variable
@@ -150,6 +203,7 @@ const PrepareScreen = () => {
                     <DeviceInfo
                       isWIFIConnected={isWIFIConnected}
                       isUpdateAvailable={isUpdateAvailable}
+                      maxOsUpdate={maxOsUpdate}
                     />
                   );
                 case 3:

@@ -1,3 +1,4 @@
+import React, { useState, useRef, useEffect } from "react";
 import {
   SafeAreaView,
   StatusBar,
@@ -6,31 +7,36 @@ import {
   View,
   FlatList,
   Dimensions,
+  ScrollView,
 } from "react-native";
-import React, { useState, useRef, useEffect } from "react";
+
+//Components
 import Card from "../../Components/Card";
-// import DeviceInfo from "react-native-device-info";
+import Pagination from "../../Components/Pagination";
+
+//Redux
+import { useDispatch } from "react-redux";
+import { handleClick } from "../../Redux/slices/adSlice";
+
+// import { ScrollView } from "react-native-gesture-handler";
 
 //Content TEMP
 import content from "../../utils/content.json";
-import { ScrollView } from "react-native-gesture-handler";
-import Pagination from "../../Components/Pagination";
 
 const { width, height } = Dimensions.get("window");
 
 const TutorialScreen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
+  const dispatch = useDispatch();
 
   //Set viewability of each post based on the id of the post
-  //This allows us to pass in a varible activePostId to the FeedPost
-  //With that we can tell our video player if the post is vissible or not
-  //so we can pause it when it is NOT visible.
   const viewabilityConfig = {
     itemVisiblePercentThreshold: 51,
   };
 
   const onViewableItemsChanged = useRef(({ viewableItems }) => {
     if (viewableItems.length > 0) {
+      dispatch(handleClick());
       setActiveCardId(viewableItems[0].item.id);
     }
   });

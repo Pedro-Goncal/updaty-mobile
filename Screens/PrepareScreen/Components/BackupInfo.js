@@ -20,6 +20,7 @@ const BackupInfo = ({ setHasBackupCheck }) => {
 
   useEffect(() => {
     if (lastBackupDate !== "No Backup") {
+      setHasBackupCheck(true);
       setHasBackup(true);
     }
   }, [lastBackupDate]);
@@ -36,7 +37,7 @@ const BackupInfo = ({ setHasBackupCheck }) => {
     //!-----------------------------------------------
     try {
       await SecureStore.setItemAsync("lastBackup", date.toString());
-      console.log("Date stored successfully");
+      // console.log("Date stored successfully");
       const newDate = new Date(date);
       const formattedDate = newDate.toLocaleDateString("en-US", {
         weekday: "long",
@@ -70,17 +71,17 @@ const BackupInfo = ({ setHasBackupCheck }) => {
           setHasBackup(true);
           setLastBackupDate(formattedDate);
           sethasBackedupLast6Month(true);
-          console.log(
-            `Stored date ${formattedDate} is older than 6 months ago.`
-          );
+          // console.log(
+          //   `Stored date ${formattedDate} is older than 6 months ago.`
+          // );
         } else {
           // stored date is newer than or equal to 6 months ago
           setHasBackup(true);
           setLastBackupDate(formattedDate);
           sethasBackedupLast6Month(false);
-          console.log(
-            `Stored date ${formattedDate} is newer than or equal to 6 months ago.`
-          );
+          // console.log(
+          //   `Stored date ${formattedDate} is newer than or equal to 6 months ago.`
+          // );
         }
       } catch (error) {
         console.log("Error retrieving date:", error);
@@ -88,12 +89,6 @@ const BackupInfo = ({ setHasBackupCheck }) => {
     }
     retrieveDate();
   }, []);
-
-  //TODO - reply on the figma saying we can't check for the actual backup it's blocked by apple now
-  //TODO - Sugestion, have a simple explanation on how to do it, and then ask user to come back and click ok when he has done the back up
-  //TODO - that will store the date in the app's storage and then show green, next time user comes back it will show the last time he backed up.
-  //TODO - Even after user click the button, replace the button with I have done another backup to update the date
-  //TODO - Also set up the setHasBackupCheck to true if it has backup
 
   return (
     <View style={styles.container}>
@@ -107,19 +102,50 @@ const BackupInfo = ({ setHasBackupCheck }) => {
           <Text style={styles.leftText}>Last backup</Text>
           <Text style={styles.rightText}>{lastBackupDate}</Text>
         </View>
-        {/* Row 2 */}
-        {/* <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
-          <Text style={styles.leftText}>Backup location </Text>
-          <Text style={styles.rightText}>iCloud</Text>
-        </View> */}
-        {/* Row 2 */}
-        <TouchableOpacity
-          onPress={() => storeDate(new Date())}
-          style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}
-        >
-          <Text style={styles.leftText}>Click here to confirm backup </Text>
-          {/* <Text style={styles.rightText}>NO</Text> */}
-        </TouchableOpacity>
+        {!hasBackup && (
+          <View>
+            {/* Row 2 */}
+            <View
+              style={[
+                styles.rowInstructions,
+                { borderTopColor: "rgba(144,128,144,0.2)" },
+              ]}
+            >
+              <Text style={styles.rightText}>
+                How to back up your iPhone or iPad with iCloud{" "}
+              </Text>
+              <Text style={styles.instructionsList}>
+                1.Connect your device to a Wi-Fi network.
+              </Text>
+              <Text style={styles.instructionsList}>
+                2.Go to Settings {">"} [your name], and tap iCloud.
+              </Text>
+              <Text style={styles.instructionsList}>3.Tap iCloud Backup.</Text>
+              <Text style={styles.instructionsList}>
+                4.Tap Back Up Now. Stay connected to your Wi-Fi network until
+                the process has finished. Under Back Up Now, you'll see the date
+                and time of your last backup.
+              </Text>
+              <Text style={styles.instructionsList}>
+                5.Return to updatly app and confirm your backup
+              </Text>
+            </View>
+            {/* Confirm backup */}
+            <TouchableOpacity
+              onPress={() => storeDate(new Date())}
+              style={[
+                styles.confirmBtn,
+                {
+                  borderTopColor: "rgba(144,128,144,0.2)",
+                  borderBottomColor: "rgba(144,128,144,0.2)",
+                },
+              ]}
+            >
+              <Text style={styles.leftText}>Click here to confirm backup </Text>
+              {/* <Text style={styles.rightText}>NO</Text> */}
+            </TouchableOpacity>
+          </View>
+        )}
         <View style={styles.msgsContainer}>
           <View
             style={[
@@ -196,6 +222,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 10,
   },
+  confirmBtn: {
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: 10,
+  },
   leftText: {
     fontSize: 16,
   },
@@ -216,5 +251,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingLeft: 10,
     width: "94%",
+  },
+  rowInstructions: {
+    borderTopWidth: 1,
+    paddingVertical: 8,
+  },
+  instructionsList: {
+    paddingVertical: 4,
+    paddingLeft: 18,
   },
 });
