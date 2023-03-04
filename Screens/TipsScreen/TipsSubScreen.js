@@ -38,7 +38,7 @@ const TipsSubScreen = () => {
   });
 
   useEffect(() => {
-    flatListRef.current.scrollToIndex({ index, animated: true });
+    flatListRef.current.scrollToIndex({ index, animated: false });
   }, []);
 
   const viewabilityConfig = {
@@ -77,6 +77,7 @@ const TipsSubScreen = () => {
             horizontal
             viewabilityConfig={viewabilityConfig}
             onViewableItemsChanged={onViewableItemsChanged.current}
+            onLayout={()=>flatListRef.current.scrollToIndex({ index, animated: false })}
           />
         </View>
       </ScrollView>

@@ -7,7 +7,16 @@ const { width, height } = Dimensions.get("window");
 
 import * as Device from "expo-device";
 
-const DeviceInfo = ({ isWIFIConnected, isUpdateAvailable }) => {
+import greenCheck from '../../../assets/iconsSvg/checkGreen.png'
+import redCheck from '../../../assets/iconsSvg/checkRed.png'
+
+
+const DeviceInfo = ({ isWIFIConnected, isUpdateAvailable, maxOsUpdate }) => {
+
+ 
+
+
+  
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -28,7 +37,7 @@ const DeviceInfo = ({ isWIFIConnected, isUpdateAvailable }) => {
         {/* Row 3 */}
         <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
           <Text style={styles.leftText}>Supported iOS version</Text>
-          <Text style={styles.rightText}>{Device.osVersion}</Text>
+          <Text style={styles.rightText}>{maxOsUpdate}</Text>
         </View>
         {/* Row 4 */}
         <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
@@ -81,8 +90,8 @@ const DeviceInfo = ({ isWIFIConnected, isUpdateAvailable }) => {
             <Image
               source={
                 isWIFIConnected
-                  ? require("../../../assets/iconsSvg/checkGreen.png")
-                  : require("../../../assets/iconsSvg/checkRed.png")
+                  ? greenCheck
+                  : redCheck
               }
               style={{ width: 20, height: 20 }}
             />

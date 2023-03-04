@@ -69,6 +69,21 @@ const PrepareScreen = () => {
     }
   });
 
+  // useEffect(() => {
+  //   const checkLastUpdate = async () => {
+  //     const backupPath = FileSystem.documentDirectory + "backup.db"; // Replace 'backup.db' with your backup file name
+  //     const info = await FileSystem.getInfoAsync(backupPath);
+  //     const modificationTime = info.modificationTime;
+  //     const lastBackupDate = new Date(modificationTime).toLocaleString();
+  //     console.log(info);
+
+  //     setLastBackup(lastBackupDate);
+  //   };
+
+  //   checkLastUpdate();
+  // }, []);
+
+
   const getItemLayout = (data, index) => ({
     length: width - 20,
     offset: width * index,
@@ -91,7 +106,7 @@ const PrepareScreen = () => {
   }, []);
 
   useEffect(() => {
-    const modelIdString = "iPad5,2";
+    const modelIdString = Device.modelId;
 
     function getDeviceName(str) {
       if (str.includes("iPad")) {
@@ -113,24 +128,41 @@ const PrepareScreen = () => {
       return null;
     }
 
-    //TODO - Create function to check if there is an update available
+    
     //TODO - Figure out how to display a message saying your phone does not support the newrs ios
 
     // console.log(Device.osVersion);
 
     const modelIdnumber = extractNumberFromDeviceString(modelIdString);
 
+    console.log(Device.modelId)
+
+    const checkIfUpdateIsAvail = (maxOs) => {
+      if(Device.osVersion.toString() === maxOs){
+        setIsUpdateAvailable(false)
+      } else{
+        setIsUpdateAvailable(true)
+      }
+    }
+
+    
+    console.log(modelIdString)
     //FOR iPhones Devices
     if (deviceType === "iPhone") {
       if (modelIdnumber >= 10) {
         // console.log("This device supports iOS16.3");
         setMaxOsUpdate("16.3");
+        checkIfUpdateIsAvail("16.3")
       } else if (modelIdnumber < 10 && modelIdnumber >= 8) {
         // console.log("This device only supports iOS15.6");
         setMaxOsUpdate("15.6");
+        checkIfUpdateIsAvail("15.6")
+
       } else if (modelIdnumber < 8 && modelIdnumber >= 6) {
         // console.log("This device only supports iOS 12.5.5");
         setMaxOsUpdate("12.5.5");
+        checkIfUpdateIsAvail("12.5.5")
+
       } else {
         // console.log(
         //   "Your device does not support recent iOS consider updating to a news models to get all the benefits of the new iOS 16"
@@ -141,12 +173,18 @@ const PrepareScreen = () => {
       if (modelIdnumber >= 6) {
         // console.log("This device supports iOS16.3");
         setMaxOsUpdate("16.3");
+        checkIfUpdateIsAvail("16.3")
+
       } else if (modelIdnumber === 5) {
         // console.log("This device only supports iOS15.6");
         setMaxOsUpdate("15.6");
+        checkIfUpdateIsAvail("15.6")
+
       } else if (modelIdnumber === 4) {
         // console.log("This device only supports iOS 12.5.5");
         setMaxOsUpdate("12.5.5");
+        checkIfUpdateIsAvail("12.5.5")
+
       } else {
         // console.log(
         //   "Your device does not support recent iOS consider updating to a news models to get all the benefits of the new iOS 16"
@@ -178,7 +216,7 @@ const PrepareScreen = () => {
       subscription.remove();
     };
   }, []);
-  //=========================================================
+
 
   return (
     <View style={styles.container}>
@@ -237,6 +275,12 @@ const PrepareScreen = () => {
       </ScrollView>
       <Pagination content={data} activeCardId={activeCardId} />
     </View>
+
+
+  
+
+
+
   );
 };
 

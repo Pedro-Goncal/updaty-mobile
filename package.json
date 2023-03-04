@@ -19,6 +19,7 @@
     "expo-calendar": "~11.0.1",
     "expo-constants": "~14.0.2",
     "expo-contacts": "~11.0.1",
+    "expo-dev-client": "~2.0.1",
     "expo-device": "~5.0.0",
     "expo-file-system": "~15.1.1",
     "expo-media-library": "~15.0.0",
@@ -36,8 +37,7 @@
     "react-native-svg": "13.4.0",
     "react-native-vector-icons": "^9.2.0",
     "react-redux": "^8.0.5",
-    "redux": "^4.2.1",
-    "expo-dev-client": "~2.0.1"
+    "redux": "^4.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

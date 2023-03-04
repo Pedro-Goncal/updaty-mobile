@@ -12,6 +12,9 @@ import RoutesManager from "./Routes/RoutesManager";
 import { Provider } from "react-redux";
 import store from "./Redux/store";
 
+// import {BannerAd, BannerAdSize, TestId} from 'react-native-google-mobile-ads'
+
+
 const App = () => {
   return (
     <Provider store={store}>
@@ -28,6 +31,13 @@ const App = () => {
               borderWidth: 1,
             }}
           >
+          {/* <BannerAd
+            unitId={TestId.BANNER}
+            size={BannerAdSize.LARGE_BANNER}
+            requestOptions={{
+              requestNonPersonalizedAdsOnly
+            }}
+            /> */}
             <Text>Add Banner</Text>
           </View>
         </NavigationContainer>
