@@ -20,7 +20,7 @@ import * as Contacts from "expo-contacts";
 //Navigation
 import { useNavigation } from "@react-navigation/native";
 
-function App() {
+function App({route}) {
   const [duplicatedContacts, setDuplicatedContacts] = useState([]);
   const navigation = useNavigation();
   const [loading, setLoading] = useState(true);
@@ -129,8 +129,8 @@ function App() {
         {duplicatedContacts.length < 1 ? (
           <View style={styles.noEntriesContainer}>
             <Text style={{ textAlign: "center", paddingHorizontal: 30 }}>
-              It looks like you do not have any old entries, good job in keeping
-              your calendar tidy
+            🎉It looks like you do not have any duplicate contacts, good job in keeping
+              your contacts tidy
             </Text>
           </View>
         ) : (
