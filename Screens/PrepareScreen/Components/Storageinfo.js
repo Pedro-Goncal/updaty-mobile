@@ -8,18 +8,24 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import { Bar } from "react-native-progress";
+//Navigation
+import { useNavigation } from "@react-navigation/native";
 
-import ArrowUp from "../../../assets/iconsSvg/ArrowUp";
-import ArrowDown from "../../../assets/iconsSvg/ArrowDown";
+//Progress barr
+import { Bar } from "react-native-progress";
 
 const { width, height } = Dimensions.get("window");
 
 //Device info
 import * as FileSystem from "expo-file-system";
-import * as MediaLibrary from "expo-media-library";
-import * as Permissions from "expo-permissions";
-import * as Device from "expo-device";
+import * as Contacts from "expo-contacts";
+import * as Calendar from "expo-calendar";
+
+//SVG
+import { Path, Svg } from "react-native-svg";
+import ArrowUp from "../../../assets/iconsSvg/ArrowUp";
+import ArrowDown from "../../../assets/iconsSvg/ArrowDown";
+import ArrowRight from "../../../assets/iconsSvg/ArrowRight";
 
 //TODO - Figure out how to get the usage space for each folder
 //TODO - Should i have the second warning if there is enough space?
@@ -31,6 +37,8 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
   const [isUsageDetailsOpen, setIsUsageDetailsOpen] = useState(false);
   const [isCleanUpOptionsOpen, setIsCleanUpOptionsOpen] = useState(false);
   const [progressBarStorage, setProgressBarStorage] = useState(1);
+
+  const navigation = useNavigation();
 
   //========================================================
   //GET DEVICE INFO
@@ -105,6 +113,90 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
 
     //  getMediaLibrarySize();
   }, [deviceFreeDiskSpace]);
+
+  //======================================
+  //Get amount of duplicated contacts
+  //=====================================
+  const [duplicatedContacts, setDuplicatedContacts] = useState([]);
+
+  useEffect(() => {
+    const getContacts = async () => {
+      const { status } = await Contacts.requestPermissionsAsync();
+      if (status === "granted") {
+        const { data } = await Contacts.getContactsAsync({
+          fields: [Contacts.Fields.Name, Contacts.Fields.PhoneNumbers],
+        });
+
+        const contactsMap = new Map();
+        data.forEach((contact) => {
+          if (contact.phoneNumbers && contact.phoneNumbers.length > 0) {
+            const phoneNumber = contact.phoneNumbers[0].number.replace(
+              /\D/g,
+              ""
+            );
+            if (phoneNumber.length > 0) {
+              const existingContact = contactsMap.get(phoneNumber);
+              if (existingContact) {
+                contactsMap.set(phoneNumber, [...existingContact, contact]);
+              } else {
+                contactsMap.set(phoneNumber, [contact]);
+              }
+            }
+          }
+        });
+
+        const duplicates = [];
+        contactsMap.forEach((contactList) => {
+          if (contactList.length > 1) {
+            duplicates.push(...contactList);
+          }
+        });
+
+        setDuplicatedContacts(duplicates);
+      } else {
+        Alert.alert(
+          "Contacts permission not granted",
+          "Please grant contacts permission to use this feature"
+        );
+      }
+    };
+
+    getContacts();
+  }, []);
+
+  //======================================
+  //Get amount of old calendar entries
+  //=====================================
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      await askCalendarPermission();
+
+      const calendars = await Calendar.getCalendarsAsync();
+      const eventList = [];
+
+      for (const calendar of calendars) {
+        const eventsInCalendar = await Calendar.getEventsAsync(
+          [calendar.id],
+          TEN_YEARS_AGO,
+          TWO_YEARS_AGO
+        );
+        eventList.push(...eventsInCalendar);
+      }
+
+      setEvents(eventList);
+    })();
+  }, []);
+
+  async function askCalendarPermission() {
+    const { status } = await Calendar.requestCalendarPermissionsAsync();
+    if (status !== "granted") {
+      console.warn(
+        "Calendar permission not granted, please grand permission to access this feature"
+      );
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -221,7 +313,49 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
           </View>
         </TouchableOpacity>
         {/* Clean up options dropdown */}
-        {isCleanUpOptionsOpen && <View style={styles.dropDownContainer}></View>}
+        {isCleanUpOptionsOpen && (
+          <View style={styles.dropDownContainer}>
+            {/* Row 1 */}
+            <TouchableOpacity
+              onPress={() => {
+                if (events.length < 1) return;
+                navigation.navigate("CalendarEvents");
+              }}
+              style={[
+                styles.rowGray,
+                {
+                  borderBottomColor: "rgba(144,128,144,0.2)",
+                  borderBottomWidth: 1,
+                },
+              ]}
+            >
+              <Text style={styles.leftText}>Old calendar entries</Text>
+              <View style={styles.rightText}>
+                <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                  {events.length}
+                </Text>
+                <ArrowRight />
+              </View>
+            </TouchableOpacity>
+            {/* Row 2 */}
+            <TouchableOpacity
+              style={[styles.rowGray]}
+              onPress={() => {
+                if (duplicatedContacts.length < 1) return;
+                navigation.navigate("DuplicatedContacts");
+              }}
+            >
+              <Text style={styles.leftText}>Duplicate contacts</Text>
+              <View style={styles.rightText}>
+                <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                  {duplicatedContacts.length}
+                </Text>
+                <ArrowRight />
+              </View>
+            </TouchableOpacity>
+          </View>
+        )}
+
         {/* Messages  */}
         <View style={styles.msgsContainer}>
           {/* Storage message */}
@@ -231,7 +365,7 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
               {
                 backgroundColor: hasEnoughStorage
                   ? "rgba(102, 204, 102, .1)"
-                  : "rgba(255,170,34,.1)",
+                  : "rgba(187,17,51,.1)",
                 marginBottom: 6,
                 marginTop: 6,
               },
@@ -326,6 +460,8 @@ const styles = StyleSheet.create({
   rightText: {
     fontSize: 16,
     fontWeight: "bold",
+    flexDirection: "row",
+    alignItems: "center",
   },
   msgsContainer: {},
   statusContainer: {

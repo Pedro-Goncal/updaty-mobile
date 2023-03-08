@@ -8,10 +8,10 @@ import {
   Dimensions,
 } from "react-native";
 import React, { useState, useRef } from "react";
-import CardSmall from "../../Components/CardSmall";
+import CardSmallTips from "./CardSmallTips";
 
 //Content TEMP
-import content from "../../utils/content.json";
+import tips from "../../utils/tips.json";
 
 const { width, height } = Dimensions.get("window");
 
@@ -35,9 +35,9 @@ const TipsScreen = () => {
       </View>
       <View style={styles.cardContainer}>
         <FlatList
-          data={content}
+          data={tips}
           renderItem={({ item, index }) => (
-            <CardSmall content={item} index={index} />
+            <CardSmallTips content={item} index={index} />
           )}
           keyExtractor={(item) => item.id}
           viewabilityConfig={viewabilityConfig}

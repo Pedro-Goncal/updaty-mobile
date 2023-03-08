@@ -10,18 +10,18 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 //Utills
-import { concatString } from "../utils/utilFunctions";
+import { concatString } from "../../utils/utilFunctions";
 
 const { width, height } = Dimensions.get("window");
 
-const Card = ({ content, index }) => {
+const CardSmall15 = ({ content, index }) => {
   const navigation = useNavigation();
 
   return (
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
-        navigation.navigate("NewInV16SubScreen", { index: index });
+        navigation.navigate("NewInV15SubScreen", { index: index });
       }}
     >
       <View style={styles.imgContainer}>
@@ -40,7 +40,7 @@ const Card = ({ content, index }) => {
   );
 };
 
-export default Card;
+export default CardSmall15;
 
 const styles = StyleSheet.create({
   container: {

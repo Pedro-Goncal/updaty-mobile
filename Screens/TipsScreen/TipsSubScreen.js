@@ -14,7 +14,7 @@ import Card from "../../Components/Card";
 import { useRoute } from "@react-navigation/native";
 
 //Content TEMP
-import content from "../../utils/content.json";
+import tips from "../../utils/tips.json";
 import { ScrollView } from "react-native-gesture-handler";
 import { Path, Svg } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
@@ -66,22 +66,24 @@ const TipsSubScreen = () => {
         <View style={styles.cardContainer}>
           <FlatList
             ref={flatListRef}
-            data={content}
+            data={tips}
             snapToInterval={width} // Distance between each snap point
             snapToAlignment={"center"} // Align snap point to the center of the view
             getItemLayout={getItemLayout}
             showsHorizontalScrollIndicator={false}
-            initialNumToRender={content.length / 6}
+            initialNumToRender={tips.length / 6}
             renderItem={({ item }) => <Card content={item} />}
             keyExtractor={(item) => item.id}
             horizontal
             viewabilityConfig={viewabilityConfig}
             onViewableItemsChanged={onViewableItemsChanged.current}
-            onLayout={()=>flatListRef.current.scrollToIndex({ index, animated: false })}
+            onLayout={() =>
+              flatListRef.current.scrollToIndex({ index, animated: false })
+            }
           />
         </View>
       </ScrollView>
-      <Pagination content={content} activeCardId={activeCardId} />
+      <Pagination content={tips} activeCardId={activeCardId} />
     </View>
   );
 };

@@ -37,17 +37,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     // minHeight: height,
     padding: 20,
-    // justifyContent: "space-between",
-
-    //  shadowColor: "#000",
-    //  shadowOffset: {
-    //    width: 0,
-    //    height: 4,
-    //  },
-    //  shadowOpacity: 0.3,
-    //  shadowRadius: 4.65,
-
-    //  elevation: 8,
   },
   image: {
     // width: "50%",

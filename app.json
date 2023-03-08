@@ -6,10 +6,11 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+   
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#5808FF"
+      "backgroundColor": "#d72c16"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -24,7 +25,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#5808FF"
+        "backgroundColor": "#d72c16"
       }
     },
     "web": {
@@ -35,6 +36,12 @@
         "projectId": "6fb51e7b-6113-4831-9cac-30f48f74e5f9"
       }
     }
+  },
+  "android": {
+    "permissions": [
+      "READ_CONTACTS",
+      "WRITE_CONTACTS"
+    ]
   },
   "react-native-google-mobile-ads": {
     "android_app_id": "ca-app-pub-3940256099942544/3419835294",

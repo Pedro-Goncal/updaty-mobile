@@ -17,7 +17,7 @@ const Pagination = ({ content, activeCardId }) => {
               styles.dot,
               {
                 backgroundColor:
-                  activeCardId === index + 1 ? "#5808FF" : "gray",
+                  activeCardId === index + 1 ? "#d72c16" : "gray",
               },
             ]}
           />

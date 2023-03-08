@@ -14,6 +14,7 @@ const FinalInfo = ({
   isDeviceCharging,
 }) => {
   const [isReadyForUpdate, setIsReadyForUpdate] = useState(false);
+  const [title, setTitle] = useState("");
 
   const navigation = useNavigation();
 
@@ -37,16 +38,25 @@ const FinalInfo = ({
     isDeviceCharging,
   ]);
 
+  useEffect(() => {
+    //If already running the latest version, but not all green
+    if (!isUpdateAvailable && !isReadyForUpdate) {
+      setTitle(
+        "🎉 It looks like you are running the latest version congratulations."
+      );
+    } else if (isReadyForUpdate) {
+      setTitle("🎉 Congratulations! You're all set to update your device.");
+    } else {
+      setTitle("🙈 Oh no! Looks like there are still issues you need to fix.");
+    }
+  }, []);
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.container}>
         <View style={styles.titleContainer}>
           <Text style={styles.subTitle}>Step 5 of 5</Text>
-          <Text style={styles.title}>
-            {isReadyForUpdate
-              ? "🎉 Congratulations! You're all set to update your device."
-              : "🙈 Oh no! Looks like there are still issues you need to fix"}
-          </Text>
+          <Text style={styles.title}>{title}</Text>
           <View style={styles.msgsContainer}>
             {/* Update message */}
             <View
@@ -135,7 +145,7 @@ const FinalInfo = ({
                 {
                   backgroundColor: hasEnoughStorageCheck
                     ? "rgba(102, 204, 102, .1)"
-                    : "rgba(255,170,34,.1)",
+                    : "rgba(187,17,51,.1)",
                   marginBottom: 6,
                   marginTop: 6,
                 },

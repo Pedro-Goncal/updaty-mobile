@@ -8,10 +8,11 @@ import {
   Dimensions,
 } from "react-native";
 import React, { useState, useRef } from "react";
-import CardSmall from "../../Components/CardSmall";
+
+import CardSmall16 from "./CardSmall16";
 
 //Content TEMP
-import content from "../../utils/content.json";
+import contentNewInV16 from "../../utils/contentNewInV16.json";
 
 const { width, height } = Dimensions.get("window");
 
@@ -35,9 +36,9 @@ const NewInV16Screen = () => {
       </View>
       <View style={styles.cardContainer}>
         <FlatList
-          data={content}
+          data={contentNewInV16}
           renderItem={({ item, index }) => (
-            <CardSmall content={item} index={index} />
+            <CardSmall16 content={item} index={index} />
           )}
           keyExtractor={(item) => item.id}
           viewabilityConfig={viewabilityConfig}

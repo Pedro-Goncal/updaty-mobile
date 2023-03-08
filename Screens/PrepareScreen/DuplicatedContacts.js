@@ -6,11 +6,24 @@ import {
   StyleSheet,
   View,
   Alert,
+  Dimensions,
+  ActivityIndicator,
 } from "react-native";
+
+import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
+
+const { width, height } = Dimensions.get("window");
+
+//Device info
 import * as Contacts from "expo-contacts";
+
+//Navigation
+import { useNavigation } from "@react-navigation/native";
 
 function App() {
   const [duplicatedContacts, setDuplicatedContacts] = useState([]);
+  const navigation = useNavigation();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getContacts = async () => {
@@ -46,6 +59,7 @@ function App() {
         });
 
         setDuplicatedContacts(duplicates);
+        setLoading(false);
       } else {
         Alert.alert(
           "Contacts permission not granted",
@@ -64,46 +78,79 @@ function App() {
         prevState.filter((contact) => contact.id !== contactId)
       );
     } catch (error) {
+      Alert.alert(
+        "Permission",
+        "It looks like you do not have permission to delete contacts, please go to your phone app and delete the contacts there."
+      );
       console.log("Error deleting contact: ", error);
     }
   };
 
   const renderItem = ({ item }) => {
     return (
-      <View style={styles.listItem}>
+      <View
+        style={[styles.row, { borderBottomColor: "rgba(144,128,144,0.2)" }]}
+      >
+        <View>
+          <Text style={styles.leftText}>{item.name}</Text>
+          <Text style={styles.rightText}>{item.phoneNumbers[0].number}</Text>
+        </View>
+
         <TouchableOpacity
           style={styles.deleteButton}
           onPress={() => deleteContact(item.id)}
         >
           <Text style={styles.buttonText}>Delete</Text>
         </TouchableOpacity>
-        <Text style={styles.contactName}>{item.name}</Text>
-        <Text style={styles.contactPhone}>{item.phoneNumbers[0].number}</Text>
       </View>
     );
   };
 
+  if (loading) {
+    return (
+      <View style={{ flex: 1, height: height, justifyContent: "center" }}>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
+    );
+  }
+
   return (
-    <FlatList
-      data={duplicatedContacts}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.id}
-      ListEmptyComponent={() => <Text>No duplicated contacts found</Text>}
-    />
+    <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.titleContainer}
+        onPress={() => navigation.goBack()}
+      >
+        <ArrowSvg />
+
+        <Text style={styles.title}>Delete duplicate contacts</Text>
+      </TouchableOpacity>
+
+      <View style={styles.cardContainer}>
+        {duplicatedContacts.length < 1 ? (
+          <View style={styles.noEntriesContainer}>
+            <Text style={{ textAlign: "center", paddingHorizontal: 30 }}>
+              It looks like you do not have any old entries, good job in keeping
+              your calendar tidy
+            </Text>
+          </View>
+        ) : (
+          <FlatList
+            data={duplicatedContacts}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+            ListEmptyComponent={() => <Text>No duplicated contacts found</Text>}
+          />
+        )}
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  listItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#ddd",
-  },
   deleteButton: {
-    backgroundColor: "#f44336",
-    padding: 10,
+    backgroundColor: "#d72c16",
+    paddingVertical: 10,
+    paddingHorizontal: 25,
     borderRadius: 5,
     marginRight: 10,
   },
@@ -117,6 +164,65 @@ const styles = StyleSheet.create({
   },
   contactPhone: {
     flex: 2,
+  },
+
+  row: {
+    borderBottomWidth: 1,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: 10,
+  },
+  leftText: {
+    fontSize: 16,
+  },
+  rightText: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+
+  container: {
+    flex: 1,
+    backgroundColor: "#ecf0f3",
+    paddingTop: height / 15,
+    height: height,
+  },
+  scrollView: { flex: 1 },
+  titleContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    paddingTop: 20,
+    paddingLeft: 10,
+    paddingBottom: 10,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    paddingHorizontal: 6,
+  },
+  cardContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 10,
+    paddingBottom: 100,
+  },
+
+  cardContainer: {
+    borderRadius: 12,
+    width: width - 20,
+    backgroundColor: "#FFF",
+    marginHorizontal: 10,
+    marginTop: 20,
+    minHeight: height / 2,
+    padding: 20,
+    marginBottom: width / 3,
+  },
+  noEntriesContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1,
   },
 });
 
