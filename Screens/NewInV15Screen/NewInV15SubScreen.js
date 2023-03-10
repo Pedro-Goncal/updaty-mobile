@@ -23,11 +23,19 @@ import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
 
 const { width, height } = Dimensions.get("window");
 
+//Redux
+import { useDispatch } from "react-redux";
+import { handleClick } from "../../Redux/slices/adSlice";
+
+
 const NewInV15SubScreen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
   const navigation = useNavigation();
   const route = useRoute();
   const index = route.params.index;
+
+  const dispatch = useDispatch();
+
 
   const flatListRef = useRef(null);
 
@@ -47,6 +55,8 @@ const NewInV15SubScreen = () => {
 
   const onViewableItemsChanged = useRef(({ viewableItems }) => {
     if (viewableItems.length > 0) {
+      dispatch(handleClick());
+
       setActiveCardId(viewableItems[0].item.id);
     }
   });

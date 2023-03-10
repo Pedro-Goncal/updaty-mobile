@@ -16,6 +16,10 @@ const { width, height } = Dimensions.get("window");
 
 import RenderHtml from "react-native-render-html";
 
+//Redux
+import { useDispatch } from "react-redux";
+import { handleClick } from "../../Redux/slices/adSlice";
+
 const tagStyles = {
   img: {
     width: 90,
@@ -62,6 +66,8 @@ const classesStyles = {
 
 const CardSmall15 = ({ content, index }) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+
 
   const htmlSource = {
     html: content.htmlSmall,
@@ -71,6 +77,7 @@ const CardSmall15 = ({ content, index }) => {
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
+      dispatch(handleClick());
         navigation.navigate("NewInV15SubScreen", { index: index });
       }}
     >

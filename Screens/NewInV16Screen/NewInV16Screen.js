@@ -11,6 +11,8 @@ import React, { useState, useRef } from "react";
 
 import CardSmall16 from "./CardSmall16";
 
+
+
 //Content TEMP
 import newInV16HTML from "../../utils/newInV16HTML.json";
 
@@ -18,6 +20,8 @@ const { width, height } = Dimensions.get("window");
 
 const NewInV16Screen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
+
+
 
   const viewabilityConfig = {
     itemVisiblePercentThreshold: 51,

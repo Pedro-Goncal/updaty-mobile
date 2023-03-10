@@ -9,8 +9,9 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-//Utills
-import { concatString } from "../../utils/utilFunctions";
+//Redux
+import { useDispatch } from "react-redux";
+import { handleClick } from "../../Redux/slices/adSlice";
 
 const { width, height } = Dimensions.get("window");
 
@@ -77,6 +78,8 @@ const classesStyles = {
 
 const CardSmall16 = ({ content, index }) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+
 
   const htmlSource = {
     html: content.htmlSmall,
@@ -86,6 +89,7 @@ const CardSmall16 = ({ content, index }) => {
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
+      dispatch(handleClick());
         navigation.navigate("NewInV16SubScreen", { index: index });
       }}
     >

@@ -17,6 +17,11 @@ import { Bar } from "react-native-progress";
 
 const { width, height } = Dimensions.get("window");
 
+//Assets
+import checkGreen from '../../../assets/iconsSvg/checkGreen.png'
+import checkRed from '../../../assets/iconsSvg/checkRed.png'
+import checkYellow from '../../../assets/iconsSvg/checkYellow.png'
+
 //Device info
 import * as FileSystem from "expo-file-system";
 import * as Contacts from "expo-contacts";
@@ -447,14 +452,20 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
               },
             ]}
           >
-            <Image
-              source={
-                hasEnoughStorage
-                  ? require("../../../assets/iconsSvg/checkGreen.png")
-                  : require("../../../assets/iconsSvg/checkRed.png")
-              }
-              style={{ width: 20, height: 20 }}
+          {hasEnoughStorage &&  (
+              <Image
+                source={checkGreen}
+                style={{ width: 20, height: 20 }}
+              />
+
+            )} 
+            
+            {!hasEnoughStorage &&(
+              <Image
+                source={checkRed}
+                style={{ width: 20, height: 20 }}
             />
+            )}
             <Text style={styles.msgText}>
               {hasEnoughStorage
                 ? "Sufficient space available"

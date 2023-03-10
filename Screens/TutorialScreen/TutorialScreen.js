@@ -46,7 +46,6 @@ const TutorialScreen = () => {
     index,
   });
 
-  console.log();
 
   return (
     <View style={styles.container}>

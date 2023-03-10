@@ -56,6 +56,9 @@ const PrepareScreen = () => {
 
   const dispatch = useDispatch();
 
+  //Get item in view
+  
+
   //=========================================================
   //Card visibility and seting up pagination
   //Set viewability of each post based on the id of the post
@@ -65,6 +68,7 @@ const PrepareScreen = () => {
 
   const onViewableItemsChanged = useRef(({ viewableItems }) => {
     if (viewableItems.length > 0) {
+      dispatch(handleClick());
       setActiveCardId(viewableItems[0].item.id);
     }
   });
@@ -207,11 +211,15 @@ const PrepareScreen = () => {
         <View style={styles.cardContainer}>
           <FlatList
             data={data}
-            getItemLayout={getItemLayout}
-            showsHorizontalScrollIndicator={false}
-            initialNumToRender={2}
             snapToInterval={width} // Distance between each snap point
             snapToAlignment={"center"} // Align snap point to the center of the view
+            getItemLayout={getItemLayout}
+            showsHorizontalScrollIndicator={false}
+            initialNumToRender={1}
+            keyExtractor={(item) => item.id}
+            horizontal
+            viewabilityConfig={viewabilityConfig}
+            onViewableItemsChanged={onViewableItemsChanged.current}
             renderItem={({ item }) => {
               switch (item.id) {
                 case 1:
@@ -246,10 +254,6 @@ const PrepareScreen = () => {
                   );
               }
             }}
-            keyExtractor={(item) => item.id}
-            horizontal
-            viewabilityConfig={viewabilityConfig}
-            onViewableItemsChanged={onViewableItemsChanged.current}
           />
         </View>
       </ScrollView>

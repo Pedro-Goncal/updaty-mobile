@@ -5,7 +5,6 @@ const { width, height } = Dimensions.get("window");
 
 const Pagination = ({ content, activeCardId }) => {
 
-  console.log(content.length)
   return (
     <View style={styles.paginationContainer}>
       <View
