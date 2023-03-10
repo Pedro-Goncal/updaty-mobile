@@ -18,10 +18,8 @@ import Pagination from "../../Components/Pagination";
 import { useDispatch } from "react-redux";
 import { handleClick } from "../../Redux/slices/adSlice";
 
-// import { ScrollView } from "react-native-gesture-handler";
 
 //Content TEMP
-import tutorials from "../../utils/tutorials.json";
 import tutorialsHTML from "../../utils/tutorialsHTML.json";
 
 const { width, height } = Dimensions.get("window");
@@ -52,7 +50,7 @@ const TutorialScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      {/* <ScrollView contentContainerStyle={{ flexGrow: 1 }}> */}
         <View>
           <Text style={styles.title}>Tutorials</Text>
         </View>
@@ -63,7 +61,7 @@ const TutorialScreen = () => {
             snapToAlignment={"center"} // Align snap point to the center of the view
             getItemLayout={getItemLayout}
             showsHorizontalScrollIndicator={false}
-            initialNumToRender={tutorials.length / 6}
+            initialNumToRender={4}
             renderItem={({ item }) => <Card content={item} />}
             keyExtractor={(item) => item.id}
             horizontal
@@ -71,8 +69,8 @@ const TutorialScreen = () => {
             onViewableItemsChanged={onViewableItemsChanged.current}
           />
         </View>
-      </ScrollView>
-      <Pagination content={tutorials} activeCardId={activeCardId} />
+      {/* </ScrollView> */}
+      <Pagination content={tutorialsHTML} activeCardId={activeCardId} />
     </View>
   );
 };

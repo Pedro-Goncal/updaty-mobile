@@ -176,7 +176,7 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
       }
     }
 
-    getMediaLibrarySize();
+    // getMediaLibrarySize();
   }, [deviceFreeDiskSpace]);
 
   //======================================
@@ -229,26 +229,38 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
   //Get amount of old calendar entries
   //=====================================
   const [events, setEvents] = useState([]);
-  const [permission, askForCalendarPermision] = useCalendarPermissions();
+  
 
   const getCalendarEvents = async () => {
-    if (permission.status === "granted") {
-      const calendars = await Calendar.getCalendarsAsync();
 
-      const eventList = [];
+    const { status } = await Calendar.requestCalendarPermissionsAsync(Calendar.EntityTypes.EVENT);
+    
 
-      for (const calendar of calendars) {
-        const eventsInCalendar = await Calendar.getEventsAsync(
-          [calendar.id],
-          TEN_YEARS_AGO,
-          TWO_YEARS_AGO
-        );
-        eventList.push(...eventsInCalendar);
+    if (status === "granted") {
+
+      try {
+        const calendars = await Calendar.getCalendarsAsync();
+
+        console.log("Calendar events =====>",calendars)
+  
+        const eventList = [];
+  
+        for (const calendar of calendars) {
+          const eventsInCalendar = await Calendar.getEventsAsync(
+            [calendar.id],
+            TEN_YEARS_AGO,
+            TWO_YEARS_AGO
+          );
+          eventList.push(...eventsInCalendar);
+        }
+  
+        setEvents(eventList);
+      } catch (error) {
+        console.log("Error getting calendar events====>",error)
       }
-
-      setEvents(eventList);
+    
     } else {
-      askForCalendarPermision();
+      Alert.alert("Calendar Permision", "It looks like we don't have permision to access your calendar, you wont be able to use this feature.")
     }
 
     // const { status } = await Calendar.requestCalendarPermissionsAsync(Calendar.SCOPE_REMINDERS);
@@ -262,7 +274,7 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
   };
 
   useEffect(() => {
-    // getCalendarEvents()
+    getCalendarEvents()
   }, []);
 
   //Call calander and contacts again to update UI

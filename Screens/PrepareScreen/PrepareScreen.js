@@ -69,20 +69,6 @@ const PrepareScreen = () => {
     }
   });
 
-  // useEffect(() => {
-  //   const checkLastUpdate = async () => {
-  //     const backupPath = FileSystem.documentDirectory + "backup.db"; // Replace 'backup.db' with your backup file name
-  //     const info = await FileSystem.getInfoAsync(backupPath);
-  //     const modificationTime = info.modificationTime;
-  //     const lastBackupDate = new Date(modificationTime).toLocaleString();
-  //     console.log(info);
-
-  //     setLastBackup(lastBackupDate);
-  //   };
-
-  //   checkLastUpdate();
-  // }, []);
-
   const getItemLayout = (data, index) => ({
     length: width - 20,
     offset: width * index,
@@ -103,6 +89,8 @@ const PrepareScreen = () => {
       unsubscribe();
     };
   }, []);
+
+
 
   useEffect(() => {
     //TODO - Figure out how to display a message saying your phone does not support the newrs ios

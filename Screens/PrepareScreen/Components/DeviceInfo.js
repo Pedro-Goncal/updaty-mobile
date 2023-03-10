@@ -6,17 +6,24 @@ const { width, height } = Dimensions.get("window");
 //TODO - Check with Nikolaus if we want to be super
 
 import * as Device from "expo-device";
-
-import greenCheck from '../../../assets/iconsSvg/checkGreen.png'
-import redCheck from '../../../assets/iconsSvg/checkRed.png'
+import NetInfo from "@react-native-community/netinfo";
 
 
-const DeviceInfo = ({ isWIFIConnected, isUpdateAvailable, maxOsUpdate }) => {
+const DeviceInfo = ({ isUpdateAvailable, maxOsUpdate }) => {
 
+  const [isWIFIConnected, setIsWIFIConnected] = useState(false)
  
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener((state) => {
+      setIsWIFIConnected(state.isConnected && state.type === "wifi");
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
 
-  
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -90,8 +97,8 @@ const DeviceInfo = ({ isWIFIConnected, isUpdateAvailable, maxOsUpdate }) => {
             <Image
               source={
                 isWIFIConnected
-                  ? greenCheck
-                  : redCheck
+                ? require("../../../assets/iconsSvg/checkGreen.png")
+                : require("../../../assets/iconsSvg/checkRed.png")
               }
               style={{ width: 20, height: 20 }}
             />

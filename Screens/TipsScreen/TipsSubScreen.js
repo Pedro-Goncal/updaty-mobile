@@ -14,7 +14,7 @@ import Card from "../../Components/Card";
 import { useRoute } from "@react-navigation/native";
 
 //Content TEMP
-import tips from "../../utils/tips.json";
+import tipsHTML from "../../utils/tipsHTML.json";
 import { ScrollView } from "react-native-gesture-handler";
 import { Path, Svg } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
@@ -53,7 +53,7 @@ const TipsSubScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      {/* <ScrollView contentContainerStyle={{ flexGrow: 1 }}> */}
         <TouchableOpacity
           style={styles.titleContainer}
           onPress={() => navigation.goBack()}
@@ -66,12 +66,12 @@ const TipsSubScreen = () => {
         <View style={styles.cardContainer}>
           <FlatList
             ref={flatListRef}
-            data={tips}
+            data={tipsHTML}
             snapToInterval={width} // Distance between each snap point
             snapToAlignment={"center"} // Align snap point to the center of the view
             getItemLayout={getItemLayout}
             showsHorizontalScrollIndicator={false}
-            initialNumToRender={tips.length / 6}
+            initialNumToRender={4}
             renderItem={({ item }) => <Card content={item} />}
             keyExtractor={(item) => item.id}
             horizontal
@@ -82,8 +82,8 @@ const TipsSubScreen = () => {
             }
           />
         </View>
-      </ScrollView>
-      <Pagination content={tips} activeCardId={activeCardId} />
+      {/* </ScrollView> */}
+      <Pagination content={tipsHTML} activeCardId={activeCardId} />
     </View>
   );
 };

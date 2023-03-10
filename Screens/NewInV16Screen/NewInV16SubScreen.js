@@ -14,7 +14,7 @@ import Card from "../../Components/Card";
 import { useRoute } from "@react-navigation/native";
 
 //Content TEMP
-import contentNewInV16 from "../../utils/contentNewInV16.json";
+import newInV16HTML from "../../utils/newInV16HTML.json";
 
 import { ScrollView } from "react-native-gesture-handler";
 import { Path, Svg } from "react-native-svg";
@@ -54,7 +54,7 @@ const NewInV16SubScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      {/* <ScrollView contentContainerStyle={{ flexGrow: 1 }}> */}
         <TouchableOpacity
           style={styles.titleContainer}
           onPress={() => navigation.goBack()}
@@ -69,10 +69,10 @@ const NewInV16SubScreen = () => {
             ref={flatListRef}
             snapToInterval={width} // Distance between each snap point
             snapToAlignment={"center"} // Align snap point to the center of the view
-            data={contentNewInV16}
+            data={newInV16HTML}
             getItemLayout={getItemLayout}
             showsHorizontalScrollIndicator={false}
-            initialNumToRender={contentNewInV16.length / 6}
+            initialNumToRender={4}
             renderItem={({ item }) => <Card content={item} />}
             keyExtractor={(item) => item.id}
             horizontal
@@ -83,8 +83,8 @@ const NewInV16SubScreen = () => {
             }
           />
         </View>
-      </ScrollView>
-      <Pagination content={contentNewInV16} activeCardId={activeCardId} />
+      {/* </ScrollView> */}
+      <Pagination content={newInV16HTML} activeCardId={activeCardId} />
     </View>
   );
 };
