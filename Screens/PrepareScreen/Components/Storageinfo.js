@@ -394,7 +394,7 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
             {/* Row 1 */}
             <TouchableOpacity
               onPress={() => {
-                if (events.length < 1) return;
+                // if (events.length < 1) return;
                 navigation.navigate("CalendarEvents");
               }}
               style={[

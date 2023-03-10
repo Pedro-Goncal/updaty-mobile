@@ -88,7 +88,7 @@ const Card = ({ content }) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
+      <ScrollView style={{flex: 1}} >
         <RenderHtml
           contentWidth={width - 20}
           source={htmlSource}
