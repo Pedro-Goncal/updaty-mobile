@@ -14,7 +14,7 @@ import Card from "../../Components/Card";
 import { useRoute } from "@react-navigation/native";
 
 //Content TEMP
-import tips from "../../utils/tips.json";
+import tipsHTML from "../../utils/tipsHTML.json";
 import { ScrollView } from "react-native-gesture-handler";
 import { Path, Svg } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
@@ -23,11 +23,18 @@ import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
 
 const { width, height } = Dimensions.get("window");
 
+//Redux
+import { useDispatch } from "react-redux";
+import { handleClick } from "../../Redux/slices/adSlice";
+
+
 const TipsSubScreen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
   const navigation = useNavigation();
   const route = useRoute();
   const index = route.params.index;
+
+  const dispatch = useDispatch();
 
   const flatListRef = useRef(null);
 
@@ -47,13 +54,14 @@ const TipsSubScreen = () => {
 
   const onViewableItemsChanged = useRef(({ viewableItems }) => {
     if (viewableItems.length > 0) {
+      dispatch(handleClick());
       setActiveCardId(viewableItems[0].item.id);
     }
   });
 
   return (
     <View style={styles.container}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      {/* <ScrollView contentContainerStyle={{ flexGrow: 1 }}> */}
         <TouchableOpacity
           style={styles.titleContainer}
           onPress={() => navigation.goBack()}
@@ -66,12 +74,12 @@ const TipsSubScreen = () => {
         <View style={styles.cardContainer}>
           <FlatList
             ref={flatListRef}
-            data={tips}
+            data={tipsHTML}
             snapToInterval={width} // Distance between each snap point
             snapToAlignment={"center"} // Align snap point to the center of the view
             getItemLayout={getItemLayout}
             showsHorizontalScrollIndicator={false}
-            initialNumToRender={tips.length / 6}
+            initialNumToRender={4}
             renderItem={({ item }) => <Card content={item} />}
             keyExtractor={(item) => item.id}
             horizontal
@@ -82,8 +90,8 @@ const TipsSubScreen = () => {
             }
           />
         </View>
-      </ScrollView>
-      <Pagination content={tips} activeCardId={activeCardId} />
+      {/* </ScrollView> */}
+      <Pagination content={tipsHTML} activeCardId={activeCardId} />
     </View>
   );
 };

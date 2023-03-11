@@ -1,6 +1,16 @@
 {
   "expo": {
+    
     "name": "updaty",
+    "plugins": [
+      [
+        "expo-calendar",
+        {
+          "calendarPermission": "Allow $(PRODUCT_NAME) to access your calendar",
+          "remindersPermission": "Allow $(PRODUCT_NAME) to access your reminders"
+        }
+      ]
+    ],
     "slug": "updaty",
     "version": "1.0.0",
     "orientation": "portrait",

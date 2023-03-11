@@ -1,7 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
 import React from "react";
 
+const { width, height } = Dimensions.get("window");
+
 const Pagination = ({ content, activeCardId }) => {
+
   return (
     <View style={styles.paginationContainer}>
       <View
@@ -39,10 +42,13 @@ const styles = StyleSheet.create({
   },
   paginationBox: {
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
     borderRadius: 50,
     paddingHorizontal: 4,
+    maxWidth: width - 50,
+    overflow: "hidden"
+
   },
   dot: {
     width: 10,

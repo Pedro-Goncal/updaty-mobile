@@ -80,7 +80,6 @@ export default function CalendarEvents() {
     });
   };
 
-  console.log(events.length);
 
   const renderItem = ({ item }) => (
     <TouchableOpacity

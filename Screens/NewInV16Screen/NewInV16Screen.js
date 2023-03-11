@@ -11,13 +11,17 @@ import React, { useState, useRef } from "react";
 
 import CardSmall16 from "./CardSmall16";
 
+
+
 //Content TEMP
-import contentNewInV16 from "../../utils/contentNewInV16.json";
+import newInV16HTML from "../../utils/newInV16HTML.json";
 
 const { width, height } = Dimensions.get("window");
 
 const NewInV16Screen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
+
+
 
   const viewabilityConfig = {
     itemVisiblePercentThreshold: 51,
@@ -36,7 +40,7 @@ const NewInV16Screen = () => {
       </View>
       <View style={styles.cardContainer}>
         <FlatList
-          data={contentNewInV16}
+          data={newInV16HTML}
           renderItem={({ item, index }) => (
             <CardSmall16 content={item} index={index} />
           )}
