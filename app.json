@@ -14,12 +14,24 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
+    "plugins": [
+      [
+        "expo-calendar",
+        {
+          "calendarPermission": "The app needs to access your calendar.",
+          "remindersPermission": "The app needs to access your reminders."
+        }
+      ]
+    ],
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.apptitute.app"
+      "bundleIdentifier": "com.apptitute.app",
+      "infoPlist": {
+        "NSRemindersUsageDescription": "Need to access the reminders"
+    }
     },
     "android": {
       "adaptiveIcon": {
