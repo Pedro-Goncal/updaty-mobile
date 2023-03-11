@@ -6,17 +6,37 @@ const { width, height } = Dimensions.get("window");
 //TODO - Check with Nikolaus if we want to be super
 
 import * as Device from "expo-device";
+import NetInfo from "@react-native-community/netinfo";
 
-import greenCheck from '../../../assets/iconsSvg/checkGreen.png'
-import redCheck from '../../../assets/iconsSvg/checkRed.png'
+//Assets
+import checkGreen from '../../../assets/iconsSvg/checkGreen.png'
+import checkRed from '../../../assets/iconsSvg/checkRed.png'
+import checkYellow from '../../../assets/iconsSvg/checkYellow.png'
 
 
-const DeviceInfo = ({ isWIFIConnected, isUpdateAvailable, maxOsUpdate }) => {
 
+const DeviceInfo = ({ isUpdateAvailable, maxOsUpdate }) => {
+
+  const [isWIFIConnected, setIsWIFIConnected] = useState(false)
  
+  useEffect(() => {
+
+    // NetInfo.fetch().then(state => {
+    //   setIsWIFIConnected(state.isConnected && state.type === "wifi");
+    // });
+   
+    const unsubscribe = NetInfo.addEventListener((state) => {
+      setIsWIFIConnected(state.isConnected && state.type === "wifi");
+    });
+
+    
+
+    return () => {
+      unsubscribe();
+    };
+  }, [NetInfo]);
 
 
-  
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -61,14 +81,20 @@ const DeviceInfo = ({ isWIFIConnected, isUpdateAvailable, maxOsUpdate }) => {
               },
             ]}
           >
-            <Image
-              source={
-                isUpdateAvailable
-                  ? require("../../../assets/iconsSvg/checkGreen.png")
-                  : require("../../../assets/iconsSvg/checkYellow.png")
-              }
-              style={{ width: 20, height: 20 }}
+              {isUpdateAvailable &&  (
+              <Image
+                source={checkGreen}
+                style={{ width: 20, height: 20 }}
+              />
+
+            )} 
+            
+            {!isUpdateAvailable &&(
+              <Image
+                source={checkYellow}
+                style={{ width: 20, height: 20 }}
             />
+            )}
             <Text style={styles.msgText}>
               {isUpdateAvailable
                 ? "Update available"
@@ -87,14 +113,20 @@ const DeviceInfo = ({ isWIFIConnected, isUpdateAvailable, maxOsUpdate }) => {
               },
             ]}
           >
-            <Image
-              source={
-                isWIFIConnected
-                  ? greenCheck
-                  : redCheck
-              }
-              style={{ width: 20, height: 20 }}
+            {isWIFIConnected &&  (
+              <Image
+                source={checkGreen}
+                style={{ width: 20, height: 20 }}
+              />
+
+            )} 
+            
+            {!isWIFIConnected &&(
+              <Image
+                source={checkRed}
+                style={{ width: 20, height: 20 }}
             />
+            )}
             <Text style={styles.msgText}>
               {isWIFIConnected ? "Wi-Fi connected" : "Please connect to Wi-Fi"}
             </Text>

@@ -11,7 +11,7 @@ import React, { useState, useRef } from "react";
 import CardSmall15 from "./CardSmall15";
 
 //Content TEMP
-import contentNewInV15 from "../../utils/contentNewInV15.json";
+import newInV15HTML from "../../utils/newInV15HTML.json";
 
 const { width, height } = Dimensions.get("window");
 
@@ -35,7 +35,7 @@ const NewInV15Screen = () => {
       </View>
       <View style={styles.cardContainer}>
         <FlatList
-          data={contentNewInV15}
+          data={newInV15HTML}
           renderItem={({ item, index }) => (
             <CardSmall15 content={item} index={index} />
           )}

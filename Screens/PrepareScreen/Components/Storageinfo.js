@@ -17,6 +17,11 @@ import { Bar } from "react-native-progress";
 
 const { width, height } = Dimensions.get("window");
 
+//Assets
+import checkGreen from '../../../assets/iconsSvg/checkGreen.png'
+import checkRed from '../../../assets/iconsSvg/checkRed.png'
+import checkYellow from '../../../assets/iconsSvg/checkYellow.png'
+
 //Device info
 import * as FileSystem from "expo-file-system";
 import * as Contacts from "expo-contacts";
@@ -167,7 +172,7 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
       }
     }
 
-    getMediaLibrarySize();
+    // getMediaLibrarySize();
   }, [deviceFreeDiskSpace]);
 
   //======================================
@@ -221,28 +226,44 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
   //Get amount of old calendar entries
   //=====================================
   const [events, setEvents] = useState([]);
-  const [permission, askForCalendarPermision] = useCalendarPermissions();
+  
 
   const getCalendarEvents = async () => {
+
     console.log('calendars permission ===', permission);
     if (permission?.status === "granted") {
       const calendars = await Calendar.getCalendarsAsync();
       console.log('calendars ===', calendars);
 
-      const eventList = [];
 
-      for (const calendar of calendars) {
-        const eventsInCalendar = await Calendar.getEventsAsync(
-          [calendar.id],
-          TEN_YEARS_AGO,
-          TWO_YEARS_AGO
-        );
-        eventList.push(...eventsInCalendar);
+    const { status } = await Calendar.requestCalendarPermissionsAsync(Calendar.EntityTypes.EVENT);
+    
+
+    if (status === "granted") {
+
+      try {
+        const calendars = await Calendar.getCalendarsAsync();
+
+        console.log("Calendar events =====>",calendars)
+  
+        const eventList = [];
+  
+        for (const calendar of calendars) {
+          const eventsInCalendar = await Calendar.getEventsAsync(
+            [calendar.id],
+            TEN_YEARS_AGO,
+            TWO_YEARS_AGO
+          );
+          eventList.push(...eventsInCalendar);
+        }
+  
+        setEvents(eventList);
+      } catch (error) {
+        console.log("Error getting calendar events====>",error)
       }
-
-      setEvents(eventList);
+    
     } else {
-      askForCalendarPermision();
+      Alert.alert("Calendar Permision", "It looks like we don't have permision to access your calendar, you wont be able to use this feature.")
     }
 
     // const { status } = await Calendar.requestCalendarPermissionsAsync(Calendar.SCOPE_REMINDERS);
@@ -256,6 +277,7 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
   };
 
   useEffect(() => {
+
     (async () => {
       const { status } = await Calendar.requestRemindersPermissionsAsync();
       console.log('Here are all your calendars:', status);
@@ -388,7 +410,7 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
             {/* Row 1 */}
             <TouchableOpacity
               onPress={() => {
-                if (events.length < 1) return;
+                // if (events.length < 1) return;
                 navigation.navigate("CalendarEvents");
               }}
               style={[
@@ -441,14 +463,20 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
               },
             ]}
           >
-            <Image
-              source={
-                hasEnoughStorage
-                  ? require("../../../assets/iconsSvg/checkGreen.png")
-                  : require("../../../assets/iconsSvg/checkRed.png")
-              }
-              style={{ width: 20, height: 20 }}
+          {hasEnoughStorage &&  (
+              <Image
+                source={checkGreen}
+                style={{ width: 20, height: 20 }}
+              />
+
+            )} 
+            
+            {!hasEnoughStorage &&(
+              <Image
+                source={checkRed}
+                style={{ width: 20, height: 20 }}
             />
+            )}
             <Text style={styles.msgText}>
               {hasEnoughStorage
                 ? "Sufficient space available"

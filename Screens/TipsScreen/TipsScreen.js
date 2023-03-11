@@ -11,7 +11,7 @@ import React, { useState, useRef } from "react";
 import CardSmallTips from "./CardSmallTips";
 
 //Content TEMP
-import tips from "../../utils/tips.json";
+import tipsHTML from "../../utils/tipsHTML.json";
 
 const { width, height } = Dimensions.get("window");
 
@@ -35,7 +35,7 @@ const TipsScreen = () => {
       </View>
       <View style={styles.cardContainer}>
         <FlatList
-          data={tips}
+          data={tipsHTML}
           renderItem={({ item, index }) => (
             <CardSmallTips content={item} index={index} />
           )}

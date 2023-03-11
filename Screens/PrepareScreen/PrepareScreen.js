@@ -56,6 +56,9 @@ const PrepareScreen = () => {
 
   const dispatch = useDispatch();
 
+  //Get item in view
+  
+
   //=========================================================
   //Card visibility and seting up pagination
   //Set viewability of each post based on the id of the post
@@ -65,23 +68,10 @@ const PrepareScreen = () => {
 
   const onViewableItemsChanged = useRef(({ viewableItems }) => {
     if (viewableItems.length > 0) {
+      dispatch(handleClick());
       setActiveCardId(viewableItems[0].item.id);
     }
   });
-
-  // useEffect(() => {
-  //   const checkLastUpdate = async () => {
-  //     const backupPath = FileSystem.documentDirectory + "backup.db"; // Replace 'backup.db' with your backup file name
-  //     const info = await FileSystem.getInfoAsync(backupPath);
-  //     const modificationTime = info.modificationTime;
-  //     const lastBackupDate = new Date(modificationTime).toLocaleString();
-  //     console.log(info);
-
-  //     setLastBackup(lastBackupDate);
-  //   };
-
-  //   checkLastUpdate();
-  // }, []);
 
   const getItemLayout = (data, index) => ({
     length: width - 20,
@@ -103,6 +93,8 @@ const PrepareScreen = () => {
       unsubscribe();
     };
   }, []);
+
+
 
   useEffect(() => {
     //TODO - Figure out how to display a message saying your phone does not support the newrs ios
@@ -219,11 +211,15 @@ const PrepareScreen = () => {
         <View style={styles.cardContainer}>
           <FlatList
             data={data}
-            getItemLayout={getItemLayout}
-            showsHorizontalScrollIndicator={false}
-            initialNumToRender={2}
             snapToInterval={width} // Distance between each snap point
             snapToAlignment={"center"} // Align snap point to the center of the view
+            getItemLayout={getItemLayout}
+            showsHorizontalScrollIndicator={false}
+            initialNumToRender={1}
+            keyExtractor={(item) => item.id}
+            horizontal
+            viewabilityConfig={viewabilityConfig}
+            onViewableItemsChanged={onViewableItemsChanged.current}
             renderItem={({ item }) => {
               switch (item.id) {
                 case 1:
@@ -258,10 +254,6 @@ const PrepareScreen = () => {
                   );
               }
             }}
-            keyExtractor={(item) => item.id}
-            horizontal
-            viewabilityConfig={viewabilityConfig}
-            onViewableItemsChanged={onViewableItemsChanged.current}
           />
         </View>
       </ScrollView>

@@ -5,13 +5,14 @@ import {
   Dimensions,
   Image,
   TouchableOpacity,
+  ScrollView
 } from "react-native";
 import React from "react";
 
 const { width, height } = Dimensions.get("window");
 
 import RenderHtml from "react-native-render-html";
-import { ScrollView } from "react-native";
+
 
 const htmlSource = {
   html: `
@@ -79,6 +80,7 @@ const classesStyles = {
   },
 };
 
+
 const Card = ({ content }) => {
   const htmlSource = {
     html: `${content.html}`,
@@ -86,7 +88,7 @@ const Card = ({ content }) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView style={{flex: 1}} >
         <RenderHtml
           contentWidth={width - 20}
           source={htmlSource}
@@ -112,6 +114,8 @@ const Card = ({ content }) => {
   );
 };
 
+//! To Change how the scroll view works change the outside scroll view or the card scroll view
+
 export default Card;
 
 const styles = StyleSheet.create({
@@ -120,8 +124,10 @@ const styles = StyleSheet.create({
     width: width - 20,
     backgroundColor: "#FFF",
     marginHorizontal: 10,
-    minHeight: height / 1.5,
+    minHeight: height  / 1.5,
     padding: 20,
+    flex: 1,
+    // paddingBottom: "100%"
     // justifyContent: "space-between",
 
     //  shadowColor: "#000",

@@ -23,6 +23,7 @@ const adSlice = createSlice({
       } else {
         state.fireAd = false;
       }
+      console.log(state.fireAd);
     },
   },
 });
