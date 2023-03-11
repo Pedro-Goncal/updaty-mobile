@@ -30,7 +30,6 @@ import * as MediaLibrary from "expo-media-library";
 import { useCalendarPermissions } from "expo-calendar";
 
 //SVG
-import { Path, Svg } from "react-native-svg";
 import ArrowUp from "../../../assets/iconsSvg/ArrowUp";
 import ArrowDown from "../../../assets/iconsSvg/ArrowDown";
 import ArrowRight from "../../../assets/iconsSvg/ArrowRight";
@@ -71,7 +70,7 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
       );
       setProgressBarStorage(
         (totalFreeDiskCapacity / 1024 / 1024 / 1024).toFixed(2) /
-          (totalDiskCapacity / 1024 / 1024 / 1024).toFixed(2)
+        (totalDiskCapacity / 1024 / 1024 / 1024).toFixed(2)
       );
     };
 
@@ -82,62 +81,10 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
       setHasEnoughStorageCheck(true);
     }
 
-    //  const photosDirectory = `${FileSystem.documentDirectory}photos`;
-
-    //  async function getPhotosDirectorySize() {
-    //    console.log(FileSystem.documentDirectory);
-    //  }
-
-    //  getPhotosDirectorySize();
-
     async function getMediaLibrarySize() {
       try {
         const { status } = await MediaLibrary.requestPermissionsAsync();
-
-        if (status === "granted") {
-          const photos = await MediaLibrary.getAssetsAsync({
-            mediaType: "photo",
-          });
-          const photosSize = photos.assets.reduce(
-            (total, assets) => total + assets.height + assets.width,
-            0
-          );
-          const photoDetail = await MediaLibrary.getAssetInfoAsync(
-            photos.assets[0].id
-          );
-          console.log(photoDetail);
-
-          console.log();
-        } else {
-          await MediaLibrary.requestPermissionsAsync();
-        }
-
-        const photosPath = `${FileSystem.documentDirectory}/photos`;
-        const documentsPath = `${FileSystem.documentDirectory}/documents`;
-        const videosPath = `${FileSystem.documentDirectory}/videos`;
-
-        //! For development only. As this folder do not exist in the iOS simulator DO NOT Uncoment this for production
-        //*Create Folder for Simulator
-        // await FileSystem.makeDirectoryAsync(photosPath, {intermediates: true})
-        // await FileSystem.makeDirectoryAsync(videosPath, {intermediates: true})
-        // await FileSystem.makeDirectoryAsync(documentsPath, {intermediates: true})
-        //* Add files to simulate used space
-        const fileName = `photo-${Math.floor(Math.random() * 1000)}.jpg`;
-        const fileContent =
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
-        await FileSystem.writeAsStringAsync(
-          `${photosPath}/${fileName}`,
-          fileContent,
-          {
-            encoding: FileSystem.EncodingType.UTF8,
-          }
-        );
-
-        //! ====================================================================================
-
-        const photosStats = await FileSystem.getInfoAsync(photosPath);
-        const videosStats = await FileSystem.getInfoAsync(videosPath);
-        const documentsStats = await FileSystem.getInfoAsync(documentsPath);
+        // console.log('status ===', status);
 
         const covertBytes = (size, type) => {
           if (type === "photos") {
@@ -173,6 +120,50 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
           }
         };
 
+        if (status === "granted") {
+          const photos = await MediaLibrary.getAssetsAsync({
+            mediaType: "photo",
+          });
+          const photoSize = photos.assets.reduce(
+            (total, assets) => total + assets.height + assets.width,
+            0
+          );
+          console.log('photoSize ===', photoSize);
+
+          // const photoDetail = await MediaLibrary.getAssetInfoAsync(
+          //   photos.assets[0].id
+          // );
+          // console.log('photoDetail ===', photoDetail);
+        } else {
+          await MediaLibrary.requestPermissionsAsync();
+        }
+
+        const photosPath = `${FileSystem.documentDirectory}/photos`;
+        const documentsPath = `${FileSystem.documentDirectory}/documents`;
+        const videosPath = `${FileSystem.documentDirectory}/videos`;
+
+        //! For development only. As this folder do not exist in the iOS simulator DO NOT Uncoment this for production
+        // *Create Folder for Simulator
+        // await FileSystem.makeDirectoryAsync(photosPath, { intermediates: true })
+        // await FileSystem.makeDirectoryAsync(videosPath, { intermediates: true })
+        // await FileSystem.makeDirectoryAsync(documentsPath, { intermediates: true })
+
+        //* Add files to simulate used space
+        const fileName = `photo-${Math.floor(Math.random() * 1000)}.jpg`;
+        const fileContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
+        await FileSystem.writeAsStringAsync(
+          `${photosPath}/${fileName}`,
+          fileContent,
+          {
+            encoding: FileSystem.EncodingType.UTF8,
+          }
+        );
+
+        const photosStats = await FileSystem.getInfoAsync(photosPath);
+        console.log("photosStats ===", photosStats);
+        const videosStats = await FileSystem.getInfoAsync(videosPath);
+        const documentsStats = await FileSystem.getInfoAsync(documentsPath);
+
         covertBytes(photosStats.size, "photos");
         covertBytes(videosStats.size, "videos");
         covertBytes(documentsStats.size, "documents");
@@ -188,6 +179,7 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
   //Get amount of duplicated contacts
   //=====================================
   const [duplicatedContacts, setDuplicatedContacts] = useState([]);
+
   const getContacts = async () => {
     const { status } = await Contacts.requestPermissionsAsync();
     if (status === "granted") {
@@ -238,6 +230,12 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
 
   const getCalendarEvents = async () => {
 
+    console.log('calendars permission ===', permission);
+    if (permission?.status === "granted") {
+      const calendars = await Calendar.getCalendarsAsync();
+      console.log('calendars ===', calendars);
+
+
     const { status } = await Calendar.requestCalendarPermissionsAsync(Calendar.EntityTypes.EVENT);
     
 
@@ -279,12 +277,25 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
   };
 
   useEffect(() => {
+
+    (async () => {
+      const { status } = await Calendar.requestRemindersPermissionsAsync();
+      console.log('Here are all your calendars:', status);
+      if (status === 'granted') {
+        const calendars = await Calendar.getCalendarsAsync();
+        console.log('calendars getCalendarsAsync ===', calendars);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
     getCalendarEvents()
   }, []);
 
   //Call calander and contacts again to update UI
   useEffect(() => {
     const unsubscribe = navigation.addListener("focus", () => {
+      console.log('navigation.addListener =========');
       getCalendarEvents();
       getContacts();
     });

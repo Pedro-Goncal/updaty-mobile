@@ -15,7 +15,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",   
+    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -24,18 +24,31 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
+    "plugins": [
+      [
+        "expo-calendar",
+        {
+          "calendarPermission": "The app needs to access your calendar.",
+          "remindersPermission": "The app needs to access your reminders."
+        }
+      ]
+    ],
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.apptitute.app"
+      "bundleIdentifier": "com.apptitute.app",
+      "infoPlist": {
+        "NSRemindersUsageDescription": "Need to access the reminders"
+    }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#d72c16"
-      }
+      },
+      "package": "com.apptitute.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
