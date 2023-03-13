@@ -61,7 +61,7 @@ const TipsSubScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* <ScrollView contentContainerStyle={{ flexGrow: 1 }}> */}
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <TouchableOpacity
           style={styles.titleContainer}
           onPress={() => navigation.goBack()}
@@ -90,7 +90,7 @@ const TipsSubScreen = () => {
             }
           />
         </View>
-      {/* </ScrollView> */}
+      </ScrollView>
       <Pagination content={tipsHTML} activeCardId={activeCardId} />
     </View>
   );
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ecf0f3",
-    paddingTop: height / 15,
+    paddingTop: 20,
     height: height,
   },
   scrollView: { flex: 1 },

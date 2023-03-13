@@ -11,7 +11,7 @@ const adSlice = createSlice({
   initialState,
   reducers: {
     handleClick: (state) => {
-      console.log(state.clickCount);
+      console.log("State ClickCount =====> ",state.clickCount);
       state.clickCount++;
 
       if (
@@ -23,7 +23,7 @@ const adSlice = createSlice({
       } else {
         state.fireAd = false;
       }
-      console.log(state.fireAd);
+      console.log("Redux Fire ad ======> ",state.fireAd);
     },
   },
 });

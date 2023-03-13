@@ -88,7 +88,7 @@ const Card = ({ content }) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView style={{flex: 1}} >
+      {/* <ScrollView style={{flex: 1}} > */}
         <RenderHtml
           contentWidth={width - 20}
           source={htmlSource}
@@ -109,7 +109,7 @@ const Card = ({ content }) => {
       <View style={styles.imgContainer}>
         <Image source={{ uri: content.imgUrl }} style={styles.img} />
       </View> */}
-      </ScrollView>
+      {/* </ScrollView> */}
     </View>
   );
 };
@@ -124,21 +124,7 @@ const styles = StyleSheet.create({
     width: width - 20,
     backgroundColor: "#FFF",
     marginHorizontal: 10,
-    minHeight: height  / 1.5,
     padding: 20,
-    flex: 1,
-    // paddingBottom: "100%"
-    // justifyContent: "space-between",
-
-    //  shadowColor: "#000",
-    //  shadowOffset: {
-    //    width: 0,
-    //    height: 4,
-    //  },
-    //  shadowOpacity: 0.3,
-    //  shadowRadius: 4.65,
-
-    //  elevation: 8,
   },
   subTitleContainer: {},
   subTitle: {

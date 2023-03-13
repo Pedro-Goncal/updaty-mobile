@@ -12,18 +12,18 @@ import {
 //Navigation
 import { useNavigation } from "@react-navigation/native";
 
+//Redux
+import { useDispatch } from "react-redux";
+
 //Progress barr
 import { Bar } from "react-native-progress";
 
 const { width, height } = Dimensions.get("window");
 
-//Assets
-import checkGreen from '../../../assets/iconsSvg/checkGreen.png'
-import checkRed from '../../../assets/iconsSvg/checkRed.png'
-import checkYellow from '../../../assets/iconsSvg/checkYellow.png'
-
 //Device info
 import * as FileSystem from "expo-file-system";
+import RNFS from 'react-native-fs';
+
 import * as Contacts from "expo-contacts";
 import * as Calendar from "expo-calendar";
 import * as MediaLibrary from "expo-media-library";
@@ -33,6 +33,7 @@ import { useCalendarPermissions } from "expo-calendar";
 import ArrowUp from "../../../assets/iconsSvg/ArrowUp";
 import ArrowDown from "../../../assets/iconsSvg/ArrowDown";
 import ArrowRight from "../../../assets/iconsSvg/ArrowRight";
+import { handleClick } from "../../../Redux/slices/adSlice";
 
 //TODO - Figure out how to get the usage space for each folder
 //TODO - Should i have the second warning if there is enough space?
@@ -46,6 +47,7 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
   const [progressBarStorage, setProgressBarStorage] = useState(1);
 
   const navigation = useNavigation();
+  const dispatch = useDispatch()
 
   //========================================================
   //GET DEVICE INFO
@@ -81,99 +83,69 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
       setHasEnoughStorageCheck(true);
     }
 
+   
+  }, [deviceFreeDiskSpace]);
+
+
+  useEffect(()=> {
     async function getMediaLibrarySize() {
       try {
         const { status } = await MediaLibrary.requestPermissionsAsync();
         // console.log('status ===', status);
 
-        const covertBytes = (size, type) => {
-          if (type === "photos") {
-            if (size < 1024) {
-              setPhotosSize(`${size} bytes`);
-            } else if (size > 1024 && size < 1048576) {
-              setPhotosSize(`${Math.round(size / 1024)} kb`);
-            } else if (size > 1048576 && size < 1073741824) {
-              setPhotosSize(`${Math.round(size / 1024 / 1024)} MB`);
-            } else {
-              setPhotosSize(`${Math.round(size / 1024 / 1024 / 1024)} GB`);
-            }
-          } else if (type === "videos") {
-            if (size < 1024) {
-              setVideosSize(`${size} bytes`);
-            } else if (size > 1024 && size < 1048576) {
-              setVideosSize(`${Math.round(size / 1024)} kb`);
-            } else if (size > 1048576 && size < 1073741824) {
-              setVideosSize(`${Math.round(size / 1024 / 1024)} MB`);
-            } else {
-              setVideosSize(`${Math.round(size / 1024 / 1024 / 1024)} GB`);
-            }
-          } else if (type === "documents") {
-            if (size < 1024) {
-              setDocumentsSize(`${size} bytes`);
-            } else if (size > 1024 && size < 1048576) {
-              setDocumentsSize(`${Math.round(size / 1024)} kb`);
-            } else if (size > 1048576 && size < 1073741824) {
-              setDocumentsSize(`${Math.round(size / 1024 / 1024)} MB`);
-            } else {
-              setDocumentsSize(`${Math.round(size / 1024 / 1024 / 1024)} GB`);
-            }
-          }
-        };
 
         if (status === "granted") {
-          const photos = await MediaLibrary.getAssetsAsync({
-            mediaType: "photo",
-          });
-          const photoSize = photos.assets.reduce(
-            (total, assets) => total + assets.height + assets.width,
-            0
-          );
-          console.log('photoSize ===', photoSize);
 
-          // const photoDetail = await MediaLibrary.getAssetInfoAsync(
-          //   photos.assets[0].id
-          // );
-          // console.log('photoDetail ===', photoDetail);
+
+
+
+          
+          const {assets} = await MediaLibrary.getAssetsAsync();
+
+          console.log("======================> ", assets[0].uri)
+          const asset = await MediaLibrary.getAssetInfoAsync(assets[0].uri);
+          console.log(asset)
+
+
+      
+        
+
+          const photoDetail = await MediaLibrary.getAssetInfoAsync(
+            assets[0].id
+          );
+          console.log('photoDetail ===', photoDetail);
+
+
+          function calculatePhotoSizeInBytes(width, height, dpi, bitDepth, compressionRatio) {
+            const bitsPerPixel = bitDepth * 3; // Assuming 3 color channels (RGB)
+            const bytesPerPixel = bitsPerPixel / 8;
+            const compressionFactor = 1 / compressionRatio;
+            const widthInches = width / dpi;
+            const heightInches = height / dpi;
+            const totalPixels = width * height;
+            const totalBytes = totalPixels * bytesPerPixel * compressionFactor;
+            return totalBytes;
+          }
+
+
+          console.log(calculatePhotoSizeInBytes(photoDetail.exif.PixelWidth, photoDetail.exif.PixelHeight, photoDetail.exif.DPIHeight,   photoDetail.exif.Depth, 2) / 1024 / 1024)
+
+
         } else {
           await MediaLibrary.requestPermissionsAsync();
         }
 
-        const photosPath = `${FileSystem.documentDirectory}/photos`;
-        const documentsPath = `${FileSystem.documentDirectory}/documents`;
-        const videosPath = `${FileSystem.documentDirectory}/videos`;
 
-        //! For development only. As this folder do not exist in the iOS simulator DO NOT Uncoment this for production
-        // *Create Folder for Simulator
-        // await FileSystem.makeDirectoryAsync(photosPath, { intermediates: true })
-        // await FileSystem.makeDirectoryAsync(videosPath, { intermediates: true })
-        // await FileSystem.makeDirectoryAsync(documentsPath, { intermediates: true })
 
-        //* Add files to simulate used space
-        const fileName = `photo-${Math.floor(Math.random() * 1000)}.jpg`;
-        const fileContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
-        await FileSystem.writeAsStringAsync(
-          `${photosPath}/${fileName}`,
-          fileContent,
-          {
-            encoding: FileSystem.EncodingType.UTF8,
-          }
-        );
 
-        const photosStats = await FileSystem.getInfoAsync(photosPath);
-        console.log("photosStats ===", photosStats);
-        const videosStats = await FileSystem.getInfoAsync(videosPath);
-        const documentsStats = await FileSystem.getInfoAsync(documentsPath);
-
-        covertBytes(photosStats.size, "photos");
-        covertBytes(videosStats.size, "videos");
-        covertBytes(documentsStats.size, "documents");
+      
       } catch (error) {
         console.log("Error getting media library size:", error);
       }
     }
 
-    // getMediaLibrarySize();
-  }, [deviceFreeDiskSpace]);
+    getMediaLibrarySize();
+  },[])
 
   //======================================
   //Get amount of duplicated contacts
@@ -226,76 +198,57 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
   //Get amount of old calendar entries
   //=====================================
   const [events, setEvents] = useState([]);
-  
-
-  const getCalendarEvents = async () => {
-
-    console.log('calendars permission ===', permission);
-    if (permission?.status === "granted") {
-      const calendars = await Calendar.getCalendarsAsync();
-      console.log('calendars ===', calendars);
+  const [permission, askForCalendarPermision] = useCalendarPermissions();
 
 
-    const { status } = await Calendar.requestCalendarPermissionsAsync(Calendar.EntityTypes.EVENT);
-    
 
-    if (status === "granted") {
+  const endingDate = 2; //CHANGE RANGE
+  const startingData = 10;
+
+  const TWO_YEARS_AGO = new Date(
+    Date.now() - endingDate * 365 * 24 * 60 * 60 * 1000
+  ); 
+  const TEN_YEARS_AGO = new Date(
+    Date.now() - startingData * 365 * 24 * 60 * 60 * 1000
+  ); 
+
+    const getCalendarEvents = 
+    async () => {
 
       try {
-        const calendars = await Calendar.getCalendarsAsync();
+        const { status } = await Calendar.requestRemindersPermissionsAsync();
+     
+        if (status === 'granted') {
+          const calendars = await Calendar.getCalendarsAsync(Calendar.EntityTypes.EVENT);     
 
-        console.log("Calendar events =====>",calendars)
-  
-        const eventList = [];
-  
-        for (const calendar of calendars) {
-          const eventsInCalendar = await Calendar.getEventsAsync(
-            [calendar.id],
-            TEN_YEARS_AGO,
-            TWO_YEARS_AGO
-          );
-          eventList.push(...eventsInCalendar);
+          const eventList = [];
+
+          for (const calendar of calendars) {
+            const eventsInCalendar = await Calendar.getEventsAsync(
+              [calendar.id],
+              TEN_YEARS_AGO,
+              TWO_YEARS_AGO
+            );
+            eventList.push(...eventsInCalendar);
+
+          }
+         setEvents(eventList)
         }
-  
-        setEvents(eventList);
+        
       } catch (error) {
-        console.log("Error getting calendar events====>",error)
+        console.log("Error getting the calendars =======>",error)
       }
+    };
+
+
     
-    } else {
-      Alert.alert("Calendar Permision", "It looks like we don't have permision to access your calendar, you wont be able to use this feature.")
-    }
-
-    // const { status } = await Calendar.requestCalendarPermissionsAsync(Calendar.SCOPE_REMINDERS);
-    // if (status !== "granted") {
-    //   Alert.alert("Calendar permission", "Please grant calendar permission to use this feature")
-    //   console.warn(
-    //     "Calendar permission not granted, please grand permission to access this feature"
-    //   );
-    //   return
-    // }
-  };
-
-  useEffect(() => {
-
-    (async () => {
-      const { status } = await Calendar.requestRemindersPermissionsAsync();
-      console.log('Here are all your calendars:', status);
-      if (status === 'granted') {
-        const calendars = await Calendar.getCalendarsAsync();
-        console.log('calendars getCalendarsAsync ===', calendars);
-      }
-    })();
-  }, []);
-
-  useEffect(() => {
+    useEffect(() => {
     getCalendarEvents()
   }, []);
 
   //Call calander and contacts again to update UI
   useEffect(() => {
     const unsubscribe = navigation.addListener("focus", () => {
-      console.log('navigation.addListener =========');
       getCalendarEvents();
       getContacts();
     });
@@ -410,7 +363,8 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
             {/* Row 1 */}
             <TouchableOpacity
               onPress={() => {
-                // if (events.length < 1) return;
+                if (events.length < 1) return;
+                dispatch(handleClick())
                 navigation.navigate("CalendarEvents");
               }}
               style={[
@@ -434,6 +388,7 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
               style={[styles.rowGray]}
               onPress={() => {
                 if (duplicatedContacts.length < 1) return;
+                dispatch(handleClick())
                 navigation.navigate("DuplicatedContacts");
               }}
             >
@@ -463,20 +418,14 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
               },
             ]}
           >
-          {hasEnoughStorage &&  (
-              <Image
-                source={checkGreen}
-                style={{ width: 20, height: 20 }}
-              />
-
-            )} 
-            
-            {!hasEnoughStorage &&(
-              <Image
-                source={checkRed}
-                style={{ width: 20, height: 20 }}
+            <Image
+              source={
+                hasEnoughStorage
+                  ? require("../../../assets/iconsSvg/checkGreen.png")
+                  : require("../../../assets/iconsSvg/checkRed.png")
+              }
+              style={{ width: 20, height: 20 }}
             />
-            )}
             <Text style={styles.msgText}>
               {hasEnoughStorage
                 ? "Sufficient space available"
@@ -589,3 +538,40 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
 });
+
+
+
+
+        // const covertBytes = (size, type) => {
+        //   if (type === "photos") {
+        //     if (size < 1024) {
+        //       setPhotosSize(`${size} bytes`);
+        //     } else if (size > 1024 && size < 1048576) {
+        //       setPhotosSize(`${Math.round(size / 1024)} kb`);
+        //     } else if (size > 1048576 && size < 1073741824) {
+        //       setPhotosSize(`${Math.round(size / 1024 / 1024)} MB`);
+        //     } else {
+        //       setPhotosSize(`${Math.round(size / 1024 / 1024 / 1024)} GB`);
+        //     }
+        //   } else if (type === "videos") {
+        //     if (size < 1024) {
+        //       setVideosSize(`${size} bytes`);
+        //     } else if (size > 1024 && size < 1048576) {
+        //       setVideosSize(`${Math.round(size / 1024)} kb`);
+        //     } else if (size > 1048576 && size < 1073741824) {
+        //       setVideosSize(`${Math.round(size / 1024 / 1024)} MB`);
+        //     } else {
+        //       setVideosSize(`${Math.round(size / 1024 / 1024 / 1024)} GB`);
+        //     }
+        //   } else if (type === "documents") {
+        //     if (size < 1024) {
+        //       setDocumentsSize(`${size} bytes`);
+        //     } else if (size > 1024 && size < 1048576) {
+        //       setDocumentsSize(`${Math.round(size / 1024)} kb`);
+        //     } else if (size > 1048576 && size < 1073741824) {
+        //       setDocumentsSize(`${Math.round(size / 1024 / 1024)} MB`);
+        //     } else {
+        //       setDocumentsSize(`${Math.round(size / 1024 / 1024 / 1024)} GB`);
+        //     }
+        //   }
+        // };

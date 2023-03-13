@@ -114,10 +114,10 @@ function MyTabs() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarStyle: { height: 54, fontSize: 25 },
+        tabBarStyle: { height: 58, fontSize: 25 },
         tabBarLabelStyle: {
           fontSize: 10,
-          paddingBottom: 4,
+          paddingBottom: 5,
         },
       }}
     >

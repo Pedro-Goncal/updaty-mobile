@@ -8,6 +8,7 @@ import {
   FlatList,
   Dimensions,
   ScrollView,
+  Pressable,
 } from "react-native";
 
 //Components
@@ -15,7 +16,7 @@ import Card from "../../Components/Card";
 import Pagination from "../../Components/Pagination";
 
 //Redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { handleClick } from "../../Redux/slices/adSlice";
 
 
@@ -24,9 +25,11 @@ import tutorialsHTML from "../../utils/tutorialsHTML.json";
 
 const { width, height } = Dimensions.get("window");
 
+
 const TutorialScreen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
   const dispatch = useDispatch();
+
 
   //Set viewability of each post based on the id of the post
   const viewabilityConfig = {
@@ -49,12 +52,13 @@ const TutorialScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* <ScrollView contentContainerStyle={{ flexGrow: 1 }}> */}
-        <View>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <Pressable>
           <Text style={styles.title}>Tutorials</Text>
-        </View>
+        </Pressable>
         <View style={styles.cardContainer}>
           <FlatList
+
             data={tutorialsHTML}
             snapToInterval={width} // Distance between each snap point
             snapToAlignment={"center"} // Align snap point to the center of the view
@@ -68,7 +72,7 @@ const TutorialScreen = () => {
             onViewableItemsChanged={onViewableItemsChanged.current}
           />
         </View>
-      {/* </ScrollView> */}
+      </ScrollView>
       <Pagination content={tutorialsHTML} activeCardId={activeCardId} />
     </View>
   );
@@ -80,7 +84,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ecf0f3",
-    paddingTop: height / 15,
+    paddingTop: 20,
     height: height,
   },
   scrollView: { flex: 1 },

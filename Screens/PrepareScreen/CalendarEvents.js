@@ -36,15 +36,20 @@ export default function CalendarEvents() {
     (async () => {
       await askCalendarPermission();
 
-      const calendars = await Calendar.getCalendarsAsync();
+      const calendars = await Calendar.getCalendarsAsync(Calendar.EntityTypes.EVENT,{
+        accessLevel: Calendar.CalendarAccessLevel.OWNER,
+      });
       const eventList = [];
+
+      console.log(calendars[0])
 
       for (const calendar of calendars) {
         const eventsInCalendar = await Calendar.getEventsAsync(
           [calendar.id],
           TEN_YEARS_AGO,
           TWO_YEARS_AGO
-        );
+          );
+          console.log([calendar.id])
         eventList.push(...eventsInCalendar);
       }
 
@@ -89,7 +94,7 @@ export default function CalendarEvents() {
       <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
         <Text style={styles.leftText}>{item.title}</Text>
         <Text>{formatDate(item.endDate)}</Text>
-        <Text style={styles.rightText}>{deviceFreeDiskSpace} Delete</Text>
+        <Text style={styles.rightText}> Delete</Text>
       </View>
     </TouchableOpacity>
   );
@@ -144,7 +149,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ecf0f3",
-    paddingTop: height / 15,
+    paddingTop: 20,
     height: height,
   },
   scrollView: { flex: 1 },

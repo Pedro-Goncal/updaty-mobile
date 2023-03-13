@@ -1,4 +1,4 @@
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, Dimensions } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import "expo-dev-client";
 
@@ -12,9 +12,16 @@ import RoutesManager from "./Routes/RoutesManager";
 import { Provider } from "react-redux";
 import store from "./Redux/store";
 
+const { width, height } = Dimensions.get("window");
+
+
+
+
 // import {BannerAd, BannerAdSize, TestId} from 'react-native-google-mobile-ads'
 import mobileAds, { MaxAdContentRating, BannerAd, BannerAdSize, TestIds, InterstitialAd, AdEventType } from 'react-native-google-mobile-ads';
 import { useEffect, useState } from "react";
+import { AD_UNIT_ID } from "./config/adMobConfig";
+import AdMobControllers from './AdMobControllers';
 
 mobileAds()
   .setRequestConfiguration({
@@ -43,76 +50,14 @@ mobileAds()
     console.log('initialization complete ===', adapterStatuses);
   });
 
-const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-8580824143358427~8104395596';
-const adUnitInterstitialId = __DEV__ ? TestIds.INTERSTITIAL : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
 
-const interstitial = InterstitialAd.createForAdRequest(adUnitInterstitialId, {
-  requestNonPersonalizedAdsOnly: true,
-  keywords: ['fashion', 'clothing'],
-});
 
 const App = () => {
-
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    const unsubscribe = interstitial.addAdEventListener(AdEventType.LOADED, () => {
-      console.log('unsubscribe ===', unsubscribe);
-      setLoaded(true);
-    });
-
-    // Start loading the interstitial straight away
-    interstitial.load();
-
-    // Unsubscribe from events on unmount
-    return unsubscribe;
-  }, []);
-
-  // No advert ready to show yet
-  if (!loaded) {
-    return null;
-  }
 
   return (
     <Provider store={store}>
       <View style={{ flex: 1 }}>
-        <NavigationContainer>
-          <StatusBar />
-          <RoutesManager />
-          <View
-            style={{
-              height: 150,
-              justifyContent: "center",
-              alignItems: "center",
-              borderColor: "rgba(222,222,222,.4)",
-              borderWidth: 1,
-            }}
-          >
-            <Button
-              title="Show Interstitial"
-              onPress={() => {
-                loaded && interstitial.show();
-              }}
-            />
-            <Text>Add Banner</Text>
-            <View style={{
-              // flex: 1,
-              // width: '100%',
-              top: 20,
-              height: 100,
-              // backgroundColor: 'red'
-            }}>
-              <BannerAd
-                unitId={adUnitId}
-                size={BannerAdSize.BANNER}
-                requestOptions={{
-                  requestNonPersonalizedAdsOnly: true,
-                }}
-              />
-
-            </View>
-          </View>
-        </NavigationContainer>
+        <AdMobControllers />
       </View>
     </Provider>
   );

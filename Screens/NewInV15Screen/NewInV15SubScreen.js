@@ -63,7 +63,7 @@ const NewInV15SubScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* <ScrollView contentContainerStyle={{ flexGrow: 1 }}> */}
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <TouchableOpacity
           style={styles.titleContainer}
           onPress={() => navigation.goBack()}
@@ -92,7 +92,7 @@ const NewInV15SubScreen = () => {
             }
           />
         </View>
-      {/* </ScrollView> */}
+      </ScrollView>
       <Pagination content={newInV15HTML} activeCardId={activeCardId} />
     </View>
   );
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ecf0f3",
-    paddingTop: height / 15,
+    paddingTop: 20,
     height: height,
   },
   scrollView: { flex: 1 },

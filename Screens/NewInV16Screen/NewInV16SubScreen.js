@@ -25,8 +25,11 @@ import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
 const { width, height } = Dimensions.get("window");
 
 //Redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { handleClick } from "../../Redux/slices/adSlice";
+
+import { AD_UNIT_INTERSTITIAL_ID } from "../../config/adMobConfig";
+import { InterstitialAd, AdEventType } from 'react-native-google-mobile-ads';
 
 const NewInV16SubScreen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
@@ -35,10 +38,18 @@ const NewInV16SubScreen = () => {
   const index = route.params.index;
 
   const dispatch = useDispatch();
-
-
   const flatListRef = useRef(null);
 
+  const [isScrollEnabled, setIsScrollEnabled] = useState(true)
+  const [loaded, setLoaded] = useState(false)
+
+
+  const {fireAd} = useSelector(state => state.ad)
+
+
+  
+ 
+  
   const getItemLayout = (data, index) => ({
     length: width - 20, // width of an item in the list
     offset: width * index, // position of the item in the list
@@ -62,7 +73,7 @@ const NewInV16SubScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* <ScrollView contentContainerStyle={{ flexGrow: 1 }}> */}
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <TouchableOpacity
           style={styles.titleContainer}
           onPress={() => navigation.goBack()}
@@ -91,7 +102,7 @@ const NewInV16SubScreen = () => {
             }
           />
         </View>
-      {/* </ScrollView> */}
+      </ScrollView>
       <Pagination content={newInV16HTML} activeCardId={activeCardId} />
     </View>
   );
@@ -103,7 +114,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ecf0f3",
-    paddingTop: height / 15,
+    paddingTop: 20,
     height: height,
   },
   scrollView: { flex: 1 },
