@@ -96,24 +96,40 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
 
         if (status === "granted") {
 
+          // const {assets} = await MediaLibrary.getAssetsAsync()
 
+         
 
-
-          
-          const {assets} = await MediaLibrary.getAssetsAsync();
-
-          console.log("======================> ", assets[0].uri)
-          const asset = await MediaLibrary.getAssetInfoAsync(assets[0].uri);
-          console.log(asset)
+          // console.log("======================> ", Image.getSize(assets[0].uri))
+          // const asset = await MediaLibrary.getAssetInfoAsync(assets[0].uri);
+          // console.log(asset)
 
 
       
         
 
-          const photoDetail = await MediaLibrary.getAssetInfoAsync(
-            assets[0].id
-          );
-          console.log('photoDetail ===', photoDetail);
+          // const photoDetail = await MediaLibrary.getAssetInfoAsync(
+          //   assets[0].id
+          // );
+          // console.log('photoDetail ===', photoDetail);
+
+
+          // MediaLibrary.getAssetsAsync({
+          //   mediaType: MediaLibrary.MediaType.photo,
+          // }).then(assets => {
+            
+          //   try {
+          //     assets.assets.forEach(async asset => {
+               
+          //       const size = await Image.getSize(asset.uri);
+          //       const compressionRate = asset.fileSize / (size.width * size.height);
+          //       console.log(`Compression rate of ${asset.filename}: ${compressionRate}`);
+          //     });
+          //   } catch (error) {
+          //     console.log(error)
+          //   }
+       
+          // });
 
 
           function calculatePhotoSizeInBytes(width, height, dpi, bitDepth, compressionRatio) {
@@ -128,17 +144,12 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
           }
 
 
-          console.log(calculatePhotoSizeInBytes(photoDetail.exif.PixelWidth, photoDetail.exif.PixelHeight, photoDetail.exif.DPIHeight,   photoDetail.exif.Depth, 2) / 1024 / 1024)
+          // console.log("This is a calculated size",calculatePhotoSizeInBytes(photoDetail.exif.PixelWidth, photoDetail.exif.PixelHeight, photoDetail.exif.DPIHeight, photoDetail.exif.Depth, 2) / 1024 / 1024)
 
 
         } else {
           await MediaLibrary.requestPermissionsAsync();
         }
-
-
-
-
-      
       } catch (error) {
         console.log("Error getting media library size:", error);
       }
@@ -198,50 +209,40 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
   //Get amount of old calendar entries
   //=====================================
   const [events, setEvents] = useState([]);
-  const [permission, askForCalendarPermision] = useCalendarPermissions();
+ 
+  const today = new Date(); // current date
+ const endingDate = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
+const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(), endingDate.getDate());
 
 
 
-  const endingDate = 2; //CHANGE RANGE
-  const startingData = 10;
+    const getCalendarEvents = async () => {
+      const { status } = await Calendar.requestCalendarPermissionsAsync();
 
-  const TWO_YEARS_AGO = new Date(
-    Date.now() - endingDate * 365 * 24 * 60 * 60 * 1000
-  ); 
-  const TEN_YEARS_AGO = new Date(
-    Date.now() - startingData * 365 * 24 * 60 * 60 * 1000
-  ); 
-
-    const getCalendarEvents = 
-    async () => {
-
-      try {
-        const { status } = await Calendar.requestRemindersPermissionsAsync();
-     
-        if (status === 'granted') {
-          const calendars = await Calendar.getCalendarsAsync(Calendar.EntityTypes.EVENT);     
-
-          const eventList = [];
-
-          for (const calendar of calendars) {
-            const eventsInCalendar = await Calendar.getEventsAsync(
-              [calendar.id],
-              TEN_YEARS_AGO,
-              TWO_YEARS_AGO
-            );
-            eventList.push(...eventsInCalendar);
-
-          }
-         setEvents(eventList)
-        }
-        
-      } catch (error) {
-        console.log("Error getting the calendars =======>",error)
+      if (status !== "granted") {
+        console.warn("Calendar permission not granted");
       }
-    };
 
+      const calendars = await Calendar.getCalendarsAsync(Calendar.EntityTypes.EVENT,{
+        accessLevel: Calendar.CalendarAccessLevel.OWNER,
+      });
+      const eventList = [];
 
-    
+        await Calendar.getEventsAsync(
+          [calendars[0].id],
+          startingDate,
+          endingDate
+          )
+          .then((e)=> {
+          
+            eventList.push(...e)
+          })
+          .catch((error)=>console.log("error", error));
+
+      setEvents(eventList);
+
+    }
+   
     useEffect(() => {
     getCalendarEvents()
   }, []);

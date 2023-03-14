@@ -17,15 +17,15 @@ import * as Calendar from "expo-calendar";
 //Navigation
 import { useNavigation } from "@react-navigation/native";
 
-const endingDate = 2; //CHANGE RANGE
-const startingData = 10;
 
-const TWO_YEARS_AGO = new Date(
-  Date.now() - endingDate * 365 * 24 * 60 * 60 * 1000
-); // 2 years ago
-const TEN_YEARS_AGO = new Date(
-  Date.now() - startingData * 365 * 24 * 60 * 60 * 1000
-); // 2 years ago
+
+const today = new Date(); // current date
+const endingDate = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
+const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(), endingDate.getDate());
+
+
+//It can only retrieve 4 years at the same time, not sure why but with that we can get entries older then 1 year and up to 5 years 
+
 
 export default function CalendarEvents() {
   const [events, setEvents] = useState([]);
@@ -34,24 +34,27 @@ export default function CalendarEvents() {
 
   useEffect(() => {
     (async () => {
-      await askCalendarPermission();
+      const { status } = await Calendar.requestCalendarPermissionsAsync();
+
+    if (status !== "granted") {
+      console.warn("Calendar permission not granted");
+    }
 
       const calendars = await Calendar.getCalendarsAsync(Calendar.EntityTypes.EVENT,{
         accessLevel: Calendar.CalendarAccessLevel.OWNER,
       });
       const eventList = [];
 
-      console.log(calendars[0])
-
-      for (const calendar of calendars) {
-        const eventsInCalendar = await Calendar.getEventsAsync(
-          [calendar.id],
-          TEN_YEARS_AGO,
-          TWO_YEARS_AGO
-          );
-          console.log([calendar.id])
-        eventList.push(...eventsInCalendar);
-      }
+        await Calendar.getEventsAsync(
+          [calendars[0].id],
+          startingDate,
+          endingDate
+          )
+          .then((e)=> {
+          
+            eventList.push(...e)
+          })
+          .catch((error)=>console.log("error", error));
 
       setEvents(eventList);
     })();
@@ -69,12 +72,6 @@ export default function CalendarEvents() {
     setEvents([]);
   }
 
-  async function askCalendarPermission() {
-    const { status } = await Calendar.requestCalendarPermissionsAsync();
-    if (status !== "granted") {
-      console.warn("Calendar permission not granted");
-    }
-  }
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -85,19 +82,26 @@ export default function CalendarEvents() {
     });
   };
 
+  //
 
-  const renderItem = ({ item }) => (
-    <TouchableOpacity
-      onPress={() => deleteEvent(item.id)}
-      style={{ padding: 5, margin: 5, borderWidth: 1 }}
-    >
+  const renderItem = ({ item }) => {
+    return (
       <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
+        <View style={styles.textContainer}>
+
         <Text style={styles.leftText}>{item.title}</Text>
-        <Text>{formatDate(item.endDate)}</Text>
-        <Text style={styles.rightText}> Delete</Text>
+        <Text style={styles.rightText}>{formatDate(item.endDate)}</Text>
+        </View>
+        <TouchableOpacity
+          style={styles.deleteButton}
+          onPress={() => deleteEvent(item.id)}
+          >
+          <Text style={styles.buttonText}>Delete</Text>
+        </TouchableOpacity>
       </View>
-    </TouchableOpacity>
-  );
+          )
+
+  };
 
   return (
     <View style={styles.container}>
@@ -143,7 +147,6 @@ export default function CalendarEvents() {
   );
 }
 
-//TODO - Test calendar entries on iOS
 
 const styles = StyleSheet.create({
   container: {
@@ -152,7 +155,17 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     height: height,
   },
-  scrollView: { flex: 1 },
+
+  deleteButton: {
+    backgroundColor: "#d72c16",
+    paddingVertical: 10,
+    paddingHorizontal: 25,
+    borderRadius: 5,
+   
+  },
+  buttonText:{
+    color: "#FFF"
+  },
   titleContainer: {
     flexDirection: "row",
     justifyContent: "flex-start",
@@ -166,12 +179,31 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingHorizontal: 6,
   },
-  cardContainer: {
-    justifyContent: "center",
+  row: {
+    borderBottomWidth: 1,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
     alignItems: "center",
-    paddingTop: 10,
-    paddingBottom: 50,
+    paddingVertical: 10,
   },
+  leftText: {
+    fontSize: 14,
+  },
+  textContainer:{
+
+  },
+  rightText: {
+    fontSize: 14,
+    fontWeight: "bold",
+  },
+  
+  // cardContainer: {
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   paddingTop: 10,
+  //   paddingBottom: 50,
+  // },
 
   cardContainer: {
     borderRadius: 12,
@@ -180,7 +212,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginTop: 20,
     minHeight: height / 2,
-    padding: 20,
+    padding: 15,
     marginBottom: width / 3,
   },
   deleteAllContainer: {

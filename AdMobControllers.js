@@ -6,6 +6,7 @@ import { StatusBar } from "expo-status-bar";
 const { width, height } = Dimensions.get("window");
 
 import { useDispatch, useSelector } from "react-redux";
+import { handleFirstLoad } from './Redux/slices/adSlice';
 
 import { AD_UNIT_INTERSTITIAL_ID, AD_UNIT_ID } from "./config/adMobConfig";
 import mobileAds, { MaxAdContentRating, BannerAd, BannerAdSize, TestIds, InterstitialAd, AdEventType } from 'react-native-google-mobile-ads';
@@ -19,11 +20,24 @@ import RoutesManager from "./Routes/RoutesManager";
 const adMobControllers = () => {
 
     const [loaded, setLoaded] = useState(false)
+
+    const dispatch = useDispatch()
   
 
     const {fireAd} = useSelector(state => state.ad)
     const interstitial = InterstitialAd.createForAdRequest(AD_UNIT_INTERSTITIAL_ID );
+
+    useEffect(() => {
+      console.log("Use effect Run")
+      const timeoutId = setTimeout(() => {
+       dispatch(handleFirstLoad())
+       console.log("Timeout fired")
+      }, 30000);
   
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }, []);
     
     useEffect(() => {
       setLoaded(false)
@@ -32,6 +46,7 @@ const adMobControllers = () => {
   
         setLoaded(true);
         if(fireAd){
+          console.log("What up")
           interstitial.show()
         }
       });
