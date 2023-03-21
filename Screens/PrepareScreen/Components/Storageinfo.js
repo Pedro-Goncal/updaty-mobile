@@ -87,76 +87,76 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
   }, [deviceFreeDiskSpace]);
 
 
-  useEffect(()=> {
-    async function getMediaLibrarySize() {
-      try {
-        const { status } = await MediaLibrary.requestPermissionsAsync();
-        // console.log('status ===', status);
+  // useEffect(()=> {
+  //   async function getMediaLibrarySize() {
+  //     try {
+  //       const { status } = await MediaLibrary.requestPermissionsAsync();
+  //       // console.log('status ===', status);
 
 
-        if (status === "granted") {
+  //       if (status === "granted") {
 
-          // const {assets} = await MediaLibrary.getAssetsAsync()
+  //         // const {assets} = await MediaLibrary.getAssetsAsync()
 
          
 
-          // console.log("======================> ", Image.getSize(assets[0].uri))
-          // const asset = await MediaLibrary.getAssetInfoAsync(assets[0].uri);
-          // console.log(asset)
+  //         // console.log("======================> ", Image.getSize(assets[0].uri))
+  //         // const asset = await MediaLibrary.getAssetInfoAsync(assets[0].uri);
+  //         // console.log(asset)
 
 
       
         
 
-          // const photoDetail = await MediaLibrary.getAssetInfoAsync(
-          //   assets[0].id
-          // );
-          // console.log('photoDetail ===', photoDetail);
+  //         // const photoDetail = await MediaLibrary.getAssetInfoAsync(
+  //         //   assets[0].id
+  //         // );
+  //         // console.log('photoDetail ===', photoDetail);
 
 
-          // MediaLibrary.getAssetsAsync({
-          //   mediaType: MediaLibrary.MediaType.photo,
-          // }).then(assets => {
+  //         // MediaLibrary.getAssetsAsync({
+  //         //   mediaType: MediaLibrary.MediaType.photo,
+  //         // }).then(assets => {
             
-          //   try {
-          //     assets.assets.forEach(async asset => {
+  //         //   try {
+  //         //     assets.assets.forEach(async asset => {
                
-          //       const size = await Image.getSize(asset.uri);
-          //       const compressionRate = asset.fileSize / (size.width * size.height);
-          //       console.log(`Compression rate of ${asset.filename}: ${compressionRate}`);
-          //     });
-          //   } catch (error) {
-          //     console.log(error)
-          //   }
+  //         //       const size = await Image.getSize(asset.uri);
+  //         //       const compressionRate = asset.fileSize / (size.width * size.height);
+  //         //       console.log(`Compression rate of ${asset.filename}: ${compressionRate}`);
+  //         //     });
+  //         //   } catch (error) {
+  //         //     console.log(error)
+  //         //   }
        
-          // });
+  //         // });
 
 
-          function calculatePhotoSizeInBytes(width, height, dpi, bitDepth, compressionRatio) {
-            const bitsPerPixel = bitDepth * 3; // Assuming 3 color channels (RGB)
-            const bytesPerPixel = bitsPerPixel / 8;
-            const compressionFactor = 1 / compressionRatio;
-            const widthInches = width / dpi;
-            const heightInches = height / dpi;
-            const totalPixels = width * height;
-            const totalBytes = totalPixels * bytesPerPixel * compressionFactor;
-            return totalBytes;
-          }
+  //         function calculatePhotoSizeInBytes(width, height, dpi, bitDepth, compressionRatio) {
+  //           const bitsPerPixel = bitDepth * 3; // Assuming 3 color channels (RGB)
+  //           const bytesPerPixel = bitsPerPixel / 8;
+  //           const compressionFactor = 1 / compressionRatio;
+  //           const widthInches = width / dpi;
+  //           const heightInches = height / dpi;
+  //           const totalPixels = width * height;
+  //           const totalBytes = totalPixels * bytesPerPixel * compressionFactor;
+  //           return totalBytes;
+  //         }
 
 
-          // console.log("This is a calculated size",calculatePhotoSizeInBytes(photoDetail.exif.PixelWidth, photoDetail.exif.PixelHeight, photoDetail.exif.DPIHeight, photoDetail.exif.Depth, 2) / 1024 / 1024)
+  //         // console.log("This is a calculated size",calculatePhotoSizeInBytes(photoDetail.exif.PixelWidth, photoDetail.exif.PixelHeight, photoDetail.exif.DPIHeight, photoDetail.exif.Depth, 2) / 1024 / 1024)
 
 
-        } else {
-          await MediaLibrary.requestPermissionsAsync();
-        }
-      } catch (error) {
-        console.log("Error getting media library size:", error);
-      }
-    }
+  //       } else {
+  //         await MediaLibrary.requestPermissionsAsync();
+  //       }
+  //     } catch (error) {
+  //       console.log("Error getting media library size:", error);
+  //     }
+  //   }
 
-    getMediaLibrarySize();
-  },[])
+  //   getMediaLibrarySize();
+  // },[])
 
   //======================================
   //Get amount of duplicated contacts
@@ -291,7 +291,7 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
           <Text style={styles.rightText}>{deviceFreeDiskSpace} GB</Text>
         </View>
         {/* Row 3*/}
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() =>
             setIsUsageDetailsOpen((isUsageDetailsOpen) => !isUsageDetailsOpen)
           }
@@ -301,11 +301,11 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
           <View style={styles.rightText}>
             {isUsageDetailsOpen ? <ArrowUp /> : <ArrowDown />}
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         {/* Usage details dropdown */}
-        {isUsageDetailsOpen && (
+        {/* {isUsageDetailsOpen && (
           <View style={styles.dropDownContainer}>
-            {/* Row 1 */}
+ 
             <View
               style={[
                 styles.rowGray,
@@ -318,7 +318,7 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
               <Text style={styles.leftText}>Photos</Text>
               <Text style={styles.rightText}>{photosSize}</Text>
             </View>
-            {/* Row 2 */}
+        
             <View
               style={[
                 styles.rowGray,
@@ -332,7 +332,7 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
               <Text style={styles.rightText}>{videosSize}</Text>
             </View>
 
-            {/* Row 3 */}
+        
             <View
               style={[
                 styles.rowGray,
@@ -343,7 +343,7 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
               <Text style={styles.rightText}>{documentsSize}</Text>
             </View>
           </View>
-        )}
+        )} */}
         {/* Row 4*/}
         <TouchableOpacity
           onPress={() =>

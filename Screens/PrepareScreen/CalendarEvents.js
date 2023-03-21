@@ -19,6 +19,7 @@ import { useNavigation } from "@react-navigation/native";
 
 
 
+
 const today = new Date(); // current date
 const endingDate = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
 const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(), endingDate.getDate());
@@ -31,6 +32,8 @@ export default function CalendarEvents() {
   const [events, setEvents] = useState([]);
 
   const navigation = useNavigation();
+
+
 
   useEffect(() => {
     (async () => {

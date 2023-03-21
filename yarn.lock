@@ -5808,6 +5808,11 @@ react-native-gradle-plugin@^0.70.3:
   resolved "https://registry.npmjs.org/react-native-gradle-plugin/-/react-native-gradle-plugin-0.70.3.tgz"
   integrity sha512-oOanj84fJEXUg9FoEAQomA8ISG+DVIrTZ3qF7m69VQUJyOGYyDZmPqKcjvRku4KXlEH6hWO9i4ACLzNBh8gC0A==
 
+react-native-installed-apps@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-installed-apps/-/react-native-installed-apps-0.0.6.tgz#d896ce64559dc08bb689ce14f14671d3aeb975aa"
+  integrity sha512-mf1uJEIjhrq/Yp9ADHOgR+6dyosVdehIksqo6brjQiPWpnkFmNaEssGgPtU9H3skeFhivhU5XQ9HjoUjRoCwUA==
+
 react-native-progress@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmjs.org/react-native-progress/-/react-native-progress-5.0.0.tgz"
