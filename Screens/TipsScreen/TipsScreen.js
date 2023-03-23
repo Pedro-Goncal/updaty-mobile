@@ -1,6 +1,4 @@
 import {
-  SafeAreaView,
-  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -13,7 +11,7 @@ import CardSmallTips from "./CardSmallTips";
 //Content TEMP
 import tipsHTML from "../../utils/tipsHTML.json";
 
-const { width, height } = Dimensions.get("window");
+const { height } = Dimensions.get("window");
 
 const TipsScreen = () => {
   const [activeCardId, setActiveCardId] = useState(null);

@@ -1,27 +1,18 @@
-import { View, Text, Button, Dimensions } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { View,} from "react-native";
+
 import "expo-dev-client";
 
 import "react-native-gesture-handler";
 
-import { NavigationContainer } from "@react-navigation/native";
-
-import RoutesManager from "./Routes/RoutesManager";
 
 //Redux
 import { Provider } from "react-redux";
 import store from "./Redux/store";
 
-const { width, height } = Dimensions.get("window");
-
-
-
-
-// import {BannerAd, BannerAdSize, TestId} from 'react-native-google-mobile-ads'
-import mobileAds, { MaxAdContentRating, BannerAd, BannerAdSize, TestIds, InterstitialAd, AdEventType } from 'react-native-google-mobile-ads';
-import { useEffect, useState } from "react";
-import { AD_UNIT_ID } from "./config/adMobConfig";
 import AdMobControllers from './AdMobControllers';
+
+import mobileAds, { MaxAdContentRating, BannerAd, BannerAdSize, TestIds, InterstitialAd, AdEventType } from 'react-native-google-mobile-ads';
+
 
 mobileAds()
   .setRequestConfiguration({

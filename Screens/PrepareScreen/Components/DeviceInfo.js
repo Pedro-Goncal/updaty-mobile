@@ -36,6 +36,8 @@ const DeviceInfo = ({ isUpdateAvailable, maxOsUpdate }) => {
     };
   }, [NetInfo]);
 
+  console.log(Device.osVersion)
+
 
   return (
     <View style={styles.container}>

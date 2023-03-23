@@ -1,18 +1,14 @@
 import React from "react";
 import {
   StyleSheet,
-  Text,
-  View,
   Dimensions,
-  Image,
   TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-//Utills
-import { concatString } from "../../utils/utilFunctions";
 
-const { width, height } = Dimensions.get("window");
+
+const { width } = Dimensions.get("window");
 
 import RenderHtml from "react-native-render-html";
 
@@ -21,6 +17,7 @@ import { useDispatch } from "react-redux";
 import { handleClick } from "../../Redux/slices/adSlice";
 
 const tagStyles = {
+ 
   img: {
     width: 90,
     height: 90,
@@ -28,6 +25,18 @@ const tagStyles = {
     borderRadius: 12,
     overflow: "hidden"
   },
+  h1: {
+    color: "#999",
+    fontSize: 14,
+ 
+  },
+  h2: {
+    fontSize: "18px",
+    color: "#000",
+    fontWeight: "bold",
+  },
+
+  
 };
 
 const classesStyles = {
@@ -50,17 +59,7 @@ const classesStyles = {
     alignItems: "flex-start",
     
     
-  },
-  subTitle: {
-    color: "#999",
-    fontSize: 14,
- 
-  },
-  title: {
-    fontSize: "18px",
-    color: "#000",
-    fontWeight: "bold",
-  },
+  }
 };
 
 const CardSmallTips = ({ content, index }) => {

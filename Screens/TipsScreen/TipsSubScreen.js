@@ -1,6 +1,5 @@
 import {
-  SafeAreaView,
-  StatusBar,
+
   StyleSheet,
   Text,
   View,
@@ -16,7 +15,6 @@ import { useRoute } from "@react-navigation/native";
 //Content TEMP
 import tipsHTML from "../../utils/tipsHTML.json";
 import { ScrollView } from "react-native-gesture-handler";
-import { Path, Svg } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
 import Pagination from "../../Components/Pagination";
 import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";

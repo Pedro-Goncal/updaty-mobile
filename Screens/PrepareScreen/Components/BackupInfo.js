@@ -5,7 +5,6 @@ import {
   View,
   Dimensions,
   Image,
-  Pressable,
   TouchableOpacity,
 } from "react-native";
 

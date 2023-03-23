@@ -44,7 +44,8 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.apptitute.app",
+      "bundleIdentifier": "com.updaty.app",
+      "buildNumber":1,
       "infoPlist": {
         "NSRemindersUsageDescription": "Need to access the reminders"
     }
@@ -54,7 +55,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#d72c16"
       },
-      "package": "com.apptitute.app"
+      "package": "com.updaty.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"

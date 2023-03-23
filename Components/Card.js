@@ -5,57 +5,15 @@ import {
   Dimensions,
   Image,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  ActivityIndicator
 } from "react-native";
-import React from "react";
+import React , {useState, useEffect} from "react";
 
 const { width, height } = Dimensions.get("window");
 
 import RenderHtml from "react-native-render-html";
 
-
-const htmlSource = {
-  html: `
-      <html>
-        <div>
-          <div>
-            <p class=subTitle >Subtitle Lorem ipsum</p> 
-          </div>
-          <div>
-            <p class=title>This is a long title dolor sit amet sed do 3</p>
-          </div>
-          <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus libero eu mauris venenatis, non malesuada elit volutpat. Sed eu neque at leo aliquam blandit. Nam vel orci sed lacus gravida auctor. In euismod, justo eget ultrices iaculis, dui elit pulvinar risus, quis ultricies tellus ipsum non tellus.</p>
-          </div>
-          <div>
-            <img src=https://images.unsplash.com/photo-1585060282215-39a72f82385c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2087&q=80 alt=placeholder >
-          </div>
-          <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus libero eu mauris venenatis, non malesuada elit volutpat. Sed eu neque at leo aliquam blandit. Nam vel orci sed lacus gravida auctor. In euismod, justo eget ultrices iaculis, dui elit pulvinar risus, quis ultricies tellus ipsum non tellus.</p> </div><div><img src=https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW9iaWxlJTIwcGhvbmV8ZW58MHx8MHx8&auto=format&fit=crop&w=1200&q=60 alt=placeholder > 
-          </div>
-          <div>
-            <ul>
-              <li >Lorem ipsum dolor sit amet, consectetur adipilibero eu mauris 1</li>
-              <li >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus libero eu mauris 2</li>
-              <li >Lorem insectetur adipiscing elit. Nulla finibus libero eu mauris 3</li>
-              <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus libero eu mauris 4</li>
-              <li >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus libero eu mauris 5</li>
-            </ul>
-            <ol>
-              <li >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus libero eu mauris 1</li>
-              <li >Lorem ipsum dolor sit amet, conelit. Nulla finibus libero eu mauris 2</li> 
-              <li>Lorem ipsum dolortetur adipiscing elit. Nulla finibus libero eu mauris 3</li>
-              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus libero eu mauris 4</li>
-              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Nulla  mauris 5</li>
-            </ol> 
-            <div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus libero eu mauris venenatis, non malesuada elit volutpat. Sed eu neque at leo aliquam blandit. Nam vel orci sed lacus gravida auctor. In euismod, justo eget ultrices iaculis, dui elit pulvinar risus, quis ultricies tellus ipsum non tellus.</p>
-            </div>
-          </div> 
-        </div> 
-      </html>
-    `,
-};
 
 const tagStyles = {
   img: {
@@ -67,6 +25,62 @@ const tagStyles = {
     paddingBottom: 10,
     fontStyle: "italic",
   },
+
+ h1 : {
+  marginTop: 20,
+  marginBottom: 10,
+  paddingHorizontal: 15,
+  fontSize: 28
+
+ },
+ h2 : {
+  marginTop: 20,
+  marginBottom: 10,
+  paddingHorizontal: 15,
+  fontSize: 24,
+  borderBottomColor: '#cccccc',
+  borderBottomWidth: 1,
+
+ },
+ h3 : {
+  marginTop: 20,
+  marginBottom: 10,
+  paddingHorizontal: 15,
+fontSize: 18
+ },
+ h4 : {
+  marginTop: 20,
+  marginBottom: 10,
+  paddingHorizontal: 15,
+  fontSize: 16
+
+ },
+ 
+ h5 : {
+  marginTop: 20,
+  marginBottom: 10,
+  fontSize: 14
+
+ },
+ h6 : {
+  marginTop: 20,
+  marginBottom: 10,
+  fontSize: 14,
+  color: "#777777"
+ },
+ p: {
+  paddingHorizontal: 15,
+  marginTop: 15,
+  fontSize: 16
+ },
+ hr: {
+  marginTop: 10,
+  border: "none",
+  color: "#cccccc",
+  height: 4,
+  padding: 0
+  }
+
 };
 
 const classesStyles = {
@@ -80,41 +94,56 @@ const classesStyles = {
   },
 };
 
+const renderersProps = {
+  img: {
+    enableExperimentalPercentWidth: true
+  }
+}
+
 
 const Card = ({ content }) => {
   const htmlSource = {
     html: `${content.html}`,
   };
 
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+     setLoading(false)
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleLoaded = () => {
+    setLoading(false)
+  }
+
+  const calculatedHeight = height - "30%";
+
   return (
     <View style={styles.container}>
-      {/* <ScrollView style={{flex: 1}} > */}
+      {loading && (
+
+        <View style={styles.spinner}>
+        <ActivityIndicator />
+      </View>
+        )}
+      <ScrollView style={{flex: 1}} >
         <RenderHtml
           contentWidth={width - 20}
           source={htmlSource}
           tagsStyles={tagStyles}
           classesStyles={classesStyles}
+     
+          renderersProps={renderersProps}
         />
-        {/* <View>
-        <View style={styles.subTitleContainer}>
-        <Text style={styles.subTitle}>{content.subTitle}</Text>
-        </View>
-        <View style={styles.titleContainer}>
-        <Text style={styles.title}>{content.title}</Text>
-        </View>
-        <View style={styles.contentContainer}>
-        <Text style={styles.content}>{content.content}</Text>
-        </View>
-      </View>
-      <View style={styles.imgContainer}>
-        <Image source={{ uri: content.imgUrl }} style={styles.img} />
-      </View> */}
-      {/* </ScrollView> */}
+    
+      </ScrollView>
     </View>
   );
 };
 
-//! To Change how the scroll view works change the outside scroll view or the card scroll view
 
 export default Card;
 
@@ -122,10 +151,27 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 20,
     width: width - 20,
+    height: height / 1.6 ,
     backgroundColor: "#FFF",
     marginHorizontal: 10,
-    padding: 20,
+    paddingVertical: 10,
+    position: "relative",
+    overflow: "hidden" 
   },
+  spinner: {
+    flex: 1,
+    borderRadius: 20,
+    backgroundColor: "#FFF",
+    width: width - 20,
+    height: height - 320,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    zIndex: 10,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+
   subTitleContainer: {},
   subTitle: {
     color: "#607080",
@@ -154,3 +200,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 });
+
+
+//FVW25T6ZYG

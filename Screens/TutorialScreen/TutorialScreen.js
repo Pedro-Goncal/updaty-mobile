@@ -1,13 +1,12 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef} from "react";
 import {
-  SafeAreaView,
-  StatusBar,
+
   StyleSheet,
   Text,
   View,
   FlatList,
   Dimensions,
-  ScrollView,
+
   Pressable,
 } from "react-native";
 
@@ -16,7 +15,7 @@ import Card from "../../Components/Card";
 import Pagination from "../../Components/Pagination";
 
 //Redux
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { handleClick } from "../../Redux/slices/adSlice";
 
 
@@ -52,7 +51,7 @@ const TutorialScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      {/* <ScrollView contentContainerStyle={{ flexGrow: 1 }}> */}
         <Pressable>
           <Text style={styles.title}>Tutorials</Text>
         </Pressable>
@@ -72,7 +71,7 @@ const TutorialScreen = () => {
             onViewableItemsChanged={onViewableItemsChanged.current}
           />
         </View>
-      </ScrollView>
+      {/* </ScrollView> */}
       <Pagination content={tutorialsHTML} activeCardId={activeCardId} />
     </View>
   );

@@ -1,12 +1,10 @@
 import {
-  SafeAreaView,
-  StatusBar,
+
   StyleSheet,
   Text,
   View,
   FlatList,
   Dimensions,
-  TouchableOpacity,
   ScrollView,
 } from "react-native";
 import React, { useState, useRef, useEffect } from "react";
@@ -97,7 +95,7 @@ const PrepareScreen = () => {
 
 
   useEffect(() => {
-    //TODO - Figure out how to display a message saying your phone does not support the newrs ios
+   
 
     //Device model Identifier
     const modelIdString = Device.modelId;
@@ -179,8 +177,7 @@ const PrepareScreen = () => {
       }
     }
 
-    // console.log(modelIDNumber);
-    // console.log(Device.modelId);
+ 
   }, []);
 
   //=========================================================
