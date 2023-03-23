@@ -1,24 +1,17 @@
 {
   "expo": {
-    
     "name": "updaty",
     "plugins": [
       [
         "expo-calendar",
         {
-          "calendarPermission": "Allow $(PRODUCT_NAME) to access your calendar",
-          "remindersPermission": "Allow $(PRODUCT_NAME) to access your reminders"
-        },
-        "expo-media-library",
-        {
-          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos.",
-          "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos.",
-          "isAccessMediaLocationEnabled": true
+          "calendarPermission": "The app needs to access your calendar.",
+          "remindersPermission": "The app needs to access your reminders."
         }
       ]
     ],
     "slug": "updaty",
-    "version": "1.0.0",
+    "version": "12.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -30,32 +23,28 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "plugins": [
-      [
-        "expo-calendar",
-        {
-          "calendarPermission": "The app needs to access your calendar.",
-          "remindersPermission": "The app needs to access your reminders."
-        }
-      ]
-    ],
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.updaty.app",
-      "buildNumber":1,
+      "buildNumber": "1",
       "infoPlist": {
-        "NSRemindersUsageDescription": "Need to access the reminders"
-    }
+        "NSRemindersUsageDescription": "The app needs to access your reminders.",
+        "NSCalendarsUsageDescription": "The app needs to access your calendar."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#d72c16"
       },
-      "package": "com.updaty.app"
+      "package": "com.updaty.app",
+      "permissions": [
+        "android.permission.READ_CALENDAR",
+        "android.permission.WRITE_CALENDAR"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"

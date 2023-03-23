@@ -1,13 +1,14 @@
 {
   "cli": {
-    "version": ">= 3.7.2"
+    "version": ">= 3.7.2",
+    "promptToConfigurePushNotifications": false
   },
   "build": {
     "development": {
       "developmentClient": true,
       "distribution": "internal",
       "ios": {
-        "simulator":  true
+        "simulator": true
       }
     },
     "preview": {
@@ -23,6 +24,12 @@
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "bpg.pedro@gmail.com",
+        "ascAppId": "705433920",
+        "appleTeamId": "FVW25T6ZYG"
+      }
+    }
   }
 }
