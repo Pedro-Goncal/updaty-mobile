@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "updaty",
+    "name": "Updaty - Update & News",
     "plugins": [
       [
         "expo-calendar",
@@ -11,7 +11,7 @@
       ]
     ],
     "slug": "updaty",
-    "version": "12.0.0",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -49,9 +49,10 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "owner": "pedro-goncal",
     "extra": {
       "eas": {
-        "projectId": "6fb51e7b-6113-4831-9cac-30f48f74e5f9"
+        "projectId": "c4b7f56d-14ba-46f6-a68f-ab4d8148150a"
       }
     }
   },

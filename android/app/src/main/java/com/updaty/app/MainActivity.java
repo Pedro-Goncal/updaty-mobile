@@ -1,4 +1,4 @@
-package com.apptitute.app;
+package com.updaty.app;
 
 import android.os.Build;
 import android.os.Bundle;
