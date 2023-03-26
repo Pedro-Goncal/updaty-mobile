@@ -1,9 +1,10 @@
-import { View,} from "react-native";
+
+import { View} from "react-native";
 
 import "expo-dev-client";
 
 import "react-native-gesture-handler";
-
+import * as SplashScreen from 'expo-splash-screen'
 
 //Redux
 import { Provider } from "react-redux";
@@ -12,6 +13,7 @@ import store from "./Redux/store";
 import AdMobControllers from './AdMobControllers';
 
 import mobileAds, { MaxAdContentRating, BannerAd, BannerAdSize, TestIds, InterstitialAd, AdEventType } from 'react-native-google-mobile-ads';
+import { useEffect } from 'react';
 
 
 mobileAds()
@@ -43,11 +45,25 @@ mobileAds()
 
 
 
-const App = () => {
 
+
+const App = () => {
+  useEffect(() => {
+    const prepare = async () => {
+      // keep splash screen visible
+      await SplashScreen.preventAutoHideAsync()
+
+      // pre-load your stuff
+      await new Promise(resolve => setTimeout(resolve, 5000))
+
+      // hide splash screen
+      await SplashScreen.hideAsync()
+    }
+    prepare()
+  }, [])
   return (
     <Provider store={store}>
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1 , backgroundColor: "#ecf0f3"}}>
         <AdMobControllers />
       </View>
     </Provider>

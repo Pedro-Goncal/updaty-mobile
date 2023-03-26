@@ -1,6 +1,6 @@
 [
   {
-    "html": "<html><h1 id=toc_0>Tutorial</h1><h3 id=toc_1>Here are the steps to update your iPhone</h3><p><img src=https://updaty.apptitute.de/img/tutorial-01-1.jpg alt=connect to wifi></p><p>Before you start, your iPhone must be connected to <strong>Wi-Fi</strong>.</p><p><img src=https://updaty.apptitute.de/img/tutorial-01-2.jpg alt=more than 50% charge></p><p>and have at least 50% battery or be plugged in to a power source to download and install updates. </p><p><img src=https://updaty.apptitute.de/img/tutorial-01-3.jpg ></p><p>It&rsquo;s also a good idea to <strong>back up</strong> your iPhone before installing updates to avoid any potential data loss.</p></html>",
+    "html": "<html><h2 id=toc_0>Tutorial</h2><p id=toc_1>Here are the steps to update your iPhone</p><p><img src=https://updaty.apptitute.de/img/tutorial-01-1.jpg alt=connect to wifi></p><p>Before you start, your iPhone must be connected to <strong>Wi-Fi</strong>.</p><p><img src=https://updaty.apptitute.de/img/tutorial-01-2.jpg alt=more than 50% charge></p><p>and have at least 50% battery or be plugged in to a power source to download and install updates. </p><p><img src=https://updaty.apptitute.de/img/tutorial-01-3.jpg ></p><p>It&rsquo;s also a good idea to <strong>back up</strong> your iPhone before installing updates to avoid any potential data loss.</p></html>",
     "id": 1
   },
   {
@@ -12,7 +12,7 @@
     "id": 3
   },
   {
-    "html": "<html> <h3 id=toc_0>Back up</h3><p>Make sure to back up your iPhone before updating to ensure you don&rsquo;t lose any data. </p><p><img src=https://updaty.apptitute.de/img/tutorial-04-2.jpg alt=wifi is connected></p><p>To backup your iPhone, you can use either iCloud or your computer.</p><p><img src=https://updaty.apptitute.de/img/tutorial-04-1.jpg alt=icloud backup></p><p>Backing up to iCloud connect your iPhone to Wi-Fi.</p><p><img src=https://updaty.apptitute.de/img/tutorial-04-3.jpg alt=connect to wifi></p><p>Go to <em>Settings</em> &gt; [Your Name] &gt; <em>iCloud</em> &gt; <em>iCloud Backup</em>.</p><p><img src=https://updaty.apptitute.de/img/tutorial-04-4.jpg alt=icloud settings></p><p>Toggle on <em>iCloud Backup</em> if it isn&rsquo;t already on.</p><p><img src=https://updaty.apptitute.de/img/tutorial-04-5.jpg alt=backup now></p><p>Tap <em>Back Up Now</em> to start the backup process. Keep your iPhone connected to Wi-Fi and power until the backup is complete.</p></html>",
+    "html": "<html> <h2 id=toc_0>Back up</h2><p>Make sure to back up your iPhone before updating to ensure you don&rsquo;t lose any data. </p><p><img src=https://updaty.apptitute.de/img/tutorial-04-2.jpg alt=wifi is connected></p><p>To backup your iPhone, you can use either iCloud or your computer.</p><p><img src=https://updaty.apptitute.de/img/tutorial-04-1.jpg alt=icloud backup></p><p>Backing up to iCloud connect your iPhone to Wi-Fi.</p><p><img src=https://updaty.apptitute.de/img/tutorial-04-3.jpg alt=connect to wifi></p><p>Go to <em>Settings</em> &gt; [Your Name] &gt; <em>iCloud</em> &gt; <em>iCloud Backup</em>.</p><p><img src=https://updaty.apptitute.de/img/tutorial-04-4.jpg alt=icloud settings></p><p>Toggle on <em>iCloud Backup</em> if it isn&rsquo;t already on.</p><p><img src=https://updaty.apptitute.de/img/tutorial-04-5.jpg alt=backup now></p><p>Tap <em>Back Up Now</em> to start the backup process. Keep your iPhone connected to Wi-Fi and power until the backup is complete.</p></html>",
     "id": 4
   },
   {
@@ -24,7 +24,7 @@
     "id": 6
   },
   {
-    "html": "<html> <h2 id=toc_0>Update Step 2</h2><p><img src=https://updaty.apptitute.de/img/tutorial-07-1.jpg alt=enter passcode></p><p>If <strong>Download and Install</strong> prompted, enter your passcode.</p> <p><img src=https://updaty.apptitute.de/img/tutorial-07-2.jpg alt=accept terms and conditions></p><p>Tap <em>Agree</em> to the terms and conditions.</p><p><img src=https://updaty.apptitute.de/img/tutorial-07-3.jpg alt=download progress bar></p>and the size of the update.</p></html>",
+    "html": "<html> <h2 id=toc_0>Update Step 2</h2><p><img src=https://updaty.apptitute.de/img/tutorial-07-1.jpg alt=enter passcode></p><p>If <strong>Download and Install</strong> prompted, enter your passcode.</p> <p><img src=https://updaty.apptitute.de/img/tutorial-07-2.jpg alt=accept terms and conditions></p><p>Tap <em>Agree</em> to the terms and conditions.</p><p><img src=https://updaty.apptitute.de/img/tutorial-07-3.jpg alt=download progress bar></p><p> and the size of the update.</p></html>",
     "id": 7
   },
   {

@@ -3,8 +3,7 @@ import {
   Text,
   View,
   Dimensions,
-  Image,
-  TouchableOpacity,
+  Platform,
   ScrollView,
   ActivityIndicator
 } from "react-native";
@@ -17,9 +16,14 @@ import RenderHtml from "react-native-render-html";
 
 const tagStyles = {
   img: {
-    width: "100%",
-    objectFit: "cover",
-    marginVertical: 10,
+   
+    objectFit: "fit",
+    // marginVertical: 10,
+    // margin: 6,
+    width: width - 50,
+    height: "100%", 
+    borderRadius: 8,
+    overflow: "hidden"
   },
   li: {
     paddingBottom: 10,
@@ -30,48 +34,49 @@ const tagStyles = {
   marginTop: 20,
   marginBottom: 10,
   paddingHorizontal: 15,
-  fontSize: 28
+  fontSize: Platform.isPad ? 38 :28
 
  },
  h2 : {
   marginTop: 20,
   marginBottom: 10,
   paddingHorizontal: 15,
-  fontSize: 24,
+  fontSize: Platform.isPad ? 38 : 26,
   borderBottomColor: '#cccccc',
   borderBottomWidth: 1,
+  paddingBottom: 6
 
  },
  h3 : {
   marginTop: 20,
   marginBottom: 10,
   paddingHorizontal: 15,
-fontSize: 18
+  fontSize: Platform.isPad ? 30 : 18
  },
  h4 : {
   marginTop: 20,
   marginBottom: 10,
   paddingHorizontal: 15,
-  fontSize: 16
+  fontSize: Platform.isPad ? 28 : 16
 
  },
  
  h5 : {
   marginTop: 20,
   marginBottom: 10,
-  fontSize: 14
+  fontSize: Platform.isPad ? 26 : 14
 
  },
  h6 : {
   marginTop: 20,
   marginBottom: 10,
-  fontSize: 14,
+  fontSize: Platform.isPad ? 26 : 14,
   color: "#777777"
  },
  p: {
   paddingHorizontal: 15,
   marginTop: 15,
-  fontSize: 16
+  fontSize: Platform.isPad ? 26 : 18
  },
  hr: {
   marginTop: 10,
@@ -82,6 +87,8 @@ fontSize: 18
   }
 
 };
+
+console.log(Platform.isPad)
 
 const classesStyles = {
   subTitle: {
@@ -94,14 +101,10 @@ const classesStyles = {
   },
 };
 
-const renderersProps = {
-  img: {
-    enableExperimentalPercentWidth: true
-  }
-}
 
+const screenDimensions = Dimensions.get('screen');
 
-const Card = ({ content }) => {
+const Card = ({content}) => {
   const htmlSource = {
     html: `${content.html}`,
   };
@@ -119,10 +122,37 @@ const Card = ({ content }) => {
     setLoading(false)
   }
 
-  const calculatedHeight = height - "30%";
+  const [dimensions, setDimensions] = useState({
+
+    screen: screenDimensions,
+  });
+
+  useEffect(() => {
+    const subscription = Dimensions.addEventListener(
+      'change',
+      ({window, screen}) => {
+        setDimensions({screen});
+      },
+    );
+    return () => subscription?.remove();
+  });
+
+
+
+
+  
+// const RenderersProps = {
+//   img: {
+//     enableExperimentalPercentWidth: true,
+  
+//   }
+// }
+
+
+
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {width: dimensions.screen.width - 20, height: dimensions.screen.height - 320}]}>
       {loading && (
 
         <View style={styles.spinner}>
@@ -131,12 +161,11 @@ const Card = ({ content }) => {
         )}
       <ScrollView style={{flex: 1}} >
         <RenderHtml
-          contentWidth={width - 20}
+          contentWidth={dimensions.screen.width - 20}
           source={htmlSource}
           tagsStyles={tagStyles}
           classesStyles={classesStyles}
-     
-          renderersProps={renderersProps}
+          // renderersProps={RenderersProps}
         />
     
       </ScrollView>
@@ -144,19 +173,18 @@ const Card = ({ content }) => {
   );
 };
 
-
 export default Card;
 
 const styles = StyleSheet.create({
   container: {
     borderRadius: 20,
-    width: width - 20,
-    height: height / 1.6 ,
+    
     backgroundColor: "#FFF",
     marginHorizontal: 10,
     paddingVertical: 10,
+    marginBottom: 50,
     position: "relative",
-    overflow: "hidden" 
+    overflow: "hidden" ,
   },
   spinner: {
     flex: 1,
@@ -200,6 +228,3 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 });
-
-
-//FVW25T6ZYG

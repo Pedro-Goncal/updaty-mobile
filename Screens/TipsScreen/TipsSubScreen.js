@@ -20,6 +20,8 @@ import Pagination from "../../Components/Pagination";
 import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
 
 const { width, height } = Dimensions.get("window");
+const screenDimensions = Dimensions.get('screen');
+
 
 //Redux
 import { useDispatch } from "react-redux";
@@ -37,8 +39,8 @@ const TipsSubScreen = () => {
   const flatListRef = useRef(null);
 
   const getItemLayout = (data, index) => ({
-    length: width - 20, // width of an item in the list
-    offset: width * index, // position of the item in the list
+    length: dimensions.screen.width - 20, // width of an item in the list
+    offset: dimensions.screen.width * index, // position of the item in the list
     index,
   });
 
@@ -57,6 +59,30 @@ const TipsSubScreen = () => {
     }
   });
 
+
+  const [heights, setHeights] = useState([]);
+
+
+  const handleContentSizeChange = (contentWidth, contentHeight) => {
+    const newHeights = tipsHTML.map(() => contentHeight);
+    setHeights(newHeights);
+  };
+
+  const [dimensions, setDimensions] = useState({
+
+    screen: screenDimensions,
+  });
+
+  useEffect(() => {
+    const subscription = Dimensions.addEventListener(
+      'change',
+      ({window, screen}) => {
+        setDimensions({screen});
+      },
+    );
+    return () => subscription?.remove();
+  });
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -70,10 +96,13 @@ const TipsSubScreen = () => {
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>
+          
           <FlatList
+     
             ref={flatListRef}
+            decelerationRate={0.9}
+            snapToInterval={dimensions.screen.width} // Distance between each snap point
             data={tipsHTML}
-            snapToInterval={width} // Distance between each snap point
             snapToAlignment={"center"} // Align snap point to the center of the view
             getItemLayout={getItemLayout}
             showsHorizontalScrollIndicator={false}
@@ -86,6 +115,8 @@ const TipsSubScreen = () => {
             onLayout={() =>
               flatListRef.current.scrollToIndex({ index, animated: false })
             }
+            onContentSizeChange={handleContentSizeChange}
+
           />
         </View>
       </ScrollView>
@@ -100,7 +131,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ecf0f3",
-    paddingTop: 20,
+    paddingTop: 40,
     height: height,
   },
   scrollView: { flex: 1 },
@@ -122,5 +153,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 10,
     paddingBottom: 50,
+    overflow: "hidden"
   },
 });

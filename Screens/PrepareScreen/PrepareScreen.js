@@ -6,10 +6,13 @@ import {
   FlatList,
   Dimensions,
   ScrollView,
+  Platform,
 } from "react-native";
 import React, { useState, useRef, useEffect } from "react";
 
 const { width, height } = Dimensions.get("window");
+const screenDimensions = Dimensions.get('screen');
+
 
 //components
 import Initial from "./Components/Initial";
@@ -72,10 +75,11 @@ const PrepareScreen = () => {
   });
 
   const getItemLayout = (data, index) => ({
-    length: width - 20,
-    offset: width * index,
+    length: dimensions.screen.width - 20, // width of an item in the list
+    offset: dimensions.screen.width * index, // position of the item in the list
     index,
   });
+
   //=========================================================
 
   //=========================================================
@@ -199,6 +203,24 @@ const PrepareScreen = () => {
     };
   }, []);
 
+  const flatListRef = useRef(null);
+
+  const [dimensions, setDimensions] = useState({
+
+    screen: screenDimensions,
+  });
+
+  useEffect(() => {
+    const subscription = Dimensions.addEventListener(
+      'change',
+      ({window, screen}) => {
+        setDimensions({screen});
+      },
+    );
+    return () => subscription?.remove();
+  });
+
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -207,12 +229,14 @@ const PrepareScreen = () => {
         </View>
         <View style={styles.cardContainer}>
           <FlatList
+            ref={flatListRef}
+            decelerationRate={0.9}
             data={data}
-            snapToInterval={width} // Distance between each snap point
+            snapToInterval={dimensions.screen.width} // Distance between each snap point
             snapToAlignment={"center"} // Align snap point to the center of the view
             getItemLayout={getItemLayout}
             showsHorizontalScrollIndicator={false}
-            initialNumToRender={1}
+            initialNumToRender={4}
             keyExtractor={(item) => item.id}
             horizontal
             viewabilityConfig={viewabilityConfig}
@@ -233,6 +257,7 @@ const PrepareScreen = () => {
                   return (
                     <Storageinfo
                       setHasEnoughStorageCheck={setHasEnoughStorageCheck}
+                      activeCardId={activeCardId}
                     />
                   );
                 case 4:
@@ -265,12 +290,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ecf0f3",
-    paddingTop: 20,
+    paddingTop: 40,
     height: height,
   },
   scrollView: { flex: 1 },
   title: {
-    fontSize: 28,
+    fontSize: Platform.isPad ? 42 :28,
     fontWeight: "bold",
     paddingHorizontal: 18,
     paddingTop: 20,

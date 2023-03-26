@@ -49,7 +49,7 @@ const FinalInfo = ({
     } else {
       setTitle("🙈 Oh no! Looks like there are still issues you need to fix.");
     }
-  }, []);
+  }, [isReadyForUpdate]);
 
   return (
     <View style={styles.mainContainer}>

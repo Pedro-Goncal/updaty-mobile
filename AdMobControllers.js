@@ -4,7 +4,9 @@ import { StatusBar } from "expo-status-bar";
 
 
 const { width, height } = Dimensions.get("window");
+const screenDimensions = Dimensions.get('screen');
 
+import * as SplashScreen from 'expo-splash-screen'
 import { useDispatch, useSelector } from "react-redux";
 import { handleFirstLoad } from './Redux/slices/adSlice';
 
@@ -58,33 +60,53 @@ const adMobControllers = () => {
       return unsubscribe;
     }, [fireAd]);
 
+    const [dimensions, setDimensions] = useState({
+
+      screen: screenDimensions,
+    });
+  
+    useEffect(() => {
+      const subscription = Dimensions.addEventListener(
+        'change',
+        ({window, screen}) => {
+          setDimensions({screen});
+        },
+      );
+      return () => subscription?.remove();
+    });
+
+
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <NavigationContainer>
-          <StatusBar />
+    // <SafeAreaView style={{flex: 1}}>
+      <NavigationContainer >
+          
+
           <RoutesManager />
           <View
             style={{
-            //   height: 100,
-              width: width,
+              //   height: 100,
+              width: dimensions.screen.width,
               justifyContent: "center",
               alignItems: "center",
-            
-            
+              marginBottom: 30,
+              marginTop: 3,
+            //  marginHorizontal: 20
+            backgroundColor: "#ecf0f3"
             }}
-          >
+            >
               <BannerAd
                 unitId={AD_UNIT_ID} 
-                size={BannerAdSize.FULL_BANNER}
+                size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
                 requestOptions={{
                   requestNonPersonalizedAdsOnly: true,
                 }}
-              />
+                />
 
             </View>
           
+               
         </NavigationContainer>
-    </SafeAreaView>
+    // </SafeAreaView>
   )
 }
 

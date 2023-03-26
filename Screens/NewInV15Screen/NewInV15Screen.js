@@ -6,6 +6,7 @@ import {
   View,
   FlatList,
   Dimensions,
+  Platform,
 } from "react-native";
 import React, { useState, useRef } from "react";
 import CardSmall15 from "./CardSmall15";
@@ -54,12 +55,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ecf0f3",
-    paddingTop: 20,
+    paddingTop: 40,
     height: height,
   },
   scrollView: { flex: 1 },
   title: {
-    fontSize: 28,
+    fontSize: Platform.isPad ? 42 :28,
+
     fontWeight: "bold",
     paddingHorizontal: 18,
     paddingTop: 20,

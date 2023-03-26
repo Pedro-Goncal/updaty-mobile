@@ -6,6 +6,7 @@ import {
   Dimensions,
   Image,
   TouchableOpacity,
+  Platform
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -35,24 +36,22 @@ import RenderHtml from "react-native-render-html";
 const tagStyles = {
  
   img: {
-    width: 90,
-    height: 90,
+    width: Platform.isPad ?  130 : 90,
+    height: Platform.isPad ?  130 : 90,
     objectFit: "cover",
-    borderRadius: 12,
+    borderRadius: 8,
     overflow: "hidden"
   },
   h1: {
     color: "#999",
-    fontSize: 14,
+    fontSize: Platform.isPad ?  26: 14,
  
   },
   h2: {
-    fontSize: "18px",
+    fontSize: Platform.isPad ? 29 : 18,
     color: "#000",
     fontWeight: "bold",
-  },
-
-  
+  },  
 };
 
 const classesStyles = {
@@ -65,7 +64,7 @@ const classesStyles = {
   imgContainer: {
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 18,
+    borderRadius: 8,
     paddingLeft: 6
   },
   rightContainer: {
@@ -115,11 +114,12 @@ export default CardSmall16;
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 12,
-    width: width - 22,
+    borderRadius: 16,
+    width: width - 30,
     backgroundColor: "#FFF",
     minHeight: 90,
     padding: 2,
+    paddingVertical: 6,
     flexDirection: "row",
     marginVertical: 6,
   },

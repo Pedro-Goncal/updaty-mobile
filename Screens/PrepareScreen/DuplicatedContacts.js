@@ -8,12 +8,13 @@ import {
   Alert,
   Dimensions,
   ActivityIndicator,
+  Platform
 } from "react-native";
 
 import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
 
 const { width, height } = Dimensions.get("window");
-
+const screenDimensions = Dimensions.get('screen');
 //Device info
 import * as Contacts from "expo-contacts";
 
@@ -24,6 +25,21 @@ function App({route}) {
   const [duplicatedContacts, setDuplicatedContacts] = useState([]);
   const navigation = useNavigation();
   const [loading, setLoading] = useState(true);
+
+  const [dimensions, setDimensions] = useState({
+
+    screen: screenDimensions,
+  });
+
+  useEffect(() => {
+    const subscription = Dimensions.addEventListener(
+      'change',
+      ({window, screen}) => {
+        setDimensions({screen});
+      },
+    );
+    return () => subscription?.remove();
+  });
 
   useEffect(() => {
     const getContacts = async () => {
@@ -92,15 +108,15 @@ function App({route}) {
         style={[styles.row, { borderBottomColor: "rgba(144,128,144,0.2)" }]}
       >
         <View>
-          <Text style={styles.leftText}>{item.name}</Text>
-          <Text style={styles.rightText}>{item.phoneNumbers[0].number}</Text>
+          <Text style={[styles.leftText, {fontSize: Platform.isPad ? 26 : 15}]}>{item.name}</Text>
+          <Text style={[styles.rightText, {fontSize: Platform.isPad ? 26 : 15}]}>{item.phoneNumbers[0].number}</Text>
         </View>
 
         <TouchableOpacity
           style={styles.deleteButton}
           onPress={() => deleteContact(item.id)}
         >
-          <Text style={styles.buttonText}>Delete</Text>
+          <Text style={[styles.buttonText, {fontSize: Platform.isPad ? 26 : 15}]}>Delete</Text>
         </TouchableOpacity>
       </View>
     );
@@ -122,10 +138,10 @@ function App({route}) {
       >
         <ArrowSvg />
 
-        <Text style={styles.title}>Delete duplicate contacts</Text>
+        <Text style={[styles.title, {fontSize: Platform.isPad ? 36 : 18}]}>Delete duplicate contacts</Text>
       </TouchableOpacity>
 
-      <View style={styles.cardContainer}>
+      <View style={[styles.cardContainer, {height: dimensions.screen.height -320}]}>
         {duplicatedContacts.length < 1 ? (
           <View style={styles.noEntriesContainer}>
             <Text style={{ textAlign: "center", paddingHorizontal: 30 }}>
@@ -185,8 +201,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ecf0f3",
-    paddingTop: 20,
-    height: height,
+    paddingTop: 40,
+
   },
   scrollView: { flex: 1 },
   titleContainer: {

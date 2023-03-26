@@ -38,7 +38,7 @@ import { handleClick } from "../../../Redux/slices/adSlice";
 //TODO - Figure out how to get the usage space for each folder
 //TODO - Should i have the second warning if there is enough space?
 
-const Storageinfo = ({ setHasEnoughStorageCheck }) => {
+const Storageinfo = ({ setHasEnoughStorageCheck, activeCardId }) => {
   const [deviceTotalDiskSpace, setDeviceTotalDiskSpace] = useState("");
   const [deviceFreeDiskSpace, setDeviceFreeDiskSpace] = useState("");
   const [hasEnoughStorage, setHasEnoughStorage] = useState(false);
@@ -48,6 +48,8 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
 
   const navigation = useNavigation();
   const dispatch = useDispatch()
+
+  console.log(activeCardId)
 
   //========================================================
   //GET DEVICE INFO
@@ -201,9 +203,15 @@ const Storageinfo = ({ setHasEnoughStorageCheck }) => {
     }
   };
 
+
+
   useEffect(() => {
-    getContacts();
-  }, []);
+    if(activeCardId === 3){
+      console.log("this run")
+      getContacts();
+
+    }
+  }, [activeCardId]);
 
   //======================================
   //Get amount of old calendar entries
@@ -244,18 +252,23 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
     }
    
     useEffect(() => {
+      if(activeCardId === 3){
     getCalendarEvents()
+      }
   }, []);
 
   //Call calander and contacts again to update UI
   useEffect(() => {
-    const unsubscribe = navigation.addListener("focus", () => {
-      getCalendarEvents();
-      getContacts();
-    });
-
-    return unsubscribe;
-  }, [navigation]);
+    if(activeCardId === 3){
+      
+      const unsubscribe = navigation.addListener("focus", () => {
+        getCalendarEvents();
+        getContacts();
+      });
+      
+      return unsubscribe;
+    }
+    }, [navigation]);
 
   return (
     <View style={styles.container}>

@@ -6,11 +6,13 @@ import {
   TouchableOpacity,
   StyleSheet,
   Dimensions,
+  Platform
 } from "react-native";
 
 import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
 
 const { width, height } = Dimensions.get("window");
+const screenDimensions = Dimensions.get('screen');
 
 import * as Calendar from "expo-calendar";
 
@@ -33,8 +35,20 @@ export default function CalendarEvents() {
 
   const navigation = useNavigation();
 
+  const [dimensions, setDimensions] = useState({
 
+    screen: screenDimensions,
+  });
 
+  useEffect(() => {
+    const subscription = Dimensions.addEventListener(
+      'change',
+      ({window, screen}) => {
+        setDimensions({screen});
+      },
+    );
+    return () => subscription?.remove();
+  });
   useEffect(() => {
     (async () => {
       const { status } = await Calendar.requestCalendarPermissionsAsync();
@@ -92,14 +106,14 @@ export default function CalendarEvents() {
       <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
         <View style={styles.textContainer}>
 
-        <Text style={styles.leftText}>{item.title}</Text>
-        <Text style={styles.rightText}>{formatDate(item.endDate)}</Text>
+        <Text style={[styles.leftText, {fontSize: Platform.isPad ? 26 : 15}]}>{item.title}</Text>
+        <Text style={[styles.rightText, {fontSize: Platform.isPad ? 26 : 15}]}>{formatDate(item.endDate)}</Text>
         </View>
         <TouchableOpacity
           style={styles.deleteButton}
           onPress={() => deleteEvent(item.id)}
           >
-          <Text style={styles.buttonText}>Delete</Text>
+          <Text style={[styles.buttonText, {fontSize: Platform.isPad ? 26 : 15}]}>Delete</Text>
         </TouchableOpacity>
       </View>
           )
@@ -114,17 +128,17 @@ export default function CalendarEvents() {
       >
         <ArrowSvg />
 
-        <Text style={styles.title}>Delete old calendar entries</Text>
+        <Text style={[styles.title, {fontSize: Platform.isPad ? 36 : 18}]}>Delete old calendar entries</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         onPress={deleteAllEvents}
         style={styles.deleteAllContainer}
       >
-        <Text style={{ color: "white" }}>Delete All</Text>
+        <Text style={{ color: "white", fontSize: Platform.isPad? 26 : 16 }}>Delete All</Text>
       </TouchableOpacity>
 
-      <View style={styles.cardContainer}>
+      <View style={[styles.cardContainer, {height: dimensions.screen.height -320}]}>
         {events.length < 1 ? (
           <View style={styles.noEntriesContainer}>
             <Text
@@ -155,7 +169,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ecf0f3",
-    paddingTop: 20,
+    paddingTop: 40,
     height: height,
   },
 
@@ -214,7 +228,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
     marginHorizontal: 10,
     marginTop: 20,
-    minHeight: height / 2,
+  
     padding: 15,
     marginBottom: width / 3,
   },
