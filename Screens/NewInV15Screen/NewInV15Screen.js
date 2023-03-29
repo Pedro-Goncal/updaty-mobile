@@ -13,6 +13,7 @@ import CardSmall15 from "./CardSmall15";
 
 //Content TEMP
 import newInV15HTML from "../../utils/newInV15HTML.json";
+import newInV15SmallCardContent from "./Content/newInV15Content";
 
 const { width, height } = Dimensions.get("window");
 
@@ -36,7 +37,7 @@ const NewInV15Screen = () => {
       </View>
       <View style={styles.cardContainer}>
         <FlatList
-          data={newInV15HTML}
+          data={newInV15SmallCardContent}
           renderItem={({ item, index }) => (
             <CardSmall15 content={item} index={index} />
           )}
@@ -60,8 +61,8 @@ const styles = StyleSheet.create({
   },
   scrollView: { flex: 1 },
   title: {
-    fontSize: Platform.isPad ? 42 :28,
-    fontFamily: 'Helvetica Neue',
+    fontSize: Platform.isPad ? 42 : 28,
+    fontFamily: "Helvetica Neue",
     fontWeight: "bold",
     paddingHorizontal: 18,
     paddingTop: 14,

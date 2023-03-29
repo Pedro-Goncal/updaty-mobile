@@ -6,11 +6,9 @@ import {
   Platform,
   View,
   Text,
-  Image
+  Image,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
-
 
 const { width } = Dimensions.get("window");
 
@@ -21,48 +19,43 @@ import { useDispatch } from "react-redux";
 import { handleClick } from "../../Redux/slices/adSlice";
 
 const tagStyles = {
- 
   img: {
-    width: Platform.isPad ?  130 : 90,
-    height: Platform.isPad ?  130 : 90,
+    width: Platform.isPad ? 130 : 90,
+    height: Platform.isPad ? 130 : 90,
     objectFit: "cover",
     borderRadius: 8,
-    overflow: "hidden"
+    overflow: "hidden",
   },
   h1: {
     color: "#999",
-    fontSize: Platform.isPad ?  26: 14,
-    fontFamily: 'Helvetica Neue',
+    fontSize: Platform.isPad ? 26 : 14,
+    fontFamily: "Helvetica Neue",
   },
   h2: {
     fontSize: Platform.isPad ? 29 : 18,
     color: "#000",
     fontWeight: "bold",
-    fontFamily: 'Helvetica Neue',
-  },  
+    fontFamily: "Helvetica Neue",
+  },
 };
 
 const classesStyles = {
-
   container: {
     flexDirection: "row",
     minHeight: 90,
-  
   },
   imgContainer: {
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 8,
-    paddingLeft: 6
+    paddingLeft: 6,
   },
   rightContainer: {
     paddingHorizontal: 12,
     width: "75%",
     justifyContent: "flex-start",
     alignItems: "flex-start",
-    
-    
-  }
+  },
 };
 
 const CardSmallTips = ({ content, index }) => {
@@ -73,29 +66,32 @@ const CardSmallTips = ({ content, index }) => {
     html: content.htmlSmall,
   };
 
-  console.log(content)
+  console.log(content);
 
-  const img = content.img
-
+  const img = content.img;
 
   return (
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
-      dispatch(handleClick());
+        dispatch(handleClick());
         navigation.navigate("TipsSubScreen", { index: index });
       }}
     >
       <View style={styles.left}>
-      <Image source={content.img} height={Platform.isPad ?  130 : 90} width={Platform.isPad ?  130 : 90}  style={styles.img}/>
+        <Image
+          source={content.img}
+          height={Platform.isPad ? 130 : 90}
+          width={Platform.isPad ? 130 : 90}
+          style={styles.img}
+        />
       </View>
       <View style={styles.right}>
-      <Text style={styles.subTitle}>{content.subtitle}</Text>
-      <Text style={styles.title}>{content.title}</Text>
-
+        <Text style={styles.subTitle}>{content.subtitle}</Text>
+        <Text style={styles.title}>{content.title}</Text>
       </View>
 
-       {/* <RenderHtml
+      {/* <RenderHtml
           contentWidth={width - 20}
           source={htmlSource}
           tagsStyles={tagStyles}
@@ -126,7 +122,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 8,
     paddingVertical: 8,
-    paddingHorizontal: 8
+    paddingHorizontal: 8,
   },
   right: {
     paddingLeft: 8,
@@ -135,24 +131,24 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "flex-start",
   },
- img: {
-  width: Platform.isPad ?  130 : 90,
-  height: Platform.isPad ?  130 : 90,
-  objectFit: "cover",
-  borderRadius: 8,
-  overflow: "hidden"
- },
- title: {
-  fontSize: Platform.isPad ? 29 : 18,
-  color: "#000",
-  fontWeight: "bold",
-  fontFamily: 'Helvetica Neue',
- },
- subTitle: {
-  color: "#999",
-  fontSize: Platform.isPad ?  26: 14,
-  fontFamily: 'Helvetica Neue',
-  paddingTop: 16,
-paddingBottom: 3
- }
+  img: {
+    width: Platform.isPad ? 130 : 90,
+    height: Platform.isPad ? 130 : 90,
+    objectFit: "cover",
+    borderRadius: 8,
+    overflow: "hidden",
+  },
+  title: {
+    fontSize: Platform.isPad ? 29 : 18,
+    color: "#000",
+    fontWeight: "bold",
+    fontFamily: "Helvetica Neue",
+  },
+  subTitle: {
+    color: "#999",
+    fontSize: Platform.isPad ? 26 : 14,
+    fontFamily: "Helvetica Neue",
+    paddingTop: 16,
+    paddingBottom: 3,
+  },
 });

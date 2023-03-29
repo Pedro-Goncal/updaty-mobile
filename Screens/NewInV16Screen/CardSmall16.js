@@ -6,7 +6,7 @@ import {
   Dimensions,
   Image,
   TouchableOpacity,
-  Platform
+  Platform,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -16,60 +16,51 @@ import { handleClick } from "../../Redux/slices/adSlice";
 
 const { width, height } = Dimensions.get("window");
 
-
-
 import RenderHtml from "react-native-render-html";
 
 const tagStyles = {
- 
   img: {
-    width: Platform.isPad ?  130 : 90,
-    height: Platform.isPad ?  130 : 90,
+    width: Platform.isPad ? 130 : 90,
+    height: Platform.isPad ? 130 : 90,
     objectFit: "cover",
     borderRadius: 8,
-    overflow: "hidden"
+    overflow: "hidden",
   },
   h1: {
     color: "#999",
-    fontSize: Platform.isPad ?  26: 14,
-    fontFamily: 'Helvetica Neue',
- 
+    fontSize: Platform.isPad ? 26 : 14,
+    fontFamily: "Helvetica Neue",
   },
   h2: {
     fontSize: Platform.isPad ? 29 : 18,
     color: "#000",
     fontWeight: "bold",
-    fontFamily: 'Helvetica Neue',
-  },  
+    fontFamily: "Helvetica Neue",
+  },
 };
 
 const classesStyles = {
-
   container: {
     flexDirection: "row",
     minHeight: 90,
-  
   },
   imgContainer: {
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 8,
-    paddingLeft: 6
+    paddingLeft: 6,
   },
   rightContainer: {
     paddingHorizontal: 12,
     width: "75%",
     justifyContent: "flex-start",
     alignItems: "flex-start",
-    
-    
-  }
+  },
 };
 
 const CardSmall16 = ({ content, index }) => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-
 
   const htmlSource = {
     html: content.htmlSmall,
@@ -79,12 +70,24 @@ const CardSmall16 = ({ content, index }) => {
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
-      dispatch(handleClick());
+        dispatch(handleClick());
         navigation.navigate("NewInV16SubScreen", { index: index });
       }}
     >
+      <View style={styles.left}>
+        <Image
+          source={content.img}
+          height={Platform.isPad ? 130 : 90}
+          width={Platform.isPad ? 130 : 90}
+          style={styles.img}
+        />
+      </View>
+      <View style={styles.right}>
+        <Text style={styles.subTitle}>{content.subtitle}</Text>
+        <Text style={styles.title}>{content.title}</Text>
+      </View>
 
-            <RenderHtml
+      {/* <RenderHtml
           contentWidth={width - 20}
           source={htmlSource}
           tagsStyles={tagStyles}
@@ -92,9 +95,7 @@ const CardSmall16 = ({ content, index }) => {
           enableExperimentalMarginCollapsing={true}
           bypassAnonymousTPhrasingNodes={true}
 
-        />
-     
-
+        /> */}
     </TouchableOpacity>
   );
 };
@@ -106,11 +107,44 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     width: width - 30,
     backgroundColor: "#FFF",
-    minHeight: 90,
-    padding: 2,
-    paddingVertical: 6,
+    minHeight: 97,
+    // padding: 2,
     flexDirection: "row",
     marginVertical: 6,
   },
-  
+  left: {
+    // width: "25%",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 8,
+  },
+  right: {
+    paddingLeft: 8,
+    paddingRight: 22,
+    width: "75%",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+  },
+  img: {
+    width: Platform.isPad ? 130 : 90,
+    height: Platform.isPad ? 130 : 90,
+    objectFit: "cover",
+    borderRadius: 8,
+    overflow: "hidden",
+  },
+  title: {
+    fontSize: Platform.isPad ? 29 : 18,
+    color: "#000",
+    fontWeight: "bold",
+    fontFamily: "Helvetica Neue",
+  },
+  subTitle: {
+    color: "#999",
+    fontSize: Platform.isPad ? 26 : 14,
+    fontFamily: "Helvetica Neue",
+    paddingTop: 16,
+    paddingBottom: 3,
+  },
 });
