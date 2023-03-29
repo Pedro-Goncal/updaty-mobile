@@ -13,7 +13,7 @@ import CardSmall15 from "./CardSmall15";
 
 //Content TEMP
 import newInV15HTML from "../../utils/newInV15HTML.json";
-import newInV15SmallCardContent from "./Content/newInV15Content";
+import {newInV15SmallCardContent} from "./Content/newInV15Content";
 
 const { width, height } = Dimensions.get("window");
 
@@ -29,6 +29,8 @@ const NewInV15Screen = () => {
       setActiveCardId(viewableItems[0].item.id);
     }
   });
+
+  console.log(newInV15SmallCardContent)
 
   return (
     <View style={styles.container}>

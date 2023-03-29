@@ -1,18 +1,22 @@
 [
    {
       "html": "<h2 class=title>Better manage your duplicate contacts</h2> <p><img src=https://updaty.apptitute.de/img/tips-09-1.jpg alt=></p>  <p>Better manage your duplicate contacts on your iPhone.</p>  <p>We’ve all had it where over time the contacts list in our phone becomes a bit disorganized and unwieldy. Why do I have 13 different contacts set up for my mother, I hear you saying.</p>  <p>The good news is that you can now dedupe your contacts lists on your iPhone and manage the information you have for your contacts.</p>  <p>So the Contacts app can now detect where you have multiple contacts set up for the same person. </p> ",
-      "id":1
+      "id":1,
+      "subtitle": "Duplicate contacts"
    },
    {
       "html": "<h2 class=title>Better manage your duplicate contacts</h2> <p><img src=https://updaty.apptitute.de/img/tips-09-2.jpg alt=></p>  <p>In fact, it will tell you this. When you open the app, it will display message saying how many duplicate contacts it has found.</p>",
-      "id":2
+      "id":2,
+      "subtitle": "Duplicate contacts"
    },
    {
       "html": "<h2 class=title>Better manage your duplicate contacts</h2> <p><img src=https://updaty.apptitute.de/img/tips-09-3.jpg alt=></p>  <p>To manage these duplicates, tap View Duplicates and you’ll see all the contacts you have repeated information for.</p>",
-      "id":3
+      "id":3,
+      "subtitle": "Duplicate contacts"
    },
    {
       "html": "<h2 class=title>Better manage your duplicate contacts</h2> <p><img src=https://updaty.apptitute.de/img/tips-09-4.jpg alt=></p>  <p>The trick you can do is tap Merge All and then Merge Duplicates. By doing this your phone will automatically merge all the duplicate contacts so that each contact contains all the information you need in one place. It will then remove the duplicate contacts.</p>",
-      "id":4
+      "id":4,
+      "subtitle": "Duplicate contacts"
    }
 ]

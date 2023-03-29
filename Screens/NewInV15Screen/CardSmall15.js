@@ -69,6 +69,8 @@ const CardSmall15 = ({ content, index }) => {
     html: content.htmlSmall,
   };
 
+  console.log(content);
+
   return (
     <TouchableOpacity
       style={styles.container}

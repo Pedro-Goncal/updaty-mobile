@@ -14,7 +14,7 @@ import CardSmall16 from "./CardSmall16";
 
 //Content TEMP
 import newInV16HTML from "../../utils/newInV16HTML.json";
-import newInV16SmallCardContent from "./Content/newInV16Content";
+import {newInV16SmallCardContent} from "./Content/newInV16Content";
 const { width, height } = Dimensions.get("window");
 
 const NewInV16Screen = () => {

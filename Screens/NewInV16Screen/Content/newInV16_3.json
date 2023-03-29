@@ -1,26 +1,32 @@
 [
    {
       "html": "<h2 class=title>Live Text now has translation options</h2> <p><img src=https://updaty.apptitute.de/img/ios16-03-1.jpg alt=></p>  <p>Ever been abroad on holiday ordering from a restaurant and it takes an age to figure out what the menu is saying? Wish there were a way to translate it much quicker?</p>",
-      "id":1
+      "id":1,
+      "subtitle": "Translation"
    },
    {
       "html": "<h2 class=title>Live Text now has translation options</h2> <p><img src=https://updaty.apptitute.de/img/ios16-03-2.jpg alt=></p>  <p>The good news for iPhone users is that the Live Text functionality has been updated with translation options, meaning you can get translations direct from your camera, removing the need to type words you barely understand into Google Translate.</p>  ",
-      "id":2
+      "id":2,
+      "subtitle": "Translation"
    },
    {
       "html": "<h2 class=title>Live Text now has translation options</h2> <p><img src=https://updaty.apptitute.de/img/ios16-03-3.jpg alt=></p>  <p>Live Text is where your iPhone picks up and interprets words as they appear on your screen via your camera or in your photos. It now links up with your iPhone’s Translate app, meaning you can get instantaneous translations via your camera.</p> ",
-      "id":3
+      "id":3,
+      "subtitle": "Translation"
    },
    {
       "html": "<h2 class=title>Live Text now has translation options</h2> <p><img src=https://updaty.apptitute.de/img/ios16-03-4.jpg alt=></p>  <p>To use this, just go into the Translate app and tap the new camera button which now appears in it. </p>  <p><img src=https://updaty.apptitute.de/img/ios16-03-5.jpg alt=></p>  <p>You can point your camera at the restaurant menu – or whatever it is you want translating – and the translation will appear in real-time on your screen.</p>",
-      "id":4
+      "id":4,
+      "subtitle": "Translation"
    },
    {
       "html": "<h2 class=title>Live Text now has translation options</h2> <p><img src=https://updaty.apptitute.de/img/ios16-03-6.jpg alt=></p>  <p>And that’s not the only thing that’s new about iOS 16. Live Text now works with videos too, allowing you to pause your videos and interact with any words that may appear in them.</p>",
-      "id":5
+      "id":5,
+      "subtitle": "Translation"
    },
    {
       "html": "<h2 class=title>Live Text now has translation options</h2>  <p><img src=https://updaty.apptitute.de/img/ios16-03-7.jpg alt=></p>  <p>There are also new languages in the Translate app – including Japanese, Korean and Ukrainian, in addition to Chinese, English, French, Italian, German, Portuguese and Spanish.</p>",
-      "id":6
+      "id":6,
+      "subtitle": "Translation"
    }
 ]

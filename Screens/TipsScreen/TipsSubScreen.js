@@ -15,18 +15,18 @@ import { useRoute } from "@react-navigation/native";
 import tipsHTML from "../../utils/tipsHTML.json";
 
 import tip1 from "./Content/tip1.json";
-import tip2 from "./Content/tip2.json";
-import tip3 from "./Content/tip3.json";
-import tip4 from "./Content/tip4.json";
-import tip5 from "./Content/tip5.json";
-import tip6 from "./Content/tip6.json";
-import tip7 from "./Content/tip7.json";
-import tip8 from "./Content/tip8.json";
-import tip9 from "./Content/tip9.json";
-import tip10 from "./Content/tip10.json";
-import tip11 from "./Content/tip11.json";
-import tip12 from "./Content/tip12.json";
-import tip13 from "./Content/tip13.json";
+import tips2 from "./Content/tips2.json";
+import tips3 from "./Content/tips3.json";
+import tips4 from "./Content/tips4.json";
+import tips5 from "./Content/tips5.json";
+import tips6 from "./Content/tips6.json";
+import tips7 from "./Content/tips7.json";
+import tips8 from "./Content/tips8.json";
+import tips9 from "./Content/tips9.json";
+import tips10 from "./Content/tips10.json";
+import tips11 from "./Content/tips11.json";
+import tips12 from "./Content/tips12.json";
+import tips13 from "./Content/tips13.json";
 
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
@@ -52,29 +52,29 @@ const TipsSubScreen = () => {
     if (index === 0) {
       setContent(tip1);
     } else if (index === 1) {
-      setContent(tip2);
+      setContent(tips2);
     } else if (index === 2) {
-      setContent(tip3);
+      setContent(tips3);
     } else if (index === 3) {
-      setContent(tip4);
+      setContent(tips4);
     } else if (index === 4) {
-      setContent(tip5);
+      setContent(tips5);
     } else if (index === 5) {
-      setContent(tip6);
+      setContent(tips6);
     } else if (index === 6) {
-      setContent(tip7);
+      setContent(tips7);
     } else if (index === 7) {
-      setContent(tip8);
+      setContent(tips8);
     } else if (index === 8) {
-      setContent(tip9);
+      setContent(tips9);
     } else if (index === 9) {
-      setContent(tip10);
+      setContent(tips10);
     } else if (index === 10) {
-      setContent(tip11);
+      setContent(tips11);
     } else if (index === 11) {
-      setContent(tip12);
+      setContent(tips12);
     } else if (index === 12) {
-      setContent(tip13);
+      setContent(tips13);
     }
   }, [index]);
 
@@ -133,7 +133,7 @@ const TipsSubScreen = () => {
         >
           <ArrowSvg />
 
-          <Text style={styles.title}>Tips</Text>
+          <Text style={styles.title}>{content[0].subtitle}</Text>
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>
@@ -158,7 +158,7 @@ const TipsSubScreen = () => {
           />
         </View>
       </ScrollView>
-      <Pagination content={tipsHTML} activeCardId={activeCardId} />
+      <Pagination content={content} activeCardId={activeCardId} />
     </View>
   );
 };

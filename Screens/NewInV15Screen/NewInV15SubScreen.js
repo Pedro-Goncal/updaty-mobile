@@ -70,9 +70,9 @@ const NewInV15SubScreen = () => {
     index,
   });
 
-  useEffect(() => {
-    flatListRef.current.scrollToIndex({ index, animated: false });
-  }, []);
+  // useEffect(() => {
+  //   flatListRef.current.scrollToIndex({ index, animated: false });
+  // }, []);
 
   const viewabilityConfig = {
     itemVisiblePercentThreshold: 51,
@@ -111,7 +111,7 @@ const NewInV15SubScreen = () => {
         >
           <ArrowSvg />
 
-          <Text style={styles.title}>New in iOS 15 {backBtnTitle}</Text>
+          <Text style={styles.title}>{content[0].subtitle} {backBtnTitle}</Text>
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>
@@ -129,9 +129,9 @@ const NewInV15SubScreen = () => {
             horizontal
             viewabilityConfig={viewabilityConfig}
             onViewableItemsChanged={onViewableItemsChanged.current}
-            onLayout={() =>
-              flatListRef.current.scrollToIndex({ index, animated: false })
-            }
+            // onLayout={() =>
+            //   flatListRef.current.scrollToIndex({ index, animated: false })
+            // }
           />
         </View>
       </ScrollView>

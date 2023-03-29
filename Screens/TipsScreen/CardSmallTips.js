@@ -66,7 +66,7 @@ const CardSmallTips = ({ content, index }) => {
     html: content.htmlSmall,
   };
 
-  console.log(content);
+  // console.log(content);
 
   const img = content.img;
 

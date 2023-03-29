@@ -1,22 +1,27 @@
 [
    {
       "html": "<h2 class=title>How Live Text will blow your mind</h2> <html><p><img src=https://updaty.apptitute.de/img/ios15-03-2.jpg alt=></p>  <p>Ever see a website url on an event brochure and want to get to it right away but get frustrated having to type it out exactly right on your iPhone? Ever see a phone number in the directory book and wish you didn’t have to check three times that you typed it in right? </p>  ",
-      "id":1
+      "id":1,
+      "subtitle": "Live Text"
    },
    {
       "html": "<h2 class=title>How Live Text will blow your mind</h2> <p><img src=https://updaty.apptitute.de/img/ios15-03-1.jpg alt=></p>  <p>It appears Apple have been listening because with the new iOS 15 there comes an amazing new feature just for you – Live Text. Live Text basically interprets text – in print or handwritten – from your photos and cameras. It’s an amazing feature with loads of cool connotations.</p>  ",
-      "id":2
+      "id":2,
+      "subtitle": "Live Text"
    },
    {
       "html": "<h2 class=title>How Live Text will blow your mind</h2> <p><img src=https://updaty.apptitute.de/img/ios15-03-3.jpg alt=></p>  <p>For instance, if you’ve received a takeout flyer from a restaurant and you want to call them right away to order some chow mein. </p>  ",
-      "id":3
+      "id":3,
+      "subtitle": "Live Text"
    },
    {
       "html": "<h2 class=title>How Live Text will blow your mind</h2> <p><img src=https://updaty.apptitute.de/img/ios15-03-4.jpg alt=></p>  <p>All you need to do is get your phone out, open the camera, hover it over the phone number or website, and the phone will pick these out for you. You’ll just need to tap on them to either make the call or go to the website.</p>  ",
-      "id":4
+      "id":4,
+      "subtitle": "Live Text"
    },
    {
       "html": "<h2 class=title>How Live Text will blow your mind</h2> p><img src=https://updaty.apptitute.de/img/ios15-03-5.jpg alt=></p>  <p>And let’s take this a step further. You’re on holiday and you’re at a restaurant but the menu is in a foreign language with no translation. Well, you can now pick out your phone, hover the camera on it, and you can copy the text from the camera or photo to then paste into the Translate app on your phone.</p>",
-      "id":5
+      "id":5,
+      "subtitle": "Live Text"
    }
 ]

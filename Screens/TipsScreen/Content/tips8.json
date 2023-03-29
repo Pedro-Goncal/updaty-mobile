@@ -1,26 +1,32 @@
 [
    {
       "html": "<h2 class=title>Make sure you hear the things that matter</h2> <p><img src=https://updaty.apptitute.de/img/tips-08-1.jpg alt=></p><p>Sometimes you want to be able to get really immersed in something so that you can’t hear the outside world – whether that’s jamming on your guitar, listening to oceanic ambient music with your headphones or getting deep into Nirvana (not the band) through meditation. </p> ",
-      "id":1
+      "id":1,
+      "subtitle": "Sound Recognition"
    },
    {
       "html": "<h2 class=title>Make sure you hear the things that matter</h2> <p><img src=https://updaty.apptitute.de/img/tips-08-2.jpg alt=></p><p>But what if someone’s knocking at your door with a really important delivery that you need to receive today? Or what if your cat starts calling you from outside, wanting to be let in after his evening stroll in the garden?</p><p>The good news is that Apple has introduced Sound Recognition on your iPhone, meaning your phone can be triggered by specific sounds to alert you to something.</p>",
-      "id":2
+      "id":2,
+      "subtitle": "Sound Recognition"
    },
    {
       "html": "<h2 class=title>Make sure you hear the things that matter</h2> <p><img src=https://updaty.apptitute.de/img/tips-08-3.jpg alt=></p><p>How do you set this up? Go into the Settings app and tap on Accessibility and then scroll down to Sound Recognition, which you can tap to enable the new functionality. This will then trigger a download of the software your phone will need to put this into practice.</p>",
-      "id":3
+      "id":3,
+      "subtitle": "Sound Recognition"
    },
    {
       "html": "<h2 class=title>Make sure you hear the things that matter</h2> <p><img src=https://updaty.apptitute.de/img/tips-08-4.jpg alt=></p><p>Once this is done, from the Sound Recognition menu go to Sounds. The list will come up with familiar sounds which you can select. Tapping on any of these options will trigger your phone to start listening to those sounds, and you can select what notification you receive when your phone hears them.</p>",
-      "id":4
+      "id":4,
+      "subtitle": "Sound Recognition"
    },
    {
       "html": "<h2 class=title>Make sure you hear the things that matter</h2> <p><img src=https://updaty.apptitute.de/img/tips-08-5.jpg alt=></p><p>If there’s a sound you want your phone to be able to hear which isn’t on the standard list, you can add new sounds into it. To do this, you’ll need to tap Custom Alarm, Custom Appliance or Doorbell</p><p>You’ll then need to name the sound that you want your phone to learn, and then teach your phone the sound by recording it five times. So, come to think of it, this will probably easier to do with your doorbell than with your cat!</p> ",
-      "id":5
+      "id":5,
+      "subtitle": "Sound Recognition"
    },
    {
       "html": "<h2 class=title>Make sure you hear the things that matter</h2> <p><img src=https://updaty.apptitute.de/img/tips-08-6.jpg alt=></p><p>Once you finish the recordings, you can follow the instructions to save your notification sound and alert. </p> ",
-      "id":6
+      "id":6,
+      "subtitle": "Sound Recognition"
    }
 ]

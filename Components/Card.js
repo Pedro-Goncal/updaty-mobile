@@ -18,7 +18,7 @@ import RenderHtml from "react-native-render-html";
 
 const tagStyles = {
   img: {
-    objectFit: "fit",
+    objectFit: "contain",
     // marginVertical: 10,
     // margin: 6,
     width: width - 50,
@@ -73,7 +73,7 @@ const tagStyles = {
  },
  p: {
   paddingHorizontal: 15,
-  marginTop: 15,
+  // marginTop: 15,
   fontSize: Platform.isPad ? 26 : 18,
   fontFamily: 'Helvetica Neue',
   // fontWeight: "bold"
@@ -95,8 +95,9 @@ const classesStyles = {
     color: "#999",
   },
   title: {
-    fontSize: "22px",
+    fontSize: Platform.isPad ? 38 : 26,
     color: "#000",
+    fontFamily: 'Helvetica Neue',
     fontWeight: "bold",
   },
 };
@@ -169,15 +170,15 @@ console.log("=======>",imageSize)
       </View>
         )} */}
       <ScrollView style={styles.scrollView} >
-        {/* <RenderHtml
+        <RenderHtml
           contentWidth={dimensions.screen.width - 20}
           source={htmlSource}
           tagsStyles={tagStyles}
           classesStyles={classesStyles}
           // renderersProps={RenderersProps}
-        /> */}
+        />
 
-        <View>
+        {/* <View>
           <Text style={styles.title}>{content.title}</Text>
         </View>
         {content.text1 && (
@@ -209,7 +210,7 @@ console.log("=======>",imageSize)
           <View>
           <Text style={styles.text}>{content.text2}</Text>
         </View>
-        )}
+        )} */}
       </ScrollView>
     </View>
   );
@@ -235,15 +236,21 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: "#FFF",
     marginHorizontal: 10,
-    marginBottom: 16,
+    // marginBottom: 16,
+    paddingBottom: 12,
     // marginBottom: 50,
+    flex:1,
+
     // position: "relative",
     overflow: "hidden" ,
   },
   scrollView: {
     flex: 1,
-    padding: 24,
-    paddingBottom: 70
+    paddingTop: 16,
+    paddingLeft: 16,
+    paddingRight: 16,
+
+    // paddingBottom: 20
   },
   title: {
     fontSize: 22,

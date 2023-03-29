@@ -75,9 +75,9 @@ const NewInV16SubScreen = () => {
     index,
   });
 
-  useEffect(() => {
-    flatListRef.current.scrollToIndex({ index, animated: false });
-  }, []);
+  // useEffect(() => {
+  //   flatListRef.current.scrollToIndex({ index, animated: false });
+  // }, []);
 
   const viewabilityConfig = {
     itemVisiblePercentThreshold: 51,
@@ -113,7 +113,7 @@ const NewInV16SubScreen = () => {
         >
           <ArrowSvg />
 
-          <Text style={styles.title}>New in iOS 16</Text>
+          <Text style={styles.title}>{content[0].subtitle}</Text>
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>
@@ -132,9 +132,9 @@ const NewInV16SubScreen = () => {
             horizontal
             viewabilityConfig={viewabilityConfig}
             onViewableItemsChanged={onViewableItemsChanged.current}
-            onLayout={() =>
-              flatListRef.current.scrollToIndex({ index, animated: false })
-            }
+            // onLayout={() =>
+            //   flatListRef.current.scrollToIndex({ index, animated: false })
+            // }
           />
         </View>
       </ScrollView>

@@ -54,8 +54,8 @@ export const tipsSmalCardContent = [
     id: 9,
   },
   {
-    title: "Emergency contact",
-    subtitle: "Creating an emergency contact on your iPhone",
+    title: "Creating an emergency contact on your iPhone",
+    subtitle: "Emergency contact",
     img: require("../../../img/tips-10-0.jpg"),
     id: 10,
   },
