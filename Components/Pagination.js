@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     justifyContent: "center",
     alignItems: "center",
-    bottom: 10,
+    bottom: 5,
     width: "100%",
   },
   paginationBox: {

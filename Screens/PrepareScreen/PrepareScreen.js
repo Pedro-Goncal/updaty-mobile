@@ -299,6 +299,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingHorizontal: 18,
     paddingTop: 20,
+    fontFamily: 'Helvetica Neue',
   },
   cardContainer: {
     justifyContent: "center",
@@ -306,5 +307,6 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 50,
     Height: height / 4,
+    fontFamily: 'Helvetica Neue',
   },
 });

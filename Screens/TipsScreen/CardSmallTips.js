@@ -4,6 +4,9 @@ import {
   Dimensions,
   TouchableOpacity,
   Platform,
+  View,
+  Text,
+  Image
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -29,12 +32,13 @@ const tagStyles = {
   h1: {
     color: "#999",
     fontSize: Platform.isPad ?  26: 14,
- 
+    fontFamily: 'Helvetica Neue',
   },
   h2: {
     fontSize: Platform.isPad ? 29 : 18,
     color: "#000",
     fontWeight: "bold",
+    fontFamily: 'Helvetica Neue',
   },  
 };
 
@@ -69,6 +73,10 @@ const CardSmallTips = ({ content, index }) => {
     html: content.htmlSmall,
   };
 
+  console.log(content)
+
+  const img = content.img
+
 
   return (
     <TouchableOpacity
@@ -78,7 +86,16 @@ const CardSmallTips = ({ content, index }) => {
         navigation.navigate("TipsSubScreen", { index: index });
       }}
     >
-       <RenderHtml
+      <View style={styles.left}>
+      <Image source={content.img} height={Platform.isPad ?  130 : 90} width={Platform.isPad ?  130 : 90}  style={styles.img}/>
+      </View>
+      <View style={styles.right}>
+      <Text style={styles.subTitle}>{content.subtitle}</Text>
+      <Text style={styles.title}>{content.title}</Text>
+
+      </View>
+
+       {/* <RenderHtml
           contentWidth={width - 20}
           source={htmlSource}
           tagsStyles={tagStyles}
@@ -86,7 +103,7 @@ const CardSmallTips = ({ content, index }) => {
           enableExperimentalMarginCollapsing={true}
           bypassAnonymousTPhrasingNodes={true}
 
-        />
+        /> */}
     </TouchableOpacity>
   );
 };
@@ -95,12 +112,47 @@ export default CardSmallTips;
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 12,
+    borderRadius: 16,
     width: width - 30,
     backgroundColor: "#FFF",
-    minHeight: 90,
-    padding: 2,
+    minHeight: 97,
+    // padding: 2,
     flexDirection: "row",
     marginVertical: 6,
   },
+  left: {
+    // width: "25%",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 8
+  },
+  right: {
+    paddingLeft: 8,
+    paddingRight: 22,
+    width: "75%",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+  },
+ img: {
+  width: Platform.isPad ?  130 : 90,
+  height: Platform.isPad ?  130 : 90,
+  objectFit: "cover",
+  borderRadius: 8,
+  overflow: "hidden"
+ },
+ title: {
+  fontSize: Platform.isPad ? 29 : 18,
+  color: "#000",
+  fontWeight: "bold",
+  fontFamily: 'Helvetica Neue',
+ },
+ subTitle: {
+  color: "#999",
+  fontSize: Platform.isPad ?  26: 14,
+  fontFamily: 'Helvetica Neue',
+  paddingTop: 16,
+paddingBottom: 3
+ }
 });

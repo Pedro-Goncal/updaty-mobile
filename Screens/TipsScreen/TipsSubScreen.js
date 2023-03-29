@@ -14,6 +14,11 @@ import { useRoute } from "@react-navigation/native";
 
 //Content TEMP
 import tipsHTML from "../../utils/tipsHTML.json";
+import { tip1, tip2 } from "./Content/tipsContent";
+
+
+
+
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import Pagination from "../../Components/Pagination";
@@ -34,19 +39,30 @@ const TipsSubScreen = () => {
   const route = useRoute();
   const index = route.params.index;
 
+  const [content, setContent] = useState(tip1)
+
+  useEffect(()=> {
+    if(index === 0){
+      setContent(tip1)
+    } else if (index === 1) {
+      setContent(tip2)
+    }
+
+  },[index])
+
   const dispatch = useDispatch();
 
   const flatListRef = useRef(null);
 
   const getItemLayout = (data, index) => ({
-    length: dimensions.screen.width - 20, // width of an item in the list
+    length: dimensions.screen.width, // width of an item in the list
     offset: dimensions.screen.width * index, // position of the item in the list
     index,
   });
 
-  useEffect(() => {
-    flatListRef.current.scrollToIndex({ index, animated: false });
-  }, []);
+  // useEffect(() => {
+  //   flatListRef.current.scrollToIndex({ index, animated: false });
+  // }, []);
 
   const viewabilityConfig = {
     itemVisiblePercentThreshold: 51,
@@ -102,7 +118,7 @@ const TipsSubScreen = () => {
             ref={flatListRef}
             decelerationRate={0.9}
             snapToInterval={dimensions.screen.width} // Distance between each snap point
-            data={tipsHTML}
+            data={content}
             snapToAlignment={"center"} // Align snap point to the center of the view
             getItemLayout={getItemLayout}
             showsHorizontalScrollIndicator={false}
@@ -112,10 +128,10 @@ const TipsSubScreen = () => {
             horizontal
             viewabilityConfig={viewabilityConfig}
             onViewableItemsChanged={onViewableItemsChanged.current}
-            onLayout={() =>
-              flatListRef.current.scrollToIndex({ index, animated: false })
-            }
-            onContentSizeChange={handleContentSizeChange}
+            // onLayout={() =>
+            //   flatListRef.current.scrollToIndex({ index, animated: false })
+            // }
+            // onContentSizeChange={handleContentSizeChange}
 
           />
         </View>
@@ -147,6 +163,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     paddingHorizontal: 6,
+    fontFamily: 'Helvetica Neue',
   },
   cardContainer: {
     justifyContent: "center",

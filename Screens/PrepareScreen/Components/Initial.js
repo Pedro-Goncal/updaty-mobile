@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Dimensions, Image } from "react-native";
+import { StyleSheet, Text, View, Dimensions, Image, Platform } from "react-native";
 import React from "react";
 
 const { width, height } = Dimensions.get("window");
@@ -10,6 +10,8 @@ const Initial = () => {
         <Image
           style={styles.image}
           source={require("../../../assets/27.png")}
+          height={Platform.isPad ? 260 :170}
+          width={Platform.isPad ? 260 :170}
         />
       </View>
       <View style={styles.textContainer}>
@@ -37,23 +39,35 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     // minHeight: height,
     padding: 20,
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 6,
+    // },
+    // shadowOpacity: 0.15,
+    // shadowRadius: 7.65,
+    // marginBottom: 20,
+    // marginTop: 10
   },
   image: {
-    // width: "50%",
+    marginBottom: 24
   },
   textContainer: {},
   subTitle: {
     color: "#607080",
-    fontSize: 14,
+    fontSize: 16,
     paddingVertical: 8,
+    fontFamily: 'Helvetica Neue',
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     paddingBottom: 10,
-  },
+    fontFamily: 'Helvetica Neue',
+    },
   description: {
     fontSize: 16,
+    fontFamily: 'Helvetica Neue',
     // lineHeight: 27,
   },
 });

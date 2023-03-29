@@ -31,6 +31,7 @@ import { handleClick } from "../../Redux/slices/adSlice";
 
 const NewInV15SubScreen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
+  const [backBtnTitle, setBackBtnTitle] = useState("New in iOS 15")
   const navigation = useNavigation();
   const route = useRoute();
   const index = route.params.index;
@@ -41,7 +42,7 @@ const NewInV15SubScreen = () => {
   const flatListRef = useRef(null);
 
   const getItemLayout = (data, index) => ({
-    length: dimensions.screen.width - 20, // width of an item in the list
+    length: dimensions.screen.width , // width of an item in the list
     offset: dimensions.screen.width * index, // position of the item in the list
     index,
   });
@@ -59,6 +60,8 @@ const NewInV15SubScreen = () => {
       dispatch(handleClick());
 
       setActiveCardId(viewableItems[0].item.id);
+      setBackBtnTitle(viewableItems[0].item.id)
+      console.log(viewableItems[0].item)
     }
   });
 
@@ -86,7 +89,7 @@ const NewInV15SubScreen = () => {
         >
           <ArrowSvg />
 
-          <Text style={styles.title}>New in iOS 15</Text>
+          <Text style={styles.title}>New in iOS 15 {backBtnTitle}</Text>
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>
@@ -137,6 +140,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     paddingHorizontal: 6,
+    fontFamily: 'Helvetica Neue',
   },
   cardContainer: {
     justifyContent: "center",

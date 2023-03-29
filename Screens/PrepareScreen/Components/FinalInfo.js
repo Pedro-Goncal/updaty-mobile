@@ -232,6 +232,14 @@ const styles = StyleSheet.create({
     width: width - 20,
     backgroundColor: "#FFF",
     marginHorizontal: 10,
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 6,
+    // },
+    // shadowOpacity: 0.15,
+    // shadowRadius: 7.65,
+    // marginBottom: 20,
   },
   container: {
     padding: 20,
@@ -243,10 +251,12 @@ const styles = StyleSheet.create({
     color: "#607080",
     fontSize: 14,
     paddingBottom: 6,
+    fontFamily: 'Helvetica Neue',
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
+    fontFamily: 'Helvetica Neue',
   },
   infoContainer: {},
   row: {
@@ -259,10 +269,12 @@ const styles = StyleSheet.create({
   },
   leftText: {
     fontSize: 16,
+    fontFamily: 'Helvetica Neue',
   },
   rightText: {
     fontSize: 16,
     fontWeight: "bold",
+    fontFamily: 'Helvetica Neue',
   },
   msgsContainer: {},
   statusContainer: {
@@ -273,10 +285,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   msgText: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: "bold",
     paddingLeft: 10,
     width: "94%",
+    fontFamily: 'Helvetica Neue',
   },
   messageContainer: {
     paddingTop: 20,
@@ -291,5 +304,6 @@ const styles = StyleSheet.create({
   bottomBtn: {
     fontWeight: "bold",
     fontSize: 16,
+    fontFamily: 'Helvetica Neue',
   },
 });

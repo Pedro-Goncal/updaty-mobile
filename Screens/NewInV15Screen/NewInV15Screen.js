@@ -32,7 +32,7 @@ const NewInV15Screen = () => {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.title}>New in iOS V15</Text>
+        <Text style={styles.title}>New in iOS 15</Text>
       </View>
       <View style={styles.cardContainer}>
         <FlatList
@@ -61,10 +61,11 @@ const styles = StyleSheet.create({
   scrollView: { flex: 1 },
   title: {
     fontSize: Platform.isPad ? 42 :28,
-
+    fontFamily: 'Helvetica Neue',
     fontWeight: "bold",
     paddingHorizontal: 18,
-    paddingTop: 20,
+    paddingTop: 14,
+    paddingBottom: 14,
   },
   cardContainer: {
     justifyContent: "center",

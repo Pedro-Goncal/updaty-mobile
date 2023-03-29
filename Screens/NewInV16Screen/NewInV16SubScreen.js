@@ -52,7 +52,7 @@ const NewInV16SubScreen = () => {
  
   
   const getItemLayout = (data, index) => ({
-    length: dimensions.screen.width - 20, // width of an item in the list
+    length: dimensions.screen.width, // width of an item in the list
     offset: dimensions.screen.width * index, // position of the item in the list
     index,
   });
@@ -151,6 +151,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     paddingHorizontal: 6,
+    fontFamily: 'Helvetica Neue',
   },
   cardContainer: {
     justifyContent: "center",

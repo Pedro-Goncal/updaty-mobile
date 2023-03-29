@@ -11,6 +11,7 @@ import CardSmallTips from "./CardSmallTips";
 
 //Content TEMP
 import tipsHTML from "../../utils/tipsHTML.json";
+import { tipsSmalCardContent } from './Content/tipsContent';
 
 const { height } = Dimensions.get("window");
 
@@ -34,7 +35,7 @@ const TipsScreen = () => {
       </View>
       <View style={styles.cardContainer}>
         <FlatList
-          data={tipsHTML}
+          data={tipsSmalCardContent}
           renderItem={({ item, index }) => (
             <CardSmallTips content={item} index={index} />
           )}
@@ -59,15 +60,16 @@ const styles = StyleSheet.create({
   scrollView: { flex: 1 },
   title: {
     fontSize: Platform.isPad ? 42 :28,
-
+    fontFamily: 'Helvetica Neue',
     fontWeight: "bold",
     paddingHorizontal: 18,
-    paddingTop: 20,
+    paddingTop: 14,
+    paddingBottom: 14,
   },
   cardContainer: {
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 10,
+
     paddingBottom: 60,
   },
 });

@@ -33,12 +33,13 @@ const tagStyles = {
   h1: {
     color: "#999",
     fontSize: Platform.isPad ?  26: 14,
- 
+    fontFamily: 'Helvetica Neue',
   },
   h2: {
     fontSize: Platform.isPad ? 29 : 18,
     color: "#000",
     fontWeight: "bold",
+    fontFamily: 'Helvetica Neue',
   },  
 };
 

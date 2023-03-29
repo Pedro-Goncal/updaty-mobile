@@ -16,19 +16,6 @@ import { handleClick } from "../../Redux/slices/adSlice";
 
 const { width, height } = Dimensions.get("window");
 
-const html = `
-<html>
-<div class=container>
-  <div class=imgContainer>
-    <img src=https://images.unsplash.com/photo-1585060282215-39a72f82385c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2087&q=80 alt=placeholder >
-  </div>
- <div class=rightContainer>
-      <p class=subTitle >Subtitle Lorem ipsum</p> 
-      <p class=title>This is a long title dolor sit amet sed do 3</p>
- </div>
-</div>
-</html>
-`
 
 
 import RenderHtml from "react-native-render-html";
@@ -45,12 +32,14 @@ const tagStyles = {
   h1: {
     color: "#999",
     fontSize: Platform.isPad ?  26: 14,
+    fontFamily: 'Helvetica Neue',
  
   },
   h2: {
     fontSize: Platform.isPad ? 29 : 18,
     color: "#000",
     fontWeight: "bold",
+    fontFamily: 'Helvetica Neue',
   },  
 };
 

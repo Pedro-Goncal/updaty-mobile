@@ -22,6 +22,7 @@ import { handleClick } from "../../Redux/slices/adSlice";
 
 //Content TEMP
 import tutorialsHTML from "../../utils/tutorialsHTML.json";
+import tutorials from '../../utils/tutorials'
 
 const { width, height } = Dimensions.get("screen");
 const screenDimensions = Dimensions.get('screen');
@@ -44,7 +45,7 @@ const TutorialScreen = () => {
   });
 
   const getItemLayout = (data, index) => ({
-    length: dimensions.screen.width - 20, // width of an item in the list
+    length: dimensions.screen.width , // width of an item in the list
     offset: dimensions.screen.width * index, // position of the item in the list
     index,
   });
@@ -66,6 +67,7 @@ const TutorialScreen = () => {
 
 
   const flatListRef = useRef(null);
+  
 
 
 
@@ -73,9 +75,9 @@ const TutorialScreen = () => {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }} >
-        <Pressable>
+        <View>
           <Text style={styles.title}>Tutorials</Text>
-        </Pressable>
+        </View>
         <View style={styles.cardContainer}>
           
           <FlatList
@@ -119,7 +121,9 @@ const styles = StyleSheet.create({
     fontSize: Platform.isPad ? 42 :28,
     fontWeight: "bold",
     paddingHorizontal: 18,
-    paddingTop: 20,
+    paddingTop: 14,
+    paddingBottom: 14,
+    fontFamily: "Helvetica Neue"
   },
   cardContainer: {
     justifyContent: "center",

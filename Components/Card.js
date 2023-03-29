@@ -5,6 +5,7 @@ import {
   Dimensions,
   Platform,
   ScrollView,
+  Image,
   ActivityIndicator
 } from "react-native";
 import React , {useState, useEffect} from "react";
@@ -14,9 +15,9 @@ const { width, height } = Dimensions.get("window");
 import RenderHtml from "react-native-render-html";
 
 
+
 const tagStyles = {
   img: {
-   
     objectFit: "fit",
     // marginVertical: 10,
     // margin: 6,
@@ -42,10 +43,7 @@ const tagStyles = {
   marginBottom: 10,
   paddingHorizontal: 15,
   fontSize: Platform.isPad ? 38 : 26,
-  borderBottomColor: '#cccccc',
-  borderBottomWidth: 1,
-  paddingBottom: 6
-
+  fontFamily: 'Helvetica Neue'
  },
  h3 : {
   marginTop: 20,
@@ -76,7 +74,9 @@ const tagStyles = {
  p: {
   paddingHorizontal: 15,
   marginTop: 15,
-  fontSize: Platform.isPad ? 26 : 18
+  fontSize: Platform.isPad ? 26 : 18,
+  fontFamily: 'Helvetica Neue',
+  // fontWeight: "bold"
  },
  hr: {
   marginTop: 10,
@@ -108,6 +108,8 @@ const Card = ({content}) => {
   const htmlSource = {
     html: `${content.html}`,
   };
+
+
 
   const [loading, setLoading] = useState(true)
 
@@ -148,26 +150,66 @@ const Card = ({content}) => {
 //   }
 // }
 
+const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
 
+const onImageLoad = (event) => {
+  const { width, height } = event.nativeEvent.source;
+  setImageSize({ width, height });
+};
+
+console.log("=======>",imageSize)
 
 
   return (
-    <View style={[styles.container, {width: dimensions.screen.width - 20, height: dimensions.screen.height - 320}]}>
-      {loading && (
+    <View style={[styles.container, {width: dimensions.screen.width - 20, height: dimensions.screen.height - 300}]}>
+      {/* {loading && (
 
         <View style={styles.spinner}>
         <ActivityIndicator />
       </View>
-        )}
-      <ScrollView style={{flex: 1}} >
-        <RenderHtml
+        )} */}
+      <ScrollView style={styles.scrollView} >
+        {/* <RenderHtml
           contentWidth={dimensions.screen.width - 20}
           source={htmlSource}
           tagsStyles={tagStyles}
           classesStyles={classesStyles}
           // renderersProps={RenderersProps}
-        />
-    
+        /> */}
+
+        <View>
+          <Text style={styles.title}>{content.title}</Text>
+        </View>
+        {content.text1 && (
+          <View>
+          <Text style={styles.text}>{content.text1}</Text>
+        </View>
+        )}
+        {content.img1 && (
+          <View style={[styles.imgContainer]}>
+          <Image style={styles.img} source={content.img1} onLoad={onImageLoad} />
+        </View>
+        )}
+          {content.text2 && (
+          <View>
+          <Text style={styles.text}>{content.text2}</Text>
+        </View>
+        )}
+        {content.img2 && (
+          <View>
+          <Image source={content.img2}  />
+        </View>
+        )}
+        {content.text3 && (
+          <View>
+          <Text style={styles.text}>{content.text2}</Text>
+        </View>
+        )}
+           {content.text4 && (
+          <View>
+          <Text style={styles.text}>{content.text2}</Text>
+        </View>
+        )}
       </ScrollView>
     </View>
   );
@@ -176,16 +218,6 @@ const Card = ({content}) => {
 export default Card;
 
 const styles = StyleSheet.create({
-  container: {
-    borderRadius: 20,
-    
-    backgroundColor: "#FFF",
-    marginHorizontal: 10,
-    paddingVertical: 10,
-    marginBottom: 50,
-    position: "relative",
-    overflow: "hidden" ,
-  },
   spinner: {
     flex: 1,
     borderRadius: 20,
@@ -199,32 +231,49 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-
-  subTitleContainer: {},
-  subTitle: {
-    color: "#607080",
-    fontSize: 14,
+  container: {
+    borderRadius: 20,
+    backgroundColor: "#FFF",
+    marginHorizontal: 10,
+    marginBottom: 16,
+    // marginBottom: 50,
+    // position: "relative",
+    overflow: "hidden" ,
   },
-  titleContainer: {
-    paddingVertical: 5,
+  scrollView: {
+    flex: 1,
+    padding: 24,
+    paddingBottom: 70
   },
   title: {
-    fontSize: 20,
+    fontSize: 22,
+    color: "#000",
     fontWeight: "bold",
-  },
-  contentContainer: {
-    paddingTop: 5,
-  },
-  content: {
-    fontSize: 16,
+    fontFamily: 'Helvetica Neue',
+
   },
   imgContainer: {
-    marginTop: 10,
+    // width: width- 50,
+    minHeight: "100%",
+    backgroundColor: "red",
+    borderRadius: 8,
+    overflow: "hidden",
   },
   img: {
-    width: "100%",
-    minHeight: 175,
-    objectFit: "cover",
-    borderRadius: 20,
+    // marginVertical: 10,
+    height: undefined,
+    width: '100%',
+    borderRadius: 8,
+    overflow: "hidden",
+    resizeMode: 'contain',
+    flex: 1
+    // aspectRatio:1,
+   
   },
+  text: {
+  paddingHorizontal: 15,
+  marginTop: 15,
+  fontSize: Platform.isPad ? 26 : 18,
+  fontFamily: 'Helvetica Neue',
+  }
 });

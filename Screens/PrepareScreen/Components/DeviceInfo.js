@@ -147,19 +147,17 @@ const styles = StyleSheet.create({
     width: width - 20,
     backgroundColor: "#FFF",
     marginHorizontal: 10,
-    // minHeight: height,
+
     padding: 20,
     // justifyContent: "space-between",
-
-    //  shadowColor: "#000",
-    //  shadowOffset: {
-    //    width: 0,
-    //    height: 4,
-    //  },
-    //  shadowOpacity: 0.3,
-    //  shadowRadius: 4.65,
-
-    //  elevation: 8,
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 6,
+    // },
+    // shadowOpacity: 0.15,
+    // shadowRadius: 7.65,
+    // marginBottom: 20,
   },
   titleContainer: {
     paddingBottom: 20,
@@ -168,10 +166,12 @@ const styles = StyleSheet.create({
     color: "#607080",
     fontSize: 14,
     paddingBottom: 6,
+    fontFamily: 'Helvetica Neue',
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
+    fontFamily: 'Helvetica Neue',
   },
   infoContainer: {},
   row: {
@@ -184,10 +184,12 @@ const styles = StyleSheet.create({
   },
   leftText: {
     fontSize: 16,
+    fontFamily: 'Helvetica Neue',
   },
   rightText: {
     fontSize: 16,
     fontWeight: "bold",
+    fontFamily: 'Helvetica Neue',
   },
   msgsContainer: {},
   statusContainer: {
@@ -202,5 +204,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingLeft: 10,
     width: "94%",
+    fontFamily: 'Helvetica Neue',
   },
 });
