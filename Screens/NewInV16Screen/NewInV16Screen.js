@@ -12,8 +12,7 @@ import React, { useState, useRef } from "react";
 
 import CardSmall16 from "./CardSmall16";
 
-//Content TEMP
-import newInV16HTML from "../../utils/newInV16HTML.json";
+
 import {newInV16SmallCardContent} from "./Content/newInV16Content";
 const { width, height } = Dimensions.get("window");
 
@@ -57,21 +56,31 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#ecf0f3",
     paddingTop: 40,
-    height: height,
+    height: "100%",
+ 
   },
   scrollView: { flex: 1 },
   title: {
     fontSize: Platform.isPad ? 42 : 28,
-    fontFamily: "Helvetica Neue",
     fontWeight: "bold",
     paddingHorizontal: 18,
-    paddingTop: 14,
-    paddingBottom: 14,
+    paddingTop: 16,
+    paddingBottom: 4,
+    fontFamily: "inter-bold"
   },
   cardContainer: {
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 10,
-    paddingBottom: 60,
+    paddingTop: 5,
+    paddingBottom: 40,
+    shadowColor: "#000",
+  
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 7.65,
+    marginBottom: 20,
   },
 });

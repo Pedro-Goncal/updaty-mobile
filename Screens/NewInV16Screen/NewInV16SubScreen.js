@@ -7,15 +7,14 @@ import {
   FlatList,
   Dimensions,
   TouchableOpacity,
+  Platform
 } from "react-native";
 import React, { useState, useRef, useEffect } from "react";
 import Card from "../../Components/Card";
 
 import { useRoute } from "@react-navigation/native";
 
-//Content TEMP
-import newInV16HTML from "../../utils/newInV16HTML.json";
-
+//Content
 import newInV16_1 from "./Content/newInV16_1.json";
 import newInV16_2 from "./Content/newInV16_2.json";
 import newInV16_3 from "./Content/newInV16_3.json";
@@ -138,7 +137,7 @@ const NewInV16SubScreen = () => {
           />
         </View>
       </ScrollView>
-      <Pagination content={newInV16HTML} activeCardId={activeCardId} />
+      <Pagination content={content} activeCardId={activeCardId} />
     </View>
   );
 };
@@ -159,10 +158,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 20,
     paddingLeft: 10,
-    paddingBottom: 10,
+    paddingBottom: 5,
   },
   title: {
-    fontSize: 18,
+    fontSize: Platform.isPad ? 28 : 18,
     fontWeight: "bold",
     paddingHorizontal: 6,
     fontFamily: "Helvetica Neue",
@@ -170,7 +169,15 @@ const styles = StyleSheet.create({
   cardContainer: {
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 10,
+    paddingTop: Platform.isPad ? 20 : 10,
     paddingBottom: 50,
+     shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 7.65,
+    marginBottom: 20,
   },
 });

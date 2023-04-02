@@ -18,45 +18,7 @@ import RenderHtml from "react-native-render-html";
 import { useDispatch } from "react-redux";
 import { handleClick } from "../../Redux/slices/adSlice";
 
-const tagStyles = {
-  img: {
-    width: Platform.isPad ? 130 : 90,
-    height: Platform.isPad ? 130 : 90,
-    objectFit: "cover",
-    borderRadius: 8,
-    overflow: "hidden",
-  },
-  h1: {
-    color: "#999",
-    fontSize: Platform.isPad ? 26 : 14,
-    fontFamily: "Helvetica Neue",
-  },
-  h2: {
-    fontSize: Platform.isPad ? 29 : 18,
-    color: "#000",
-    fontWeight: "bold",
-    fontFamily: "Helvetica Neue",
-  },
-};
 
-const classesStyles = {
-  container: {
-    flexDirection: "row",
-    minHeight: 90,
-  },
-  imgContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 8,
-    paddingLeft: 6,
-  },
-  rightContainer: {
-    paddingHorizontal: 12,
-    width: "75%",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-  },
-};
 
 const CardSmallTips = ({ content, index }) => {
   const navigation = useNavigation();
@@ -66,9 +28,45 @@ const CardSmallTips = ({ content, index }) => {
     html: content.htmlSmall,
   };
 
-  // console.log(content);
-
-  const img = content.img;
+  const tagStyles = {
+    img: {
+      width: Platform.isPad ? 130 : 90,
+      height: Platform.isPad ? 130 : 90,
+      objectFit: "cover",
+      borderRadius: 8,
+      overflow: "hidden",
+    },
+    h1: {
+      color: "#999",
+      fontSize: Platform.isPad ? 26 : 14,
+      fontFamily: "Helvetica Neue",
+    },
+    h2: {
+      fontSize: Platform.isPad ? 29 : 18,
+      color: "#000",
+      fontWeight: "bold",
+      fontFamily: "Helvetica Neue",
+    },
+  };
+  
+  const classesStyles = {
+    container: {
+      flexDirection: "row",
+      minHeight: 90,
+    },
+    imgContainer: {
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: 8,
+      paddingLeft: 6,
+    },
+    rightContainer: {
+      paddingHorizontal: 12,
+      width: "75%",
+      justifyContent: "flex-start",
+      alignItems: "flex-start",
+    },
+  };
 
   return (
     <TouchableOpacity
@@ -109,15 +107,15 @@ export default CardSmallTips;
 const styles = StyleSheet.create({
   container: {
     borderRadius: 16,
-    width: width - 30,
+    width: width - 20,
     backgroundColor: "#FFF",
     minHeight: 97,
     // padding: 2,
     flexDirection: "row",
-    marginVertical: 6,
+    marginVertical: 4,
   },
   left: {
-    // width: "25%",
+    // width: "25%",x
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 8,
@@ -142,12 +140,12 @@ const styles = StyleSheet.create({
     fontSize: Platform.isPad ? 29 : 18,
     color: "#000",
     fontWeight: "bold",
-    fontFamily: "Helvetica Neue",
+    fontFamily: "inter-bold",
   },
   subTitle: {
     color: "#999",
     fontSize: Platform.isPad ? 26 : 14,
-    fontFamily: "Helvetica Neue",
+    fontFamily: "inter-regular",
     paddingTop: 16,
     paddingBottom: 3,
   },

@@ -1,17 +1,37 @@
-import { StyleSheet, Text, View, Dimensions, Image, Platform } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View, Dimensions, Image, Platform, ScrollView } from "react-native";
+import React, {useState, useEffect} from "react";
 
 const { width, height } = Dimensions.get("window");
+const screenDimensions = Dimensions.get('screen');
 
 const Initial = () => {
+
+  const [dimensions, setDimensions] = useState({
+
+    screen: screenDimensions,
+  });
+
+  useEffect(() => {
+    const subscription = Dimensions.addEventListener(
+      'change',
+      ({window, screen}) => {
+        setDimensions({screen});
+      },
+    );
+    return () => subscription?.remove();
+  });
+
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {width: dimensions.screen.width - 20, height: Platform.isPad ? dimensions.screen.height - 370 : dimensions.screen.height - 300}]}>
+      <ScrollView style={{flex: 1}}>
       <View>
         <Image
-          style={styles.image}
-          source={require("../../../assets/27.png")}
-          height={Platform.isPad ? 260 :170}
-          width={Platform.isPad ? 260 :170}
+        
+        style={styles.image}
+        source={require("../../../assets/27.png")}
+        height={Platform.isPad ? 260 :170}
+        width={Platform.isPad ? 260 :170}
         />
       </View>
       <View style={styles.textContainer}>
@@ -25,6 +45,7 @@ const Initial = () => {
           steps. Swipe left to begin.
         </Text>
       </View>
+        </ScrollView>
     </View>
   );
 };
@@ -33,21 +54,17 @@ export default Initial;
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 20,
+    borderRadius: 16,
     width: width - 20,
     backgroundColor: "#FFF",
     marginHorizontal: 10,
-    // minHeight: height,
-    padding: 20,
-    // shadowColor: "#000",
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 6,
-    // },
-    // shadowOpacity: 0.15,
-    // shadowRadius: 7.65,
-    // marginBottom: 20,
-    // marginTop: 10
+    paddingTop: 16,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 14,
+    flex: 1,
+ 
+   
   },
   image: {
     marginBottom: 24
@@ -57,17 +74,17 @@ const styles = StyleSheet.create({
     color: "#607080",
     fontSize: 16,
     paddingVertical: 8,
-    fontFamily: 'Helvetica Neue',
+    fontFamily: 'inter-regular',
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     paddingBottom: 10,
-    fontFamily: 'Helvetica Neue',
+    fontFamily: 'inter-bold',
     },
   description: {
     fontSize: 16,
-    fontFamily: 'Helvetica Neue',
+    fontFamily: 'inter-regular',
     // lineHeight: 27,
   },
 });

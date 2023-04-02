@@ -9,8 +9,7 @@ import {
 import React, { useState, useRef } from "react";
 import CardSmallTips from "./CardSmallTips";
 
-//Content TEMP
-import tipsHTML from "../../utils/tipsHTML.json";
+
 import { tipsSmalCardContent } from './Content/tipsContent';
 
 const { height } = Dimensions.get("window");
@@ -55,21 +54,31 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#ecf0f3",
     paddingTop: 40,
-    height: height,
+    height: "100%",
+ 
   },
   scrollView: { flex: 1 },
   title: {
-    fontSize: Platform.isPad ? 42 :28,
-    fontFamily: 'Helvetica Neue',
+    fontSize: Platform.isPad ? 42 : 28,
     fontWeight: "bold",
     paddingHorizontal: 18,
-    paddingTop: 14,
-    paddingBottom: 14,
+    paddingTop: 16,
+    paddingBottom: 4,
+    fontFamily: "inter-bold"
   },
   cardContainer: {
     justifyContent: "center",
     alignItems: "center",
-
-    paddingBottom: 60,
+    paddingTop: 5,
+    paddingBottom: 40,
+    shadowColor: "#000",
+  
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 7.65,
+    marginBottom: 20,
   },
 });

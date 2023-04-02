@@ -21,8 +21,8 @@ import { handleClick } from "../../Redux/slices/adSlice";
 
 
 //Content TEMP
-import tutorialsHTML from "../../utils/tutorialsHTML.json";
-import tutorials from '../../utils/tutorials'
+import tutorialsHTML from "./Content/tutorialsHTML.json";
+
 
 const { width, height } = Dimensions.get("screen");
 const screenDimensions = Dimensions.get('screen');
@@ -45,7 +45,7 @@ const TutorialScreen = () => {
   });
 
   const getItemLayout = (data, index) => ({
-    length: dimensions.screen.width , // width of an item in the list
+    length: dimensions.screen.width, // width of an item in the list
     offset: dimensions.screen.width * index, // position of the item in the list
     index,
   });
@@ -76,7 +76,7 @@ const TutorialScreen = () => {
     <View style={styles.container}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }} >
         <View>
-          <Text style={styles.title}>Tutorials</Text>
+          <Text style={styles.title}>Tutorial</Text>
         </View>
         <View style={styles.cardContainer}>
           
@@ -118,18 +118,26 @@ const styles = StyleSheet.create({
   },
   scrollView: { flex: 1 },
   title: {
-    fontSize: Platform.isPad ? 42 :28,
+    fontSize: Platform.isPad ? 42 : 28,
     fontWeight: "bold",
     paddingHorizontal: 18,
-    paddingTop: 14,
-    paddingBottom: 14,
-    fontFamily: "Helvetica Neue"
+    paddingTop: 16,
+    paddingBottom: 4,
+    fontFamily: "inter-bold"
   },
   cardContainer: {
     justifyContent: "center",
     alignItems: "center",
     paddingTop: 10,
     paddingBottom: 50,
-    // width: width - (width * 50 /100)
+    paddingHorizontal: 0,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 7.65,
+  
   },
 });

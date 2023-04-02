@@ -4,6 +4,7 @@ import {
   View,
   FlatList,
   Dimensions,
+  Platform,
   TouchableOpacity,
 } from "react-native";
 import React, { useState, useRef, useEffect } from "react";
@@ -11,8 +12,7 @@ import Card from "../../Components/Card";
 
 import { useRoute } from "@react-navigation/native";
 
-//Content TEMP
-import tipsHTML from "../../utils/tipsHTML.json";
+//Content
 
 import tip1 from "./Content/tip1.json";
 import tips2 from "./Content/tips2.json";
@@ -103,12 +103,9 @@ const TipsSubScreen = () => {
     }
   });
 
-  const [heights, setHeights] = useState([]);
 
-  const handleContentSizeChange = (contentWidth, contentHeight) => {
-    const newHeights = tipsHTML.map(() => contentHeight);
-    setHeights(newHeights);
-  };
+
+
 
   const [dimensions, setDimensions] = useState({
     screen: screenDimensions,
@@ -179,10 +176,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 20,
     paddingLeft: 10,
-    paddingBottom: 10,
+    paddingBottom: 5,
   },
   title: {
-    fontSize: 18,
+    fontSize: Platform.isPad ? 28 : 18,
     fontWeight: "bold",
     paddingHorizontal: 6,
     fontFamily: "Helvetica Neue",
@@ -190,8 +187,15 @@ const styles = StyleSheet.create({
   cardContainer: {
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 10,
-    paddingBottom: 50,
+    paddingTop: Platform.isPad ? 20 : 10,    paddingBottom: 50,
     overflow: "hidden",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 7.65,
+    marginBottom: 20,
   },
 });

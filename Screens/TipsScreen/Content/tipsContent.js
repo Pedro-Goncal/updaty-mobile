@@ -79,115 +79,55 @@ export const tipsSmalCardContent = [
   },
 ];
 
-export const tip1 = [
-  {
-    title: "Collaborate with friends and family",
-    subtitle: "Share photo library",
-    text1: "",
-    img1: require("../../../img/tips-01-1.jpg"),
-    text2:
-      "Shared photo albums have been a thing on iPhones for a while, but iCloud Share Photo Library now allows you to collaborate better on the images you treasure. The best thing about this new feature is that you and five friends or family members can now put photos directly into a shared library, and each member of the library can see, edit and delete the photos.",
-    img2: "",
-    text3:
-      "There are also smarter ways of adding photos to the library – including by proximity to your fellow photo librarians, date ranges and facial recognition.",
-    text4: "",
-    id: 1,
-  },
-  {
-    title: "Collaborate with friends and family",
-    subtitle: "Share photo library",
-    text1: "",
-    img1: require("../../../img/tips-01-2.jpg"),
-    text2:
-      "How do you set one up? You go to Settings and select Photo and then turn on the Shared Library section.",
-    img2: "",
-    text3: "",
-    text4: "",
-    id: 2,
-  },
-  {
-    title: "Collaborate with friends and family",
-    subtitle: "Share photo library",
-    text1: "",
-    img1: require("../../../img/tips-01-3.jpg"),
-    text2:
-      "On the pop-up that then appears, tap Start Setup. Tap the people you want to invite and tap Continue.    ",
-    img2: "",
-    text3: "",
-    text4: "",
-    id: 3,
-  },
-  {
-    title: "Collaborate with friends and family",
-    subtitle: "Share photo library",
-    text1: "",
-    img1: require("../../../img/tips-01-4.jpg"),
-    text2:
-      "Now the framework of the library is established, you can choose which photos to add from ‘All My Photos and Videos’, ‘Choose by People or Date’ and ‘Choose Manually’.",
-    img2: "",
-    text3:
-      "You can also select a start date for photos to be included in your shared library.",
-    text4: "",
-    id: 5,
-  },
-];
 
-export const tip2 = [
-  {
-    title: "Change how your notifications display",
-    text1: "",
-    img1: require("../../../img/tips-02-1.jpg"),
-    text2:
-      "With the change to the iPhone’s lock screen on iOS 16 comes a streamlining of the way notifications are displayed.",
-    img2: "",
-    text3:
-      "By default, they now appear at the bottom of the lock screen and they’re stacked on top of one another.",
-    text4:
-      "But the best thing about the new lock screen is you can now change where and how your notifications display. It’s more customizable than it’s ever been before.",
-    id: 1,
-  },
-  {
-    title: "Change how your notifications display",
-    text1: "",
-    img1: require("../../../img/tips-02-2.jpg"),
-    text2:
-      "How do you do it? Go to Settings and tap the Notifications section. Here you can select from three options in terms of how they show up – Count, Stack and List.",
-    img2: "",
-    text3: "",
-    text4: "",
-    id: 2,
-  },
-  {
-    title: "Change how your notifications display",
-    text1: "",
-    img1: require("../../../img/tips-02-3.jpg"),
-    text2:
-      "Count will mean notifications only display as the number of unread notifications and the individual notifications will only appear once that knumber is tapped.",
-    img2: "",
-    text3: "",
-    text4: "",
-    id: 3,
-  },
-  {
-    title: "Change how your notifications display",
-    text1: "",
-    img1: require("../../../img/tips-02-4.jpg"),
-    text2:
-      "List will display notifications in the way you know and love (or hate), as the classic, vertical list starting just below the clock and running down the screen.",
-    img2: "",
-    text3: "",
-    text4: "",
-    id: 4,
-  },
-  {
-    title: "Change how your notifications display",
-    text1: "",
-    img1: require("../../../img/tips-02-5.jpg"),
-    text2:
-      "Stack will move the notifications to the bottom of the screen and will only show the most recent notification. To view the full list of notifications, you’ll need to just tap on the top one, and the list will expand.",
-    img2: "",
-    text3: "",
-    text4: "",
-    id: 5,
-  },
-];
+
+// [
+//   {
+//     smallCard: {
+//       title: "Collaborate with friends and family",
+//       subtitle: "Share photo library",
+//       img: "https://yourhosting.com/tips-01-0.jpg",
+//       id: 1,
+//     },
+//     content: [
+//       {
+//         html: "<h2 class=title>Collaborate with friends and family</h2> <p><img src=https://updaty.apptitute.de/img/tips-01-1.jpg alt=></p>  <p>Shared photo albums have been a thing on iPhones for a while, but iCloud Share Photo Library now allows you to collaborate better on the images you treasure. The best thing about this new feature is that you and five friends or family members can now put photos directly into a shared library, and each member of the library can see, edit and delete the photos. </p>  <p>There are also smarter ways of adding photos to the library – including by proximity to your fellow photo librarians, date ranges and facial recognition.</p>",
+//       id:1,
+//       },
+//       {
+//         html: "<h2 class=title>Collaborate with friends and family</h2> <p><img src=https://updaty.apptitute.de/img/tips-01-2.jpg alt=></p>  <p>How do you set one up? You go to Settings and select Photo and then turn on the Shared Library section. </p>",
+//         id:2,
+//       }
+//     ]
+//   },
+//   {
+//     smallCard: {
+//       title: "Collaborate with friends and family",
+//       subtitle: "Share photo library",
+//       img: "https://yourhosting.com/tips-01-0.jpg",
+//       id: 2,
+//     },
+//     content: [
+//       {
+//         html: "<h2 class=title>Collaborate with friends and family</h2> <p><img src=https://updaty.apptitute.de/img/tips-01-1.jpg alt=></p>  <p>Shared photo albums have been a thing on iPhones for a while, but iCloud Share Photo Library now allows you to collaborate better on the images you treasure. The best thing about this new feature is that you and five friends or family members can now put photos directly into a shared library, and each member of the library can see, edit and delete the photos. </p>  <p>There are also smarter ways of adding photos to the library – including by proximity to your fellow photo librarians, date ranges and facial recognition.</p>",
+//       id:1,
+//       },
+//       {
+//         html: "<h2 class=title>Collaborate with friends and family</h2> <p><img src=https://updaty.apptitute.de/img/tips-01-2.jpg alt=></p>  <p>How do you set one up? You go to Settings and select Photo and then turn on the Shared Library section. </p>",
+//         id:2,
+//       }
+//     ]
+//   },
+// ]
+
+
+// [
+//   {
+//     "html": "<html><h2 >Tutorial</h2><p>Here are the steps to update your iPhone</p><img src=https://updaty.apptitute.de/img/tutorial-01-1.jpg alt=connect to wifi><p>Before you start, your iPhone must be connected to <strong>Wi-Fi</strong>.</p><img src=https://updaty.apptitute.de/img/tutorial-01-2.jpg alt=more than 50% charge></p><p>and have at least 50% battery or be plugged in to a power source to download and install updates. </p><img src=https://updaty.apptitute.de/img/tutorial-01-3.jpg ><p>It&rsquo;s also a good idea to <strong>back up</strong> your iPhone before installing updates to avoid any potential data loss.</p></html>",
+//     "id": 1
+//   },
+//   {
+//     "html": "<h2 >WI-FI</h2><p>Make sure your iPhone is connected to a Wi-Fi network. </p><img src=https://updaty.apptitute.de/img/tutorial-02-1.jpg alt=wifi symbol><p>To check if your iPhone is connected to Wi-Fi swipe down from the top right corner of the screen to open the Control Center.</p><img src=https://updaty.apptitute.de/img/tutorial-02-2.jpg alt=wifi is disabled><p>Look for the Wi-Fi icon. If the icon is blue, your iPhone is connected to a Wi-Fi network. If the icon is gray, your iPhone is not connected to a Wi-Fi network.</p><img src=https://updaty.apptitute.de/img/tutorial-02-3.jpg alt=connect to wifi><p>Alternatively, you can go to <em>Settings</em> and then <em>Wi-Fi</em> to see a list of available Wi-Fi networks. If you are connected to a network, the name of the network will be displayed next to <em>Wi-Fi</em> with a checkmark next to it.</p><img src=https://updaty.apptitute.de/img/tutorial-02-4.jpg alt=enter wifi-password><p>If you are having trouble connecting to Wi-Fi, make sure that the Wi-Fi network is in range and that you have the correct network name and password. </p><img src=https://updaty.apptitute.de/img/tutorial-02-5.jpg alt=reset network settings><p>You can also try resetting your network settings by going to <em>Settings</em> &gt; <em>General</em> &gt; <em>Reset</em> &gt; <em>Reset Network Settings</em>.</p></html>",
+//     "id": 2
+//   }
+// ]

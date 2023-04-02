@@ -6,9 +6,12 @@ import {
   Dimensions,
   Image,
   TouchableOpacity,
+  Platform,
+  ScrollView
 } from "react-native";
 
 const { width, height } = Dimensions.get("window");
+const screenDimensions = Dimensions.get('screen');
 
 import * as SecureStore from "expo-secure-store";
 
@@ -16,7 +19,22 @@ const BackupInfo = ({ setHasBackupCheck }) => {
   const [hasBackup, setHasBackup] = useState(false);
   const [lastBackupDate, setLastBackupDate] = useState("No Backup");
   const [hasBackedupLast24Hours, sethasBackedupLast24Hours] = useState(false);
-  console.log(hasBackedupLast24Hours)
+
+
+  const [dimensions, setDimensions] = useState({
+
+    screen: screenDimensions,
+  });
+
+  useEffect(() => {
+    const subscription = Dimensions.addEventListener(
+      'change',
+      ({window, screen}) => {
+        setDimensions({screen});
+      },
+    );
+    return () => subscription?.remove();
+  });
 
   useEffect(() => {
     if (lastBackupDate !== "No Backup" && hasBackedupLast24Hours) {
@@ -100,7 +118,9 @@ const BackupInfo = ({ setHasBackupCheck }) => {
 }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {width: dimensions.screen.width - 20, height: Platform.isPad ? dimensions.screen.height - 370 : dimensions.screen.height - 300}]}>
+      <ScrollView style={{flex: 1}}>
+
       <View style={styles.titleContainer}>
         <Text style={styles.subTitle}>Step 3 of 5</Text>
         <Text style={styles.title}>Did you backup your data?</Text>
@@ -112,12 +132,12 @@ const BackupInfo = ({ setHasBackupCheck }) => {
           <Text style={styles.rightText}>{lastBackupDate}</Text>
         </View>
 
-        {lastBackupDate !== "No Backup" && !hasBackedupLast24Hours && (
+        {/* {lastBackupDate !== "No Backup" && !hasBackedupLast24Hours && (
           <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
           <Text style={styles.leftText}></Text>
           <Text style={[styles.rightText, {textAlign: "right"}]}>It is recommended you back up your phone everyday</Text>
         </View>
-        )}
+        )} */}
 
         {!hasBackup && !hasBackedupLast24Hours && (
           <View>
@@ -174,8 +194,8 @@ const BackupInfo = ({ setHasBackupCheck }) => {
                           backgroundColor: 
                             "rgba(102, 204, 102, .1)",
                            
-                          marginBottom: 6,
-                          marginTop: 6,
+                          marginBottom: 8,
+                          marginTop: 8,
                         },
                       ]}
                     >
@@ -188,7 +208,7 @@ const BackupInfo = ({ setHasBackupCheck }) => {
                       />
                       
                       <Text style={styles.msgText}>
-                        "You've recently made a backup"
+                        You've recently made a backup"
                           
                       </Text>
                     </View>
@@ -202,7 +222,7 @@ const BackupInfo = ({ setHasBackupCheck }) => {
               {
                 backgroundColor: "rgba(255,170,34,.1)",
                 marginBottom: 6,
-                marginTop: 6,
+                marginTop: 12,
               },
             ]}
           >
@@ -214,12 +234,15 @@ const BackupInfo = ({ setHasBackupCheck }) => {
             />
             
             <Text style={styles.msgText}>
-              "You should create a backup!
+            {lastBackupDate !== "No Backup" && !hasBackedupLast24Hours ? "You should create a new backup!" : 
+             " You should create a backup!"}
             </Text>
           </View>
           )}
         </View>
       </View>
+      </ScrollView>
+
     </View>
   );
 };
@@ -228,22 +251,15 @@ export default BackupInfo;
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 20,
+    borderRadius: 16,
     width: width - 20,
     backgroundColor: "#FFF",
     marginHorizontal: 10,
-    // minHeight: height,
-    padding: 20,
-    // justifyContent: "space-between",
+    paddingTop: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 14,
 
-    // shadowColor: "#000",
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 6,
-    // },
-    // shadowOpacity: 0.15,
-    // shadowRadius: 7.65,
-    // marginBottom: 20,
   },
   titleContainer: {
     paddingBottom: 20,
@@ -252,12 +268,12 @@ const styles = StyleSheet.create({
     color: "#607080",
     fontSize: 14,
     paddingBottom: 6,
-    fontFamily: 'Helvetica Neue',
+    fontFamily: 'inter-regular',
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
-    fontFamily: 'Helvetica Neue',
+    fontFamily: 'inter-bold',
   },
   infoContainer: {},
   row: {
@@ -279,12 +295,12 @@ const styles = StyleSheet.create({
   },
   leftText: {
     fontSize: 16,
-    fontFamily: 'Helvetica Neue',
+    fontFamily: 'inter-regular',
   },
   rightText: {
     fontSize: 16,
     fontWeight: "bold",
-    fontFamily: 'Helvetica Neue',
+    fontFamily: 'inter-bold',
   },
   msgsContainer: {},
   statusContainer: {
@@ -299,7 +315,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingLeft: 10,
     width: "94%",
-    fontFamily: 'Helvetica Neue',
+    fontFamily: 'inter-bold',
   },
   rowInstructions: {
     borderTopWidth: 1,
@@ -308,5 +324,6 @@ const styles = StyleSheet.create({
   instructionsList: {
     paddingVertical: 4,
     paddingLeft: 18,
+     fontFamily: 'inter-regular',
   },
 });

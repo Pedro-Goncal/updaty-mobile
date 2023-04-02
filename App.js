@@ -9,6 +9,8 @@ import * as SplashScreen from 'expo-splash-screen'
 //Redux
 import { Provider } from "react-redux";
 import store from "./Redux/store";
+import * as Font from 'expo-font';
+
 
 import AdMobControllers from './AdMobControllers';
 
@@ -33,7 +35,7 @@ mobileAds()
   })
   .then(() => {
     // Request config successfully set!
-    console.log('request config successfully set ===');
+  
   });
 
 mobileAds()
@@ -42,6 +44,15 @@ mobileAds()
     // Initialization complete!
     console.log('initialization complete ===', adapterStatuses);
   });
+
+  const customFonts = {
+    'inter-regular': require('./assets/fonts/Inter-Regular.ttf'),
+    'inter-bold': require('./assets/fonts/Inter-Bold.ttf'),
+  };
+  
+  async function loadCustomFonts() {
+    await Font.loadAsync(customFonts);
+  }
 
 
 
@@ -54,13 +65,17 @@ const App = () => {
       await SplashScreen.preventAutoHideAsync()
 
       // pre-load your stuff
-      await new Promise(resolve => setTimeout(resolve, 5000))
+      await new Promise(resolve => setTimeout(resolve, 2000))
 
       // hide splash screen
       await SplashScreen.hideAsync()
     }
     prepare()
   }, [])
+
+
+
+  loadCustomFonts();
   return (
     <Provider store={store}>
       <View style={{ flex: 1 , backgroundColor: "#ecf0f3"}}>

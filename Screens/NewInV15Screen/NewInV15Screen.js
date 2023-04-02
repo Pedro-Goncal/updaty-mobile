@@ -11,8 +11,7 @@ import {
 import React, { useState, useRef } from "react";
 import CardSmall15 from "./CardSmall15";
 
-//Content TEMP
-import newInV15HTML from "../../utils/newInV15HTML.json";
+//Content
 import {newInV15SmallCardContent} from "./Content/newInV15Content";
 
 const { width, height } = Dimensions.get("window");
@@ -30,7 +29,6 @@ const NewInV15Screen = () => {
     }
   });
 
-  console.log(newInV15SmallCardContent)
 
   return (
     <View style={styles.container}>
@@ -59,21 +57,30 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#ecf0f3",
     paddingTop: 40,
-    height: height,
+    height: "100%",
   },
   scrollView: { flex: 1 },
   title: {
     fontSize: Platform.isPad ? 42 : 28,
-    fontFamily: "Helvetica Neue",
+    fontFamily: "inter-bold",
     fontWeight: "bold",
     paddingHorizontal: 18,
-    paddingTop: 14,
-    paddingBottom: 14,
+    paddingTop: 16,
+    paddingBottom: 4,
   },
   cardContainer: {
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 10,
-    paddingBottom: 60,
+    paddingTop: 5,
+    paddingBottom: 40,
+    shadowColor: "#000",
+  
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 7.65,
+    marginBottom: 20,
   },
 });

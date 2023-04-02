@@ -10,105 +10,109 @@ import {
 } from "react-native";
 import React , {useState, useEffect} from "react";
 
+
 const { width, height } = Dimensions.get("window");
 
 import RenderHtml from "react-native-render-html";
 
-
-
-const tagStyles = {
-  img: {
-    objectFit: "contain",
-    // marginVertical: 10,
-    // margin: 6,
-    width: width - 50,
-    height: "100%", 
-    borderRadius: 8,
-    overflow: "hidden"
-  },
-  li: {
-    paddingBottom: 10,
-    fontStyle: "italic",
-  },
-
- h1 : {
-  marginTop: 20,
-  marginBottom: 10,
-  paddingHorizontal: 15,
-  fontSize: Platform.isPad ? 38 :28
-
- },
- h2 : {
-  marginTop: 20,
-  marginBottom: 10,
-  paddingHorizontal: 15,
-  fontSize: Platform.isPad ? 38 : 26,
-  fontFamily: 'Helvetica Neue'
- },
- h3 : {
-  marginTop: 20,
-  marginBottom: 10,
-  paddingHorizontal: 15,
-  fontSize: Platform.isPad ? 30 : 18
- },
- h4 : {
-  marginTop: 20,
-  marginBottom: 10,
-  paddingHorizontal: 15,
-  fontSize: Platform.isPad ? 28 : 16
-
- },
- 
- h5 : {
-  marginTop: 20,
-  marginBottom: 10,
-  fontSize: Platform.isPad ? 26 : 14
-
- },
- h6 : {
-  marginTop: 20,
-  marginBottom: 10,
-  fontSize: Platform.isPad ? 26 : 14,
-  color: "#777777"
- },
- p: {
-  paddingHorizontal: 15,
-  // marginTop: 15,
-  fontSize: Platform.isPad ? 26 : 18,
-  fontFamily: 'Helvetica Neue',
-  // fontWeight: "bold"
- },
- hr: {
-  marginTop: 10,
-  border: "none",
-  color: "#cccccc",
-  height: 4,
-  padding: 0
-  }
-
-};
-
-console.log(Platform.isPad)
-
-const classesStyles = {
-  subTitle: {
-    color: "#999",
-  },
-  title: {
-    fontSize: Platform.isPad ? 38 : 26,
-    color: "#000",
-    fontFamily: 'Helvetica Neue',
-    fontWeight: "bold",
-  },
-};
-
-
 const screenDimensions = Dimensions.get('screen');
+import * as Font from 'expo-font';
+
+const customFonts = {
+  'inter-regular': require('../assets/fonts/Inter-Regular.ttf'),
+  'inter-bold': require('../assets/fonts/Inter-Bold.ttf'),
+};
+
+async function loadCustomFonts() {
+  await Font.loadAsync(customFonts);
+}
+
+
+
 
 const Card = ({content}) => {
   const htmlSource = {
     html: `${content.html}`,
   };
+
+  loadCustomFonts()
+
+  const tagStyles = {
+    img: {
+      objectFit: "contain",
+      // marginVertical: 10,
+      // margin: 6,
+      width: width - 50,
+      height: "100%", 
+      borderRadius: 8,
+      overflow: "hidden"
+    },
+    li: {
+      paddingBottom: 10,
+      fontStyle: "italic",
+    },
+   h1 : {
+    marginTop: 2,
+    // paddingHorizontal: 15,
+    fontSize: Platform.isPad ? 38 :26,
+    fontFamily: 'inter-bold',
+  },
+  h2 : {
+    marginTop: 2,
+    // paddingHorizontal: 15,
+    fontSize: Platform.isPad ? 38 : 26,
+    fontFamily: 'inter-bold',
+    
+   },
+   h3 : {
+    marginTop: 2,
+   
+    // paddingHorizontal: 15,
+    fontSize: Platform.isPad ? 30 : 18,
+     fontFamily: 'inter-regular',
+   },
+   h4 : {
+    marginTop: 2,
+    // paddingHorizontal: 15,
+    fontSize: Platform.isPad ? 28 : 16,
+     fontFamily: 'inter-regular',
+  
+   },
+   
+   h5 : {
+    marginTop: 2,
+    fontSize: Platform.isPad ? 26 : 14,
+     fontFamily: 'inter-regular',
+  
+   },
+   h6 : {
+    marginTop: 2,
+    fontSize: Platform.isPad ? 26 : 14,
+    color: "#777777",
+    fontFamily: 'inter-regular',
+   },
+   p: {
+  
+    fontSize: Platform.isPad ? 26 : 18,
+     fontFamily: 'inter-regular',
+    paddingBottom:6
+   }
+  
+  };
+  
+  // const classesStyles = {
+  //   subTitle: {
+  //     color: "#999",
+  //   },
+  //   title: {
+  //     fontSize: Platform.isPad ? 38 : 26,
+  //     color: "#000",
+  //      fontFamily: 'Inter-regular',
+  //     fontWeight: "bold",
+  //   },
+  // };
+
+  
 
 
 
@@ -158,11 +162,10 @@ const onImageLoad = (event) => {
   setImageSize({ width, height });
 };
 
-console.log("=======>",imageSize)
 
 
   return (
-    <View style={[styles.container, {width: dimensions.screen.width - 20, height: dimensions.screen.height - 300}]}>
+    <View style={[styles.container, {width: dimensions.screen.width - 20, height: Platform.isPad ? dimensions.screen.height - 370 : dimensions.screen.height - 300}]}>
       {/* {loading && (
 
         <View style={styles.spinner}>
@@ -174,9 +177,11 @@ console.log("=======>",imageSize)
           contentWidth={dimensions.screen.width - 20}
           source={htmlSource}
           tagsStyles={tagStyles}
-          classesStyles={classesStyles}
+          // classesStyles={classesStyles}
           // renderersProps={RenderersProps}
-        />
+          enableExperimentalMarginCollapsing={true}
+          
+/>
 
         {/* <View>
           <Text style={styles.title}>{content.title}</Text>
@@ -219,27 +224,28 @@ console.log("=======>",imageSize)
 export default Card;
 
 const styles = StyleSheet.create({
-  spinner: {
-    flex: 1,
-    borderRadius: 20,
-    backgroundColor: "#FFF",
-    width: width - 20,
-    height: height - 320,
-    position: "absolute",
-    top: 0,
-    left: 0,
-    zIndex: 10,
-    justifyContent: "center",
-    alignItems: "center"
-  },
+  // spinner: {
+  //   flex: 1,
+  //   borderRadius: 20,
+  //   backgroundColor: "#FFF",
+  //   width: width - 30,
+  //   height: height - 320,
+  //   position: "absolute",
+  //   top: 0,
+  //   left: 0,
+  //   zIndex: 10,
+  //   justifyContent: "center",
+  //   alignItems: "center"
+  // },
   container: {
-    borderRadius: 20,
+    borderRadius: 16,
     backgroundColor: "#FFF",
     marginHorizontal: 10,
-    // marginBottom: 16,
+    paddingHorizontal: 6,
     paddingBottom: 12,
+    // marginBottom: 16,
     // marginBottom: 50,
-    flex:1,
+    // flex:1,
 
     // position: "relative",
     overflow: "hidden" ,
@@ -256,13 +262,13 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: "#000",
     fontWeight: "bold",
-    fontFamily: 'Helvetica Neue',
+     fontFamily: 'Inter-regular',
 
   },
   imgContainer: {
     // width: width- 50,
     minHeight: "100%",
-    backgroundColor: "red",
+  
     borderRadius: 8,
     overflow: "hidden",
   },
@@ -281,6 +287,6 @@ const styles = StyleSheet.create({
   paddingHorizontal: 15,
   marginTop: 15,
   fontSize: Platform.isPad ? 26 : 18,
-  fontFamily: 'Helvetica Neue',
+   fontFamily: 'Inter-regular',
   }
 });

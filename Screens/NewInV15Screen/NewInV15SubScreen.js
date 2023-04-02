@@ -1,20 +1,19 @@
 import {
-  SafeAreaView,
-  StatusBar,
   StyleSheet,
   Text,
   View,
   FlatList,
   Dimensions,
   TouchableOpacity,
+  Platform
 } from "react-native";
 import React, { useState, useRef, useEffect } from "react";
+import { ScrollView } from "react-native-gesture-handler";
 import Card from "../../Components/Card";
 
 import { useRoute } from "@react-navigation/native";
 
-//Content TEMP
-import newInV15HTML from "../../utils/newInV15HTML.json";
+//Content
 
 import newInV15_1 from "./Content/newInV15_1.json";
 import newInV15_2 from "./Content/newInV15_2.json";
@@ -23,13 +22,12 @@ import newInV15_4 from "./Content/newInV15_4.json";
 import newInV15_5 from "./Content/newInV15_5.json";
 import newInV15_6 from "./Content/newInV15_6.json";
 
-import { ScrollView } from "react-native-gesture-handler";
-import { Path, Svg } from "react-native-svg";
+
 import { useNavigation } from "@react-navigation/native";
 import Pagination from "../../Components/Pagination";
 import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
 
-const { width, height } = Dimensions.get("window");
+const { height } = Dimensions.get("window");
 const screenDimensions = Dimensions.get("screen");
 
 //Redux
@@ -81,10 +79,7 @@ const NewInV15SubScreen = () => {
   const onViewableItemsChanged = useRef(({ viewableItems }) => {
     if (viewableItems.length > 0) {
       dispatch(handleClick());
-
       setActiveCardId(viewableItems[0].item.id);
-      setBackBtnTitle(viewableItems[0].item.id);
-      console.log(viewableItems[0].item);
     }
   });
 
@@ -111,7 +106,7 @@ const NewInV15SubScreen = () => {
         >
           <ArrowSvg />
 
-          <Text style={styles.title}>{content[0].subtitle} {backBtnTitle}</Text>
+          <Text style={styles.title}>{content[0].subtitle}</Text>
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>
@@ -135,7 +130,7 @@ const NewInV15SubScreen = () => {
           />
         </View>
       </ScrollView>
-      <Pagination content={newInV15HTML} activeCardId={activeCardId} />
+      <Pagination content={content} activeCardId={activeCardId} />
     </View>
   );
 };
@@ -156,18 +151,26 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 20,
     paddingLeft: 10,
-    paddingBottom: 10,
+    paddingBottom: 5,
   },
   title: {
-    fontSize: 18,
+    fontSize: Platform.isPad ? 28 : 18,
     fontWeight: "bold",
     paddingHorizontal: 6,
-    fontFamily: "Helvetica Neue",
+    fontFamily: "inter-bold",
   },
   cardContainer: {
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 10,
-    paddingBottom: 50,
+    paddingTop: Platform.isPad ? 20 : 10,
+    paddingBottom:50,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 7.65,
+    marginBottom: 20,
   },
 });
