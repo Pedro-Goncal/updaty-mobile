@@ -1,32 +1,26 @@
 [
    {
       "html": "<h2 class=title>Your lock screen is now super customizable</h2> <p><img src=https://updaty.apptitute.de/img/ios16-04-1.jpg alt=></p>  <p>You may not think it, but your lock screen is probably the part of your phone you use the most, whether it’s glancing to see the time or checking if you’ve been sent an important message or email.</p>",
-      "id":1,
-       "subtitle": "Lock Screen"
+      "id":1
    },
    {
       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-04-2.jpg alt=></p>  <p>With iOS 16, Apple has given you loads more options to better customize your lock screen. This includes being able to create multiple versions to choose from at any moment, and a whole new range of widgets to include.</p>   ",
-      "id":2,
-       "subtitle": "Lock Screen"
+      "id":2
    },
    {
       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-04-3.jpg alt=></p>  <p>To begin customizing your lock screen, you’ll just need to long-press anywhere on the screen where your notifications are not appearing.  Your screen will then zoom out and you’ll see a carousel of the different versions you’ve already set up. You can either edit the current screen by clicking the ‘Customize’ button, swipe to another screen to edit or tap the ‘+’ button to create a new one.</p> ",
-      "id":3,
-       "subtitle": "Lock Screen"
+      "id":3
    },
    {
       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-04-4.jpg alt=></p>  <p>You can now select from a variety of themes, edit the fonts and clock stylings displayed, and pick from any number of widgets to include on your screens. The widgets are way smarter than they used to be too. </p>",
-      "id":4,
-       "subtitle": "Lock Screen"
+      "id":4
    },
    {
       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-04-5.jpg alt=></p>  <p>For instance, if you want to check the sports scores, you can include a scoreboard on your screen which will automatically update when the score changes, so you won’t have to get a whole new notification every time there’s a goal.</p>",
-      "id":5,
-       "subtitle": "Lock Screen"
+      "id":5
    },
    {
       "html": " <p><img src=https://updaty.apptitute.de/img/ios16-04-6.jpg alt=></p>  <p>If you choose to not include widgets, your lock screen will still look great because your iPhone can now do all sorts of cool design tricks like blend the clock around the foreground and background of your photos.</p>",
-      "id":6,
-       "subtitle": "Lock Screen"
+      "id":6
    }
 ]

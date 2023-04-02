@@ -14,7 +14,7 @@ import Card from "../../Components/Card";
 import { useRoute } from "@react-navigation/native";
 
 //Content
-
+import {newInV15SmallCardContent} from "./Content/newInV15Content";
 import newInV15_1 from "./Content/newInV15_1.json";
 import newInV15_2 from "./Content/newInV15_2.json";
 import newInV15_3 from "./Content/newInV15_3.json";
@@ -106,7 +106,7 @@ const NewInV15SubScreen = () => {
         >
           <ArrowSvg />
 
-          <Text style={styles.title}>{content[0].subtitle}</Text>
+          <Text style={styles.title}>{newInV15SmallCardContent[index].subtitle}</Text>
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>

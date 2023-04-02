@@ -13,7 +13,7 @@ import Card from "../../Components/Card";
 import { useRoute } from "@react-navigation/native";
 
 //Content
-
+import { tipsSmalCardContent } from './Content/tipsContent';
 import tip1 from "./Content/tip1.json";
 import tips2 from "./Content/tips2.json";
 import tips3 from "./Content/tips3.json";
@@ -130,7 +130,7 @@ const TipsSubScreen = () => {
         >
           <ArrowSvg />
 
-          <Text style={styles.title}>{content[0].subtitle}</Text>
+          <Text style={styles.title}>{tipsSmalCardContent[index].subtitle}</Text>
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>
