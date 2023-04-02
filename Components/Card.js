@@ -5,109 +5,116 @@ import {
   Dimensions,
   Platform,
   ScrollView,
+  Image,
   ActivityIndicator
 } from "react-native";
 import React , {useState, useEffect} from "react";
+
 
 const { width, height } = Dimensions.get("window");
 
 import RenderHtml from "react-native-render-html";
 
-
-const tagStyles = {
-  img: {
-   
-    objectFit: "fit",
-    // marginVertical: 10,
-    // margin: 6,
-    width: width - 50,
-    height: "100%", 
-    borderRadius: 8,
-    overflow: "hidden"
-  },
-  li: {
-    paddingBottom: 10,
-    fontStyle: "italic",
-  },
-
- h1 : {
-  marginTop: 20,
-  marginBottom: 10,
-  paddingHorizontal: 15,
-  fontSize: Platform.isPad ? 38 :28
-
- },
- h2 : {
-  marginTop: 20,
-  marginBottom: 10,
-  paddingHorizontal: 15,
-  fontSize: Platform.isPad ? 38 : 26,
-  borderBottomColor: '#cccccc',
-  borderBottomWidth: 1,
-  paddingBottom: 6
-
- },
- h3 : {
-  marginTop: 20,
-  marginBottom: 10,
-  paddingHorizontal: 15,
-  fontSize: Platform.isPad ? 30 : 18
- },
- h4 : {
-  marginTop: 20,
-  marginBottom: 10,
-  paddingHorizontal: 15,
-  fontSize: Platform.isPad ? 28 : 16
-
- },
- 
- h5 : {
-  marginTop: 20,
-  marginBottom: 10,
-  fontSize: Platform.isPad ? 26 : 14
-
- },
- h6 : {
-  marginTop: 20,
-  marginBottom: 10,
-  fontSize: Platform.isPad ? 26 : 14,
-  color: "#777777"
- },
- p: {
-  paddingHorizontal: 15,
-  marginTop: 15,
-  fontSize: Platform.isPad ? 26 : 18
- },
- hr: {
-  marginTop: 10,
-  border: "none",
-  color: "#cccccc",
-  height: 4,
-  padding: 0
-  }
-
-};
-
-console.log(Platform.isPad)
-
-const classesStyles = {
-  subTitle: {
-    color: "#999",
-  },
-  title: {
-    fontSize: "22px",
-    color: "#000",
-    fontWeight: "bold",
-  },
-};
-
-
 const screenDimensions = Dimensions.get('screen');
+import * as Font from 'expo-font';
+
+const customFonts = {
+  'inter-regular': require('../assets/fonts/Inter-Regular.ttf'),
+  'inter-bold': require('../assets/fonts/Inter-Bold.ttf'),
+};
+
+async function loadCustomFonts() {
+  await Font.loadAsync(customFonts);
+}
+
+
+
 
 const Card = ({content}) => {
   const htmlSource = {
     html: `${content.html}`,
   };
+
+  loadCustomFonts()
+
+  const tagStyles = {
+    img: {
+      objectFit: "contain",
+      // marginVertical: 10,
+      // margin: 6,
+      width: width - 50,
+      height: "100%", 
+      borderRadius: 8,
+      overflow: "hidden"
+    },
+    li: {
+      paddingBottom: 10,
+      fontStyle: "italic",
+    },
+   h1 : {
+    marginTop: 2,
+    // paddingHorizontal: 15,
+    fontSize: Platform.isPad ? 38 :26,
+    fontFamily: 'inter-bold',
+  },
+  h2 : {
+    marginTop: 2,
+    // paddingHorizontal: 15,
+    fontSize: Platform.isPad ? 38 : 26,
+    fontFamily: 'inter-bold',
+    
+   },
+   h3 : {
+    marginTop: 2,
+   
+    // paddingHorizontal: 15,
+    fontSize: Platform.isPad ? 30 : 18,
+     fontFamily: 'inter-regular',
+   },
+   h4 : {
+    marginTop: 2,
+    // paddingHorizontal: 15,
+    fontSize: Platform.isPad ? 28 : 16,
+     fontFamily: 'inter-regular',
+  
+   },
+   
+   h5 : {
+    marginTop: 2,
+    fontSize: Platform.isPad ? 26 : 14,
+     fontFamily: 'inter-regular',
+  
+   },
+   h6 : {
+    marginTop: 2,
+    fontSize: Platform.isPad ? 26 : 14,
+    color: "#777777",
+    fontFamily: 'inter-regular',
+   },
+   p: {
+  
+    fontSize: Platform.isPad ? 26 : 18,
+     fontFamily: 'inter-regular',
+    paddingBottom:6
+   }
+  
+  };
+  
+  // const classesStyles = {
+  //   subTitle: {
+  //     color: "#999",
+  //   },
+  //   title: {
+  //     fontSize: Platform.isPad ? 38 : 26,
+  //     color: "#000",
+  //      fontFamily: 'Inter-regular',
+  //     fontWeight: "bold",
+  //   },
+  // };
+
+  
+
+
 
   const [loading, setLoading] = useState(true)
 
@@ -148,26 +155,67 @@ const Card = ({content}) => {
 //   }
 // }
 
+const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
+
+const onImageLoad = (event) => {
+  const { width, height } = event.nativeEvent.source;
+  setImageSize({ width, height });
+};
 
 
 
   return (
-    <View style={[styles.container, {width: dimensions.screen.width - 20, height: dimensions.screen.height - 320}]}>
-      {loading && (
+    <View style={[styles.container, {width: dimensions.screen.width - 20, height: Platform.isPad ? dimensions.screen.height - 370 : dimensions.screen.height - 300}]}>
+      {/* {loading && (
 
         <View style={styles.spinner}>
         <ActivityIndicator />
       </View>
-        )}
-      <ScrollView style={{flex: 1}} >
+        )} */}
+      <ScrollView style={styles.scrollView} >
         <RenderHtml
           contentWidth={dimensions.screen.width - 20}
           source={htmlSource}
           tagsStyles={tagStyles}
-          classesStyles={classesStyles}
+          // classesStyles={classesStyles}
           // renderersProps={RenderersProps}
-        />
-    
+          enableExperimentalMarginCollapsing={true}
+          
+/>
+
+        {/* <View>
+          <Text style={styles.title}>{content.title}</Text>
+        </View>
+        {content.text1 && (
+          <View>
+          <Text style={styles.text}>{content.text1}</Text>
+        </View>
+        )}
+        {content.img1 && (
+          <View style={[styles.imgContainer]}>
+          <Image style={styles.img} source={content.img1} onLoad={onImageLoad} />
+        </View>
+        )}
+          {content.text2 && (
+          <View>
+          <Text style={styles.text}>{content.text2}</Text>
+        </View>
+        )}
+        {content.img2 && (
+          <View>
+          <Image source={content.img2}  />
+        </View>
+        )}
+        {content.text3 && (
+          <View>
+          <Text style={styles.text}>{content.text2}</Text>
+        </View>
+        )}
+           {content.text4 && (
+          <View>
+          <Text style={styles.text}>{content.text2}</Text>
+        </View>
+        )} */}
       </ScrollView>
     </View>
   );
@@ -176,55 +224,69 @@ const Card = ({content}) => {
 export default Card;
 
 const styles = StyleSheet.create({
+  // spinner: {
+  //   flex: 1,
+  //   borderRadius: 20,
+  //   backgroundColor: "#FFF",
+  //   width: width - 30,
+  //   height: height - 320,
+  //   position: "absolute",
+  //   top: 0,
+  //   left: 0,
+  //   zIndex: 10,
+  //   justifyContent: "center",
+  //   alignItems: "center"
+  // },
   container: {
-    borderRadius: 20,
-    
+    borderRadius: 16,
     backgroundColor: "#FFF",
     marginHorizontal: 10,
-    paddingVertical: 10,
-    marginBottom: 50,
-    position: "relative",
+    paddingHorizontal: 6,
+    paddingBottom: 12,
+    // marginBottom: 16,
+    // marginBottom: 50,
+    // flex:1,
+
+    // position: "relative",
     overflow: "hidden" ,
   },
-  spinner: {
+  scrollView: {
     flex: 1,
-    borderRadius: 20,
-    backgroundColor: "#FFF",
-    width: width - 20,
-    height: height - 320,
-    position: "absolute",
-    top: 0,
-    left: 0,
-    zIndex: 10,
-    justifyContent: "center",
-    alignItems: "center"
-  },
+    paddingTop: 16,
+    paddingLeft: 16,
+    paddingRight: 16,
 
-  subTitleContainer: {},
-  subTitle: {
-    color: "#607080",
-    fontSize: 14,
-  },
-  titleContainer: {
-    paddingVertical: 5,
+    // paddingBottom: 20
   },
   title: {
-    fontSize: 20,
+    fontSize: 22,
+    color: "#000",
     fontWeight: "bold",
-  },
-  contentContainer: {
-    paddingTop: 5,
-  },
-  content: {
-    fontSize: 16,
+     fontFamily: 'Inter-regular',
+
   },
   imgContainer: {
-    marginTop: 10,
+    // width: width- 50,
+    minHeight: "100%",
+  
+    borderRadius: 8,
+    overflow: "hidden",
   },
   img: {
-    width: "100%",
-    minHeight: 175,
-    objectFit: "cover",
-    borderRadius: 20,
+    // marginVertical: 10,
+    height: undefined,
+    width: '100%',
+    borderRadius: 8,
+    overflow: "hidden",
+    resizeMode: 'contain',
+    flex: 1
+    // aspectRatio:1,
+   
   },
+  text: {
+  paddingHorizontal: 15,
+  marginTop: 15,
+  fontSize: Platform.isPad ? 26 : 18,
+   fontFamily: 'Inter-regular',
+  }
 });

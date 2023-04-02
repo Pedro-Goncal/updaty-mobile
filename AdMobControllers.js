@@ -12,28 +12,38 @@ import { handleFirstLoad } from './Redux/slices/adSlice';
 
 import { AD_UNIT_INTERSTITIAL_ID, AD_UNIT_ID } from "./config/adMobConfig";
 import mobileAds, { MaxAdContentRating, BannerAd, BannerAdSize, TestIds, InterstitialAd, AdEventType } from 'react-native-google-mobile-ads';
-
+import * as Font from 'expo-font';
 
 
 import { NavigationContainer } from "@react-navigation/native";
 
 import RoutesManager from "./Routes/RoutesManager";
 
+const customFonts = {
+  'inter-regular': require('./assets/fonts/Inter-Regular.ttf'),
+  'inter-bold': require('./assets/fonts/Inter-Bold.ttf'),
+};
+
+async function loadCustomFonts() {
+  await Font.loadAsync(customFonts);
+}
+
+
 const adMobControllers = () => {
 
     const [loaded, setLoaded] = useState(false)
 
     const dispatch = useDispatch()
-  
+    loadCustomFonts();
 
     const {fireAd} = useSelector(state => state.ad)
     const interstitial = InterstitialAd.createForAdRequest(AD_UNIT_INTERSTITIAL_ID );
 
     useEffect(() => {
-      console.log("Use effect Run")
+  
       const timeoutId = setTimeout(() => {
        dispatch(handleFirstLoad())
-       console.log("Timeout fired")
+
       }, 30000);
   
       return () => {
@@ -48,7 +58,7 @@ const adMobControllers = () => {
   
         setLoaded(true);
         if(fireAd){
-          console.log("What up")
+    
           interstitial.show()
         }
       });

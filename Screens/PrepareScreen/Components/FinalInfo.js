@@ -1,10 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, Dimensions, Image } from "react-native";
+import { StyleSheet, Text, View, Dimensions, Image, Platform, ScrollView } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Path, Svg } from "react-native-svg";
 
 const { width, height } = Dimensions.get("window");
+const screenDimensions = Dimensions.get('screen');
 
 const FinalInfo = ({
   isUpdateAvailable,
@@ -17,6 +18,21 @@ const FinalInfo = ({
   const [title, setTitle] = useState("");
 
   const navigation = useNavigation();
+
+  const [dimensions, setDimensions] = useState({
+
+    screen: screenDimensions,
+  });
+
+  useEffect(() => {
+    const subscription = Dimensions.addEventListener(
+      'change',
+      ({window, screen}) => {
+        setDimensions({screen});
+      },
+    );
+    return () => subscription?.remove();
+  });
 
   useEffect(() => {
     if (
@@ -52,7 +68,9 @@ const FinalInfo = ({
   }, [isReadyForUpdate]);
 
   return (
-    <View style={styles.mainContainer}>
+    <View style={[styles.mainContainer, {width: dimensions.screen.width - 20, height: Platform.isPad ? dimensions.screen.height - 370 : dimensions.screen.height - 300}]}>
+      <ScrollView style={{flex:1}}>
+
       <View style={styles.container}>
         <View style={styles.titleContainer}>
           <Text style={styles.subTitle}>Step 5 of 5</Text>
@@ -191,7 +209,7 @@ const FinalInfo = ({
             </View>
           </View>
           <View style={styles.messageContainer}>
-            <Text style={{ fontSize: 16 }}>
+            <Text style={{ fontSize: 16, fontFamily: "inter-regular" }}>
               {isReadyForUpdate
                 ? "To find out how to install the update, please read our installation guide."
                 : "Please fix the issues mentioned above before continuing"}
@@ -220,6 +238,7 @@ const FinalInfo = ({
           />
         </Svg>
       </TouchableOpacity>
+      </ScrollView>
     </View>
   );
 };
@@ -228,13 +247,17 @@ export default FinalInfo;
 
 const styles = StyleSheet.create({
   mainContainer: {
-    borderRadius: 20,
+    borderRadius: 16,
     width: width - 20,
     backgroundColor: "#FFF",
     marginHorizontal: 10,
+
   },
   container: {
-    padding: 20,
+    paddingTop: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 14,
   },
   titleContainer: {
     paddingBottom: 20,
@@ -243,10 +266,12 @@ const styles = StyleSheet.create({
     color: "#607080",
     fontSize: 14,
     paddingBottom: 6,
+    fontFamily: 'inter-regular',
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
+    fontFamily: 'inter-bold',
   },
   infoContainer: {},
   row: {
@@ -259,10 +284,12 @@ const styles = StyleSheet.create({
   },
   leftText: {
     fontSize: 16,
+    fontFamily: 'inter-regular',
   },
   rightText: {
     fontSize: 16,
     fontWeight: "bold",
+    fontFamily: 'inter-bold',
   },
   msgsContainer: {},
   statusContainer: {
@@ -273,17 +300,18 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   msgText: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: "bold",
     paddingLeft: 10,
     width: "94%",
+    fontFamily: 'inter-bold',
   },
   messageContainer: {
     paddingTop: 20,
   },
   bottom: {
     borderTopWidth: 1,
-    padding: 16,
+    padding: 12,
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "center",
@@ -291,5 +319,6 @@ const styles = StyleSheet.create({
   bottomBtn: {
     fontWeight: "bold",
     fontSize: 16,
+    fontFamily: 'inter-bold',
   },
 });

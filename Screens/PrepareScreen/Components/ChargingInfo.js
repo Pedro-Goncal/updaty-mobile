@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, Dimensions, Image } from "react-native";
+import { StyleSheet, Text, View, Dimensions, Image, Platform, ScrollView } from "react-native";
 
 const { width, height } = Dimensions.get("window");
-
+const screenDimensions = Dimensions.get('screen');
 import { Bar } from "react-native-progress";
 
 import * as Battery from "expo-battery";
@@ -10,6 +10,22 @@ import * as Battery from "expo-battery";
 const ChargingInfo = ({ isDeviceCharging }) => {
   const [deviceCurrentBattery, setDeviceCurrentBattery] = useState(100);
   const [estimatedTimeRemaining, setEstimatedTimeRemaining] = useState(null);
+
+  const [dimensions, setDimensions] = useState({
+
+    screen: screenDimensions,
+  });
+
+  useEffect(() => {
+    const subscription = Dimensions.addEventListener(
+      'change',
+      ({window, screen}) => {
+        setDimensions({screen});
+      },
+    );
+    return () => subscription?.remove();
+  });
+
 
   //========================================================
   //BATTERY LEVEL AND CAHRGING - V
@@ -33,7 +49,9 @@ const ChargingInfo = ({ isDeviceCharging }) => {
   //TODO - Check to see when the device has more battey if the estimated remaining time is accurrate
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {width: dimensions.screen.width - 20, height: Platform.isPad ? dimensions.screen.height - 370 : dimensions.screen.height - 300}]}>
+      <ScrollView style={{flex:1}}>
+
       <View style={styles.titleContainer}>
         <Text style={styles.subTitle}>Step 4 of 5</Text>
         <Text style={styles.title}>Is your device charging?</Text>
@@ -101,6 +119,8 @@ const ChargingInfo = ({ isDeviceCharging }) => {
           </View>
         </View>
       </View>
+      </ScrollView>
+
     </View>
   );
 };
@@ -109,23 +129,14 @@ export default ChargingInfo;
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 20,
+    borderRadius: 16,
     width: width - 20,
     backgroundColor: "#FFF",
     marginHorizontal: 10,
-    // minHeight: height,
-    padding: 20,
-    // justifyContent: "space-between",
-
-    //  shadowColor: "#000",
-    //  shadowOffset: {
-    //    width: 0,
-    //    height: 4,
-    //  },
-    //  shadowOpacity: 0.3,
-    //  shadowRadius: 4.65,
-
-    //  elevation: 8,
+    paddingTop: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 14,
   },
   titleContainer: {
     paddingBottom: 20,
@@ -134,10 +145,12 @@ const styles = StyleSheet.create({
     color: "#607080",
     fontSize: 14,
     paddingBottom: 6,
+    fontFamily: 'inter-regular',
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
+    fontFamily: 'inter-bold',
   },
   infoContainer: {},
   row: {
@@ -150,10 +163,12 @@ const styles = StyleSheet.create({
   },
   leftText: {
     fontSize: 16,
+    fontFamily: 'inter-regular',
   },
   rightText: {
     fontSize: 16,
     fontWeight: "bold",
+    fontFamily: 'inter-bold',
   },
   msgsContainer: {},
   statusContainer: {
@@ -164,9 +179,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   msgText: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: "bold",
     paddingLeft: 10,
     width: "94%",
+    fontFamily: 'inter-bold',
   },
 });

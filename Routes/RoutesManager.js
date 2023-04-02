@@ -117,9 +117,10 @@ function MyTabs() {
    
       screenOptions={{
         tabBarLabelStyle: {
-          fontSize: Platform.isPad ? 16 : 10, // set the font size to 16
+          fontSize: Platform.isPad ? 16 : 11, // set the font size to 16
+          marginBottom: 4
         },
-        tabBarStyle: { height: Platform.isPad ? 80 : 54, fontSize: 25, },
+        tabBarStyle: { height: Platform.isPad ? 80 : 56 },
      
       }}
     >
@@ -133,8 +134,8 @@ function MyTabs() {
           tabBarIcon: ({ focused }) => (
             <Svg
              style={{marginRight: Platform.isPad ?  10 : 0}}
-              width={Platform.isPad ? "50" : "24"}
-              height={Platform.isPad ? "50" : "24"}
+              width={Platform.isPad ? "50" : "30"}
+              height={Platform.isPad ? "50" : "30"}
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -165,8 +166,8 @@ function MyTabs() {
             <Svg
             style={{marginRight: Platform.isPad ?  10 : 0}}
 
-            width={Platform.isPad ? "50" : "24"}
-            height={Platform.isPad ? "50" : "24"}
+            width={Platform.isPad ? "50" : "30"}
+            height={Platform.isPad ? "50" : "30"}
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -192,8 +193,8 @@ function MyTabs() {
             <Svg
             style={{marginRight: Platform.isPad ?  10 : 0}}
 
-            width={Platform.isPad ? "50" : "24"}
-            height={Platform.isPad ? "50" : "24"}
+            width={Platform.isPad ? "50" : "30"}
+            height={Platform.isPad ? "50" : "30"}
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -219,8 +220,8 @@ function MyTabs() {
             <Svg
             style={{marginRight: Platform.isPad ?  10 : 0}}
 
-            width={Platform.isPad ? "50" : "24"}
-            height={Platform.isPad ? "50" : "24"}
+            width={Platform.isPad ? "50" : "30"}
+            height={Platform.isPad ? "50" : "30"}
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -244,8 +245,8 @@ function MyTabs() {
             <Svg
             style={{marginRight: Platform.isPad ?  10 : 0}}
 
-            width={Platform.isPad ? "50" : "24"}
-            height={Platform.isPad ? "50" : "24"}
+            width={Platform.isPad ? "50" : "30"}
+            height={Platform.isPad ? "50" : "30"}
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

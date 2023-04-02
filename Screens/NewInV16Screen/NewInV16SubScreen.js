@@ -7,14 +7,20 @@ import {
   FlatList,
   Dimensions,
   TouchableOpacity,
+  Platform
 } from "react-native";
 import React, { useState, useRef, useEffect } from "react";
 import Card from "../../Components/Card";
 
 import { useRoute } from "@react-navigation/native";
 
-//Content TEMP
-import newInV16HTML from "../../utils/newInV16HTML.json";
+//Content
+import newInV16_1 from "./Content/newInV16_1.json";
+import newInV16_2 from "./Content/newInV16_2.json";
+import newInV16_3 from "./Content/newInV16_3.json";
+import newInV16_4 from "./Content/newInV16_4.json";
+import newInV16_5 from "./Content/newInV16_5.json";
+import newInV16_6 from "./Content/newInV16_6.json";
 
 import { ScrollView } from "react-native-gesture-handler";
 import { Path, Svg } from "react-native-svg";
@@ -23,14 +29,14 @@ import Pagination from "../../Components/Pagination";
 import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
 
 const { width, height } = Dimensions.get("window");
-const screenDimensions = Dimensions.get('screen');
+const screenDimensions = Dimensions.get("screen");
 
 //Redux
 import { useDispatch, useSelector } from "react-redux";
 import { handleClick } from "../../Redux/slices/adSlice";
 
 import { AD_UNIT_INTERSTITIAL_ID } from "../../config/adMobConfig";
-import { InterstitialAd, AdEventType } from 'react-native-google-mobile-ads';
+import { InterstitialAd, AdEventType } from "react-native-google-mobile-ads";
 
 const NewInV16SubScreen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
@@ -40,26 +46,37 @@ const NewInV16SubScreen = () => {
 
   const dispatch = useDispatch();
   const flatListRef = useRef(null);
+  const [content, setContent] = useState(newInV16_1);
+  useEffect(() => {
+    if (index === 0) {
+      setContent(newInV16_1);
+    } else if (index === 1) {
+      setContent(newInV16_2);
+    } else if (index === 2) {
+      setContent(newInV16_3);
+    } else if (index === 3) {
+      setContent(newInV16_4);
+    } else if (index === 4) {
+      setContent(newInV16_5);
+    } else if (index === 5) {
+      setContent(newInV16_6);
+    }
+  }, [index]);
 
-  const [isScrollEnabled, setIsScrollEnabled] = useState(true)
-  const [loaded, setLoaded] = useState(false)
+  const [isScrollEnabled, setIsScrollEnabled] = useState(true);
+  const [loaded, setLoaded] = useState(false);
 
+  const { fireAd } = useSelector((state) => state.ad);
 
-  const {fireAd} = useSelector(state => state.ad)
-
-
-  
- 
-  
   const getItemLayout = (data, index) => ({
-    length: dimensions.screen.width - 20, // width of an item in the list
+    length: dimensions.screen.width, // width of an item in the list
     offset: dimensions.screen.width * index, // position of the item in the list
     index,
   });
 
-  useEffect(() => {
-    flatListRef.current.scrollToIndex({ index, animated: false });
-  }, []);
+  // useEffect(() => {
+  //   flatListRef.current.scrollToIndex({ index, animated: false });
+  // }, []);
 
   const viewabilityConfig = {
     itemVisiblePercentThreshold: 51,
@@ -73,21 +90,18 @@ const NewInV16SubScreen = () => {
   });
 
   const [dimensions, setDimensions] = useState({
-
     screen: screenDimensions,
   });
 
   useEffect(() => {
     const subscription = Dimensions.addEventListener(
-      'change',
-      ({window, screen}) => {
-        setDimensions({screen});
-      },
+      "change",
+      ({ window, screen }) => {
+        setDimensions({ screen });
+      }
     );
     return () => subscription?.remove();
   });
-
-
 
   return (
     <View style={styles.container}>
@@ -98,7 +112,7 @@ const NewInV16SubScreen = () => {
         >
           <ArrowSvg />
 
-          <Text style={styles.title}>New in iOS 16</Text>
+          <Text style={styles.title}>{content[0].subtitle}</Text>
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>
@@ -107,9 +121,8 @@ const NewInV16SubScreen = () => {
             // onScroll={handleScroll}
             decelerationRate={0.9}
             snapToInterval={dimensions.screen.width} // Distance between each snap point
-
             snapToAlignment={"center"} // Align snap point to the center of the view
-            data={newInV16HTML}
+            data={content}
             getItemLayout={getItemLayout}
             showsHorizontalScrollIndicator={false}
             initialNumToRender={4}
@@ -118,13 +131,13 @@ const NewInV16SubScreen = () => {
             horizontal
             viewabilityConfig={viewabilityConfig}
             onViewableItemsChanged={onViewableItemsChanged.current}
-            onLayout={() =>
-              flatListRef.current.scrollToIndex({ index, animated: false })
-            }
+            // onLayout={() =>
+            //   flatListRef.current.scrollToIndex({ index, animated: false })
+            // }
           />
         </View>
       </ScrollView>
-      <Pagination content={newInV16HTML} activeCardId={activeCardId} />
+      <Pagination content={content} activeCardId={activeCardId} />
     </View>
   );
 };
@@ -145,17 +158,26 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 20,
     paddingLeft: 10,
-    paddingBottom: 10,
+    paddingBottom: 5,
   },
   title: {
-    fontSize: 18,
+    fontSize: Platform.isPad ? 28 : 18,
     fontWeight: "bold",
     paddingHorizontal: 6,
+    fontFamily: "Helvetica Neue",
   },
   cardContainer: {
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 10,
+    paddingTop: Platform.isPad ? 20 : 10,
     paddingBottom: 50,
+     shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 7.65,
+    marginBottom: 20,
   },
 });

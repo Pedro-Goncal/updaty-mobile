@@ -75,7 +75,7 @@ const PrepareScreen = () => {
   });
 
   const getItemLayout = (data, index) => ({
-    length: dimensions.screen.width - 20, // width of an item in the list
+    length: dimensions.screen.width , // width of an item in the list
     offset: dimensions.screen.width * index, // position of the item in the list
     index,
   });
@@ -240,6 +240,7 @@ const PrepareScreen = () => {
             keyExtractor={(item) => item.id}
             horizontal
             viewabilityConfig={viewabilityConfig}
+            pagingEnabled
             onViewableItemsChanged={onViewableItemsChanged.current}
             renderItem={({ item }) => {
               switch (item.id) {
@@ -298,13 +299,22 @@ const styles = StyleSheet.create({
     fontSize: Platform.isPad ? 42 :28,
     fontWeight: "bold",
     paddingHorizontal: 18,
-    paddingTop: 20,
+    paddingTop: 16,
+    paddingBottom: 4,
+    fontFamily: 'inter-bold',
   },
   cardContainer: {
     justifyContent: "center",
     alignItems: "center",
     paddingTop: 10,
     paddingBottom: 50,
-    Height: height / 4,
+    paddingHorizontal: 0,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 7.65,
   },
 });

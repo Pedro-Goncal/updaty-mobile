@@ -27,7 +27,7 @@ const Pagination = ({ content, activeCardId }) => {
         
           style={[
             styles.dotSmall,
-            { backgroundColor:"gray"},
+            { backgroundColor: "rgba(44,55,56, 0.3)"},
           ]}
         />)}
         {content.slice(sliceStart, shouldShowFiveDots ? sliceStart + 4 : undefined).map((item, index) => (
@@ -37,7 +37,7 @@ const Pagination = ({ content, activeCardId }) => {
               styles.dot,
               {
                 backgroundColor:
-                  activeCardId === item.id ? "#d72c16" : "gray",
+                  activeCardId === item.id ? "#d72c16" : "rgba(44,55,56, 0.3)",
               },
             ]}
           />
@@ -50,7 +50,7 @@ const Pagination = ({ content, activeCardId }) => {
               styles.dotSmall,
               {
                 backgroundColor:
-                   "gray",
+                "rgba(44,55,56,0.3)",
               },
             ]}
           />
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     justifyContent: "center",
     alignItems: "center",
-    bottom: 10,
+    bottom: 5,
     width: "100%",
   },
   paginationBox: {

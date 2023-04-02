@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "Updaty - Update & News",
+    "name": "Updaty",
+ 
     "plugins": [
       [
         "expo-calendar",
@@ -13,8 +14,14 @@
         "expo-build-properties",
         {
           "ios": {
-            "deploymentTarget": "12.0"
+            "deploymentTarget": "13.0"
           }
+        }
+      ],
+      [
+        "expo-screen-orientation",
+        {
+          "initialOrientation": "DEFAULT"
         }
       ]
     ],
@@ -37,10 +44,13 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "de.CSC-Hildebrand.UpgradeGuideForIOS",
-      "buildNumber": "120001",
+      "buildNumber": "120006",
       "infoPlist": {
         "NSRemindersUsageDescription": "The app needs to access your reminders.",
-        "NSCalendarsUsageDescription": "The app needs to access your calendar."
+        "NSCalendarsUsageDescription": "The app needs to access your calendar.",
+        "UISupportedInterfaceOrientations~ipad": [
+          "UIInterfaceOrientationPortrait"
+        ]
       }
     },
     "android": {

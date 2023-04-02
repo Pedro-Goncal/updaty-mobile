@@ -1,0 +1,42 @@
+[
+   {
+      "html": "<h2 class=title>Plot your multi-stop route on Maps</h2> <p><img src=https://updaty.apptitute.de/img/ios16-06-1.jpg alt=></p>  <p>Maps has been pretty great at getting you from A to B for years now, but it’s been less good for getting you from A to B via C and D. </p>",
+      "id":1,
+      "subtitle": "Multi-stop route"
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-2.jpg alt=></p>  <p>For instance, you’re heading home (or ‘B’) from work (‘A’) but you need to pick up the kids or a friend (‘C’) on the way and then go to the shop (‘D’) to get some food before completing your journey. </p> ",
+      "id":2,
+      "subtitle": "Multi-stop route"
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-3.jpg alt=></p>  <p>Previously, you’d have had to input each journey using Maps on your iPhone. So that’s A to C initially as you leave work, then when you get to your friend you’d input C to D, and then once you’ve got your dinner, you’d input D to B. </p>",
+      "id":3,
+      "subtitle": "Multi-stop route"
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-4.jpg alt=></p>  <p>The good news is that following the iOS 16 update, Maps can now set up a multi-stop route, meaning you can just do A to B via C and D at the outset, rather than inputting multiple journeys as you go. </p>",
+      "id":4,
+      "subtitle": "Multi-stop route"
+   },
+   {
+      "html": "<<p><img src=https://updaty.apptitute.de/img/ios16-06-5.jpg alt=></p>  <p>How do you do it? In Maps, you find your first stop (C – the kids or friend) and click the directions button (the blue arrows button) to set up the route.</p>",
+      "id":5,
+      "subtitle": "Multi-stop route"
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-6.jpg alt=></p>  <p>Then once you’ve done this, select the ‘Add stop’ button under the first stop, to input your next stop (D – the food). </p> ",
+      "id":6,
+      "subtitle": "Multi-stop route"
+   },
+   {
+      "html": "<<p><img src=https://updaty.apptitute.de/img/ios16-06-7.jpg alt=></p>  <p>You then do the same again for B, your end-destination (home). </p>",
+      "id":7,
+      "subtitle": "Multi-stop route"
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-8.jpg alt=></p>  <p>And there you go, your multi-stop journey is now set up and you won’t have to keep on adding journeys in Maps as you go. You can now just follow the directions your iPhone is giving you.</p>",
+      "id":8,
+      "subtitle": "Multi-stop route"
+   }
+]

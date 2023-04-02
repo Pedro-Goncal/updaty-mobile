@@ -8,7 +8,8 @@ import {
   Alert,
   Dimensions,
   ActivityIndicator,
-  Platform
+  Platform,
+  ScrollView
 } from "react-native";
 
 import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
@@ -104,9 +105,9 @@ function App({route}) {
 
   const renderItem = ({ item }) => {
     return (
-      <View
-        style={[styles.row, { borderBottomColor: "rgba(144,128,144,0.2)" }]}
-      >
+      <View >
+      
+      <View style={[styles.row, { borderBottomColor: "rgba(144,128,144,0.2)" }]}>
         <View>
           <Text style={[styles.leftText, {fontSize: Platform.isPad ? 26 : 15}]}>{item.name}</Text>
           <Text style={[styles.rightText, {fontSize: Platform.isPad ? 26 : 15}]}>{item.phoneNumbers[0].number}</Text>
@@ -115,54 +116,87 @@ function App({route}) {
         <TouchableOpacity
           style={styles.deleteButton}
           onPress={() => deleteContact(item.id)}
-        >
+          >
           <Text style={[styles.buttonText, {fontSize: Platform.isPad ? 26 : 15}]}>Delete</Text>
         </TouchableOpacity>
       </View>
+    </View>
     );
   };
 
-  if (loading) {
-    return (
-      <View style={{ flex: 1, height: height, justifyContent: "center" }}>
-        <ActivityIndicator size="large" color="#0000ff" />
-      </View>
-    );
-  }
+  
+
+
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.titleContainer}
-        onPress={() => navigation.goBack()}
-      >
-        <ArrowSvg />
+      <View style={styles.container}>
+        <TouchableOpacity
+          style={styles.titleContainer}
+          onPress={() => navigation.goBack()}
+        >
+          <ArrowSvg />
 
-        <Text style={[styles.title, {fontSize: Platform.isPad ? 36 : 18}]}>Delete duplicate contacts</Text>
-      </TouchableOpacity>
+          <Text style={[styles.title, {fontSize: Platform.isPad ? 36 : 18}]}>Delete duplicate contacts</Text>
+        </TouchableOpacity>
 
-      <View style={[styles.cardContainer, {height: dimensions.screen.height -320}]}>
-        {duplicatedContacts.length < 1 ? (
-          <View style={styles.noEntriesContainer}>
-            <Text style={{ textAlign: "center", paddingHorizontal: 30 }}>
-            🎉It looks like you do not have any duplicate contacts, good job in keeping
-              your contacts tidy
-            </Text>
+       <View style={[styles.cardContainer, {height: dimensions.screen.height -320}]}>
+          <View style={[styles.card, {width: dimensions.screen.width - 20, height: Platform.isPad ? dimensions.screen.height - 380 : dimensions.screen.height - 300}]}>
+            <FlatList
+              data={duplicatedContacts}
+              renderItem={renderItem}
+              keyExtractor={(item) => item.id}
+              ListEmptyComponent={() => <Text style={{justifyContent: "center", alignItems: "center", textAlign: "center"}}>No duplicated contacts found</Text>}
+              />
           </View>
-        ) : (
-          <FlatList
-            data={duplicatedContacts}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id}
-            ListEmptyComponent={() => <Text>No duplicated contacts found</Text>}
-          />
-        )}
+        </View>
       </View>
-    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#ecf0f3",
+    paddingTop: 40,
+    height: height,
+
+  },
+  titleContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    paddingTop: 20,
+    paddingLeft: 10,
+    paddingBottom: 46,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    paddingHorizontal: 6,
+    fontFamily: "inter-bold",
+  },
+  cardContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 10,
+    paddingBottom: 50,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 7.65,
+    marginBottom: 20,
+  },
+  card: {
+    borderRadius: 20,
+    backgroundColor: "#FFF",
+    marginHorizontal: 10,
+    paddingHorizontal: 24,
+    paddingVertical:12,
+    paddingBottom: 12,
+  },
   deleteButton: {
     backgroundColor: "#d72c16",
     paddingVertical: 10,
@@ -172,11 +206,11 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "#fff",
-    fontWeight: "bold",
+    fontFamily: "inter-bold"
   },
   contactName: {
     flex: 1,
-    fontWeight: "bold",
+    fontFamily: "inter-regular"
   },
   contactPhone: {
     flex: 2,
@@ -192,49 +226,19 @@ const styles = StyleSheet.create({
   },
   leftText: {
     fontSize: 16,
+    fontFamily: "inter-regular"
   },
   rightText: {
     fontSize: 16,
-    fontWeight: "bold",
+   fontFamily: "inter-bold"
   },
 
-  container: {
-    flex: 1,
-    backgroundColor: "#ecf0f3",
-    paddingTop: 40,
-
-  },
+ 
   scrollView: { flex: 1 },
-  titleContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    paddingTop: 20,
-    paddingLeft: 10,
-    paddingBottom: 10,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: "bold",
-    paddingHorizontal: 6,
-  },
-  cardContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    paddingTop: 10,
-    paddingBottom: 100,
-  },
 
-  cardContainer: {
-    borderRadius: 12,
-    width: width - 20,
-    backgroundColor: "#FFF",
-    marginHorizontal: 10,
-    marginTop: 20,
-    minHeight: height / 2,
-    padding: 20,
-    marginBottom: width / 3,
-  },
+
+
+  
   noEntriesContainer: {
     justifyContent: "center",
     alignItems: "center",

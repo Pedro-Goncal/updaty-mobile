@@ -103,9 +103,10 @@ export default function CalendarEvents() {
 
   const renderItem = ({ item }) => {
     return (
-      <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
-        <View style={styles.textContainer}>
-
+      <View>
+        
+      <View style={[styles.row, { borderBottomColor: "rgba(144,128,144,0.2)" }]}>
+        <View >
         <Text style={[styles.leftText, {fontSize: Platform.isPad ? 26 : 15}]}>{item.title}</Text>
         <Text style={[styles.rightText, {fontSize: Platform.isPad ? 26 : 15}]}>{formatDate(item.endDate)}</Text>
         </View>
@@ -116,7 +117,8 @@ export default function CalendarEvents() {
           <Text style={[styles.buttonText, {fontSize: Platform.isPad ? 26 : 15}]}>Delete</Text>
         </TouchableOpacity>
       </View>
-          )
+    </View>
+  )
 
   };
 
@@ -131,57 +133,27 @@ export default function CalendarEvents() {
         <Text style={[styles.title, {fontSize: Platform.isPad ? 36 : 18}]}>Delete old calendar entries</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={deleteAllEvents}
-        style={styles.deleteAllContainer}
-      >
-        <Text style={{ color: "white", fontSize: Platform.isPad? 26 : 16 }}>Delete All</Text>
-      </TouchableOpacity>
-
       <View style={[styles.cardContainer, {height: dimensions.screen.height -320}]}>
-        {events.length < 1 ? (
-          <View style={styles.noEntriesContainer}>
-            <Text
-              style={{
-                textAlign: "center",
-                paddingHorizontal: 30,
-                fontSize: 20,
-              }}
-            >
-              🎉 It looks like you do not have any old entries. Good job in
-              keeping your calendar tidy.
-            </Text>
+          <View style={[styles.card, , {width: dimensions.screen.width - 20, height: Platform.isPad ? dimensions.screen.height - 380 : dimensions.screen.height - 300}]}>
+            <FlatList
+              data={events}
+              renderItem={renderItem}
+              keyExtractor={(item, index) => index}
+              ListEmptyComponent={() => <Text style={{justifyContent: "center", alignItems: "center", textAlign: "center"}}>No old calendar entries found</Text>}
+
+            />
           </View>
-        ) : (
-          <FlatList
-            data={events}
-            renderItem={renderItem}
-            keyExtractor={(item, index) => index}
-          />
-        )}
       </View>
     </View>
   );
 }
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ecf0f3",
     paddingTop: 40,
     height: height,
-  },
 
-  deleteButton: {
-    backgroundColor: "#d72c16",
-    paddingVertical: 10,
-    paddingHorizontal: 25,
-    borderRadius: 5,
-   
-  },
-  buttonText:{
-    color: "#FFF"
   },
   titleContainer: {
     flexDirection: "row",
@@ -189,13 +161,55 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 20,
     paddingLeft: 10,
-    paddingBottom: 10,
+    paddingBottom: 46,
   },
   title: {
     fontSize: 18,
     fontWeight: "bold",
     paddingHorizontal: 6,
+    fontFamily: "inter-bold",
   },
+  cardContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 10,
+    paddingBottom: 50,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 7.65,
+    marginBottom: 20,
+  },
+  card: {
+    borderRadius: 20,
+    backgroundColor: "#FFF",
+    marginHorizontal: 10,
+    paddingHorizontal: 24,
+    paddingVertical:12,
+    paddingBottom: 12,
+  },
+  deleteButton: {
+    backgroundColor: "#d72c16",
+    paddingVertical: 10,
+    paddingHorizontal: 25,
+    borderRadius: 5,
+    marginRight: 10,
+  },
+  buttonText: {
+    color: "#fff",
+    fontFamily: "inter-bold"
+  },
+  contactName: {
+    flex: 1,
+    fontFamily: "inter-regular"
+  },
+  contactPhone: {
+    flex: 2,
+  },
+
   row: {
     borderBottomWidth: 1,
     display: "flex",
@@ -203,48 +217,25 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingVertical: 10,
+    
   },
   leftText: {
-    fontSize: 14,
-  },
-  textContainer:{
-
+    fontSize: 16,
+    fontFamily: "inter-regular"
   },
   rightText: {
-    fontSize: 14,
-    fontWeight: "bold",
+    fontSize: 16,
+   fontFamily: "inter-bold"
   },
-  
-  // cardContainer: {
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   paddingTop: 10,
-  //   paddingBottom: 50,
-  // },
 
-  cardContainer: {
-    borderRadius: 12,
-    width: width - 20,
-    backgroundColor: "#FFF",
-    marginHorizontal: 10,
-    marginTop: 20,
-  
-    padding: 15,
-    marginBottom: width / 3,
-  },
-  deleteAllContainer: {
-    borderRadius: 12,
-    width: width - 20,
-    backgroundColor: "#FFF",
-    marginHorizontal: 10,
-    marginTop: 10,
-    padding: 10,
-    alignItems: "center",
-    backgroundColor: "#d72c16",
-  },
+
+  scrollView: { flex: 1 },
+
   noEntriesContainer: {
     justifyContent: "center",
     alignItems: "center",
     flex: 1,
   },
 });
+
+

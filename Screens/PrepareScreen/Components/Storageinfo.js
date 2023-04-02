@@ -7,6 +7,8 @@ import {
   Image,
   TouchableOpacity,
   Alert,
+  Platform,
+  ScrollView
 } from "react-native";
 
 //Navigation
@@ -19,7 +21,7 @@ import { useDispatch } from "react-redux";
 import { Bar } from "react-native-progress";
 
 const { width, height } = Dimensions.get("window");
-
+const screenDimensions = Dimensions.get('screen');
 //Device info
 import * as FileSystem from "expo-file-system";
 import RNFS from 'react-native-fs';
@@ -49,7 +51,21 @@ const Storageinfo = ({ setHasEnoughStorageCheck, activeCardId }) => {
   const navigation = useNavigation();
   const dispatch = useDispatch()
 
-  console.log(activeCardId)
+  const [dimensions, setDimensions] = useState({
+
+    screen: screenDimensions,
+  });
+
+  useEffect(() => {
+    const subscription = Dimensions.addEventListener(
+      'change',
+      ({window, screen}) => {
+        setDimensions({screen});
+      },
+    );
+    return () => subscription?.remove();
+  });
+
 
   //========================================================
   //GET DEVICE INFO
@@ -206,12 +222,11 @@ const Storageinfo = ({ setHasEnoughStorageCheck, activeCardId }) => {
 
 
   useEffect(() => {
-    if(activeCardId === 3){
-      console.log("this run")
+    if(activeCardId === 3 ){
       getContacts();
 
     }
-  }, [activeCardId]);
+  }, [activeCardId ]);
 
   //======================================
   //Get amount of old calendar entries
@@ -255,7 +270,7 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
       if(activeCardId === 3){
     getCalendarEvents()
       }
-  }, []);
+  }, [activeCardId]);
 
   //Call calander and contacts again to update UI
   useEffect(() => {
@@ -271,7 +286,9 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
     }, [navigation]);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {width: dimensions.screen.width - 20, height: Platform.isPad ? dimensions.screen.height - 370 : dimensions.screen.height - 300}]}>
+      <ScrollView>
+
       <View style={styles.titleContainer}>
         <Text style={styles.subTitle}>Step 2 of 5</Text>
         <Text style={styles.title}>Let's see if you have enough space...</Text>
@@ -468,6 +485,8 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
           )}
         </View>
       </View>
+      </ScrollView>
+
     </View>
   );
 };
@@ -476,23 +495,16 @@ export default Storageinfo;
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 20,
+    borderRadius: 16,
     width: width - 20,
     backgroundColor: "#FFF",
     marginHorizontal: 10,
     // minHeight: height,
-    padding: 20,
-    // justifyContent: "space-between",
+    paddingTop: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 14,
 
-    //  shadowColor: "#000",
-    //  shadowOffset: {
-    //    width: 0,
-    //    height: 4,
-    //  },
-    //  shadowOpacity: 0.3,
-    //  shadowRadius: 4.65,
-
-    //  elevation: 8,
   },
   titleContainer: {
     paddingBottom: 20,
@@ -501,10 +513,12 @@ const styles = StyleSheet.create({
     color: "#607080",
     fontSize: 14,
     paddingBottom: 6,
+    fontFamily: 'inter-regular',
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
+    fontFamily: 'inter-bold',
   },
   infoContainer: {},
   row: {
@@ -517,12 +531,14 @@ const styles = StyleSheet.create({
   },
   leftText: {
     fontSize: 16,
+    fontFamily: 'inter-regular',
   },
   rightText: {
     fontSize: 16,
     fontWeight: "bold",
     flexDirection: "row",
     alignItems: "center",
+    fontFamily: 'inter-bold',
   },
   msgsContainer: {},
   statusContainer: {
@@ -533,10 +549,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   msgText: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: "bold",
     paddingLeft: 10,
     width: "94%",
+      fontFamily: 'inter-bold',
   },
   dropDownContainer: {
     backgroundColor: "#ecf0f3",
