@@ -8,7 +8,7 @@
       "id":2
    },
    {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-3.jpg alt=></p>  <p>Previously, you’d have had to input each journey using Maps on your iPhone. So that’s A to C initially as you leave work, then when you get to your friend you’d input C to D, and then once you’ve got your dinner, you’d input D to B. </p>",
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-3.jpg alt=></p>  <p>Previously, you’d have had to input each journey using Maps on your iPhone.</p> <p>So that’s A to C initially as you leave work, then when you get to your friend you’d input C to D, and then once you’ve got your dinner, you’d input D to B. </p>",
       "id":3
    },
    {
@@ -28,7 +28,7 @@
       "id":7
    },
    {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-8.jpg alt=></p>  <p>And there you go, your multi-stop journey is now set up and you won’t have to keep on adding journeys in Maps as you go. You can now just follow the directions your iPhone is giving you.</p>",
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-8.jpg alt=></p>  <p>And there you go, your multi-stop journey is now set up and you won’t have to keep on adding journeys in Maps as you go.</p> <p>You can now just follow the directions your iPhone is giving you.</p>",
       "id":8
    }
 ]
