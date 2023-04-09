@@ -209,7 +209,7 @@ const FinalInfo = ({
             </View>
           </View>
           <View style={styles.messageContainer}>
-            <Text style={{ fontSize: 16, fontFamily: "inter-regular" }}>
+            <Text style={{ fontSize: Platform.isPad ? 22 : 16, fontFamily: "inter-regular" }}>
               {isReadyForUpdate
                 ? "To find out how to install the update, please read our installation guide."
                 : "Please fix the issues mentioned above before continuing"}
@@ -264,12 +264,12 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: "#607080",
-    fontSize: 14,
+    fontSize: Platform.isPad ? 22 : 14,
     paddingBottom: 6,
     fontFamily: 'inter-regular',
   },
   title: {
-    fontSize: 22,
+    fontSize:Platform.isPad ? 36 :22,
     fontWeight: "bold",
     fontFamily: 'inter-bold',
   },
@@ -283,11 +283,11 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   leftText: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 22 : 16,
     fontFamily: 'inter-regular',
   },
   rightText: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 22 : 16,
     fontWeight: "bold",
     fontFamily: 'inter-bold',
   },
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   msgText: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 22 : 16,
     fontWeight: "bold",
     paddingLeft: 10,
     width: "94%",
@@ -318,7 +318,7 @@ const styles = StyleSheet.create({
   },
   bottomBtn: {
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize:Platform.isPad ? 22 : 16,
     fontFamily: 'inter-bold',
   },
 });

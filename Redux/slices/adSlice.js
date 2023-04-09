@@ -12,19 +12,16 @@ const adSlice = createSlice({
   initialState,
   reducers: {
     handleFirstLoad: (state, action) => {
-      state.isFirstLoad = false
-      console.log("First load now is false", state.isFirstLoad)
+      state.isFirstLoad = false;
+      console.log("First load now is false", state.isFirstLoad);
     },
     handleClick: (state) => {
       console.log("State ClickCount =====> ",state.clickCount);
       state.clickCount++;
 
-      if(state.isFirstLoad) return
+      if (state.isFirstLoad) return;
 
-      if (
-        state.clickCount % 2 === 0 &&  
-        Date.now() - state.lastAdShownTime >= 30000
-      ) {
+      if (Date.now() - state.lastAdShownTime >= 15000) {
         state.fireAd = true;
         state.lastAdShownTime = Date.now();
       } else {
@@ -39,6 +36,3 @@ const adSlice = createSlice({
 export const { handleClick, handleFirstLoad } = adSlice.actions;
 
 export default adSlice.reducer;
-
-
-//! When clicking the small card it fires two times, fix that so it only fires once 

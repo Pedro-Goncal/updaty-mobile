@@ -12,10 +12,11 @@ import NetInfo from "@react-native-community/netinfo";
 import checkGreen from '../../../assets/iconsSvg/checkGreen.png'
 import checkRed from '../../../assets/iconsSvg/checkRed.png'
 import checkYellow from '../../../assets/iconsSvg/checkYellow.png'
+import axios from "axios";
 
 
 
-const DeviceInfo = ({ isUpdateAvailable, maxOsUpdate }) => {
+const DeviceInfo = ( ) => {
 
   const [isWIFIConnected, setIsWIFIConnected] = useState(false)
 
@@ -51,7 +52,43 @@ const DeviceInfo = ({ isUpdateAvailable, maxOsUpdate }) => {
     };
   }, [NetInfo]);
 
-  console.log(Device.osVersion)
+  const [isUpdateAvailable, setIsUpdateAvailable] = useState(false);
+  const [maxOsUpdate, setMaxOsUpdate] = useState("SUUp");
+
+  const [latestiOSAvailable, setLatestiOSAvailable] = useState("")
+
+  useEffect(() => {
+
+    //Here we use the https://ipsw.me/ API and the modelID to retrive the latest avaialble iOS version
+    const fetched = async() => {
+      try {
+        await axios.get(`https://api.ipsw.me/v4/device/${Device.modelId}?variant=latest`).then(res => {
+       
+  
+          if(Device.osVersion.toString() === res.data.firmwares[0].version){
+      
+            setIsUpdateAvailable(false)
+            setMaxOsUpdate(res.data.firmwares[0].version)
+          } else{
+            console.log("YOU ARE NOT");
+            setIsUpdateAvailable(true)
+            setMaxOsUpdate(res.data.firmwares[0].version)
+          }
+
+        })
+       
+      } catch (error) {
+        setLatestiOSAvailable('N/A')
+        console.log("Error fetching iOS vertsion",error)
+      }
+    } 
+  
+    fetched()
+  }, [Device]);
+
+
+
+
 
 
   return (
@@ -177,12 +214,12 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: "#607080",
-    fontSize: 14,
+    fontSize: Platform.isPad ? 22 : 14,
     paddingBottom: 6,
     fontFamily: 'inter-regular',
   },
   title: {
-    fontSize: 22,
+    fontSize: Platform.isPad ? 36 :22,
     fontWeight: "bold",
     fontFamily: 'inter-bold',
   },
@@ -196,11 +233,11 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   leftText: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 22 : 16,
     fontFamily: 'inter-regular',
   },
   rightText: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 22 : 16,
     fontWeight: "bold",
     fontFamily: 'inter-bold',
   },
@@ -213,7 +250,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   msgText: {
-    fontSize: 14,
+    fontSize: Platform.isPad ? 22 :16 ,
     fontWeight: "bold",
     paddingLeft: 10,
     width: "94%",

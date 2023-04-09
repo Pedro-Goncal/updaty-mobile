@@ -9,7 +9,7 @@ import {
   Platform
 } from "react-native";
 
-import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
+import ArrowLeft from "../../assets/iconsSvg/ArrowLeft";
 
 const { width, height } = Dimensions.get("window");
 const screenDimensions = Dimensions.get('screen');
@@ -122,13 +122,21 @@ export default function CalendarEvents() {
 
   };
 
+  const noEntries = ()=> {
+    return (
+      <View style={{justifyContent: "center", alignItems: "center", textAlign: "center", height: height / 2}}>
+        <Text style={{fontFamily: 'inter-regular', fontSize: Platform.isPad? 36 : 16}}>🎉 No old calendar entries found</Text>
+      </View>
+    )
+  }
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.titleContainer}
         onPress={() => navigation.goBack()}
       >
-        <ArrowSvg />
+        <ArrowLeft />
 
         <Text style={[styles.title, {fontSize: Platform.isPad ? 36 : 18}]}>Delete old calendar entries</Text>
       </TouchableOpacity>
@@ -139,7 +147,7 @@ export default function CalendarEvents() {
               data={events}
               renderItem={renderItem}
               keyExtractor={(item, index) => index}
-              ListEmptyComponent={() => <Text style={{justifyContent: "center", alignItems: "center", textAlign: "center"}}>No old calendar entries found</Text>}
+              ListEmptyComponent={noEntries}
 
             />
           </View>

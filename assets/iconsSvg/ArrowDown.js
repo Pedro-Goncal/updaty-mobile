@@ -1,11 +1,12 @@
 import React from "react";
+import { Platform } from "react-native";
 import { Path, Svg } from "react-native-svg";
 
 const ArrowUp = () => {
   return (
     <Svg
-      width="24"
-      height="24"
+      width={Platform.isPad ? "38" :"24"}
+      height={Platform.isPad ? "38" :"24"}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

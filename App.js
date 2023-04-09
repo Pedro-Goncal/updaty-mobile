@@ -11,6 +11,9 @@ import { Provider } from "react-redux";
 import store from "./Redux/store";
 import * as Font from 'expo-font';
 
+import { getLocales } from 'expo-localization';
+
+
 
 import AdMobControllers from './AdMobControllers';
 
@@ -59,6 +62,17 @@ mobileAds()
 
 
 const App = () => {
+
+//   const deviceLocale = Localization.locale;
+// console.log(deviceLocale); // e.g. "en-US"
+
+const local = getLocales()
+const localVar = local[0].languageCode
+
+// zh 
+
+console.log(localVar)
+
   useEffect(() => {
     const prepare = async () => {
       // keep splash screen visible

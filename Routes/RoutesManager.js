@@ -117,7 +117,8 @@ function MyTabs() {
    
       screenOptions={{
         tabBarLabelStyle: {
-          fontSize: Platform.isPad ? 16 : 11, // set the font size to 16
+          fontSize: Platform.isPad ? 18 : 11, // set the font size to 16
+          paddingLeft: Platform.isPad ? 6 : 0,
           marginBottom: 4
         },
         tabBarStyle: { height: Platform.isPad ? 80 : 56 },

@@ -1,7 +1,7 @@
-export const newInV16SmallCardContent = [
+export const newInV16SmallCardContentzh = [
   {
-    title: "How dictation got way smarter",
-    subtitle: "Dictation",
+    title: "Como o ditado chegou a este ponto",
+    subtitle: "Ditado",
     img: require("../../../img/ios16-01-0.jpg"),
     id: 1,
   },

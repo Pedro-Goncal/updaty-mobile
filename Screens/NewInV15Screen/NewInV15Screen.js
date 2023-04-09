@@ -12,7 +12,7 @@ import React, { useState, useRef } from "react";
 import CardSmall15 from "./CardSmall15";
 
 //Content
-import {newInV15SmallCardContent} from "./Content/newInV15Content";
+import {newInV15SmallCardContent} from "./Content/newInV15Content-en";
 
 const { width, height } = Dimensions.get("window");
 

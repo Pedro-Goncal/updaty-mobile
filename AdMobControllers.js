@@ -44,7 +44,7 @@ const adMobControllers = () => {
       const timeoutId = setTimeout(() => {
        dispatch(handleFirstLoad())
 
-      }, 30000);
+      }, 5000);
   
       return () => {
         clearTimeout(timeoutId);
