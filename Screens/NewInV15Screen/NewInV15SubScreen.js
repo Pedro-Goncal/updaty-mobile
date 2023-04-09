@@ -14,7 +14,7 @@ import Card from "../../Components/Card";
 import { useRoute } from "@react-navigation/native";
 
 //Content
-import {newInV15SmallCardContent} from "./Content/newInV15Content";
+import {newInV15SmallCardContent} from "./Content/newInV15Content-en";
 import newInV15_1 from "./Content/newInV15_1.json";
 import newInV15_2 from "./Content/newInV15_2.json";
 import newInV15_3 from "./Content/newInV15_3.json";
@@ -25,7 +25,7 @@ import newInV15_6 from "./Content/newInV15_6.json";
 
 import { useNavigation } from "@react-navigation/native";
 import Pagination from "../../Components/Pagination";
-import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
+import ArrowLeft from "../../assets/iconsSvg/ArrowLeft";
 
 const { height } = Dimensions.get("window");
 const screenDimensions = Dimensions.get("screen");
@@ -104,7 +104,7 @@ const NewInV15SubScreen = () => {
           style={styles.titleContainer}
           onPress={() => navigation.goBack()}
         >
-          <ArrowSvg />
+          <ArrowLeft />
 
           <Text style={styles.title}>{newInV15SmallCardContent[index].subtitle}</Text>
         </TouchableOpacity>

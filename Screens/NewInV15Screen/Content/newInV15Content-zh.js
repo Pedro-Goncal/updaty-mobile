@@ -1,4 +1,4 @@
-export const newInV15SmallCardContent = [
+export const newInV15SmallCardContentzh = [
   {
     title: "Chose the soundtrack to your life",
     subtitle: "Soundtrack",

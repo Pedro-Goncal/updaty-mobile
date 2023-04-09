@@ -1,4 +1,4 @@
-export const tipsSmalCardContent = [
+export const tipsSmalCardContentzh = [
   {
     title: "Collaborate with friends and family",
     subtitle: "Share photo library",

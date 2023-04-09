@@ -72,18 +72,18 @@ const styles = StyleSheet.create({
   textContainer: {},
   subTitle: {
     color: "#607080",
-    fontSize: 16,
+    fontSize: Platform.isPad ? 24 : 16,
     paddingVertical: 8,
     fontFamily: 'inter-regular',
   },
   title: {
-    fontSize: 24,
+    fontSize: Platform.isPad ? 38 :26,
     fontWeight: "bold",
     paddingBottom: 10,
     fontFamily: 'inter-bold',
     },
   description: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 22 : 16,
     fontFamily: 'inter-regular',
     // lineHeight: 27,
   },

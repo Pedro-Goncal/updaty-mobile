@@ -171,14 +171,17 @@ const BackupInfo = ({ setHasBackupCheck }) => {
             <TouchableOpacity
               onPress={() => storeDate(new Date())}
               style={[
-                styles.confirmBtn,
+                styles.confirmBtnBox,
                 {
                   borderTopColor: "rgba(144,128,144,0.2)",
                   borderBottomColor: "rgba(144,128,144,0.2)",
                 },
               ]}
             >
-              <Text style={styles.leftText}>Click here to confirm backup </Text>
+              <View style={styles.confirmBtn}>
+
+              <Text style={styles.btnText}>Confirm backup </Text>
+              </View>
               {/* <Text style={styles.rightText}>NO</Text> */}
             </TouchableOpacity>
           </View>
@@ -266,12 +269,12 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: "#607080",
-    fontSize: 14,
+    fontSize: Platform.isPad ? 2 : 14,
     paddingBottom: 6,
     fontFamily: 'inter-regular',
   },
   title: {
-    fontSize: 22,
+    fontSize: Platform.isPad ? 36 :22,
     fontWeight: "bold",
     fontFamily: 'inter-bold',
   },
@@ -284,7 +287,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 10,
   },
-  confirmBtn: {
+  confirmBtnBox: {
     borderTopWidth: 1,
     borderBottomWidth: 1,
     display: "flex",
@@ -292,13 +295,30 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingVertical: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 7.65,
+  },
+  confirmBtn: {
+    backgroundColor: "rgba(102, 204, 102, .7)",
+    paddingHorizontal: 12,
+    paddingVertical: Platform.isPad ? 16 :10,
+    borderRadius: 8
+  },
+  btnText: {
+    fontSize: Platform.isPad ? 22 : 14,
+    fontFamily: 'inter-regular',
   },
   leftText: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 22 : 16,
     fontFamily: 'inter-regular',
   },
   rightText: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 22 : 16,
     fontWeight: "bold",
     fontFamily: 'inter-bold',
   },
@@ -311,7 +331,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   msgText: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 22 :16,
     fontWeight: "bold",
     paddingLeft: 10,
     width: "94%",
@@ -322,6 +342,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   instructionsList: {
+    fontSize: Platform.isPad ? 20 : 14,
     paddingVertical: 4,
     paddingLeft: 18,
      fontFamily: 'inter-regular',

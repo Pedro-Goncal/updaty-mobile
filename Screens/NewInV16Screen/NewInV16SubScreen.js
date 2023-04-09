@@ -15,20 +15,28 @@ import Card from "../../Components/Card";
 import { useRoute } from "@react-navigation/native";
 
 //Content
-import {newInV16SmallCardContent} from "./Content/newInV16Content";
+import {newInV16SmallCardContenten} from "./Content/newInV16Content-en";
+import {newInV16SmallCardContentzh} from "./Content/newInV16Content-zh";
 
-import newInV16_1 from "./Content/newInV16_1.json";
-import newInV16_2 from "./Content/newInV16_2.json";
-import newInV16_3 from "./Content/newInV16_3.json";
-import newInV16_4 from "./Content/newInV16_4.json";
-import newInV16_5 from "./Content/newInV16_5.json";
-import newInV16_6 from "./Content/newInV16_6.json";
+
+import newInV16_1en from "./Content/newInV16_1-en.json";
+import newInV16_2en from "./Content/newInV16_2-en.json";
+import newInV16_3en from "./Content/newInV16_3-en.json";
+import newInV16_4en from "./Content/newInV16_4-en.json";
+import newInV16_5en from "./Content/newInV16_5-en.json";
+import newInV16_6en from "./Content/newInV16_6-en.json";
+import newInV16_1zh from "./Content/newInV16_1-zh.json";
+import newInV16_2zh from "./Content/newInV16_2-zh.json";
+import newInV16_3zh from "./Content/newInV16_3-zh.json";
+import newInV16_4zh from "./Content/newInV16_4-zh.json";
+import newInV16_5zh from "./Content/newInV16_5-zh.json";
+import newInV16_6zh from "./Content/newInV16_6-zh.json";
 
 import { ScrollView } from "react-native-gesture-handler";
-import { Path, Svg } from "react-native-svg";
+
 import { useNavigation } from "@react-navigation/native";
 import Pagination from "../../Components/Pagination";
-import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
+import ArrowLeft from "../../assets/iconsSvg/ArrowLeft";
 
 const { width, height } = Dimensions.get("window");
 const screenDimensions = Dimensions.get("screen");
@@ -36,6 +44,8 @@ const screenDimensions = Dimensions.get("screen");
 //Redux
 import { useDispatch, useSelector } from "react-redux";
 import { handleClick } from "../../Redux/slices/adSlice";
+
+import { getLocales } from 'expo-localization';
 
 import { AD_UNIT_INTERSTITIAL_ID } from "../../config/adMobConfig";
 import { InterstitialAd, AdEventType } from "react-native-google-mobile-ads";
@@ -46,24 +56,33 @@ const NewInV16SubScreen = () => {
   const route = useRoute();
   const index = route.params.index;
 
+  const local = getLocales()
+  const localeVar = local[0].languageCode
+
   const dispatch = useDispatch();
   const flatListRef = useRef(null);
-  const [content, setContent] = useState(newInV16_1);
+  console.log(newInV16_1zh)
+
+
+  const [content, setContent] = useState(newInV16_1en)
+
+
   useEffect(() => {
+    if(!localeVar) return
     if (index === 0) {
-      setContent(newInV16_1);
+      setContent(localeVar === "en" ? newInV16_1en : newInV16_1zh);
     } else if (index === 1) {
-      setContent(newInV16_2);
+      setContent(localeVar === "en" ? newInV16_2en : newInV16_2zh);
     } else if (index === 2) {
-      setContent(newInV16_3);
+      setContent(localeVar === "en" ? newInV16_3en : newInV16_3zh);
     } else if (index === 3) {
-      setContent(newInV16_4);
+      setContent(localeVar === "en" ? newInV16_4en : newInV16_4zh);
     } else if (index === 4) {
-      setContent(newInV16_5);
+      setContent(localeVar === "en" ? newInV16_5en : newInV16_5zh);
     } else if (index === 5) {
-      setContent(newInV16_6);
+      setContent(localeVar === "en" ? newInV16_6en : newInV16_6zh);
     }
-  }, [index]);
+  }, [index,localeVar]);
 
   const [isScrollEnabled, setIsScrollEnabled] = useState(true);
   const [loaded, setLoaded] = useState(false);
@@ -112,9 +131,9 @@ const NewInV16SubScreen = () => {
           style={styles.titleContainer}
           onPress={() => navigation.goBack()}
         >
-          <ArrowSvg />
+          <ArrowLeft/>
 
-          <Text style={styles.title}>{newInV16SmallCardContent[index].subtitle}</Text>
+          <Text style={styles.title}>{localeVar === "en" ? newInV16SmallCardContenten[index].subtitle : newInV16SmallCardContentzh[index].subtitle}</Text>
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>

@@ -13,7 +13,7 @@ import Card from "../../Components/Card";
 import { useRoute } from "@react-navigation/native";
 
 //Content
-import { tipsSmalCardContent } from './Content/tipsContent';
+import { tipsSmalCardContent } from './Content/tipsContent-en';
 import tip1 from "./Content/tip1.json";
 import tips2 from "./Content/tips2.json";
 import tips3 from "./Content/tips3.json";
@@ -31,7 +31,7 @@ import tips13 from "./Content/tips13.json";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import Pagination from "../../Components/Pagination";
-import ArrowSvg from "../../assets/iconsSvg/ArrowSvg";
+import ArrowLeft from "../../assets/iconsSvg/ArrowLeft";
 
 const { width, height } = Dimensions.get("window");
 const screenDimensions = Dimensions.get("screen");
@@ -128,7 +128,7 @@ const TipsSubScreen = () => {
           style={styles.titleContainer}
           onPress={() => navigation.goBack()}
         >
-          <ArrowSvg />
+          <ArrowLeft />
 
           <Text style={styles.title}>{tipsSmalCardContent[index].subtitle}</Text>
         </TouchableOpacity>

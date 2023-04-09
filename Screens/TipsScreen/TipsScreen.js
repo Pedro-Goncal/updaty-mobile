@@ -10,7 +10,7 @@ import React, { useState, useRef } from "react";
 import CardSmallTips from "./CardSmallTips";
 
 
-import { tipsSmalCardContent } from './Content/tipsContent';
+import { tipsSmalCardContent } from './Content/tipsContent-en';
 
 const { height } = Dimensions.get("window");
 

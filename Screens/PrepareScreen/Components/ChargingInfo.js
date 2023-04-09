@@ -11,6 +11,30 @@ const ChargingInfo = ({ isDeviceCharging }) => {
   const [deviceCurrentBattery, setDeviceCurrentBattery] = useState(100);
   const [estimatedTimeRemaining, setEstimatedTimeRemaining] = useState(null);
 
+
+
+  //========================================================
+  //BATTERY LEVEL AND CAHRGING - V
+  //========================================================
+
+  useEffect(() => {
+    const getBatteryStatus = async () => {
+      const batteryLevel = await Battery.getBatteryLevelAsync();
+      console.log(batteryLevel);
+      setDeviceCurrentBattery(batteryLevel);
+     
+
+      const batteryCapacity = 3000; // Replace with your device's battery capacity in mAh
+      const batteryRemaining = batteryLevel * batteryCapacity;
+      let estimatedTimeRemaining = batteryRemaining / 300;
+
+      setEstimatedTimeRemaining(estimatedTimeRemaining);
+    };
+    getBatteryStatus();
+  }, []);
+
+  //=================================
+
   const [dimensions, setDimensions] = useState({
 
     screen: screenDimensions,
@@ -26,25 +50,6 @@ const ChargingInfo = ({ isDeviceCharging }) => {
     return () => subscription?.remove();
   });
 
-
-  //========================================================
-  //BATTERY LEVEL AND CAHRGING - V
-  //========================================================
-
-  useEffect(() => {
-    const getBatteryStatus = async () => {
-      const batteryLevel = await Battery.getBatteryLevelAsync();
-
-      setDeviceCurrentBattery(batteryLevel);
-
-      const batteryCapacity = 3000; // Replace with your device's battery capacity in mAh
-      const batteryRemaining = batteryLevel * batteryCapacity;
-      let estimatedTimeRemaining = batteryRemaining / 300;
-
-      setEstimatedTimeRemaining(estimatedTimeRemaining);
-    };
-    getBatteryStatus();
-  }, []);
 
   //TODO - Check to see when the device has more battey if the estimated remaining time is accurrate
 
@@ -143,12 +148,12 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: "#607080",
-    fontSize: 14,
+    fontSize: Platform.isPad ? 22 : 14,
     paddingBottom: 6,
     fontFamily: 'inter-regular',
   },
   title: {
-    fontSize: 22,
+    fontSize: Platform.isPad ? 36 :22,
     fontWeight: "bold",
     fontFamily: 'inter-bold',
   },
@@ -162,11 +167,11 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   leftText: {
-    fontSize: 16,
+    fontSize :Platform.isPad ? 22 : 16,
     fontFamily: 'inter-regular',
   },
   rightText: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 22 : 16,
     fontWeight: "bold",
     fontFamily: 'inter-bold',
   },
@@ -179,7 +184,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   msgText: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 22 :16 ,
     fontWeight: "bold",
     paddingLeft: 10,
     width: "94%",

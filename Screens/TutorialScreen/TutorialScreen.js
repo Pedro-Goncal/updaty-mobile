@@ -21,7 +21,11 @@ import { handleClick } from "../../Redux/slices/adSlice";
 
 
 //Content TEMP
-import tutorialsHTML from "./Content/tutorialsHTML.json";
+import tutorialsHTMLen from "./Content/tutorialsHTML-en.json";
+import tutorialsHTMLzh from "./Content/tutorialsHTML-zh.json";
+
+
+import { getLocales } from 'expo-localization';
 
 
 const { width, height } = Dimensions.get("screen");
@@ -30,6 +34,9 @@ const screenDimensions = Dimensions.get('screen');
 const TutorialScreen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
   const dispatch = useDispatch();
+
+  const local = getLocales()
+const localVar = local[0].languageCode
 
 
   //Set viewability of each post based on the id of the post
@@ -67,6 +74,16 @@ const TutorialScreen = () => {
 
 
   const flatListRef = useRef(null);
+
+  const [content, setContent] = useState(tutorialsHTMLen)
+
+  useEffect(()=> {
+    if(localVar === "en"){
+      setContent(tutorialsHTMLen)
+    } else {
+      setContent(tutorialsHTMLzh)
+    }
+  },[])
   
 
 
@@ -76,13 +93,13 @@ const TutorialScreen = () => {
     <View style={styles.container}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }} >
         <View>
-          <Text style={styles.title}>Tutorial</Text>
+          <Text style={styles.title}>Update Tutorial</Text>
         </View>
         <View style={styles.cardContainer}>
           
           <FlatList
             ref={flatListRef}
-            data={tutorialsHTML}
+            data={content}
             decelerationRate={0.9}
             snapToInterval={dimensions.screen.width} // Distance between each snap point
             snapToAlignment={"center"} // Align snap point to the center of the view
@@ -98,7 +115,7 @@ const TutorialScreen = () => {
           />
         </View>
       </ScrollView>
-      <Pagination content={tutorialsHTML} activeCardId={activeCardId} />
+      <Pagination content={content} activeCardId={activeCardId} />
     </View>
   );
 };

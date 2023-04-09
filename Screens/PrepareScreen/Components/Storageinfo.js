@@ -408,7 +408,7 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
             >
               <Text style={styles.leftText}>Old calendar entries</Text>
               <View style={styles.rightText}>
-                <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                <Text style={{ fontSize: Platform.isPad ? 22 :16, fontWeight: "bold" }}>
                   {events.length}
                 </Text>
                 <ArrowRight />
@@ -425,7 +425,7 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
             >
               <Text style={styles.leftText}>Duplicate contacts</Text>
               <View style={styles.rightText}>
-                <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                <Text style={{ fontSize: Platform.isPad ? 22 :16, fontWeight: "bold" }}>
                   {duplicatedContacts.length}
                 </Text>
                 <ArrowRight />
@@ -511,12 +511,12 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: "#607080",
-    fontSize: 14,
+    fontSize: Platform.isPad ? 22 : 14,
     paddingBottom: 6,
     fontFamily: 'inter-regular',
   },
   title: {
-    fontSize: 22,
+    fontSize: Platform.isPad ? 36 :22,
     fontWeight: "bold",
     fontFamily: 'inter-bold',
   },
@@ -530,11 +530,11 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   leftText: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 22 : 16,
     fontFamily: 'inter-regular',
   },
   rightText: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 22 : 16,
     fontWeight: "bold",
     flexDirection: "row",
     alignItems: "center",
@@ -549,7 +549,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   msgText: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 22 :16 ,
     fontWeight: "bold",
     paddingLeft: 10,
     width: "94%",
