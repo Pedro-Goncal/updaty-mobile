@@ -1,34 +1,34 @@
 [
-   {
-      "html": "<h2 class=title>Plot your multi-stop route on Maps</h2> <p><img src=https://updaty.apptitute.de/img/ios16-06-1.jpg alt=></p>  <p>Maps has been pretty great at getting you from A to B for years now, but it’s been less good for getting you from A to B via C and D. </p>",
-      "id":1
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-2.jpg alt=></p>  <p>For instance, you’re heading home (or ‘B’) from work (‘A’) but you need to pick up the kids or a friend (‘C’) on the way and then go to the shop (‘D’) to get some food before completing your journey. </p> ",
-      "id":2
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-3.jpg alt=></p>  <p>Previously, you’d have had to input each journey using Maps on your iPhone.</p> <p>So that’s A to C initially as you leave work, then when you get to your friend you’d input C to D, and then once you’ve got your dinner, you’d input D to B. </p>",
-      "id":3
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-4.jpg alt=></p>  <p>The good news is that following the iOS 16 update, Maps can now set up a multi-stop route, meaning you can just do A to B via C and D at the outset, rather than inputting multiple journeys as you go. </p>",
-      "id":4
-   },
-   {
-      "html": "<<p><img src=https://updaty.apptitute.de/img/ios16-06-5.jpg alt=></p>  <p>How do you do it? In Maps, you find your first stop (C – the kids or friend) and click the directions button (the blue arrows button) to set up the route.</p>",
-      "id":5
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-6.jpg alt=></p>  <p>Then once you’ve done this, select the ‘Add stop’ button under the first stop, to input your next stop (D – the food). </p> ",
-      "id":6
-   },
-   {
-      "html": "<<p><img src=https://updaty.apptitute.de/img/ios16-06-7.jpg alt=></p>  <p>You then do the same again for B, your end-destination (home). </p>",
-      "id":7
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-8.jpg alt=></p>  <p>And there you go, your multi-stop journey is now set up and you won’t have to keep on adding journeys in Maps as you go.</p> <p>You can now just follow the directions your iPhone is giving you.</p>",
-      "id":8
-   }
+    {
+       "html": "<h2 class=title>在地图上绘制多站路线</h2> <p><img src=https://updaty.apptitute.de/img/ios16-06-1.jpg alt =></p> <p>多年来，Maps 在让您从 A 到 B 方面一直非常出色，但在让您通过 C 和 D 从 A 到 B 方面就没那么好了。</p>",
+       “id”：1
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-2.jpg alt=></p> <p>例如，您正准备回家 ( 或 'B') 下班 ('A') 但您需要在途中接孩子或朋友 ('C') 然后去商店 ('D') 买些食物才能完成您的旅程 . </p>”,
+       “id”：2
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-3.jpg alt=></p> <p>以前，您必须输入 每次旅行都使用 iPhone 上的地图。</p> <p>所以最初是 A 到 C，当你下班时，然后当你到达你的朋友时，你输入 C 到 D，然后你吃完晚饭 , 你会输入 D 到 B. </p>",
+       “id”：3
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-4.jpg alt=></p> <p>好消息是，继 iOS 16 之后 更新后，地图现在可以设置多站路线，这意味着你可以一开始就通过C和D做A到B，而不是边走边输入多条旅程。</p>",
+       “id”：4
+    },
+    {
+       "html": "<<p><img src=https://updaty.apptitute.de/img/ios16-06-5.jpg alt=></p> <p>你是怎么做到的？在地图中 ，您找到您的第一站（C – 孩子或朋友）并单击方向按钮（蓝色箭头按钮）以设置路线。</p>",
+       “id”：5
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-6.jpg alt=></p> <p>完成后，选择 第一站下的“添加停止”按钮，输入下一站（D - 食物）。</p>“，
+       “id”：6
+    },
+    {
+       "html": "<<p><img src=https://updaty.apptitute.de/img/ios16-06-7.jpg alt=></p> <p>然后对 B 再次执行相同操作 ，你的最终目的地（家）。 </p>",
+       “id”：7
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-06-8.jpg alt=></p> <p>好了，你的多站 旅程现已设置，您无需在旅途中继续在“地图”中添加旅程。</p> <p>您现在只需按照 iPhone 为您提供的指示即可。</p>",
+       “id”：8
+    }
 ]

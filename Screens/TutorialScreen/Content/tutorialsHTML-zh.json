@@ -1,62 +1,62 @@
 [
-  {
-    "html": "<html><h2>Para comecar</h2><p>In this short tutorial, we will safely and securely walk you through the update process. First there’s three things you need to make sure of, before you start the update.</p><img src=https://updaty.apptitute.de/img/tutorial-01-1.jpg alt=connect to wifi><p>1) Before you start, your iPhone must be connected to <strong>Wi-Fi</strong>.</p><img src=https://updaty.apptitute.de/img/tutorial-01-2.jpg alt=more than 50% charge></p><p>2)You must have at least 50% battery  or be plugged in to a power source to download and install updates. </p><img src=https://updaty.apptitute.de/img/tutorial-01-3.jpg ><p>3) It&rsquo;s also a good idea to <strong>back up</strong> your iPhone before installing updates to avoid any potential data loss.</p></html>",
-    "id": 1
-  },
-  {
-    "html": "<h2>Connect to Wi-Fi</h2><p>First, make  sure your iPhone is connected to a Wi-Fi network.</p><p>To check if your iPhone is connected to Wi-Fi swipe down from the top right corner of the screen to open the Control Center.</p><img src=https://updaty.apptitute.de/img/tutorial-02-2.jpg alt=wifi is disabled><p>Look for the Wi-Fi icon. If the icon is blue, your iPhone is connected to a Wi-Fi network. If the icon is gray, your iPhone is not connected to a Wi-Fi network.</p><img src=https://updaty.apptitute.de/img/tutorial-02-3.jpg alt=connect to wifi><p>Alternatively, you can go to <em>Settings</em> and then <em>Wi-Fi</em> to see a list of available Wi-Fi networks. If you are connected to a network, the name of the network will be displayed next to <em>Wi-Fi</em> with a checkmark next to it.</p><img src=https://updaty.apptitute.de/img/tutorial-02-4.jpg alt=enter wifi-password><p>If you are having trouble connecting to Wi-Fi, make sure that the Wi-Fi network is in range and that you have the correct network name and password. </p><img src=https://updaty.apptitute.de/img/tutorial-02-5.jpg alt=reset network settings><p>You can also try resetting your network settings by going to <em>Settings</em> &gt; <em>General</em> &gt; <em>Reset</em> &gt; <em>Reset Network Settings</em>.</p></html>",
-    "id": 2
-  },
-  {
-    "html": "<html><h2>Connect to a power source</h2><p>Secondly, make  sure your iPhone has enough battery life or is connected to a power source during the update process.</p><img src=https://updaty.apptitute.de/img/tutorial-03-1.jpg alt=battery symbol in taskbar><p>To check your iPhone&rsquo;s battery level look at the top right corner of your iPhone&rsquo;s screen. You should see a battery icon.</p><p>The battery icon will show how much battery life you have remaining. A green battery icon indicates that your iPhone&rsquo;s battery is above 20%, while a red battery icon indicates that your battery is below 20% and needs to be charged soon.</p><img src=https://updaty.apptitute.de/img/tutorial-03-3.jpg alt=battery more than 50% in task bar><p>If you want to see the exact percentage of your battery life, swipe down from the top right corner of your iPhone&rsquo;s screen to open the Control Center. Your battery percentage will be displayed at the top right of the screen.</p><img src=https://updaty.apptitute.de/img/tutorial-03-4.jpg alt=battery usage breakdown><p><strong>Note:</strong> If your iPhone is running iOS 14 or later, you can also see a breakdown of your battery usage by going to <em>Settings</em> &gt; <em>Battery</em>. This will show you which apps are using the most battery life and provide other helpful battery-related information.</p></html>",
-    "id": 3
-  },
-  {
-     "html": "<html> <h2>Backup your device</h2><p>Finally, make  sure to back up your iPhone before updating to ensure you don&rsquo;t lose any data. </p><p>To backup your iPhone, you can use either iCloud or your computer.</p><img src=https://updaty.apptitute.de/img/tutorial-04-1.jpg alt=icloud backup><p>In order to back up to iCloud connect your iPhone to Wi-Fi.</p><img src=https://updaty.apptitute.de/img/tutorial-04-3.jpg alt=connect to wifi></img><p>Go to <em>Settings</em> &gt; [Your Name] &gt; <em>iCloud</em> &gt; <em>iCloud Backup</em>.</p><img src=https://updaty.apptitute.de/img/tutorial-04-4.jpg alt=icloud settings><p>Toggle on <em>iCloud Backup</em> if it isn&rsquo;t already on.</p><img src=https://updaty.apptitute.de/img/tutorial-04-5.jpg alt=backup now><p>Tap <em>Back Up Now</em> to start the backup process. Keep your iPhone connected to Wi-Fi and power until the backup is complete.</p></html>",
-    "id": 4
-  },
-  {
-    "html": "<html><h2>iTunes Backup</h2><img src=https://updaty.apptitute.de/img/tutorial-05-1.jpg alt=local backup><p>In order to back up to your computer connect your iPhone to your computer using a USB cable.</p><p>Open iTunes on your computer (if you&rsquo;re using a Mac with macOS Catalina or later, use Finder instead).</p><img src=https://updaty.apptitute.de/img/tutorial-05-3.jpg alt=connect to wifi><p>Click on the iPhone icon in iTunes or Finder.</p><img src=https://updaty.apptitute.de/img/tutorial-05-4.jpg alt=connect to wifi><p>Under <em>Backups</em>, choose <em>This computer.</em>Click <em>Back Up Now</em> to start the backup process.</p></html>",
-    "id": 5
-  },
-  {
-    "html": "<html><h2>Update Part I</h2><p>Great! Now you are ready to update your iPhone.</h2><img src=https://updaty.apptitute.de/img/tutorial-06-2.jpg alt=settings general><p>Go to the <em>Settings</em> app on your iPhone and tap on <em>General</em>.</p><img src=https://updaty.apptitute.de/img/tutorial-06-3.jpg alt=general software update><p>Tap on <em>Software Update</em>.</p><img src=https://updaty.apptitute.de/img/tutorial-06-4.jpg alt=software update download and install><p>Your iPhone will check for any available updates. If an update is available, tap on <em>Download and Install</em>.</p><img src=https://updaty.apptitute.de/img/tutorial-06-5.jpg alt=storage usage><p>If your iPhone is low on storage space, you may need to delete some apps or files to make room for update. </p><img src=https://updaty.apptitute.de/img/tutorial-06-6.jpg alt=storage usage details><p>You can check your storage space by going to <em>Settings</em> &gt; <em>General</em> &gt<em>iPhoneStorage</em>.</p> </html>",
-    "id": 6
-  },
-  {
-    "html": "<html> <h2>Update Part II</h2><img src=https://updaty.apptitute.de/img/tutorial-07-1.jpg alt=enter passcode><p>Once <strong>Download and Install</strong> is prompted, enter your passcode.</p> <img src=https://updaty.apptitute.de/img/tutorial-07-2.jpg alt=accept terms and conditions><p>Then tap <em>Agree</em> to the terms and conditions.</p><img src=https://updaty.apptitute.de/img/tutorial-07-3.jpg alt=download progress bar><p> Your iPhone will begin downloading the update, which may take some time depending on your internet speed and the size of the update.</p></html>",
-    "id": 7
-  },
-  {
-    "html": "<html><h2>Update Part III</h2><img src=https://updaty.apptitute.de/img/tutorial-08-1.jpg alt=install now><p>Once the update is downloaded, tap on <em>Install Now</em>. </p><img src=https://updaty.apptitute.de/img/tutorial-08-2.jpg alt=installation progress><p>Your iPhone will restart and begin installing the update. This process may take several minutes.</p><img src=https://updaty.apptitute.de/img/tutorial-08-3.jpg alt=enter passcode><p>Once the update is installed, your iPhone will restart again and you will be prompted to enter your passcode.</p></html>",
-    "id": 8
-  },
-  {
-    "html": "<html><h2>Update Part IV</h2><img src=https://updaty.apptitute.de/img/tutorial-09-1.jpg alt=home screen><p>After entering your passcode, your iPhone will complete the update and you will be able to use it normally</p></html>",
-    "id": 9
-  },
-  {
-   "html": "<html><h2>Check this after your update</h2><p>After updating your iPhone, there are a few things you can do to make sure the update went well:</p><img src=https://updaty.apptitute.de/img/tutorial-10-1.jpg alt=settings battery><p><strong>Check the software version:</strong> Go to <em>Settings</em> &gt; <em>General</em> &gt; <em>Software Update</em> and make sure your iPhone is running the latest version of iOS.</p><img src=https://updaty.apptitute.de/img/tutorial-10-2.jpg alt=ios is up to date><p><strong>Test basic functions:</strong> Test the basic functions of your iPhone such as making a phone call, sending a text message, connecting to Wi-Fi, and accessing the internet to make sure everything is working properly.</p><img src=https://updaty.apptitute.de/img/tutorial-10-3.jpg alt=connect to wifi><p><strong>Check for any issues:</strong> Check for any issues or error messages that might appear after the update. If you notice any issues, try restarting your iPhone or resetting the settings to see if it resolves the issue.</p><img src=https://updaty.apptitute.de/img/tutorial-10-4.jpg alt=connect to wifi><p><strong>Check battery usage:</strong> Check your battery usage to make sure it&rsquo;s not draining too quickly or experiencing any unusual behavior. You can do this by going to <em>Settings</em> &gt; <em>Battery</em> and checking the usage statistics.</p><p><strong>Test new features:</strong> If the update includes new features, try them out to see if they work as expected.</p><img src=https://updaty.apptitute.de/img/tutorial-10-5.jpg alt=connect to wifi><p>If you encounter any issues, try restarting your iPhone or contacting Apple support for further assistance.</p></html>",    
-   "id": 10
-  },
-  {
-    "html": "<html><h2>Automatic Updates</h2> <p>Enabling automatic updates means that your iPhone will automatically download and install new updates when they become available, without requiring any action on your part.</p><p>This can be convenient because it ensures that your iPhone is always up-to-date with the latest security fixes, bug fixes, and new features.</p>  <img src=https://updaty.apptitute.de/img/tutorial-11-2.jpg alt=automatic update setting>  <p>To enable automatic updates on your iPhone go to the <em>Settings</em> app on your iPhone. Tap on <em>General.</em> Tap on <em>Software Update</em>.</p>  <img src=https://updaty.apptitute.de/img/tutorial-11-3.jpg alt=automatic download and install >  <p>Turn on the toggle switch next to <em>Automatic Updates</em>.</p></html>",
-    "id": 11
-  },
-  {
-    "html": "<html><h2>Why you should consider enabling automatic updates</h2>  <p>There are several reasons why you should consider enabling automatic updates on your iPhone: </p>  <img src=https://updaty.apptitute.de/img/tutorial-12-1.jpg alt=software update result>  <p><strong>1. Security:</strong> New updates often include important security fixes that address vulnerabilities and proteatial threats. Bug Fixes: Updates can also fix bugs and improve the overall stability and performance of your iPhone.</p>  <img src=https://updaty.apptitute.de/img/tutorial-12-2.jpg alt=fish>  <p><strong>2. New Features:</strong> Updates can add new features and improvements to your iPhone, providing you with an enhanced user experience.</p>  <img src=https://updaty.apptitute.de/img/tutorial-12-3.jpg alt=automatic update on>  <p><strong>3. Convenience:</strong> Enabling automatic updates can save you time and effort because you don&rsquo;t have to manually check for updates and install them yourself. Overall, enabling automatic updates can help ensure that vour iPhone is secure, stable, and up-to-date with the latest features and improvements.</p></html>",
-    "id": 12
-  },
-  {
-    "html": "<html><h2>Battery issues</h2>  <p>If your iPhone doesn&rsquo;t have enough power during an automatic update, it can cause a few potential issues:</p>  <img src=https://updaty.apptitute.de/img/tutorial-15-2.jpg alt=problems> <p><strong>Update failure:</strong> The update process may fail or stop midway due to lack of power. This can cause your iPhone to get stuck in a partially updated state, which may require you to restore your iPhone to its previous version.</p>  <img src=https://updaty.apptitute.de/img/tutorial-15-3.jpg alt=update failed> <p><strong>Data loss:</strong> If the update fails, it may cause data loss or corruption. This can include photos, videos, music, and other important data stored on your iPhone.</p>  <img src=https://updaty.apptitute.de/img/tutorial-15-4.jpg alt=data loss>  <p><strong>Battery damage:</strong> If your iPhone runs out of power during an update, it can cause damage to the battery. Repeated interruptions during software updates can shorten the lifespan of the battery and cause it to degrade faster over time.</p>  <img src=https://updaty.apptitute.de/img/tutorial-15-5.jpg alt=battery demage>  <p><strong>Device instability:</strong> If the update process is interrupted, it can cause your iPhone to become unstable or behave erratically. This can include issues like app crashes, freezing, or slow performance.</p> <img src=https://updaty.apptitute.de/img/tutorial-15-6.jpg alt=warnung>  <p>In order to avoid these problems, it&rsquo;s important to make sure your iPhone has enough battery life before starting an automatic update. </p>  <p>You should also make sure you have a stable internet connection and enough storage space on your device to complete the update.</p></html>",
-    "id": 15
-  },
-  {
-    "html": "<html><h2>How to prevent battery issues</h2><p>If your iPhone doesn&rsquo;t have enough power during an automatic update, it can cause problems.</p><p>The update process requires a certain amount of battery life to complete, and if your iPhone runs out of power during the update, it could result in a failed update or even damage to your device.</p>  <img src=https://updaty.apptitute.de/img/tutorial-13-2.jpg alt=battery 84% task bar>  <p>To prevent this from happening, it&rsquo;s recommended to keep your iPhone charged before starting an update. Ideally, you should have at least 50% battery life before beginning the update process. </p>  <img src=https://updaty.apptitute.de/img/tutorial-13-3.jpg alt=connect to load>  <p>You can also connect your iPhone to a power source during the update to ensure that it doesn&rsquo;t run out of power.</p></html>",
-    "id": 13
-  },
-  {
-    "html": "<html><h2>Low Power Mode</h2><p>Additionally, you can enable the &ldquo;Low Power Mode&rdquo; feature on your iPhone to help conserve battery life during the update.</p><p>This feature reduces power consumption by disabling certain features, such as automatic downloads, email fetch, and some visual effects. </p>  <img src=https://updaty.apptitute.de/img/tutorial-14-2.jpg alt=settings select battery>  <p>To enable Low Power Mode, go to <em>Settings</em> &gt; <em>Battery</em> &gt; <em>Low Power Mode</em>.</p>  <img src=https://updaty.apptitute.de/img/tutorial-14-3.jpg alt=swich on low power mode>  <p>Overall, it&rsquo;s important to make sure your iPhone has enough power before starting an automatic update to avoid potential issues.</p></html>",
-    "id": 14
-  }
-]
+   {
+     "html": "<html><h2>入门</h2><p>在这个简短的教程中，我们将安全可靠地引导您完成更新过程。首先，在您开始之前，您需要确定三件事 开始更新。</p><img src=https://updaty.apptitute.de/img/tutorial-01-1.jpg alt=connect to wifi><p>1) 在开始之前，您的 iPhone 必须 已连接到 <strong>Wi-Fi</strong>。</p><img src=https://updaty.apptitute.de/img/tutorial-01-2.jpg alt=电量超过 50%></ p><p>2)您必须至少有 50% 的电池电量或插入电源才能下载和安装更新。</p><img src=https://updaty.apptitute.de/img/tutorial -01-3.jpg ><p>3) 在安装更新之前<strong>备份</strong>您的 iPhone 以避免任何潜在的数据丢失也是一个好主意。</p></html>” ,
+     “id”：1
+   },
+   {
+     "html": "<h2>连接到 Wi-Fi</h2><p>首先，确保您的 iPhone 已连接到 Wi-Fi 网络。</p><p>检查您的 iPhone 是否连接到 Wi-Fi 从屏幕右上角向下滑动以打开控制中心。</p><img src=https://updaty.apptitute.de/img/tutorial-02-2.jpg alt=wifi is disabled<p>寻找 Wi-Fi 图标。如果图标为蓝色，则您的 iPhone 已连接到 Wi-Fi 网络。如果图标为灰色，则您的 iPhone 未连接到 Wi-Fi 网络。</ p><img src=https://updaty.apptitute.de/img/tutorial-02-3.jpg alt=connect to wifi><p>或者，您可以转到<em>设置</em>，然后 <em>Wi-Fi</em> 查看可用 Wi-Fi 网络列表。如果您已连接到网络，网络名称将显示在 <em>Wi-Fi</em> 旁边 旁边的复选标记。</p><img src=https://updaty.apptitute.de/img/tutorial-02-4.jpg alt=enter wifi-password><p>如果您无法连接到 Wi-Fi，确保 Wi-Fi 网络在范围内并且您拥有正确的网络名称和密码。 </p><img src=https://updaty.apptitute.de/img/tutorial-02-5.jpg alt=reset network settings><p>您也可以通过 <em> 尝试重置您的网络设置 设置</em> > <em>一般</em> > <em>重置</em> > <em>重置网络设置</em>。</p></html>",
+     “id”：2
+   },
+   {
+     "html": "<html><h2>连接电源</h2><p>其次，确保您的 iPhone 有足够的电池寿命或在更新过程中连接到电源。</p>< img src=https://updaty.apptitute.de/img/tutorial-03-1.jpg alt=任务栏中的电池符号<p>要检查 iPhone 的电池电量，请查看 iPhone 右上角的图标。 s 屏幕。您应该会看到一个电池图标。</p><p>电池图标将显示您剩余的电池寿命。绿色电池图标表示您的 iPhone 电池电量超过 20%，而红色电池 图标表示您的电池电量低于 20%，需要尽快充电。</p><img src=https://updaty.apptitute.de/img/tutorial-03-3.jpg alt=电池电量超过 50% 在任务栏中<p>如果您想查看电池寿命的确切百分比，请从 iPhone 屏幕的右上角向下滑动以打开控制中心。您的电池百分比将显示在右上角 </p><img src=https://updaty.apptitute.de/img/tutorial-03-4.jpg alt=电池使用情况细分><p><strong>注意：</strong>如果您 iPhone 运行的是 iOS 14 或更高版本，您还可以通过转到<em>设置</em> > 查看电池使用情况的明细。 <em>电池</em>。 这将向您显示哪些应用使用的电池寿命最长，并提供其他有用的电池相关信息。</p></html>",
+     “id”：3
+   },
+   {
+      "html": "<html> <h2>备份您的设备</h2><p>最后，请务必在更新前备份您的 iPhone，以确保您不会丢失任何数据。</p><p>到 备份你的 iPhone，你可以使用 iCloud 或你的电脑。</p><img src=https://updaty.apptitute.de/img/tutorial-04-1.jpg alt=icloud backup><p>为了 备份到 iCloud 将您的 iPhone 连接到 Wi-Fi。</p><img src=https://updaty.apptitute.de/img/tutorial-04-3.jpg alt=connect to wifi></img> <p>转到<em>设置</em> > [你的名字] > <em>iCloud</em> > <em>iCloud 备份</em>。</p><img src=https ://updaty.apptitute.de/img/tutorial-04-4.jpg alt=icloud settings><p>如果 <em>iCloud Backup</em> 尚未打开，请打开它。</p>< img src=https://updaty.apptitute.de/img/tutorial-04-5.jpg alt=立即备份<p>点击<em>立即备份</em>开始备份过程。保留您的 iPhone 连接到 Wi-Fi 和电源，直到备份完成。</p></html>",
+     “id”：4
+   },
+ {
+     "html": "<html><h2>iTunes 备份</h2><img src=https://updaty.apptitute.de/img/tutorial-05-1.jpg alt=本地备份><p>按顺序 要备份到您的电脑，请使用 USB 数据线将您的 iPhone 连接到您的电脑。</p><p>在您的电脑上打开 iTunes（如果您使用的是装有 macOS Catalina 或更高版本的 Mac，请改用 Finder）。</p><p> p><img src=https://updaty.apptitute.de/img/tutorial-05-3.jpg alt=connect to wifi><p>点击 iTunes 或 Finder 中的 iPhone 图标。</p><img src=https://updaty.apptitute.de/img/tutorial-05-4.jpg alt=connect to wifi><p>在<em>Backups</em>下，选择<em>This computer。</em >点击<em>立即备份</em>开始备份过程。</p></html>",
+     “id”：5
+   },
+   {
+     "html": "<html><h2>更新第 I 部分</h2><p>太棒了！现在您已准备好更新您的 iPhone。</h2><img src=https://updaty.apptitute.de/ img/tutorial-06-2.jpg alt=settings general><p>转到您 iPhone 上的<em>设置</em>应用程序并点击<em>常规</em>。</p><img src=https://updaty.apptitute.de/img/tutorial-06-3.jpg alt=一般软件更新><p>点击<em>软件更新</em>。</p><img src= https://updaty.apptitute.de/img/tutorial-06-4.jpg alt=软件更新下载和安装><p>您的 iPhone 将检查是否有任何可用更新。如果有可用更新，请点击 <em> 下载并安装</em>。</p><img src=https://updaty.apptitute.de/img/tutorial-06-5.jpg alt=存储空间使用情况><p>如果您的 iPhone 存储空间不足 空间，您可能需要删除一些应用程序或文件，以便为更新腾出空间。</p><img src=https://updaty.apptitute.de/img/tutorial-06-6.jpg alt=存储使用详情> <p>您可以前往<em>设置</em> > <em>通用</em> > <em>iPhoneStorage</em> 查看您的存储空间。</p> </html>",
+     “id”：6
+   },
+   {
+     "html": "<html> <h2>更新第二部分</h2><img src=https://updaty.apptitute.de/img/tutorial-07-1.jpg alt=输入密码><p>一次 系统提示<strong>下载并安装</strong>，输入您的密码。</p> <img src=https://updaty.apptitute.de/img/tutorial-07-2.jpg alt=接受条款和条件 ><p>然后点击<em>同意</em>条款和条件。</p><img src=https://updaty.apptitute.de/img/tutorial-07-3.jpg alt=download 进度条<p>您的 iPhone 将开始下载更新，这可能需要一些时间，具体取决于您的网速和更新的大小。</p></html>",
+     “id”：7
+   },
+   {
+     "html": "<html><h2>更新第三部分</h2><img src=https://updaty.apptitute.de/img/tutorial-08-1.jpg alt=立即安装><p>一次 更新已下载，点击<em>立即安装</em>。</p><img src=https://updaty.apptitute.de/img/tutorial-08-2.jpg alt=安装进度>< p>您的 iPhone 将重新启动并开始安装更新。此过程可能需要几分钟时间。</p><img src=https://updaty.apptitute.de/img/tutorial-08-3.jpg alt=输入密码 ><p>安装更新后，您的 iPhone 将再次重启，系统将提示您输入密码。</p></html>",
+     “id”：8
+   },
+   {
+     "html": "<html><h2>更新第四部分</h2><img src=https://updaty.apptitute.de/img/tutorial-09-1.jpg alt=home screen><p>之后 输入您的密码，您的 iPhone 将完成更新，您将可以正常使用它</p></html>",
+     “id”：9
+   },
+   {
+    "html": "<html><h2>更新后检查此内容</h2><p>更新 iPhone 后，您可以执行一些操作以确保更新顺利进行：</p><img src=https://updaty.apptitute.de/img/tutorial-10-1.jpg alt=settings battery><p><strong>检查软件版本：</strong>转到<em>设置</em > &gt; <em>常规</em> > <em>软件更新</em> 并确保您的 iPhone 运行的是最新版本的 iOS。</p><img src=https://updaty.apptitute .de/img/tutorial-10-2.jpg alt=ios 是最新的<p><strong>测试基本功能：</strong>测试您的 iPhone 的基本功能，例如拨打电话、发送消息 短信、连接到 Wi-Fi 和访问互联网以确保一切正常。</p><img src=https://updaty.apptitute.de/img/tutorial-10-3.jpg alt= 连接到 wifi><p><strong>检查任何问题</strong>：检查更新后可能出现的任何问题或错误消息。如果您发现任何问题，请尝试重新启动 iPhone 或重置设置以查看是否 它解决了问题。</p><img src=https://updaty.apptitute.de/img/tutorial-10-4.jpg alt=connect to wifi><p><strong>检查电池使用情况：</ strong> 检查您的电池使用情况，以确保它不会耗尽太快或遇到任何异常行为。 您可以通过转到<em>设置</em> &gt; 来完成此操作。 <em>电池</em>并检查使用情况统计信息。</p><p><strong>测试新功能</strong>：如果更新包含新功能，请试用它们以查看它们是否按预期工作。 </p><img src=https://updaty.apptitute.de/img/tutorial-10-5.jpg alt=connect to wifi><p>如果您遇到任何问题，请尝试重启您的 iPhone 或联系 Apple 支持 寻求进一步帮助。</p></html>",
+    “id”：10
+   }, 
+   {
+     "html": "<html><h2>自动更新</h2> <p>启用自动更新意味着您的 iPhone 将在新更新可用时自动下载并安装新更新，无需您执行任何操作。</p ><p>这很方便，因为它可以确保您的 iPhone 始终保持最新状态，包括最新的安全修复、错误修复和新功能。</p> <img src=https://updaty.apptitute。 de/img/tutorial-11-2.jpg alt=automatic update setting> <p>要在 iPhone 上启用自动更新，请转到 iPhone 上的<em>设置</em>应用程序。点击<em>常规。 </em> 点击<em>软件更新</em>。</p> <img src=https://updaty.apptitute.de/img/tutorial-11-3.jpg alt=automatic download and install > <p>打开<em>自动更新</em>旁边的切换开关。</p></html>",
+     “id”：11
+   },
+   {
+     "html": "<html><h2>为什么您应该考虑启用自动更新</h2> <p>您应该考虑在 iPhone 上启用自动更新有几个原因：</p> <img src=https: //updaty.apptitute.de/img/tutorial-12-1.jpg alt=software update result> <p><strong>1. 安全：</strong> 新的更新通常包括解决漏洞和蛋白质威胁的重要安全修复 . 错误修复：更新还可以修复错误并提高 iPhone 的整体稳定性和性能。</p> <img src=https://updaty.apptitute.de/img/tutorial-12-2.jpg alt=fish > <p><strong>2. 新功能</strong>：更新可以为您的 iPhone 添加新功能和改进，为您提供增强的用户体验。</p> <img src=https://updaty.apptitute .de/img/tutorial-12-3.jpg alt=automatic update on> <p><strong>3. 方便：</strong> 启用自动更新可以节省您的时间和精力，因为您不必手动检查 获取更新并自行安装。总的来说，启用自动更新有助于确保您的 iPhone 安全、稳定，并且是最新的，具有最新的功能和改进。</p></html>",
+     “id”：12
+   },
+   {
+     "html": "<html><h2>电池问题</h2> <p>如果您的 iPhone 在自动更新期间电量不足，可能会导致一些潜在问题：</p> <img src= https://updaty.apptitute.de/img/tutorial-15-2.jpg alt=problems> <p><strong>更新失败</strong>：更新过程中可能会因电量不足而失败或中途停止。 这可能会导致您的 iPhone 卡在部分更新状态，这可能需要您将 iPhone 恢复到之前的版本。</p> <img src=https://updaty.apptitute.de/img/tutorial-15 -3.jpg alt=update failed> <p><strong>数据丢失：</strong>如果更新失败，可能会导致数据丢失或损坏。这可能包括照片、视频、音乐和其他存储在 你的 iPhone。</p> <img src=https://updaty.apptitute.de/img/tutorial-15-4.jpg alt=data loss> <p><strong>电池损坏：</strong>如果你 iPhone 在更新过程中耗尽电量，这可能会损坏电池。在软件更新过程中反复中断会缩短电池的使用寿命，并导致电池随着时间的推移退化得更快。</p> <img src=https:// updaty.apptitute.de/img/tutorial-15-5.jpg alt=battery demage> <p><strong>设备不稳定</strong>：如果更新过程中断，可能会导致您的 iPhone 变得不稳定或行为异常 不规律地。 这可能包括应用程序崩溃、冻结或性能缓慢等问题。</p> <img src=https://updaty.apptitute.de/img/tutorial-15-6.jpg alt=warnung> <p>为了 为避免这些问题，请务必在开始自动更新之前确保您的 iPhone 有足够的电池续航时间。 </p> <p>您还应确保您的网络连接稳定且设备上有足够的存储空间来完成更新。</p></html>",
+     “id”：15
+   },
+   {
+     "html": "<html><h2>如何防止电池问题</h2><p>如果您的 iPhone 在自动更新期间电量不足，可能会导致问题。</p><p> 更新过程需要一定的电池寿命才能完成，如果您的 iPhone 在更新过程中没电，可能会导致更新失败甚至损坏您的设备。</p> <img src=https:// updaty.apptitute.de/img/tutorial-13-2.jpg alt=battery 84% task bar> <p>为防止这种情况发生，建议在开始更新之前为您的 iPhone 充电。理想情况下，您应该 在开始更新过程之前至少有 50% 的电池寿命。</p> <img src=https://updaty.apptitute.de/img/tutorial-13-3.jpg alt=connect to load> <p>你 还可以在更新期间将您的 iPhone 连接到电源，以确保它不会耗尽电量。</p></html>",
+     “id”：13
+   },
+{
+     "html": "<html><h2>低功耗模式</h2><p>此外，您可以在 iPhone 上启用“低功耗模式”功能，以帮助在更新期间延长电池寿命。</p> <p>此功能通过禁用某些功能来降低功耗，例如自动下载、电子邮件提取和一些视觉效果。</p> <img src=https://updaty.apptitute.de/img/tutorial-14- 2.jpg alt=settings select battery> <p>要启用低功耗模式，请转到<em>设置</em> > <em>电池</em> > <em>低功耗模式</em> .</p> <img src=https://updaty.apptitute.de/img/tutorial-14-3.jpg alt=swich on low power mode> <p>总的来说，重要的是确保你的 iPhone 在开始自动更新之前有足够的电量以避免潜在问题。</p></html>",
+     “id”：14
+   }
+   ]

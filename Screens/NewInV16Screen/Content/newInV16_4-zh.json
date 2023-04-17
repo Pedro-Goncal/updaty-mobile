@@ -1,26 +1,26 @@
 [
-   {
-      "html": "<h2 class=title>Your lock screen is now super customizable</h2> <p><img src=https://updaty.apptitute.de/img/ios16-04-1.jpg alt=></p>  <p>You may not think it, but your lock screen is probably the part of your phone you use the most, whether it’s glancing to see the time or checking if you’ve been sent an important message or email.</p>",
-      "id":1
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-04-2.jpg alt=></p>  <p>With iOS 16, Apple has given you loads more options to better customize your lock screen.</p> <p>This includes being able to create multiple versions to choose from at any moment, and a whole new range of widgets to include.</p>   ",
-      "id":2
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-04-3.jpg alt=></p>  <p>To begin customizing your lock screen, you’ll just need to long-press anywhere on the screen where your notifications are not appearing.</p> <p>Your screen will then zoom out and you’ll see a carousel of the different versions you’ve already set up.</p> <p>You can either edit the current screen by clicking the <em>Customize/em> button, swipe to another screen to edit or tap the ‘+’ button to create a new one.</p> ",
-      "id":3
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-04-4.jpg alt=></p>  <p>You can now select from a variety of themes, edit the fonts and clock stylings displayed, and pick from any number of widgets to include on your screens.</p><p>The widgets are way smarter than they used to be too. </p>",
-      "id":4
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-04-5.jpg alt=></p>  <p>For instance, if you want to check the sports scores, you can include a scoreboard on your screen which will automatically update when the score changes, so you won’t have to get a whole new notification every time there’s a goal.</p>",
-      "id":5
-   },
-   {
-      "html": " <p><img src=https://updaty.apptitute.de/img/ios16-04-6.jpg alt=></p>  <p>If you choose to not include widgets, your lock screen will still look great because your iPhone can now do all sorts of cool design tricks like blend the clock around the foreground and background of your photos.</p>",
-      "id":6
-   }
+    {
+       "html": "<h2 class=title>您的锁定屏幕现在可高度自定义</h2> <p><img src=https://updaty.apptitute.de/img/ios16-04-1.jpg alt= ></p> <p>您可能不这么认为，但锁屏可能是您手机中使用最多的部分，无论是看时间还是查看是否收到重要消息或电子邮件 .</p>",
+       “id”：1
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-04-2.jpg alt=></p> <p>有了 iOS 16，Apple 给了你很多负担 更多选项以更好地自定义您的锁定屏幕。</p> <p>这包括能够创建多个版本以供随时选择，以及包含一系列全新的小部件。</p> ",
+       “id”：2
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-04-3.jpg alt=></p> <p>要开始自定义您的锁定屏幕，您 您只需长按屏幕上未显示通知的任意位置。</p> <p>然后您的屏幕将缩小，您将看到您已经设置的不同版本的轮播。< /p> <p>您可以通过单击<em>自定义/em> 按钮编辑当前屏幕，滑动到另一个屏幕进行编辑或点击“+”按钮创建一个新屏幕。</p> ",
+       “id”：3
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-04-4.jpg alt=></p> <p>您现在可以从各种主题中进行选择 ，编辑显示的字体和时钟样式，并从任意数量的小部件中选择要包含在您的屏幕上。</p><p>小部件比以前更智能。</p>",
+       “id”：4
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-04-5.jpg alt=></p> <p>例如，如果您想检查 体育比分，您可以在屏幕上添加一个记分牌，当比分发生变化时它会自动更新，这样您就不必在每次进球时都收到全新的通知。</p>",
+       “id”：5
+    },
+    {
+       "html": " <p><img src=https://updaty.apptitute.de/img/ios16-04-6.jpg alt=></p> <p>如果您选择不包含小部件，您的 锁定屏幕看起来仍然很棒，因为您的 iPhone 现在可以执行各种很酷的设计技巧，例如在照片的前景和背景周围混合时钟。</p>",
+       “id”：6
+    }
 ]

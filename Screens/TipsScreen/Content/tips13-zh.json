@@ -1,10 +1,10 @@
 [
-   {
-      "html": "<h2 class=title>Turn on the Haptic keyboard</h2> <p>Apple has finally added a Haptic keyboard to the iPhone! But what is this?</p>  <p>Basically, a haptic keyboard is where your phone makes a little vibration whenever you type a character or press on the screen to scroll or tap a button. </p>  <p>It helps make your phone a little more tactile and many people really like this, saying that it helps them to make fewer mistakes when typing messages or emails.</p>  <p>Apple has added this feature in the new iOS 16 but it isn’t set up as a default setting.</p>  <p><img src=https://updaty.apptitute.de/img/tips-13-1.jpg alt=></p>  <p>To start using it, go to your Settings app and select the Sound and Haptics section.</p> ",
-      "id":1
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/tips-13-2.jpg alt=></p>  <p>From here, go to Keyboard Feedback and then you can enable sounds and haptics.</p>",
-      "id":2
-   }
+    {
+       "html": "<h2 class=title>打开触觉键盘</h2> <p>Apple 终于为 iPhone 添加了触觉键盘！但这是什么？</p> <p>基本上，触觉 键盘是您在键入字符或按下屏幕滚动或点击按钮时手机会产生轻微振动的地方。</p> <p>它有助于使您的手机更具触感，很多人真的很喜欢这个，说 这有助于他们在输入消息或电子邮件时减少错误。</p> <p>Apple 已在新的 iOS 16 中添加了此功能，但未将其设置为默认设置。</p> <p> <img src=https://updaty.apptitute.de/img/tips-13-1.jpg alt=></p> <p>要开始使用它，请转到“设置”应用并选择“声音和触觉”部分 .</p>”,
+       “id”：1
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/tips-13-2.jpg alt=></p> <p>从这里转到键盘反馈，然后 您可以启用声音和触觉。</p>",
+       “id”：2
+    }
 ]
