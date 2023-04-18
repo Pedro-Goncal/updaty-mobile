@@ -13,20 +13,20 @@ import Card from "../../Components/Card";
 import { useRoute } from "@react-navigation/native";
 
 //Content
-import { tipsSmalCardContent } from './Content/tipsContent-en';
-import tip1 from "./Content/tip1.json";
-import tips2 from "./Content/tips2.json";
-import tips3 from "./Content/tips3.json";
-import tips4 from "./Content/tips4.json";
-import tips5 from "./Content/tips5.json";
-import tips6 from "./Content/tips6.json";
-import tips7 from "./Content/tips7.json";
-import tips8 from "./Content/tips8.json";
-import tips9 from "./Content/tips9.json";
-import tips10 from "./Content/tips10.json";
-import tips11 from "./Content/tips11.json";
-import tips12 from "./Content/tips12.json";
-import tips13 from "./Content/tips13.json";
+import { tipsSmalCardContenten } from './Content/tipsContent-en';
+import tip1 from "./Content/tip1-en.json";
+import tips2 from "./Content/tips2-en.json";
+import tips3 from "./Content/tips3-en.json";
+import tips4 from "./Content/tips4-en.json";
+import tips5 from "./Content/tips5-en.json";
+import tips6 from "./Content/tips6-en.json";
+import tips7 from "./Content/tips7-en.json";
+import tips8 from "./Content/tips8-en.json";
+import tips9 from "./Content/tips9-en.json";
+import tips10 from "./Content/tips10-en.json";
+import tips11 from "./Content/tips11-en.json";
+import tips12 from "./Content/tips12-en.json";
+import tips13 from "./Content/tips13-en.json";
 
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
@@ -130,7 +130,7 @@ const TipsSubScreen = () => {
         >
           <ArrowLeft />
 
-          <Text style={styles.title}>{tipsSmalCardContent[index].subtitle}</Text>
+          <Text style={styles.title}>{tipsSmalCardContenten[index].subtitle}</Text>
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>

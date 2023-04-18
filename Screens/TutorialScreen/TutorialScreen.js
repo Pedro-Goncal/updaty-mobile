@@ -22,10 +22,10 @@ import { handleClick } from "../../Redux/slices/adSlice";
 
 //Content TEMP
 import tutorialsHTMLen from "./Content/tutorialsHTML-en.json";
-import tutorialsHTMLzh from "./Content/tutorialsHTML-zh.json";
+// import tutorialsHTMLzh from "./Content/tutorialsHTML-zh.json";
 
 
-import { getLocales } from 'expo-localization';
+// import { getLocales } from 'expo-localization';
 
 
 const { width, height } = Dimensions.get("screen");
@@ -35,8 +35,9 @@ const TutorialScreen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
   const dispatch = useDispatch();
 
-  const local = getLocales()
-const localVar = local[0].languageCode
+  //For locale launguage support
+//   const local = getLocales()
+// const localVar = local[0].languageCode
 
 
   //Set viewability of each post based on the id of the post
@@ -75,15 +76,15 @@ const localVar = local[0].languageCode
 
   const flatListRef = useRef(null);
 
-  const [content, setContent] = useState(tutorialsHTMLen)
+  // const [content, setContent] = useState(tutorialsHTMLen)
 
-  useEffect(()=> {
-    if(localVar === "en"){
-      setContent(tutorialsHTMLen)
-    } else {
-      setContent(tutorialsHTMLzh)
-    }
-  },[])
+  // useEffect(()=> {
+  //   if(localVar === "en"){
+  //     setContent(tutorialsHTMLen)
+  //   } else {
+  //     setContent(tutorialsHTMLzh)
+  //   }
+  // },[])
   
 
 
@@ -99,7 +100,7 @@ const localVar = local[0].languageCode
           
           <FlatList
             ref={flatListRef}
-            data={content}
+            data={tutorialsHTMLen}
             decelerationRate={0.9}
             snapToInterval={dimensions.screen.width} // Distance between each snap point
             snapToAlignment={"center"} // Align snap point to the center of the view
@@ -115,7 +116,7 @@ const localVar = local[0].languageCode
           />
         </View>
       </ScrollView>
-      <Pagination content={content} activeCardId={activeCardId} />
+      <Pagination content={tutorialsHTMLen} activeCardId={activeCardId} />
     </View>
   );
 };

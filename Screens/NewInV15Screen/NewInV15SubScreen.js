@@ -14,13 +14,13 @@ import Card from "../../Components/Card";
 import { useRoute } from "@react-navigation/native";
 
 //Content
-import {newInV15SmallCardContent} from "./Content/newInV15Content-en";
-import newInV15_1 from "./Content/newInV15_1.json";
-import newInV15_2 from "./Content/newInV15_2.json";
-import newInV15_3 from "./Content/newInV15_3.json";
-import newInV15_4 from "./Content/newInV15_4.json";
-import newInV15_5 from "./Content/newInV15_5.json";
-import newInV15_6 from "./Content/newInV15_6.json";
+import {newInV15SmallCardContenten} from "./Content/newInV15Content-en";
+import newInV15_1 from "./Content/newInV15_1-en.json";
+import newInV15_2 from "./Content/newInV15_2-en.json";
+import newInV15_3 from "./Content/newInV15_3-en.json";
+import newInV15_4 from "./Content/newInV15_4-en.json";
+import newInV15_5 from "./Content/newInV15_5-en.json";
+import newInV15_6 from "./Content/newInV15_6-en.json";
 
 
 import { useNavigation } from "@react-navigation/native";
@@ -106,7 +106,7 @@ const NewInV15SubScreen = () => {
         >
           <ArrowLeft />
 
-          <Text style={styles.title}>{newInV15SmallCardContent[index].subtitle}</Text>
+          <Text style={styles.title}>{newInV15SmallCardContenten[index].subtitle}</Text>
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>

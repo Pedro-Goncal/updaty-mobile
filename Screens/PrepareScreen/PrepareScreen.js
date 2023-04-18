@@ -100,6 +100,8 @@ const PrepareScreen = () => {
   const [maxOsUpdate, setMaxOsUpdate] = useState("16.3");
 
 
+  const [latestiOSAvailable, setLatestiOSAvailable] = useState("")
+
   useEffect(() => {
 
     //Here we use the https://ipsw.me/ API and the modelID to retrive the latest avaialble iOS version
@@ -122,7 +124,7 @@ const PrepareScreen = () => {
        
       } catch (error) {
         setLatestiOSAvailable('N/A')
-        console.log("Error fetching iOS vertsion",error)
+        console.log("Error fetching iOS version",error)
       }
     } 
   
