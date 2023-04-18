@@ -24,12 +24,11 @@ const { width, height } = Dimensions.get("window");
 const screenDimensions = Dimensions.get('screen');
 //Device info
 import * as FileSystem from "expo-file-system";
-import RNFS from 'react-native-fs';
+
 
 import * as Contacts from "expo-contacts";
 import * as Calendar from "expo-calendar";
-import * as MediaLibrary from "expo-media-library";
-import { useCalendarPermissions } from "expo-calendar";
+
 
 //SVG
 import ArrowUp from "../../../assets/iconsSvg/ArrowUp";
