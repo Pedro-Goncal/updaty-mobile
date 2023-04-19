@@ -1,18 +1,18 @@
 [
     {
        "html": "<h2 class=title>为什么新的照片剪切功能是最好的</h2> <p><img src=https://updaty.apptitute.de/img/ios16-02-1.jpg alt=></p> <p>有没有想过把你的猫剪下来放到你所有的其他照片中，或者把她做成贴纸来发送你的信息？好吧，你不再需要是 Photoshop 专家 </p> <p>iOS 16 有很多很棒的新功能，但 Live Objects 可能是最好的一个。它可以识别照片中突出的或前景的项目，并可以自动生成它的剪切图，而无需您手动操作 花几个小时在它周围裁剪。</p>",
-       “id”：1
+       "id:":1
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/ios16-02-2.jpg alt=></p> <p>举个例子，你的照片 猫躺在你的床上。在 iOS 16 上，你的 iPhone 现在会自动在图片的前景中检测到你的猫。</p>",
-       “id”：2
+       "id:":2
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/ios16-02-3.jpg alt=></p> <p>如果你长按你的猫， 您将能够点击复制，当您尝试将其粘贴到一条消息中或粘贴到编辑应用程序中的另一张照片上时，您的猫的剪裁将出现在那里，完美裁剪。没有床，只有猫。</p >",
-       “id”：3
+       "id:":3
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/ios16-02-4.jpg alt=></p> <p>新功能超级好用， 带来无限可能。</p>",
-       “id”：4
+       "id:":4
     }
 ]

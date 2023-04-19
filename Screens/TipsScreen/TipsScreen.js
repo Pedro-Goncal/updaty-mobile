@@ -6,11 +6,14 @@ import {
   Dimensions,
   Platform,
 } from "react-native";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import CardSmallTips from "./CardSmallTips";
 
+import * as Localization from 'expo-localization';
 
 import { tipsSmalCardContenten } from './Content/tipsContent-en';
+import { tipsSmalCardContentzh } from './Content/tipsContent-zh';
+
 
 const { height } = Dimensions.get("window");
 
@@ -27,6 +30,20 @@ const TipsScreen = () => {
     }
   });
 
+  const deviceLanguage = Localization.locale;
+
+  const [content, setContent] = useState(tipsSmalCardContenten)
+
+
+  useEffect(()=> {
+    if(deviceLanguage.includes("zh")){
+      setContent(tipsSmalCardContentzh)
+    } else {
+      setContent(tipsSmalCardContenten)
+    }
+  },[])
+
+
   return (
     <View style={styles.container}>
       <View>
@@ -34,7 +51,7 @@ const TipsScreen = () => {
       </View>
       <View style={styles.cardContainer}>
         <FlatList
-          data={tipsSmalCardContenten}
+          data={content}
           renderItem={({ item, index }) => (
             <CardSmallTips content={item} index={index} />
           )}

@@ -1,18 +1,18 @@
 [
-    {
-       "html": "<h2 class=title>选择适合你生活的配乐</h2> <p><img src=https://updaty.apptitute.de/img/ios15-01-1.jpg alt=> </p> <p>如果您像我一样，那么您所听的音乐就是您生活的原声带。</p> <p>我们都会将不同喜爱的歌曲和专辑与我们生活中的特定时刻联系起来。我们的 记忆在视觉上向我们歌唱。</p> <p>这就是为什么 Apple 在 iOS 15 中更新了其 Memories 应用程序这样一个好消息，这样您现在就可以选择伴随您的记忆蒙太奇的音乐 在照片中。</p>",
-       “id”：1
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-01-2.jpg alt=></p> <p>要做到这一点，请进入为你 照片部分，然后点击回忆。选择您对配乐感兴趣的合辑，然后点击音乐按钮（带有音符的按钮）。</p> ",
-       “id”：2
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-01-3.jpg alt=></p> <p>在这里你会看到你所有的音乐 您的 Apple Music 应用程序。您可以从这里选择您认为最适合您正在编辑的记忆合辑的曲目。</p> ",
-       “id”：3
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-01-4.jpg alt=></p> <p>唯一的缺点是它只适用于 Apple Music 而不是 Spotify 和 Pandora 等第三方应用程序。</p> ",
-       “id”：4
-    }
+   {
+       "html": "<h2 class=\"title\">选择适合你生活的配乐</h2> <p><img src=\"https://updaty.apptitute.de/img/ios15-01-1.jpg\" alt=\"\"></p> <p>如果您像我一样，那么您所听的音乐就是您生活的原声带。</p> <p>我们都会将不同喜爱的歌曲和专辑与我们生活中的特定时刻联系起来。我们的记忆在视觉上向我们歌唱。</p> <p>这就是为什么 Apple 在 iOS 15 中更新了其 Memories 应用程序这样一个好消息，这样您现在就可以选择伴随您的记忆蒙太奇的音乐在照片中。</p>",
+       "id": 1
+   },
+   {
+       "html": "<p><img src=\"https://updaty.apptitute.de/img/ios15-01-2.jpg\" alt=\"\"></p> <p>要做到这一点，请进入\"为你的照片\"部分，然后点击\"回忆\"。选择您对配乐感兴趣的合辑，然后点击音乐按钮（带有音符的按钮）。</p>",
+       "id": 2
+   },
+   {
+       "html": "<p><img src=\"https://updaty.apptitute.de/img/ios15-01-3.jpg\" alt=\"\"></p> <p>在这里你会看到你所有的音乐，您的 Apple Music 应用程序。您可以从这里选择您认为最适合您正在编辑的记忆合辑的曲目。</p>",
+       "id": 3
+   },
+   {
+       "html": "<p><img src=\"https://updaty.apptitute.de/img/ios15-01-4.jpg\" alt=\"\"></p> <p>唯一的缺点是它只适用于 Apple Music，而不是 Spotify 和 Pandora 等第三方应用程序。</p>",
+       "id": 4
+   }
 ]

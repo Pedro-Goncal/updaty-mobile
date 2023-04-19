@@ -8,11 +8,15 @@ import {
   Dimensions,
   Platform,
 } from "react-native";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef , useEffect} from "react";
 import CardSmall15 from "./CardSmall15";
+
+import * as Localization from 'expo-localization';
+
 
 //Content
 import {newInV15SmallCardContenten} from "./Content/newInV15Content-en";
+import {newInV15SmallCardContentzh} from "./Content/newInV15Content-zh";
 
 const { width, height } = Dimensions.get("window");
 
@@ -29,6 +33,19 @@ const NewInV15Screen = () => {
     }
   });
 
+  const deviceLanguage = Localization.locale;
+
+  const [content, setContent] = useState(newInV15SmallCardContenten)
+
+
+  useEffect(()=> {
+    if(deviceLanguage.includes("zh")){
+      setContent(newInV15SmallCardContentzh)
+    } else {
+      setContent(newInV15SmallCardContenten)
+    }
+  },[])
+
 
   return (
     <View style={styles.container}>
@@ -37,7 +54,7 @@ const NewInV15Screen = () => {
       </View>
       <View style={styles.cardContainer}>
         <FlatList
-          data={newInV15SmallCardContenten}
+          data={content}
           renderItem={({ item, index }) => (
             <CardSmall15 content={item} index={index} />
           )}

@@ -1,26 +1,27 @@
 [
     {
        "html": "<h2 class=title>在更新后的 FaceTime 通话中展现最佳状态</h2> <p><img src=https://updaty.apptitute.de/img/ios15-04-1。 jpg alt=></p> <p>还记得大流行期间每个人基本上一直都在使用 Zoom 通话吗？</p> <p>还记得我们使用背景滤镜带来的所有乐趣吗？</p> < p>还记得基本上只是看一下自己的网络摄像头显示，以确保自己看起来不傻吗？</p> <p>Apple 的开发人员似乎处于类似的境地，因为他们真的已经与 FaceTime 一起进城了 新的 iOS 15 更新。</p>",
-       “编号”：1
+       "id":1
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/ios15-04-2.jpg alt=></p> <p>主要更新是人像模式的引入 在应用程序中。</p>",
-       “编号”：2
+       "id":2
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/ios15-04-3.jpg alt=></p> <p>这比模糊效果好得多 Zoom 和 Teams 中的背景功能，并且具有额外的好处，可以同时修饰美丽的脸庞，就像在您的相机应用程序中一样。</p>",
-       “编号”：3
+       "id":3
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/ios15-04-4.jpg alt=></p> <p>还有新的麦克风模式，让您 使用语音隔离消除背景噪音，使用标准保持所有噪音或使用宽频谱使其更加突出。</p> ",
-       “编号”：4
+       "id":4
     },
     {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-04-5.jpg alt=></p> <p>在群组通话中增强了网格显示功能 同样，每个人的声音都来自显示他们的电话部分。</p>“，
-       “编号”：5
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-04-6.jpg alt=></p> <p>有史以来第一次，iOS 15 您现在可以将使用 Windows 或 Android 设备的朋友加入您的 FaceTime 通话。您只需在应用程序中创建一个 FaceTime 通话链接并将其发送给他们。</p>",
-       “编号”：6
-    }
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-04-5.jpg alt=></p> <p>在群组通话中增强了网格显示功能。同样，每个人的声音都来自显示他们的电话部分。</p>",
+      "id":5
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-04-6.jpg alt=></p> <p>有史以来第一次，iOS 15 您现在可以将使用 Windows 或 Android 设备的朋友加入您的 FaceTime 通话。您只需在应用程序中创建一个 FaceTime 通话链接并将其发送给他们。</p>",
+      "id":6
+   }
+   
 ]

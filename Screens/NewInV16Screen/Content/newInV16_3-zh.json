@@ -1,26 +1,26 @@
 [
     {
-       "html": "<h2 class=title>实时文本现在有翻译选项</h2> <p><img src=https://updaty.apptitute.de/img/ios16-03-1.jpg alt=> </p> <p>是否曾在国外度假时从餐厅点餐，并且需要很长时间才能弄清楚菜单上说的是什么？</p> <p>希望有一种翻译速度更快的方法吗？</p> <p> p>",
-       “id”：1
+       "html": "<h2 class=title>实时文本现在有翻译选项</h2> <p><img src=https://updaty.apptitute.de/img/ios16-03-1.jpg alt=> </p> <p>是否曾在国外度假时从餐厅点餐，并且需要很长时间才能弄清楚菜单上说的是什么？</p> <p>希望有一种翻译速度更快的方法吗？</p>",
+       "id":1
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/ios16-03-2.jpg alt=></p> <p>iPhone 用户的好消息是， 实时文本功能已通过翻译选项进行了更新，这意味着您可以直接从相机获取翻译，而无需将您几乎不懂的单词输入 Google 翻译。</p> ",
-       “id”：2
+       "id":2
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/ios16-03-3.jpg alt=></p> <p>实时文本是您的 iPhone 接收和 解释通过相机或照片出现在屏幕上的单词。</p> <p>它现在与 iPhone 的翻译应用程序链接，这意味着您可以通过相机获得即时翻译。</p> ",
-       “id”：3
+       "id":3
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/ios16-03-4.jpg alt=></p> <p>要使用它，只需进入翻译 应用程序并点击现在出现在其中的新相机按钮。</p> <p><img src=https://updaty.apptitute.de/img/ios16-03-5.jpg alt=></p> <p>您可以将相机对准餐厅菜单 - 或者任何您想要翻译的内容 - 翻译内容将实时显示在您的屏幕上。</p>",
-       “id”：4
+       "id":4
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/ios16-03-6.jpg alt=></p> <p>这并不是唯一的新鲜事 iOS 16。实时文本现在也适用于视频，允许您暂停视频并与其中可能出现的任何文字进行互动。</p>",
-       “id”：5
+       "id":5
     },
     {
        "html": " <p><img src=https://updaty.apptitute.de/img/ios16-03-7.jpg alt=></p> <p>翻译应用程序中也有新语言 – 包括日语、韩语和乌克兰语，此外还有中文、英语、法语、意大利语、德语、葡萄牙语和西班牙语。</p>",
-       “id”：6
+       "id":6
     }
 ]

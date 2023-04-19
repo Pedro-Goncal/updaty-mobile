@@ -1,22 +1,23 @@
 [
     {
        "html": "<h2 class=title>和朋友一起看、听、玩</h2> <p><img src=https://updaty.apptitute.de/img/ios15-06-1.jpg alt =></p> <p>与朋友或家人一起观看您最喜爱的电视节目是生活中最舒适的居家生活之一，但我们不能总是与我们最亲近的人在一起。这就是新的 SharePlay 功能的原因 在 iOS 15 上。</p>",
-       “id”：1
+       "id":1
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/ios15-06-2.jpg alt=></p> <p>现在，您可以通过 FaceTime 看电视 在您的 iPhone 上实时显示、收听音乐或与朋友一起玩游戏。效果非常好，让您感觉就像回到了家、大学或任何您喜欢闲逛的地方。</p >",
-       “id”：2
+       "id":2
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/ios15-06-3.jpg alt=></p> <p>您只需点击 SharePlay 当您与亲人进行 FaceTime 通话时图标，您会看到与之配合使用的应用程序。</p>",
-       “id”：3
+       "id":3
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/ios15-06-4.jpg alt=></p> <p>例如，您可以选择 Apple Music， 选择最新的 Beyonce 或 Radiohead 专辑，当您正在通话时，它会在您的两部手机上播放。如果您需要暂停它去厕所，它会在您的两部设备上暂停。</p> ",
-       “id”：4
+       "id":4
     },
     {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-06-5.jpg alt=></p> <p>Apple 应用程序已经可以使用它和一堆 的第 3 方应用程序也适用于它——AppleTV、Disney+ 和 TikTok。</p>“，
-       “id”：5
-    }
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-06-5.jpg alt=></p> <p>Apple 应用程序已经可以使用它和一堆的第3方应用程序也适用于它——AppleTV、Disney+ 和 TikTok。</p>",
+      "id":5
+   }
+   
 ]
