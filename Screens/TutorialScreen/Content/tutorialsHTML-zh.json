@@ -1,12 +1,13 @@
 [
    {
-     "html": "<html><h2>入门</h2><p>在这个简短的教程中，我们将安全可靠地引导您完成更新过程。首先，在您开始之前，您需要确定三件事 开始更新。</p><img src=https://updaty.apptitute.de/img/tutorial-01-1.jpg alt=connect to wifi><p>1) 在开始之前，您的 iPhone 必须 已连接到 <strong>Wi-Fi</strong>。</p><img src=https://updaty.apptitute.de/img/tutorial-01-2.jpg alt=电量超过 50%></ p><p>2)您必须至少有 50% 的电池电量或插入电源才能下载和安装更新。</p><img src=https://updaty.apptitute.de/img/tutorial -01-3.jpg ><p>3) 在安装更新之前<strong>备份</strong>您的 iPhone 以避免任何潜在的数据丢失也是一个好主意。</p></html>” ,
+     "html": ******************** "<html><h2>入门</h2><p>在这个简短的教程中，我们将安全可靠地引导您完成更新过程。首先，在您开始之前，您需要确定三件事 开始更新。</p><img src=https://updaty.apptitute.de/img/tutorial-01-1.jpg alt=connect to wifi><p>1) 在开始之前，您的 iPhone 必须 已连接到 <strong>Wi-Fi</strong>。</p><img src=https://updaty.apptitute.de/img/tutorial-01-2.jpg alt=电量超过 50%></ p><p>2)您必须至少有 50% 的电池电量或插入电源才能下载和安装更新。</p><img src=https://updaty.apptitute.de/img/tutorial -01-3.jpg ><p>3) 在安装更新之前<strong>备份</strong>您的 iPhone 以避免任何潜在的数据丢失也是一个好主意。</p></html>” ,
      “id”：1
    },
    {
-     "html": "<h2>连接到 Wi-Fi</h2><p>首先，确保您的 iPhone 已连接到 Wi-Fi 网络。</p><p>检查您的 iPhone 是否连接到 Wi-Fi 从屏幕右上角向下滑动以打开控制中心。</p><img src=https://updaty.apptitute.de/img/tutorial-02-2.jpg alt=wifi is disabled<p>寻找 Wi-Fi 图标。如果图标为蓝色，则您的 iPhone 已连接到 Wi-Fi 网络。如果图标为灰色，则您的 iPhone 未连接到 Wi-Fi 网络。</ p><img src=https://updaty.apptitute.de/img/tutorial-02-3.jpg alt=connect to wifi><p>或者，您可以转到<em>设置</em>，然后 <em>Wi-Fi</em> 查看可用 Wi-Fi 网络列表。如果您已连接到网络，网络名称将显示在 <em>Wi-Fi</em> 旁边 旁边的复选标记。</p><img src=https://updaty.apptitute.de/img/tutorial-02-4.jpg alt=enter wifi-password><p>如果您无法连接到 Wi-Fi，确保 Wi-Fi 网络在范围内并且您拥有正确的网络名称和密码。 </p><img src=https://updaty.apptitute.de/img/tutorial-02-5.jpg alt=reset network settings><p>您也可以通过 <em> 尝试重置您的网络设置 设置</em> > <em>一般</em> > <em>重置</em> > <em>重置网络设置</em>。</p></html>",
-     “id”：2
-   },
+   "html": "<h2>连接到 Wi-Fi</h2><p>首先，请确保您的 iPhone 已连接到 Wi-Fi 网络。</p><p>要检查您的 iPhone 是否连接到 Wi-Fi，请从屏幕右上角向下滑动以打开控制中心。</p><img src=https://updaty.apptitute.de/img/tutorial-02-2.jpg alt=wifi is disabled><p>查找 Wi-Fi 图标。如果图标是蓝色的，则您的 iPhone 已连接到 Wi-Fi 网络。如果图标是灰色的，则您的 iPhone 未连接到 Wi-Fi 网络。</p><img src=https://updaty.apptitute.de/img/tutorial-02-3.jpg alt=connect to wifi><p>或者，您可以进入“设置”，然后选择“Wi-Fi”以查看可用的 Wi-Fi 网络列表。如果您已连接到网络，则网络名称将显示在“Wi-Fi”旁边，并带有对号。</p><img src=https://updaty.apptitute.de/img/tutorial-02-4.jpg alt=enter wifi-password><p>如果您无法连接到 Wi-Fi，请确保 Wi-Fi 网络在范围内，并且您有正确的网络名称和密码。</p><img src=https://updaty.apptitute.de/img/tutorial-02-5.jpg alt=reset network settings><p>您还可以尝试通过进入“设置”>“通用”>“重置”>“重置网络设置”来重置您的网络设置。</p></html>",
+   "id": 2
+   }
+
    {
      "html": "<html><h2>连接电源</h2><p>其次，确保您的 iPhone 有足够的电池寿命或在更新过程中连接到电源。</p>< img src=https://updaty.apptitute.de/img/tutorial-03-1.jpg alt=任务栏中的电池符号<p>要检查 iPhone 的电池电量，请查看 iPhone 右上角的图标。 s 屏幕。您应该会看到一个电池图标。</p><p>电池图标将显示您剩余的电池寿命。绿色电池图标表示您的 iPhone 电池电量超过 20%，而红色电池 图标表示您的电池电量低于 20%，需要尽快充电。</p><img src=https://updaty.apptitute.de/img/tutorial-03-3.jpg alt=电池电量超过 50% 在任务栏中<p>如果您想查看电池寿命的确切百分比，请从 iPhone 屏幕的右上角向下滑动以打开控制中心。您的电池百分比将显示在右上角 </p><img src=https://updaty.apptitute.de/img/tutorial-03-4.jpg alt=电池使用情况细分><p><strong>注意：</strong>如果您 iPhone 运行的是 iOS 14 或更高版本，您还可以通过转到<em>设置</em> > 查看电池使用情况的明细。 <em>电池</em>。 这将向您显示哪些应用使用的电池寿命最长，并提供其他有用的电池相关信息。</p></html>",
      “id”：3
