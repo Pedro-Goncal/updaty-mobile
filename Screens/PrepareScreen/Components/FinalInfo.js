@@ -54,6 +54,8 @@ const FinalInfo = ({
     isDeviceCharging,
   ]);
 
+  console.log(isUpdateAvailable)
+
   useEffect(() => {
     //If already running the latest version, but not all green
     if (!isUpdateAvailable && !isReadyForUpdate) {
@@ -65,7 +67,7 @@ const FinalInfo = ({
     } else {
       setTitle("🙈 Oh no! Looks like there are still issues you need to fix.");
     }
-  }, [isReadyForUpdate]);
+  }, [isReadyForUpdate,isUpdateAvailable]);
 
   return (
     <View style={[styles.mainContainer, {width: dimensions.screen.width - 20, height: Platform.isPad ? dimensions.screen.height - 370 : dimensions.screen.height - 300}]}>

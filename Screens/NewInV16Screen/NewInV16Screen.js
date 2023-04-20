@@ -12,19 +12,19 @@ import React, { useState, useRef, useEffect } from "react";
 
 import CardSmall16 from "./CardSmall16";
 
-import { getLocales } from 'expo-localization';
+// import { getLocales } from 'expo-localization';
 
 
 import {newInV16SmallCardContenten} from "./Content/newInV16Content-en";
-import {newInV16SmallCardContentzh} from "./Content/newInV16Content-zh";
+// import {newInV16SmallCardContentzh} from "./Content/newInV16Content-zh";
 
 const { width, height } = Dimensions.get("window");
 
 const NewInV16Screen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
 
-  const local = getLocales()
-const localVar = local[0].languageCode
+//   const local = getLocales()
+// const localVar = local[0].languageCode
 
   const viewabilityConfig = {
     itemVisiblePercentThreshold: 51,
@@ -36,16 +36,16 @@ const localVar = local[0].languageCode
     }
   });
 
-  const [content, setContent] = useState(newInV16SmallCardContenten)
+  // const [content, setContent] = useState(newInV16SmallCardContenten)
 
 
-  useEffect(()=> {
-    if(localVar === "en"){
-      setContent(newInV16SmallCardContenten)
-    } else {
-      setContent(newInV16SmallCardContentzh)
-    }
-  },[])
+  // useEffect(()=> {
+  //   if(localVar === "en"){
+  //     setContent(newInV16SmallCardContenten)
+  //   } else {
+  //     setContent(newInV16SmallCardContentzh)
+  //   }
+  // },[])
 
   return (
     <View style={styles.container}>
@@ -54,7 +54,7 @@ const localVar = local[0].languageCode
       </View>
       <View style={styles.cardContainer}>
         <FlatList
-          data={content}
+          data={newInV16SmallCardContenten}
           renderItem={({ item, index }) => (
             <CardSmall16 content={item} index={index} />
           )}
