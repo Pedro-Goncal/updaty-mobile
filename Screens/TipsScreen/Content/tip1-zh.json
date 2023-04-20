@@ -1,18 +1,18 @@
 [
     {
-       "html": "<h2 class=title>与朋友和家人协作</h2> <p><img src=https://updaty.apptitute.de/img/tips-01-1.jpg alt=>< /p> <p>共享相册在 iPhone 上使用已有一段时间，但 iCloud 共享照片库现在可让您更好地协作处理您珍藏的图像。</p> <p>这项新功能的最大优点 就是你和五个朋友或家人现在可以直接把照片放到一个共享图库中，图书馆的每个成员都可以查看、编辑和删除照片。</p> <p>还有更智能的添加照片的方式 图书馆 – 包括靠近您的照片馆员、日期范围和面部识别。</p>",
-       “id”：1
+       "html": "<h2 class=title>与朋友和家人协作</h2> <p><img src=https://updaty.apptitute.de/img/tips-01-1.jpg alt=> </p> <p>共享相册在 iPhone 上使用已有一段时间，但 iCloud 共享照片库现在可让您更好地协作处理您珍藏的图像。</p> <p>这项新功能的最大优点 就是你和五个朋友或家人现在可以直接把照片放到一个共享图库中，图书馆的每个成员都可以查看、编辑和删除照片。</p> <p>还有更智能的添加照片的方式 图书馆 – 包括靠近您的照片馆员、日期范围和面部识别。</p>",
+       "id":1
     },
     {
        "html": " <p><img src=https://updaty.apptitute.de/img/tips-01-2.jpg alt=></p> <p>如何设置？你去 到“设置”并选择“照片”，然后打开“共享库”部分。</p>",
-       “id”：2
+       "id":2
     },
     {
        "html": " <p><img src=https://updaty.apptitute.de/img/tips-01-3.jpg alt=></p> <p>在随后出现的弹出窗口中， 点击开始设置。点击您要邀请的人，然后点击继续。</p>",
-       “id”：3
+       "id":3
     },
     {
        "html": " <p><img src=https://updaty.apptitute.de/img/tips-01-4.jpg alt=></p> <p>至此库的框架已经搭建好了， 您可以从“我的所有照片和视频”、“按人物或日期选择”和“手动选择”中选择要添加的照片。</p> <p>您还可以选择要包含在您的照片中的照片的开始日期 共享库。</p>",
-       “id”：4
+       "id":4
     }
 ]

@@ -1,18 +1,18 @@
 [
     {
-       "html": "<h2 class=title>更好地管理您的重复联系人</h2> <p><img src=https://updaty.apptitute.de/img/tips-09-1.jpg alt=>< /p> <p>更好地管理您 iPhone 上重复的联系人。</p> <p>随着时间的推移，我们手机中的联系人列表变得有点混乱和笨拙。为什么我有 13 个不同的联系人？ 为我母亲设置的联系人，我听到你说。</p> <p>好消息是，你现在可以删除 iPhone 上的联系人列表的重复数据，并管理你的联系人信息。</p> <p >因此，通讯录应用程序现在可以检测您为同一个人设置了多个联系人的位置。</p> ",
-       “id”：1
+       "html": "<h2 class=title>更好地管理您的重复联系人</h2> <p><img src=https://updaty.apptitute.de/img/tips-09-1.jpg alt=> </p> <p>更好地管理您 iPhone 上重复的联系人。</p> <p>随着时间的推移，我们手机中的联系人列表变得有点混乱和笨拙。为什么我有 13 个不同的联系人？ 为我母亲设置的联系人，我听到你说。</p> <p>好消息是，你现在可以删除 iPhone 上的联系人列表的重复数据，并管理你的联系人信息。</p> <p >因此，通讯录应用程序现在可以检测您为同一个人设置了多个联系人的位置。</p> ",
+       "id":1
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/tips-09-2.jpg alt=></p> <p>其实它会告诉你这个。 当您打开该应用程序时，它会显示一条消息，说明它找到了多少重复的联系人。</p>",
-       “id”：2
+       "id":2
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/tips-09-3.jpg alt=></p> <p>要管理这些重复项，请点击查看重复项，然后 您会看到您重复信息的所有联系人。</p>",
-       “id”：3
+       "id":3
     },
     {
        "html": "<p><img src=https://updaty.apptitute.de/img/tips-09-4.jpg alt=></p> <p>你可以做的技巧是点击 Merge All 然后合并重复项。通过执行此操作，您的手机将自动合并所有重复的联系人，以便每个联系人都在一个地方包含您需要的所有信息。然后它将删除重复的联系人。</p>",
-       “id”：4
+       "id":4
     }
 ]
