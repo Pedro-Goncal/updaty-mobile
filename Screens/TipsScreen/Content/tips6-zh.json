@@ -1,10 +1,10 @@
 [
-   {
-      "html": "<h2 class=title>Controlling other Apple devices using your iPhone</h2> <p>Getting an iPhone is great, but getting into the whole Apple ecosystem can be even better. </p>  <p>Provided you’ve signed into your iCloud account on all your Apple devices, you can effectively control what your other devices are doing using iPhone.</p> <p>You can basically turn your iPhone into the most powerful remote control ever!</p>  <p><img src=https://updaty.apptitute.de/img/tips-06-1.jpg alt=></p>  <p>How do you do this? Go into your Settings and go into the Accessibility section. Then you need to scroll down and go into the Control Nearby Devices section.</p>  <hr>  <p><img src=https://updaty.apptitute.de/img/tips-06-2.jpg alt=></p>  <p>On the next screen, a list of compatible devices will appear. Select the device you want to connect your iPhone with.</p>  ",
-      "id":1
-   },
-   {
-      "html": " <p><img src=https://updaty.apptitute.de/img/tips-06-3.jpg alt=></p>  <p>Then, on the next screen, you’ll see a how range of actions you can trigger on your connected device from your iPhone, including Siri, media playback options, volume and so on.</p> ",
-      "id":2
-   }
+    {
+       "html": "<h2 class=title>使用 iPhone 控制其他 Apple 设备</h2> <p>拥有 iPhone 很棒，但进入整个 Apple 生态系统会更好。</p> <p> 如果您已在所有 Apple 设备上登录您的 iCloud 帐户，您就可以有效地控制您的其他设备正在使用 iPhone 做什么。</p> <p>您基本上可以将您的 iPhone 变成有史以来最强大的遥控器！</p> <p><img src=https://updaty.apptitute.de/img/tips-06-1.jpg alt=></p> <p>你是怎么做到的？进入你的设置和 进入“辅助功能”部分。然后您需要向下滚动并进入“控制附近的设备”部分。</p> <hr> <p><img src=https://updaty.apptitute.de/img/tips-06 -2.jpg alt=></p> <p>在下一个屏幕上，将出现一个兼容设备列表。选择您要与 iPhone 连接的设备。</p> ",
+       "id":1
+    },
+    {
+       "html": " <p><img src=https://updaty.apptitute.de/img/tips-06-3.jpg alt=></p> <p>然后，在下一个屏幕上，您 您将看到您可以通过 iPhone 在连接的设备上触发的操作范围，包括 Siri、媒体播放选项、音量等。</p> ",
+       "id":2
+    }
 ]

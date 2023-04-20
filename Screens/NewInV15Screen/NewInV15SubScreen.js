@@ -13,14 +13,26 @@ import Card from "../../Components/Card";
 
 import { useRoute } from "@react-navigation/native";
 
+import * as Localization from 'expo-localization';
+
+
 //Content
 import {newInV15SmallCardContenten} from "./Content/newInV15Content-en";
-import newInV15_1 from "./Content/newInV15_1-en.json";
-import newInV15_2 from "./Content/newInV15_2-en.json";
-import newInV15_3 from "./Content/newInV15_3-en.json";
-import newInV15_4 from "./Content/newInV15_4-en.json";
-import newInV15_5 from "./Content/newInV15_5-en.json";
-import newInV15_6 from "./Content/newInV15_6-en.json";
+import {newInV15SmallCardContentzh} from "./Content/newInV15Content-zh";
+
+import newInV15_1en from "./Content/newInV15_1-en.json";
+import newInV15_2en from "./Content/newInV15_2-en.json";
+import newInV15_3en from "./Content/newInV15_3-en.json";
+import newInV15_4en from "./Content/newInV15_4-en.json";
+import newInV15_5en from "./Content/newInV15_5-en.json";
+import newInV15_6en from "./Content/newInV15_6-en.json";
+
+import newInV15_1zh from "./Content/newInV15_1-zh.json";
+import newInV15_2zh from "./Content/newInV15_2-zh.json";
+import newInV15_3zh from "./Content/newInV15_3-zh.json";
+import newInV15_4zh from "./Content/newInV15_4-zh.json";
+import newInV15_5zh from "./Content/newInV15_5-zh.json";
+import newInV15_6zh from "./Content/newInV15_6-zh.json";
 
 
 import { useNavigation } from "@react-navigation/native";
@@ -43,20 +55,20 @@ const NewInV15SubScreen = () => {
 
   const dispatch = useDispatch();
 
-  const [content, setContent] = useState(newInV15_1);
+  const [content, setContent] = useState(newInV15_1en);
   useEffect(() => {
     if (index === 0) {
-      setContent(newInV15_1);
+      setContent(Localization.locale.includes("zh") ? newInV15_1zh : newInV15_1en);
     } else if (index === 1) {
-      setContent(newInV15_2);
+      setContent(Localization.locale.includes("zh") ? newInV15_2zh : newInV15_2en);
     } else if (index === 2) {
-      setContent(newInV15_3);
+      setContent(Localization.locale.includes("zh") ? newInV15_3zh : newInV15_3en);
     } else if (index === 3) {
-      setContent(newInV15_4);
+      setContent(Localization.locale.includes("zh") ? newInV15_4zh : newInV15_4en);
     } else if (index === 4) {
-      setContent(newInV15_5);
+      setContent(Localization.locale.includes("zh") ? newInV15_5zh : newInV15_5en);
     } else if (index === 5) {
-      setContent(newInV15_6);
+      setContent(Localization.locale.includes("zh") ? newInV15_6zh : newInV15_6en);
     }
   }, [index]);
 
@@ -106,7 +118,7 @@ const NewInV15SubScreen = () => {
         >
           <ArrowLeft />
 
-          <Text style={styles.title}>{newInV15SmallCardContenten[index].subtitle}</Text>
+          <Text style={styles.title}>{Localization.locale.includes("zh") ? newInV15SmallCardContentzh[index].subtitle : newInV15SmallCardContenten[index].subtitle}</Text>
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>

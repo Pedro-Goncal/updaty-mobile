@@ -12,21 +12,40 @@ import Card from "../../Components/Card";
 
 import { useRoute } from "@react-navigation/native";
 
+import * as Localization from 'expo-localization';
+
+
 //Content
 import { tipsSmalCardContenten } from './Content/tipsContent-en';
-import tip1 from "./Content/tip1-en.json";
-import tips2 from "./Content/tips2-en.json";
-import tips3 from "./Content/tips3-en.json";
-import tips4 from "./Content/tips4-en.json";
-import tips5 from "./Content/tips5-en.json";
-import tips6 from "./Content/tips6-en.json";
-import tips7 from "./Content/tips7-en.json";
-import tips8 from "./Content/tips8-en.json";
-import tips9 from "./Content/tips9-en.json";
-import tips10 from "./Content/tips10-en.json";
-import tips11 from "./Content/tips11-en.json";
-import tips12 from "./Content/tips12-en.json";
-import tips13 from "./Content/tips13-en.json";
+import { tipsSmalCardContentzh } from './Content/tipsContent-zh';
+
+import tip1en from "./Content/tip1-en.json";
+import tips2en from "./Content/tips2-en.json";
+import tips3en from "./Content/tips3-en.json";
+import tips4en from "./Content/tips4-en.json";
+import tips5en from "./Content/tips5-en.json";
+import tips6en from "./Content/tips6-en.json";
+import tips7en from "./Content/tips7-en.json";
+import tips8en from "./Content/tips8-en.json";
+import tips9en from "./Content/tips9-en.json";
+import tips10en from "./Content/tips10-en.json";
+import tips11en from "./Content/tips11-en.json";
+import tips12en from "./Content/tips12-en.json";
+import tips13en from "./Content/tips13-en.json";
+
+import tip1zh from "./Content/tip1-zh.json";
+import tips2zh from "./Content/tips2-zh.json";
+import tips3zh from "./Content/tips3-zh.json";
+import tips4zh from "./Content/tips4-zh.json";
+import tips5zh from "./Content/tips5-zh.json";
+import tips6zh from "./Content/tips6-zh.json";
+import tips7zh from "./Content/tips7-zh.json";
+import tips8zh from "./Content/tips8-zh.json";
+import tips9zh from "./Content/tips9-zh.json";
+import tips10zh from "./Content/tips10-zh.json";
+import tips11zh from "./Content/tips11-zh.json";
+import tips12zh from "./Content/tips12-zh.json";
+import tips13zh from "./Content/tips13-zh.json";
 
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
@@ -46,35 +65,37 @@ const TipsSubScreen = () => {
   const route = useRoute();
   const index = route.params.index;
 
-  const [content, setContent] = useState(tip1);
+  const [content, setContent] = useState(tip1en);
+
+
 
   useEffect(() => {
     if (index === 0) {
-      setContent(tip1);
+      setContent(Localization.locale.includes("zh") ? tip1zh: tip1en);
     } else if (index === 1) {
-      setContent(tips2);
+      setContent(Localization.locale.includes("zh") ? tips2zh : tips2en);
     } else if (index === 2) {
-      setContent(tips3);
+      setContent(Localization.locale.includes("zh") ? tips3zh : tips3en);
     } else if (index === 3) {
-      setContent(tips4);
+      setContent(Localization.locale.includes("zh") ? tips4zh : tips4en);
     } else if (index === 4) {
-      setContent(tips5);
+      setContent(Localization.locale.includes("zh") ? tips5zh : tips5en);
     } else if (index === 5) {
-      setContent(tips6);
+      setContent(Localization.locale.includes("zh") ? tips6zh : tips6en);
     } else if (index === 6) {
-      setContent(tips7);
+      setContent(Localization.locale.includes("zh") ? tips7zh : tips7en);
     } else if (index === 7) {
-      setContent(tips8);
+      setContent(Localization.locale.includes("zh") ? tips8zh : tips8en);
     } else if (index === 8) {
-      setContent(tips9);
+      setContent(Localization.locale.includes("zh") ? tips9zh : tips9en);
     } else if (index === 9) {
-      setContent(tips10);
+      setContent(Localization.locale.includes("zh") ? tips10zh : tips10en);
     } else if (index === 10) {
-      setContent(tips11);
+      setContent(Localization.locale.includes("zh") ? tips11zh : tips11en);
     } else if (index === 11) {
-      setContent(tips12);
+      setContent(Localization.locale.includes("zh") ? tips12zh : tips12en);
     } else if (index === 12) {
-      setContent(tips13);
+      setContent(Localization.locale.includes("zh") ? tips13zh : tips13en);
     }
   }, [index]);
 
@@ -130,7 +151,7 @@ const TipsSubScreen = () => {
         >
           <ArrowLeft />
 
-          <Text style={styles.title}>{tipsSmalCardContenten[index].subtitle}</Text>
+          <Text style={styles.title}>{Localization.locale.includes("zh") ? tipsSmalCardContentzh[index].subtitle : tipsSmalCardContenten[index].subtitle}</Text>
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>

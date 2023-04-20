@@ -1,22 +1,22 @@
 [
-   {
-      "html": "<h2 class=title>Manage your information overload</h2> <p><img src=https://updaty.apptitute.de/img/ios15-05-1.jpg alt=></p>  <p>For many people, there’s just too much information in the modern age.</p> <p>Every time you pick up your iPhone to check the time or your messages, you instead get a bombardment of information from your social media apps, your news apps, your sports team’s apps, your mindfulness apps, and so on.</p>  <p>Most of the time, this sort of information can just wait. You don’t need to hear about every new puzzle on your crossword app as and when it’s released; neither do you need to know right away that your Amazon delivery’s been dispatched. </p> ",
-      "id":1
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-05-2.jpg alt=></p>  <p>That’s why the new Notification Summaries feature of iOS 15 is so great.</p> <p>You can create, in essence, a notification digest that comes up at certain points through the day, summarizing all of these non-essential notifications in one place, at one time.</p>",
-      "id":2
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-05-3.jpg alt=></p>  <p>You can set the apps you want instant notifications for and those you want to be covered in your digest in the Notifications section of Settings. </p> ",
-      "id":3
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-05-4.jpg alt=></p>  <p>Here you can also set the times of the day at which you want your notifications.</p> <p>For some, this will be in the morning over a damn fine cup of joe. For others, this maybe in the early evening when you’re on the commute back home from work.</p> ",
-      "id":4
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-05-5.jpg alt=></p>  <p>Whatever time you want it, the Notification Summary will help you better manage how you receive alerts from your iPhone and help you to see through the wood through the trees in this crazy information age.</p>  ",
-      "id":5
-   }
+    {
+       "html": "<h2 class=title>管理您的信息过载</h2> <p><img src=https://updaty.apptitute.de/img/ios15-05-1.jpg alt=></ p> <p>对于很多人来说，现代信息太多了。</p> <p>每次拿起 iPhone 查看时间或信息时，您的手机都会收到大量信息 社交媒体应用程序、您的新闻应用程序、您的运动队的应用程序、您的正念应用程序等等。</p> <p>大多数时候，这类信息可以等待。您不需要听到每一个 填字游戏应用程序发布时的新拼图；您也不需要立即知道您的亚马逊发货已经发出。</p> ",
+       "id":4
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-05-2.jpg alt=></p> <p>这就是 iOS 新的通知摘要功能的原因 15 太棒了。</p> <p>从本质上讲，您可以创建一个通知摘要，在一天中的特定时间点出现，在一个地方一次汇总所有这些非必要的通知。</p> p>",
+       "id":42
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-05-3.jpg alt=></p> <p>您可以设置您想要即时通知的应用 在“设置”的“通知”部分，您希望在摘要中涵盖的内容。</p> ",
+       "id":43
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-05-4.jpg alt=></p> <p>这里还可以设置时间 您希望收到通知的那一天。</p> <p>对于某些人来说，这将是在早上喝一杯该死的好咖啡。对于其他人来说，这可能是在您回家的路上的傍晚 下班了。</p> ",
+       "id":44
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-05-5.jpg alt=></p> <p>无论何时，通知摘要 将帮助您更好地管理您从 iPhone 接收提醒的方式，并帮助您在这个疯狂的信息时代透过树木看到树林。</p> ",
+       "id":45
+    }
 ]

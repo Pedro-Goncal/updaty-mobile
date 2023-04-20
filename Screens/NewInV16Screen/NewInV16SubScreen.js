@@ -14,9 +14,12 @@ import Card from "../../Components/Card";
 
 import { useRoute } from "@react-navigation/native";
 
+import * as Localization from 'expo-localization';
+
+
 //Content
 import {newInV16SmallCardContenten} from "./Content/newInV16Content-en";
-// import {newInV16SmallCardContentzh} from "./Content/newInV16Content-zh";
+import {newInV16SmallCardContentzh} from "./Content/newInV16Content-zh";
 
 
 import newInV16_1en from "./Content/newInV16_1-en.json";
@@ -25,12 +28,12 @@ import newInV16_3en from "./Content/newInV16_3-en.json";
 import newInV16_4en from "./Content/newInV16_4-en.json";
 import newInV16_5en from "./Content/newInV16_5-en.json";
 import newInV16_6en from "./Content/newInV16_6-en.json";
-// import newInV16_1zh from "./Content/newInV16_1-zh.json";
-// import newInV16_2zh from "./Content/newInV16_2-zh.json";
-// import newInV16_3zh from "./Content/newInV16_3-zh.json";
-// import newInV16_4zh from "./Content/newInV16_4-zh.json";
-// import newInV16_5zh from "./Content/newInV16_5-zh.json";
-// import newInV16_6zh from "./Content/newInV16_6-zh.json";
+import newInV16_1zh from "./Content/newInV16_1-zh.json";
+import newInV16_2zh from "./Content/newInV16_2-zh.json";
+import newInV16_3zh from "./Content/newInV16_3-zh.json";
+import newInV16_4zh from "./Content/newInV16_4-zh.json";
+import newInV16_5zh from "./Content/newInV16_5-zh.json";
+import newInV16_6zh from "./Content/newInV16_6-zh.json";
 
 import { ScrollView } from "react-native-gesture-handler";
 
@@ -45,7 +48,7 @@ const screenDimensions = Dimensions.get("screen");
 import { useDispatch, useSelector } from "react-redux";
 import { handleClick } from "../../Redux/slices/adSlice";
 
-// import { getLocales } from 'expo-localization';
+
 
 import { AD_UNIT_INTERSTITIAL_ID } from "../../config/adMobConfig";
 import { InterstitialAd, AdEventType } from "react-native-google-mobile-ads";
@@ -62,7 +65,7 @@ const NewInV16SubScreen = () => {
   const dispatch = useDispatch();
   const flatListRef = useRef(null);
 
-
+console.log(Localization.locale)
 
   const [content, setContent] = useState(newInV16_1en)
 
@@ -70,17 +73,17 @@ const NewInV16SubScreen = () => {
   useEffect(() => {
  
     if (index === 0) {
-      setContent(newInV16_1en);
+      setContent(Localization.locale.includes("zh") ? newInV16_1zh :newInV16_1en);
     } else if (index === 1) {
-      setContent(newInV16_2en);
+      setContent(Localization.locale.includes("zh") ? newInV16_2zh :newInV16_2en);
     } else if (index === 2) {
-      setContent(newInV16_3en);
+      setContent(Localization.locale.includes("zh") ? newInV16_3zh :newInV16_3en);
     } else if (index === 3) {
-      setContent(newInV16_4en);
+      setContent(Localization.locale.includes("zh") ? newInV16_4zh :newInV16_4en);
     } else if (index === 4) {
-      setContent(newInV16_5en);
+      setContent(Localization.locale.includes("zh") ? newInV16_5zh :newInV16_5en);
     } else if (index === 5) {
-      setContent(newInV16_6en);
+      setContent(Localization.locale.includes("zh") ? newInV16_6zh :newInV16_6en);
     }
   }, [index]);
 
@@ -133,7 +136,7 @@ const NewInV16SubScreen = () => {
         >
           <ArrowLeft/>
 
-          <Text style={styles.title}>{newInV16SmallCardContenten[index].subtitle}</Text>
+          <Text style={styles.title}>{Localization.locale.includes("zh") ? newInV16SmallCardContentzh[index].subtitle : newInV16SmallCardContenten[index].subtitle}</Text>
         </TouchableOpacity>
 
         <View style={styles.cardContainer}>

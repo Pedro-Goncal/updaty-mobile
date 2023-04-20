@@ -58,16 +58,7 @@ mobileAds()
   }
 
 
-
-
-
 const App = () => {
-
-
-
-
-
-
 
 
   useEffect(() => {

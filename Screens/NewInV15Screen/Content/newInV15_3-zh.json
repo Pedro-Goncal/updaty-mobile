@@ -1,22 +1,22 @@
 [
    {
-      "html": "<h2 class=title>How Live Text will blow your mind</h2> <p><img src=https://updaty.apptitute.de/img/ios15-03-2.jpg alt=></p>  <p>Ever see a website url on an event brochure and want to get to it right away but get frustrated having to type it out exactly right on your iPhone?</p>  <p>Ever see a phone number in the directory book and wish you didn’t have to check three times that you typed it in right? </p>  ",
-      "id":1
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-03-1.jpg alt=></p>  <p>It appears Apple have been listening because with the new iOS 15 there comes an amazing new feature just for you – Live Text.</p>  <p>Live Text basically interprets text – in print or handwritten – from your photos and cameras. It’s an amazing feature with loads of cool connotations.</p>  ",
-      "id":2
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-03-3.jpg alt=></p>  <p>For instance, if you’ve received a takeout flyer from a restaurant and you want to call them right away to order some chow mein. </p>  ",
-      "id":3
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-03-4.jpg alt=></p>  <p>All you need to do is get your phone out, open the camera, hover it over the phone number or website, and the phone will pick these out for you.</p> <p>You’ll just need to tap on them to either make the call or go to the website.</p>  ",
-      "id":4
-   },
-   {
-      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-03-5.jpg alt=></p>  <p>And let’s take this a step further. You’re on holiday and you’re at a restaurant but the menu is in a foreign language with no translation.</p> <p>Well, you can now pick out your phone, hover the camera on it, and you can copy the text from the camera or photo to then paste into the Translate app on your phone.</p>",
-      "id":5
-   }
+      "html": "<h2 class=title>Live Text 如何让您大开眼界</h2> <p><img src=https://updaty.apptitute.de/img/ios15-03-2.jpg alt= ></p> <p>是否曾在活动宣传册上看到网站 URL 并想立即访问它，但又因不得不在 iPhone 上准确输入而感到沮丧？</p> <p>是否曾见过手机目录簿中的id，希望您不必检查输入它的三次，对吗？</p>",
+      "id": 1
+      },
+      {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-03-1.jpg alt=></p> <p>Apple 似乎一直在倾听，因为新的 iOS 15 为您带来了一项令人惊奇的新功能 – 实时文本。</p> <p>实时文本基本上是从您的照片和相机中解释文本（打印或手写）。这是一项令人惊叹的功能，具有很多很酷的含义。</p>",
+      "id": 2
+      },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-03-3.jpg alt=></p> <p>例如，如果您收到 餐厅的外卖传单，你想马上打电话给他们点一些炒面。</p> ",
+       "id":3
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-03-4.jpg alt=></p> <p>您只需拿起手机 出门，打开相机，将其悬停在电话号码或网站上，手机会为您挑选这些。</p> <p>您只需点击它们即可拨打电话或转到 网站。</p> ",
+       "id":4
+    },
+    {
+       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-03-5.jpg alt=></p> <p>让我们更进一步。你 正在度假，你在一家餐馆，但菜单是外语的，没有翻译。</p> <p>好吧，你现在可以拿起你的手机，将相机悬停在上面，然后你可以复制 然后将相机或照片中的文本粘贴到手机上的翻译应用程序中。</p>",
+       "id":5
+    }
 ]

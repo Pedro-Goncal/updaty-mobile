@@ -22,10 +22,11 @@ import { handleClick } from "../../Redux/slices/adSlice";
 
 //Content TEMP
 import tutorialsHTMLen from "./Content/tutorialsHTML-en.json";
-// import tutorialsHTMLzh from "./Content/tutorialsHTML-zh.json";
+import tutorialsHTMLzh from "./Content/tutorialsHTML-zh.json";
 
 
-// import { getLocales } from 'expo-localization';
+import * as Localization from 'expo-localization';
+
 
 
 const { width, height } = Dimensions.get("screen");
@@ -35,9 +36,8 @@ const TutorialScreen = () => {
   const [activeCardId, setActiveCardId] = useState(null);
   const dispatch = useDispatch();
 
-  //For locale launguage support
-//   const local = getLocales()
-// const localVar = local[0].languageCode
+  const deviceLanguage = Localization.locale;
+
 
 
   //Set viewability of each post based on the id of the post
@@ -76,15 +76,15 @@ const TutorialScreen = () => {
 
   const flatListRef = useRef(null);
 
-  // const [content, setContent] = useState(tutorialsHTMLen)
+  const [content, setContent] = useState(tutorialsHTMLen)
 
-  // useEffect(()=> {
-  //   if(localVar === "en"){
-  //     setContent(tutorialsHTMLen)
-  //   } else {
-  //     setContent(tutorialsHTMLzh)
-  //   }
-  // },[])
+  useEffect(()=> {
+    if(deviceLanguage.includes("zh")){
+      setContent(tutorialsHTMLzh)
+    } else {
+      setContent(tutorialsHTMLen)
+    }
+  },[])
   
 
 
@@ -100,7 +100,7 @@ const TutorialScreen = () => {
           
           <FlatList
             ref={flatListRef}
-            data={tutorialsHTMLen}
+            data={content}
             decelerationRate={0.9}
             snapToInterval={dimensions.screen.width} // Distance between each snap point
             snapToAlignment={"center"} // Align snap point to the center of the view
@@ -116,7 +116,7 @@ const TutorialScreen = () => {
           />
         </View>
       </ScrollView>
-      <Pagination content={tutorialsHTMLen} activeCardId={activeCardId} />
+      <Pagination content={content} activeCardId={activeCardId} />
     </View>
   );
 };
