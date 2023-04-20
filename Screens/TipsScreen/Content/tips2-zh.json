@@ -1,22 +1,22 @@
 [
-    {
-       "html": "<h2 class=title>更改通知的显示方式</h2> <p><img src=https://updaty.apptitute.de/img/tips-02-1.jpg alt=>< /p> <p>随着 iOS 16 上 iPhone 锁屏的变化，通知的显示方式也得到了简化。</p> <p>默认情况下，它们现在出现在锁屏的底部，并且它们' </p> <p>但新锁屏最棒的地方在于，您现在可以更改通知的显示位置和方式。它比以往任何时候都更具可定制性。</p> " ,
-       “id”：1
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-02-2.jpg alt=></p> <p>你是怎么做到的？转到设置 并点击“通知”部分。在这里，您可以根据通知的显示方式从三个选项中进行选择——计数、堆叠和列表。</p> ",
-       “id”：2
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-02-3.jpg alt=></p> <p>计数意味着通知仅显示为数字 未读通知和个别通知只会在点击该号码后显示。</p>",
-       “id”：3
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-02-4.jpg alt=></p> <p>列表将以您知道的方式显示通知 和爱（或恨），作为经典的垂直列表，从时钟下方开始，一直向下延伸到屏幕。</p>“，
-       “id”：4
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-02-5.jpg alt=></p> <p>Stack 会将通知移动到底部 屏幕上只会显示最新的通知。</p> <p>要查看完整的通知列表，您只需点击顶部的通知，列表就会展开。</p> ",
-       “id”：5
-    }
+   {
+      "html": "<h2 class=title>Change how your notifications display</h2> <p><img src=https://updaty.apptitute.de/img/tips-02-1.jpg alt=></p>  <p>With the change to the iPhone’s lock screen on iOS 16 comes a streamlining of the way notifications are displayed.</p> <p>By default, they now appear at the bottom of the lock screen and they’re stacked on top of one another.</p>  <p>But the best thing about the new lock screen is you can now change where and how your notifications display. It’s more customizable than it’s ever been before.</p> ",
+      "id":1
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-02-2.jpg alt=></p>  <p>How do you do it? Go to Settings and tap the Notifications section.  Here you can select from three options in terms of how they show up&nbsp;– Count, Stack and List.</p> ",
+      "id":2
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-02-3.jpg alt=></p>  <p>Count will mean notifications only display as the number of unread notifications and the individual notifications will only appear once that knumber is tapped.</p>",
+      "id":3
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-02-4.jpg alt=></p>  <p>List will display notifications in the way you know and love (or hate), as the classic, vertical list starting just below the clock and running down the screen.</p> ",
+      "id":4
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-02-5.jpg alt=></p>  <p>Stack will move the notifications to the bottom of the screen and will only show the most recent notification.</p> <p>To view the full list of notifications, you’ll need to just tap on the top one, and the list will expand.</p> ",
+      "id":5
+   }
 ]

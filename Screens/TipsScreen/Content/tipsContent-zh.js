@@ -1,83 +1,85 @@
 export const tipsSmalCardContentzh = [
-{
-     title: "与朋友和家人合作",
-     副标题：“分享照片库”，
-     img: require("../../../img/tips-01-0.jpg"),
-     id：1，
-   },
-   {
-     title: "更改通知的显示方式",
-     副标题：“通知显示”，
-     img: require("../../../img/tips-02-0.jpg"),
-     id：2，
-   },
-   {
-     title: "使用新闻中的我的运动功能关注您的团队",
-     副标题：“我的运动功能”，
-     img: require("../../../img/tips-03-0.jpg"),
-     id：3，
-   },
-   {
-     title: "如何使用邮件安排电子邮件",
-     副标题：“安排电子邮件”，
-     img: require("../../../img/tips-04-0.jpg"),
-     id：4，
-   },
-   {
-     title: "分享你的 Safari 标签组",
-     副标题：“标签组”，
-     img: require("../../../img/tips-05-0.jpg"),
-     id：5，
-   },
-   {
-     title: "使用你的 iPhone 控制其他 Apple 设备",
-     副标题：“控制”，
-     img: require("../../../img/tips-06-0.jpg"),
-     id：6，
-   },
-   {
-     title: "将你的学生证添加到你的 Apple 钱包",
-     副标题：“学生证”，
-     img: require("../../../img/tips-07-0.jpg"),
-     id：7，
-   },
-   {
-     标题：“确保你听到重要的事情”，
-     副标题：“声音识别”，
-     img: require("../../../img/tips-08-0.jpg"),
-     id：8，
-   },
-   {
-     title: "更好地管理重复联系人",
-     副标题：“重复联系人”，
-     img: require("../../../img/tips-09-0.jpg"),
-     id：9，
-   },
-   {
-     title: "在你的 iPhone 上创建紧急联系人",
-     副标题：“紧急联系人”，
-     img: require("../../../img/tips-10-0.jpg"),
-     id：10，
-   },
-   {
-     title: "如果你有跌倒的危险，让你的 iPhone 提醒你",
-     副标题：“坠落警报”，
-     img: require("../../../img/tips-11-0.jpg"),
-     id：11，
-   },
-   {
-     title: "用你的 iPhone 创建共享日历",
-     副标题：“共享日历”，
-     img: require("../../../img/tips-12-0.jpg"),
-     id：12，
-   },
-   {
-     title: "打开触觉键盘",
-     副标题：“触觉键盘”，
-     img: require("../../../img/tips-13-0.jpg"),
-     id：13，
-   },
+  {
+    title: "Collaborate with friends and family",
+    subtitle: "Share photo library",
+    img: require("../../../img/tips-01-0.jpg"),
+    id: 1,
+  },
+  {
+    title: "Change how your notifications display",
+    subtitle: "Notifications display",
+    img: require("../../../img/tips-02-0.jpg"),
+    id: 2,
+  },
+  {
+    title: "Follow your team using the My Sport feature in News",
+    subtitle: "My Sport feature",
+    img: require("../../../img/tips-03-0.jpg"),
+    id: 3,
+  },
+  {
+    title: "How to schedule emails using Mail",
+    subtitle: "Schedule emails",
+    img: require("../../../img/tips-04-0.jpg"),
+    id: 4,
+  },
+  {
+    title: "Share your Safari tab groups",
+    subtitle: "Tab groups",
+    img: require("../../../img/tips-05-0.jpg"),
+    id: 5,
+  },
+  {
+    title: "Controlling other Apple devices using your iPhone",
+    subtitle: "Controlling",
+    img: require("../../../img/tips-06-0.jpg"),
+    id: 6,
+  },
+  {
+    title: "Adding your student ID to your Apple Wallet",
+    subtitle: "Student ID",
+    img: require("../../../img/tips-07-0.jpg"),
+    id: 7,
+  },
+  {
+    title: "Make sure you hear the things that matter",
+    subtitle: "Sound Recognition",
+    img: require("../../../img/tips-08-0.jpg"),
+    id: 8,
+  },
+  {
+    title: "Better manage your duplicate contacts",
+    subtitle: "Duplicate contacts",
+    img: require("../../../img/tips-09-0.jpg"),
+    id: 9,
+  },
+  {
+    title: "Creating an emergency contact on your iPhone",
+    subtitle: "Emergency contact",
+    img: require("../../../img/tips-10-0.jpg"),
+    id: 10,
+  },
+  {
+    title: "Get your iPhone to alert you if you’re at risk of falling",
+    subtitle: "Falling alert",
+    img: require("../../../img/tips-11-0.jpg"),
+    id: 11,
+  },
+  {
+    title: "Creating shared calendars with your iPhone",
+    subtitle: "Shared calendars",
+    img: require("../../../img/tips-12-0.jpg"),
+    id: 12,
+  },
+  {
+    title: "Turn on the Haptic keyboard",
+    subtitle: "Haptic keyboard",
+    img: require("../../../img/tips-13-0.jpg"),
+    id: 13,
+  },
 ];
+
+
 
 // [
 //   {

@@ -1,30 +1,30 @@
 [
-    {
-       "html": "<h2 class=title>在您的 iPhone 上创建紧急联系人</h2> <p><img src=https://updaty.apptitute.de/img/tips-10-1.jpg alt= ></p> <p>在您的 iPhone 上创建紧急联系人。</p> <p>如果您没有信号但发生了需要提醒您的护理人员的紧急情况，会发生什么情况？</p > <p>您的 iPhone 多年来一直能够在这种情况下呼叫紧急服务，但好消息是它现在也可以呼叫您的紧急联系人。在锁定屏幕上，这将显示为“SOS”按钮。</ p>”,
-       “id”：1
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-10-2.jpg alt=></p> <p>要设置紧急联系人，请访问 “健康”应用程序，然后点击您的个人资料头像或右上角的首字母。然后点击“医疗急救卡”。</p> ",
-       “id”：2
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-10-3.jpg alt=></p> <p>进入您的医疗急救卡部分后，点击 编辑然后向下滚动到紧急联系人部分，然后点击绿色 + 按钮添加您的紧急联系人。</p>",
-       “id”：3
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-10-4.jpg alt=></p> <p>您可以选择与谁分享 从您的联系人应用程序添加，您还可以指定您与此联系人的关系。</p>",
-       “id”：4
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-10-5.jpg alt=></p> <p>选择人员后，点击 完成按钮保存。</p> ",
-       “id”：5
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-05-6.jpg alt=></p> <p>要共享群组，请返回 选项卡菜单，然后点击并按住屏幕底部菜单的中心。在弹出的菜单中，选择您刚刚创建的选项卡组。</p> ",
-       “id”：6
-    },
-    {
-       "html": " <p><img src=https://updaty.apptitute.de/img/tips-05-7.jpg alt=></p> <p>打开后，会出现一个共享表图标 在右上角，标题旁边。点按此按钮，然后选择人员或应用。</p> ",
-       “id”：7
-    }
+   {
+      "html": "<h2 class=title>Creating an emergency contact on your iPhone</h2> <p><img src=https://updaty.apptitute.de/img/tips-10-1.jpg alt=></p>  <p>Creating an emergency contact on your iPhone.</p>  <p>What would happen if you’re out of signal but an emergency has happened which you need to alert your carer about? </p>  <p>Your iPhone has been able to call emergency services in such a situation for ages but the good news is that it can now also call your emergency contacts. On the lock screen this will appear as an ‘SOS’ button.</p>   ",
+      "id":1
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-10-2.jpg alt=></p>  <p>To set up your emergency contacts, go to the Health app and tap your profile avatar or initial sin the top right corner. Then tap Medical ID.</p>  ",
+      "id":2
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-10-3.jpg alt=></p>  <p>Once in your Medical ID section, tap on Edit and then scroll down to the Emergency Contacts section, before tapping on the green + button to add your emergency contacts.</p>",
+      "id":3
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-10-4.jpg alt=></p>  <p>You’ll be able to select who to add from your Contacts app and you can also specify the relationship you have with this contact.</p>",
+      "id":4
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-10-5.jpg alt=></p>  <p>Once you’ve selected the person, tap the Done button to save.</p> ",
+      "id":5
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-05-6.jpg alt=></p>  <p>To share a group, go back to the tabs menu and tap and hold the center of the menu at the bottom of the screen. On the menu that pops up, select the group of tabs you’ve just created.</p> ",
+      "id":6
+   },
+   {
+      "html": " <p><img src=https://updaty.apptitute.de/img/tips-05-7.jpg alt=></p>  <p>Once its open, there’s a Share Sheet icon on the top right, next to the title. Tap this and then pick the people or app.</p> ",
+      "id":7
+   }
 ]

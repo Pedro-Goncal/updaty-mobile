@@ -1,22 +1,22 @@
 [
-    {
-       "html": "<h2 class=title>立即取消发送消息和电子邮件</h2> <p><img src=https://updaty.apptitute.de/img/ios16-05-1.jpg alt=>< /p> <p>你有没有在 iPhone 上点击发送信息或电子邮件后立即后悔说的话？</p> <p>好消息是 iOS 16 让你有机会 收回。</p>",
-       “id”：1
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-05-2.jpg alt=></p> <p>您现在可以编辑或撤消麻烦的单词 您在 iMessage 中通过长按有问题的消息并选择<em>撤消发送</em>或<em>编辑</em>来发送。</p> ",
-       “id”：2
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-05-3.jpg alt=></p> <p>虽然有时间限制。您可以 在初始发送后最多 15 分钟编辑消息，您可以在两分钟内删除它们。</p> <p>它也仅适用于 iMessages 而不是 SMS，因此仅适用于发送给其他 iPhone 用户的消息 .您还应该知道，此新功能仅适用于发送给其他 iOS 16 用户的消息。</p> <p>如果您编辑发送给 iOS 15 用户的消息，他们将同时获得原始和 编辑后的版本。如果您尝试取消发送消息，他们仍会收到您最初发送的消息。</p>",
-       “id”：3
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-05-4.jpg alt=></p> <p>虽然还是很整洁，而且商品 消息是 Mail 也引入了类似的更新，因为您现在可以在电子邮件发送后点击应用底部的 <em>Undo Send<em> 按钮长达 10 秒。</p> ",
-       “id”：4
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios16-05-5.jpg alt=></p> <p>如果 10 秒还不够，您 可以进入“设置”的“邮件”部分，点击<em>取消发送延迟</em>部分并更改您想要给自己的时间长度，以决定该电子邮件是否真的需要等到明天。</em> p>",
-       “id”：5
-    }
+   {
+      "html": "<h2 class=title>Unsend messages and emails now</h2> <p><img src=https://updaty.apptitute.de/img/ios16-05-1.jpg alt=></p>  <p>Have you ever clicked send on a message or email on your iPhone and regret what you’ve said straight away?</p> <p>The good news for you is that iOS 16 gives you a chance to take it back.</p>",
+      "id":1
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-05-2.jpg alt=></p>  <p>You can now edit or undo the troublesome words you’ve sent in iMessage by long-pressing on the questionable message and selecting either <em>Undo Send</em> or <em>Edit</em>.</p> ",
+      "id":2
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-05-3.jpg alt=></p>  <p>There is a time limit though. You can edit messages up to 15 minutes after the initial send and you can delete them for a period of two minutes.</p> <p>It also only works for iMessages rather than SMS, so will only work for messages sent to fellow iPhone users. You should also be aware that this new feature only really works for messages sent to fellow iOS 16 users.</p> <p>If you edit a message sent to an iOS 15 user, they will get copies of both the original and the edited version. If you try to unsend the message, they’ll still get the message you originally sent.</p>",
+      "id":3
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-05-4.jpg alt=></p>  <p>It’s still pretty neat though, and the goods news is that a similar update has been introduced for Mail, as you can now tap the <em>Undo Send<em> button at the bottom of the app for up to 10 seconds after your email was sent.</p> ",
+      "id":4
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios16-05-5.jpg alt=></p>  <p>If 10 seconds isn’t enough, you can go into the Mail section of your Settings, click the <em>Undo Send Delay</em> section and change the length of time you want to give yourself to decide if that email will really did need to wait until tomorrow.</p>",
+      "id":5
+   }
 ]

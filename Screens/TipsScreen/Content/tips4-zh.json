@@ -1,18 +1,18 @@
 [
-    {
-       "html": "<h2 class=title>如何使用邮件安排电子邮件</h2> <p><img src=https://updaty.apptitute.de/img/tips-04-1.jpg alt=> </p> <p>有时，在工作时间之外，您会发现一封重要电子邮件的最佳措辞方式，但您不想开创先例，被视为一天中所有时间都在发送电子邮件的人。< /p> <p>或者，您可能想要发送一封重要的电子邮件，但想要确定发送时间以优化它被阅读的机会。</p> <p>好处是您可以 现在安排在使用邮件应用程序时发送电子邮件的时间。</p> ",
-       “id”：1
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-04-2.jpg alt=></p> <p>你是怎么做到的？一旦你' 起草了您的电子邮件，按住主题行旁边的发送箭头，将出现一个弹出菜单。</p> <p>在此菜单中将出现四个选项：<ul><li>立即发送、发送 今晚 9:00，</li><li>明天上午 8:00 发送，</li><li>稍后发送。</li> </ul></p> <p><img src= https://updaty.apptitute.de/img/tips-04-3.jpg alt=></p> <p>如果您点击稍后发送，将出现一个日历，您可以从中选择要发送的日期 希望发送您的消息。</p> ",
-       “id”：2
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-04-4.jpg alt=></p> <p>完成此操作后，在 在下一个屏幕上，您将能够选择当天发送电子邮件的时间，底部有一个非常有用的时区选项，以防您将其发送给海外的人。</p> <p>Once 如果您对时间和日期感到满意，请点击屏幕右上角的完成，您的消息现在将被安排。</p> <p>如果您想在预定发送时间之前返回消息， 您可以转到“邮箱”屏幕中的“稍后发送”部分。</p> <p>在此屏幕上，您可以点击右上角的“编辑”以返回电子邮件并进行编辑 电子邮件的时间或内容。</p>",
-       “id”：3
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-02-4.jpg alt=></p> <p>列表将以您知道的方式显示通知 和爱（或恨），作为经典的垂直列表，从时钟下方开始，一直向下延伸到屏幕。</p>“，
-       “id”：4
-    }
+   {
+      "html": "<h2 class=title>How to schedule emails using Mail</h2> <p><img src=https://updaty.apptitute.de/img/tips-04-1.jpg alt=></p> <p>Sometimes the best way to phrasing an important email comes to you outside of work hours, but you don’t want to set a precedent of being seen as someone who sends emails at all hours of the day. </p>  <p>Or, you may be wanting to send an important email but want to time when it is sent in order to optimize the chances of it being read.</p>  <p>The good thing is that you can now schedule when your emails are sent when using the Mail app.</p>  ",
+      "id":1
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-04-2.jpg alt=></p>  <p>How do you do it? Once you’ve drafted your email, hold on to the send arrow next to the subject line and a pop-up menu will appear.</p> <p>In this menu will appear four options:<ul><li>Send Now, Send 9:00 PM Tonight,</li><li>Send 8:00 AM Tomorrow, </li><li>and Send Later.</li> </ul></p> <p><img src=https://updaty.apptitute.de/img/tips-04-3.jpg alt=></p>  <p>If you tap on Send Later, a calendar will appear from which you can select the date on which you wish to send your message. </p> ",
+      "id":2
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-04-4.jpg alt=></p>  <p>Once you’ve done this, on the next screen you’ll be able to select what time you want to send the email that day, and there’s a really helpful Time Zone option at the bottom in case you’re sending it to someone overseas.</p>  <p>Once you’re happy with the time and date, tap Done on the top right corner of the screen and your message will now be scheduled. </p>  <p>If you want to go back to the message before its scheduled send time, you can go to the Send Later section in the Mailboxes screen.</p>  <p>On this screen, you’ll be able to tap Edit on the top right corner in order to be able to go back into the emails and edit the timings or the content of the email.</p>",
+      "id":3
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-02-4.jpg alt=></p>  <p>List will display notifications in the way you know and love (or hate), as the classic, vertical list starting just below the clock and running down the screen.</p> ",
+      "id":4
+   }
 ]

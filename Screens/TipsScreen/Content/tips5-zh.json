@@ -1,30 +1,30 @@
 [
-    {
-       "html": "<h2 class=title>共享您的 Safari 选项卡组</h2> <p><img src=https://updaty.apptitute.de/img/tips-05-1.jpg alt=>< /p> <p>在 iOS 15 中，可以在 Safari 中创建标签组，如果想要整理与工作、假期计划、娱乐或您使用互联网的任何其他内容相关的所有标签，这将非常有用。</p> p> <p>在 iOS 16 中，Safari 通过新的共享标签组功能进一步发展了这一点。</p> <p>这使您可以与朋友、学习伙伴、同事或家人共享一组标签。 </p> <p>例如，如果你在大学做课堂作业，你可以将所有研究选项卡组合在一起，然后与正在做同一份报告的同学分享。</p> ",
-       “id”：1
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-05-2.jpg alt=></p> <p>要执行此操作，您需要进入 Safari 然后点击右下角的标签按钮。</p> ",
-       “id”：2
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-05-3.jpg alt=></p> <p>在下一个屏幕上，点击 底部菜单，其中显示了您打开的选项卡数量，然后会出现一个弹出菜单，您可以在其中创建一组新的选项卡。</p>",
-       “id”：3
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-05-4.jpg alt=></p> <p>如果要添加，请点击新标签组 一个组并仅选择您当前打开的一些选项卡以进入此组；如果您想创建一个包含当前打开的所有选项卡的新组，请点击新建空选项卡组。</p> ",
-       “id”：4
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-05-5.jpg alt=></p> <p>然后输入你想给的名字 组和选项卡保存。</p> ",
-       “id”：5
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-05-6.jpg alt=></p> <p>要共享群组，请返回 选项卡菜单，然后点击并按住屏幕底部菜单的中心。在弹出的菜单中，选择您刚刚创建的选项卡组。</p> ",
-       “id”：6
-    },
-    {
-       "html": " <p><img src=https://updaty.apptitute.de/img/tips-05-7.jpg alt=></p> <p>打开后，会出现一个共享表图标 在右上角，标题旁边。点按此按钮，然后选择人员或应用。</p> ",
-       “id”：7
-    }
+   {
+      "html": "<h2 class=title>Share your Safari tab groups</h2> <p><img src=https://updaty.apptitute.de/img/tips-05-1.jpg alt=></p>  <p>In iOS 15 came the ability to create groups of tabs in Safari, which is really useful if wanting to collate all your tabs relating to work, holiday planning, entertainment or whatever else you use the internet for.</p>  <p>In iOS 16, Safari has developed this even further, with the new Shared Tab Groups feature.</p>  <p>This allows you to share a group of tabs with friends, study mates, colleagues or family.</p> <p>For instance, if you’re working on a class assignment at college, you can group together all your research tabs and then share it with your fellow students working on the same report.</p> ",
+      "id":1
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-05-2.jpg alt=></p>  <p>To do this you need to go into Safari and tap the tab button in the bottom right corner. </p> ",
+      "id":2
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-05-3.jpg alt=></p>  <p>On the next screen, tap the middle of the bottom menu, where it shows how many tabs you have open, and a pop-up menu will appear where you can create a new group of tabs.</p>",
+      "id":3
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-05-4.jpg alt=></p>  <p>Tap New Tab Group if you want to add a group and select only some of your currently open tabs to go into this; tap New Empty Tab Group if you want to create a new group of all the tabs you currently have open. </p> ",
+      "id":4
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-05-5.jpg alt=></p>  <p>Then type in the name you want to give the group and tab Save.</p> ",
+      "id":5
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-05-6.jpg alt=></p>  <p>To share a group, go back to the tabs menu and tap and hold the center of the menu at the bottom of the screen. On the menu that pops up, select the group of tabs you’ve just created.</p> ",
+      "id":6
+   },
+   {
+      "html": " <p><img src=https://updaty.apptitute.de/img/tips-05-7.jpg alt=></p>  <p>Once its open, there’s a Share Sheet icon on the top right, next to the title. Tap this and then pick the people or app.</p> ",
+      "id":7
+   }
 ]

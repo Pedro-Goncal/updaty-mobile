@@ -1,26 +1,26 @@
 [
-    {
-       "html": "<h2 class=title>进入新焦点模式的区域</h2> <p><img src=https://updaty.apptitute.de/img/ios15-02-1.jpg alt=></p> <p>你的 iPhone 是一个充满乐趣和娱乐的世界，但有时，它可能太有趣了。</p> <p>例如，你必须真正专注于一个重要的项目 工作一两个小时，现在真的不是从手机上收到通知告诉你在 Facebook 上有值得回顾的回忆的时候！</p>”，
-       “id”：1
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-02-2.jpg alt=></p> <p>iPhone 有“请勿打扰” ' 的功能，但对于某些人来说这有点过于黑白分明。如果这是一个工作项目，您可能仍然希望从您的电子邮件应用程序中获取通知，例如。</p> <p>这就是新 Focus 的原因 iOS 15 的功能非常棒。它基本上是带有大量可自定义选项的类固醇请勿打扰。</p>",
-       “id”：2
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-02-3.jpg alt=></p> <p>首先，您可以设置不同的负载 专注模式的类型——例如，工作、烹饪或冥想。</p> ",
-       “id”：3
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-02-4.jpg alt=></p> <p>其次，您可以编辑设置来控制 哪些应用程序和通知在每种模式下继续和停止。</p> ",
-       “id”：4
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-02-5.jpg alt=></p> <p>所以，为了工作，你可以保留那些 电子邮件和 Slack 通知进入但社交媒体静音。</p> <p>对于冥想，您可以将其直接剥离，这样您就只允许 Headspace、Calm 或您使用的任何正念应用程序打扰您。< /p> ",
-       “id”：5
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/ios15-02-6.jpg alt=></p> <p>您仍然可以使用“请勿打扰”功能 当您真的不想被打扰时，Focus 就更复杂了，它允许您创建多种模式，以便您的 iPhone 可以适应您在一天中的不同时间点可能需要进入的各种思维模式。</p >",
-       “id”：6
-    }
+   {
+      "html": "<h2 class=title>Get into the zone with the new Focus mode</h2> <p><img src=https://updaty.apptitute.de/img/ios15-02-1.jpg alt=></p>  <p>Your iPhone is a world of fun and entertainment, but sometimes, it can be too fun.</p>  <p>For instance, you’ve got to really focus on an important project at work for an hour or two and this is really not the time to be getting notifications from your phone telling you that you’ve got memories to look back on in Facebook!</p> ",
+      "id":1
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-02-2.jpg alt=></p>  <p>The iPhone has had the ‘Do Not Disturb’ feature for ages, but this is a little too black and white for some. If it’s a work project, you might still want to get notifications from your email app, for example.</p>  <p>That’s why the new Focus feature of iOS 15 is so great. It’s basically Do Not Disturb on steroids with loads of customizable options. </p>",
+      "id":2
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-02-3.jpg alt=></p>  <p>First off, you can set loads of different types of Focus modes – for example, work, cooking or meditation.</p> ",
+      "id":3
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-02-4.jpg alt=></p>  <p>Secondly, you can edit the settings to control which apps and notifications continue and stop on each of these modes. </p> ",
+      "id":4
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-02-5.jpg alt=></p>  <p>So, for work, you can keep those email and Slack notifications coming in but mute social media.</p>  <p>For meditation, you can strip it right back so that you’re only allowing Headspace, Calm or whichever mindfulness app you’re using to interrupt you.</p> ",
+      "id":5
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/ios15-02-6.jpg alt=></p>  <p>You can still use the Do Not Disturb functionality for when you really want no disruptions at all, but Focus is way more sophisticated, allowing you to create a multiplicity of modes so that your iPhone can match the various mindsets you may need to get into at different points of the day.</p>",
+      "id":6
+   }
 ]

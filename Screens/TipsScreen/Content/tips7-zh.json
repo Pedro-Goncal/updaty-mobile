@@ -1,10 +1,10 @@
 [
-    {
-       "html": "<h2 class=title>将您的学生 ID 添加到您的 Apple 钱包</h2> <p><img src=https://updaty.apptitute.de/img/tips-07-1.jpg alt =></p> <p>你还随身携带实体钱包吗？自从 Apple 推出其钱包应用程序以来，确实没有必要了。</p> <p>但如果你是学生，也许 你需要这样做，因为无法将你的学生证添加到你的 iPhone，所以你需要始终随身携带你的实体卡。</p> <p>好消息是 Apple 已经听到了你的痛苦 在 iOS 16 中，它更新了钱包应用程序，因此您现在可以将学生证添加到其中。</p>",
-       “id”：1
-    },
-    {
-       "html": "<p><img src=https://updaty.apptitute.de/img/tips-07-2.jpg alt=></p> <p>你是怎么做到的？第一件事 您需要做的是检查您的大学使用哪个应用程序来获取虚拟身份证，并从 App Store 下载该应用程序。进入该应用程序后，找到您的机构，选择它并登录您的学校帐户。</p> <p>Once 登录后，转到您的个人资料并点击“添加到钱包”按钮，然后按照显示的说明将您的 ID 的数字版本添加到您的 Apple 钱包。</p> <p>请注意，这些说明可能会有所不同，具体取决于哪个 您学校正在使用的应用程序。</p> <p>完成后，您将能够在电子钱包中看到您的学生证，再也不需要随身携带实体钱包了！</p>",
-       “id”：2
-    }
+   {
+      "html": "<h2 class=title>Adding your student ID to your Apple Wallet</h2> <p><img src=https://updaty.apptitute.de/img/tips-07-1.jpg alt=></p>  <p>Do you still carry a physical wallet around? Since Apple introduced its Wallet app, there really hasn’t been a need to. </p>  <p>But if you’re student, maybe you’ve needed to because there’s been no way to add your student ID to your iPhone so you’ve needed to always carry your physical card with you.</p>  <p>Well the good news is that Apple has heard your pain and with iOS 16 it’s updated the Wallet app so that you can now add your student ID to it.</p>",
+      "id":1
+   },
+   {
+      "html": "<p><img src=https://updaty.apptitute.de/img/tips-07-2.jpg alt=></p>  <p>How do you do this? The first thing you need to do is check which app your college is using for virtual ID cards and download this from the App Store. Once in the app, find your institution, select it and log into your school account. </p>  <p>Once logged in, go to your profile and tap the Add to Wallet button, and then follow the instructions presented to add a digital version of your ID to your Apple Wallet.</p> <p>Note that these instructions may vary depending on which app your school is using.</p>  <p>Once complete, you’ll be able to see your student ID in your Wallet and never need to carry a physical wallet around again!</p>",
+      "id":2
+   }
 ]
