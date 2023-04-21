@@ -21,18 +21,25 @@ const Initial = () => {
     return () => subscription?.remove();
   });
 
+  console.log(dimensions.screen.width)
+
+  
 
   return (
     <View style={[styles.container, {width: dimensions.screen.width - 20, height: Platform.isPad ? dimensions.screen.height - 370 : dimensions.screen.height - 300}]}>
       <ScrollView style={{flex: 1}}>
-      <View>
-        <Image
-        
-        style={styles.image}
-        source={require("../../../assets/27.png")}
-        height={Platform.isPad ? 260 :170}
-        width={Platform.isPad ? 260 :170}
-        />
+      <View style={{width:width}}>
+        {dimensions.screen.width <376 ? (
+          null
+        ): (
+          <Image
+          style={styles.image}
+          source={require("../../../assets/27.png")}
+          height={!Platform.isPad ? 170 : 260}
+          width={!Platform.isPad ? 170  : 260}
+          resizeMode="contain"
+          />
+          )}
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.subTitle}>Time for an update?</Text>
@@ -67,7 +74,8 @@ const styles = StyleSheet.create({
    
   },
   image: {
-    marginBottom: 24
+    marginBottom: 24,
+
   },
   textContainer: {},
   subTitle: {

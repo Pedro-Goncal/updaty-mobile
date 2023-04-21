@@ -23,6 +23,7 @@ import { handleClick } from "../../Redux/slices/adSlice";
 //Content TEMP
 import tutorialsHTMLen from "./Content/tutorialsHTML-en.json";
 import tutorialsHTMLzh from "./Content/tutorialsHTML-zh.json";
+import tutorialsHTMLpt from "./Content/tutorialsHTML-pt.json";
 
 
 import * as Localization from 'expo-localization';
@@ -81,7 +82,9 @@ const TutorialScreen = () => {
   useEffect(()=> {
     if(deviceLanguage.includes("zh")){
       setContent(tutorialsHTMLzh)
-    } else {
+    } else if(deviceLanguage.includes("pt")){
+      setContent(tutorialsHTMLpt)
+    }else {
       setContent(tutorialsHTMLen)
     }
   },[])
