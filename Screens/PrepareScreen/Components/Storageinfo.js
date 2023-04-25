@@ -26,8 +26,8 @@ const screenDimensions = Dimensions.get('screen');
 import * as FileSystem from "expo-file-system";
 
 
-import * as Contacts from "expo-contacts";
-import * as Calendar from "expo-calendar";
+// import * as Contacts from "expo-contacts";
+// import * as Calendar from "expo-calendar";
 
 
 //SVG
@@ -178,111 +178,111 @@ const Storageinfo = ({ setHasEnoughStorageCheck, activeCardId }) => {
   //======================================
   //Get amount of duplicated contacts
   //=====================================
-  const [duplicatedContacts, setDuplicatedContacts] = useState([]);
+  // const [duplicatedContacts, setDuplicatedContacts] = useState([]);
 
-  const getContacts = async () => {
-    const { status } = await Contacts.requestPermissionsAsync();
-    if (status === "granted") {
-      const { data } = await Contacts.getContactsAsync({
-        fields: [Contacts.Fields.Name, Contacts.Fields.PhoneNumbers],
-      });
+  // const getContacts = async () => {
+  //   const { status } = await Contacts.requestPermissionsAsync();
+  //   if (status === "granted") {
+  //     const { data } = await Contacts.getContactsAsync({
+  //       fields: [Contacts.Fields.Name, Contacts.Fields.PhoneNumbers],
+  //     });
 
-      const contactsMap = new Map();
-      data.forEach((contact) => {
-        if (contact.phoneNumbers && contact.phoneNumbers.length > 0) {
-          const phoneNumber = contact.phoneNumbers[0].number.replace(/\D/g, "");
-          if (phoneNumber.length > 0) {
-            const existingContact = contactsMap.get(phoneNumber);
-            if (existingContact) {
-              contactsMap.set(phoneNumber, [...existingContact, contact]);
-            } else {
-              contactsMap.set(phoneNumber, [contact]);
-            }
-          }
-        }
-      });
+  //     const contactsMap = new Map();
+  //     data.forEach((contact) => {
+  //       if (contact.phoneNumbers && contact.phoneNumbers.length > 0) {
+  //         const phoneNumber = contact.phoneNumbers[0].number.replace(/\D/g, "");
+  //         if (phoneNumber.length > 0) {
+  //           const existingContact = contactsMap.get(phoneNumber);
+  //           if (existingContact) {
+  //             contactsMap.set(phoneNumber, [...existingContact, contact]);
+  //           } else {
+  //             contactsMap.set(phoneNumber, [contact]);
+  //           }
+  //         }
+  //       }
+  //     });
 
-      const duplicates = [];
-      contactsMap.forEach((contactList) => {
-        if (contactList.length > 1) {
-          duplicates.push(...contactList);
-        }
-      });
+  //     const duplicates = [];
+  //     contactsMap.forEach((contactList) => {
+  //       if (contactList.length > 1) {
+  //         duplicates.push(...contactList);
+  //       }
+  //     });
 
-      setDuplicatedContacts(duplicates);
-    } else {
-      Alert.alert(
-        "Contacts permission not granted",
-        "Please grant contacts permission to use this feature"
-      );
-    }
-  };
+  //     setDuplicatedContacts(duplicates);
+  //   } else {
+  //     Alert.alert(
+  //       "Contacts permission not granted",
+  //       "Please grant contacts permission to use this feature"
+  //     );
+  //   }
+  // };
 
 
 
-  useEffect(() => {
-    if(activeCardId === 3 ){
-      getContacts();
+  // useEffect(() => {
+  //   if(activeCardId === 3 ){
+  //     getContacts();
 
-    }
-  }, [activeCardId ]);
+  //   }
+  // }, [activeCardId ]);
 
   //======================================
   //Get amount of old calendar entries
   //=====================================
-  const [events, setEvents] = useState([]);
+//   const [events, setEvents] = useState([]);
  
-  const today = new Date(); // current date
- const endingDate = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
-const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(), endingDate.getDate());
+//   const today = new Date(); // current date
+//  const endingDate = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
+// const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(), endingDate.getDate());
 
 
 
-    const getCalendarEvents = async () => {
-      const { status } = await Calendar.requestCalendarPermissionsAsync();
+//     const getCalendarEvents = async () => {
+//       const { status } = await Calendar.requestCalendarPermissionsAsync();
 
-      if (status !== "granted") {
-        console.warn("Calendar permission not granted");
-      }
+//       if (status !== "granted") {
+//         console.warn("Calendar permission not granted");
+//       }
 
-      const calendars = await Calendar.getCalendarsAsync(Calendar.EntityTypes.EVENT,{
-        accessLevel: Calendar.CalendarAccessLevel.OWNER,
-      });
-      const eventList = [];
+//       const calendars = await Calendar.getCalendarsAsync(Calendar.EntityTypes.EVENT,{
+//         accessLevel: Calendar.CalendarAccessLevel.OWNER,
+//       });
+//       const eventList = [];
 
-        await Calendar.getEventsAsync(
-          [calendars[0].id],
-          startingDate,
-          endingDate
-          )
-          .then((e)=> {
+//         await Calendar.getEventsAsync(
+//           [calendars[0].id],
+//           startingDate,
+//           endingDate
+//           )
+//           .then((e)=> {
           
-            eventList.push(...e)
-          })
-          .catch((error)=>console.log("error", error));
+//             eventList.push(...e)
+//           })
+//           .catch((error)=>console.log("error", error));
 
-      setEvents(eventList);
+//       setEvents(eventList);
 
-    }
+//     }
    
-    useEffect(() => {
-      if(activeCardId === 3){
-    getCalendarEvents()
-      }
-  }, [activeCardId]);
+//     useEffect(() => {
+//       if(activeCardId === 3){
+//     getCalendarEvents()
+//       }
+//   }, [activeCardId]);
 
   //Call calander and contacts again to update UI
-  useEffect(() => {
-    if(activeCardId === 3){
+  // useEffect(() => {
+  //   if(activeCardId === 3){
       
-      const unsubscribe = navigation.addListener("focus", () => {
-        getCalendarEvents();
-        getContacts();
-      });
+  //     const unsubscribe = navigation.addListener("focus", () => {
+  //       getCalendarEvents();
+  //       getContacts();
+  //     });
       
-      return unsubscribe;
-    }
-    }, [navigation]);
+  //     return unsubscribe;
+  //   }
+  //   }, [navigation]);
 
   return (
     <View style={[styles.container, {width: dimensions.screen.width - 20, height: Platform.isPad ? dimensions.screen.height - 370 : dimensions.screen.height - 300}]}>
@@ -374,7 +374,7 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
           </View>
         )} */}
         {/* Row 4*/}
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() =>
             setIsCleanUpOptionsOpen(
               (isCleanUpOptionsOpen) => !isCleanUpOptionsOpen
@@ -386,11 +386,10 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
           <View style={styles.rightText}>
             {isCleanUpOptionsOpen ? <ArrowUp /> : <ArrowDown />}
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         {/* Clean up options dropdown */}
-        {isCleanUpOptionsOpen && (
+        {/* {isCleanUpOptionsOpen && (
           <View style={styles.dropDownContainer}>
-            {/* Row 1 */}
             <TouchableOpacity
               onPress={() => {
                 if (events.length < 1) return;
@@ -413,7 +412,6 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
                 <ArrowRight />
               </View>
             </TouchableOpacity>
-            {/* Row 2 */}
             <TouchableOpacity
               style={[styles.rowGray]}
               onPress={() => {
@@ -431,7 +429,7 @@ const startingDate = new Date(endingDate.getFullYear() - 4, endingDate.getMonth(
               </View>
             </TouchableOpacity>
           </View>
-        )}
+        )} */}
 
         {/* Messages  */}
         <View style={styles.msgsContainer}>

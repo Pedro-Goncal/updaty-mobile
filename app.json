@@ -41,7 +41,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "de.CSC-Hildebrand.UpgradeGuideForIOS",
-      "buildNumber": "120021",
+      "buildNumber": "120023",
       "infoPlist": {
         "NSRemindersUsageDescription": "The app needs to access your reminders.",
         "NSCalendarsUsageDescription": "The app needs to access your calendar.",

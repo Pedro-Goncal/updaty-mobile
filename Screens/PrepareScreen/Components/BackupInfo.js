@@ -17,7 +17,7 @@ import * as SecureStore from "expo-secure-store";
 
 const BackupInfo = ({ setHasBackupCheck }) => {
   const [hasBackup, setHasBackup] = useState(false);
-  const [lastBackupDate, setLastBackupDate] = useState("No Backup");
+  const [lastBackupDate, setLastBackupDate] = useState("");
   const [hasBackedupLast24Hours, sethasBackedupLast24Hours] = useState(false);
 
 
@@ -37,7 +37,7 @@ const BackupInfo = ({ setHasBackupCheck }) => {
   });
 
   useEffect(() => {
-    if (lastBackupDate !== "No Backup" && hasBackedupLast24Hours) {
+    if (lastBackupDate !== "" && hasBackedupLast24Hours) {
       setHasBackupCheck(true);
       setHasBackup(true);
     } 
@@ -47,7 +47,7 @@ const BackupInfo = ({ setHasBackupCheck }) => {
   //! For testing only------------------------------
   // const cleanUp = async()=> {
   //   await SecureStore.deleteItemAsync("lastBackup");
-  //   setLastBackupDate("No backup");
+  //   setLastBackupDate("");
   //   setHasBackup(false);
   //   sethasBackedupLast24Hours(false)
   // }
@@ -59,7 +59,7 @@ const BackupInfo = ({ setHasBackupCheck }) => {
   async function storeDate(date) {
 
     try {
-      await SecureStore.setItemAsync("lastBackup", date.toString());
+      // await SecureStore.setItemAsync("lastBackup", date.toString());
       // console.log("Date stored successfully");
       const newDate = new Date(date);
       const formattedDate = newDate.toLocaleDateString("en-US", {
@@ -78,44 +78,45 @@ const BackupInfo = ({ setHasBackupCheck }) => {
 
 
 
-  useEffect(() => {
-  async function retrieveDate() {
-    try {
-      const dateStr = await SecureStore.getItemAsync("lastBackup");
-      if (dateStr === null) return;
+//   useEffect(() => {
 
-      const date = new Date(dateStr);
-      const formattedDate = date.toLocaleDateString("en-US", {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      });
-      const oneDayAgo = new Date();
-      oneDayAgo.setDate(oneDayAgo.getDate() - 1);
-      if (date.getTime() < oneDayAgo.getTime()) {
-        // stored date is older than 24 hours ago
-        setHasBackup(false);
-        setLastBackupDate(formattedDate);
-        sethasBackedupLast24Hours(false);
-        // console.log(
-        //   `Stored date ${formattedDate} is older than 24 hours ago.`
-        // );
-      } else {
-        // stored date is newer than or equal to 24 hours ago
-        setHasBackup(true);
-        setLastBackupDate(formattedDate);
-        sethasBackedupLast24Hours(true);
-        // console.log(
-        //   `Stored date ${formattedDate} is newer than or equal to 24 hours ago.`
-        // );
-      }
-    } catch (error) {
-      console.log("Error retrieving date:", error);
-    }
-  }
-  retrieveDate();
-}, []);
+//   async function retrieveDate() {
+//     try {
+//       const dateStr = await SecureStore.getItemAsync("lastBackup");
+//       if (dateStr === null) return;
+
+//       const date = new Date(dateStr);
+//       const formattedDate = date.toLocaleDateString("en-US", {
+//         weekday: "long",
+//         year: "numeric",
+//         month: "long",
+//         day: "numeric",
+//       });
+//       const oneDayAgo = new Date();
+//       oneDayAgo.setDate(oneDayAgo.getDate() - 1);
+//       if (date.getTime() < oneDayAgo.getTime()) {
+//         // stored date is older than 24 hours ago
+//         setHasBackup(false);
+//         setLastBackupDate(formattedDate);
+//         sethasBackedupLast24Hours(false);
+//         // console.log(
+//         //   `Stored date ${formattedDate} is older than 24 hours ago.`
+//         // );
+//       } else {
+//         // stored date is newer than or equal to 24 hours ago
+//         setHasBackup(true);
+//         setLastBackupDate(formattedDate);
+//         sethasBackedupLast24Hours(true);
+//         // console.log(
+//         //   `Stored date ${formattedDate} is newer than or equal to 24 hours ago.`
+//         // );
+//       }
+//     } catch (error) {
+//       console.log("Error retrieving date:", error);
+//     }
+//   }
+//   retrieveDate();
+// }, []);
 
   return (
     <View style={[styles.container, {width: dimensions.screen.width - 20, height: Platform.isPad ? dimensions.screen.height - 370 : dimensions.screen.height - 300}]}>
@@ -126,13 +127,9 @@ const BackupInfo = ({ setHasBackupCheck }) => {
         <Text style={styles.title}>Did you backup your data?</Text>
       </View>
       <View style={styles.infoContainer}>
-        {/* Row 1*/}
-        <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
-          <Text style={styles.leftText}>Last backup</Text>
-          <Text style={styles.rightText}>{lastBackupDate}</Text>
-        </View>
+      
 
-        {/* {lastBackupDate !== "No Backup" && !hasBackedupLast24Hours && (
+        {/* {lastBackupDate !== "" && !hasBackedupLast24Hours && (
           <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
           <Text style={styles.leftText}></Text>
           <Text style={[styles.rightText, {textAlign: "right"}]}>It is recommended you back up your phone everyday</Text>
@@ -145,7 +142,7 @@ const BackupInfo = ({ setHasBackupCheck }) => {
             <View
               style={[
                 styles.rowInstructions,
-                { borderTopColor: "rgba(144,128,144,0.2)" },
+                
               ]}
             >
               <Text style={styles.rightText}>
@@ -190,31 +187,38 @@ const BackupInfo = ({ setHasBackupCheck }) => {
         
         <View style={styles.msgsContainer}>
           {hasBackup && hasBackedupLast24Hours && (
+            <View>
+  {/* Row 1*/}
+  <View style={[styles.row, { borderTopColor: "rgba(144,128,144,0.2)" }]}>
+          <Text style={styles.leftText}></Text>
+          <Text style={styles.rightText}>{lastBackupDate}</Text>
+        </View>
                       <View
                       style={[
                         styles.statusContainer,
                         {
                           backgroundColor: 
-                            "rgba(102, 204, 102, .1)",
-                           
+                          "rgba(102, 204, 102, .1)",
+                          
                           marginBottom: 8,
                           marginTop: 8,
                         },
                       ]}
-                    >
+                      >
                       <Image
                         source={
                           require("../../../assets/iconsSvg/checkGreen.png")
-                            
+                          
                         }
                         style={{ width: 20, height: 20 }}
-                      />
+                        />
                       
                       <Text style={styles.msgText}>
                         You've recently made a backup"
                           
                       </Text>
                     </View>
+                        </View>
           )}
 
           {!hasBackup && !hasBackedupLast24Hours && (
@@ -237,7 +241,7 @@ const BackupInfo = ({ setHasBackupCheck }) => {
             />
             
             <Text style={styles.msgText}>
-            {lastBackupDate !== "No Backup" && !hasBackedupLast24Hours ? "You should create a new backup!" : 
+            {lastBackupDate !== "" && !hasBackedupLast24Hours ? "You should create a new backup!" : 
              " You should create a backup!"}
             </Text>
           </View>
@@ -338,7 +342,6 @@ const styles = StyleSheet.create({
     fontFamily: 'inter-bold',
   },
   rowInstructions: {
-    borderTopWidth: 1,
     paddingVertical: 8,
   },
   instructionsList: {

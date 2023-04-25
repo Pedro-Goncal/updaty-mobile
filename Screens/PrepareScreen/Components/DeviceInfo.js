@@ -53,7 +53,7 @@ const DeviceInfo = ( ) => {
   }, [NetInfo]);
 
   const [isUpdateAvailable, setIsUpdateAvailable] = useState(false);
-  const [maxOsUpdate, setMaxOsUpdate] = useState("SUUp");
+  const [maxOsUpdate, setMaxOsUpdate] = useState("");
 
   const [latestiOSAvailable, setLatestiOSAvailable] = useState("")
 
